@@ -152,12 +152,13 @@ export function normalizeOcrResult({ stage, manifest, result, source = 'external
   assertStage(stage);
   if (!result || typeof result !== 'object') throw evidenceError('OCR result must be a JSON object', { jsonPointer: '' });
   const findings = rawComments(result).map(normalizeFinding);
+  const skipped = result.status === 'skipped';
   return makeEvidence({
     stage,
     manifest,
     provider: result.provider ?? 'opencodereview',
-    executed: true,
-    valid: true,
+    executed: result.executed !== false && !skipped,
+    valid: result.valid !== false && !skipped,
     degraded: Boolean(result.degraded),
     reason: result.degraded_reason ?? result.degradedReason ?? null,
     findings,

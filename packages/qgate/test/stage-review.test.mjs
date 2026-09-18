@@ -70,6 +70,24 @@ test('stage ingest fails closed for invalid paths and writes invalid evidence', 
   assert.equal(evidence.summary.ocrNoBlockers, false);
 });
 
+test('stage ingest treats an OCR skipped result as not executed and invalid', (t) => {
+  const root = tmpDir('qgate-stage-skipped-');
+  t.after(() => cleanup(root));
+  fs.mkdirSync(path.join(root, 'docs'), { recursive: true });
+  fs.writeFileSync(path.join(root, 'docs', '00-requirements.md'), '# requirements\n');
+  const manifest = buildStageManifest({ stage: 'requirements', root });
+  const evidence = normalizeOcrResult({
+    stage: 'requirements',
+    manifest,
+    result: { status: 'skipped', comments: [], message: 'No supported files changed.' },
+  });
+  assert.equal(evidence.executed, false);
+  assert.equal(evidence.valid, false);
+  assert.equal(evidence.summary.ocrExecuted, false);
+  assert.equal(evidence.summary.ocrResultValid, false);
+  assert.equal(evidence.summary.ocrNoBlockers, false);
+});
+
 test('stage manifests are stable for the same inputs', (t) => {
   const root = tmpDir('qgate-stage-manifest-');
   t.after(() => cleanup(root));

@@ -6,12 +6,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { buildOcrInvocation, resolveOcrExecutable } from '../src/ocr-runner.mjs';
 
 const EXIT = { OK: 0, CONFIG: 2, INTERNAL: 3 };
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 
 function parseArgs(argv) {
-  const out = { stage: null, root: process.cwd(), output: null, diff: null, from: null, to: null, commit: null, rule: null, ocrBin: 'ocr' };
+  const out = { stage: null, root: process.cwd(), output: null, diff: null, from: null, to: null, commit: null, rule: null, backgroundFile: null, ocrBin: 'ocr' };
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
     const next = () => {
@@ -27,6 +28,7 @@ function parseArgs(argv) {
     else if (arg === '--to') out.to = next();
     else if (arg === '--commit') out.commit = next();
     else if (arg === '--rule') out.rule = next();
+    else if (arg === '--background-file') out.backgroundFile = next();
     else if (arg === '--ocr-bin') out.ocrBin = next();
     else if (arg === '--help') out.help = true;
     else throw new Error(`unknown option ${arg}`);
@@ -41,7 +43,7 @@ function parseArgs(argv) {
 }
 
 function printHelp() {
-  process.stdout.write(`ocr-stage-review\n\nUsage: node ${path.relative(process.cwd(), HERE)}/ocr-stage-review.mjs --stage <stage> --root <repo> --out <raw.json> [--from <ref> --to <ref> | --commit <sha> | --diff <diff.json>] [--rule <rule.json>] [--ocr-bin <ocr>]\n`);
+  process.stdout.write(`ocr-stage-review\n\nUsage: node ${path.relative(process.cwd(), HERE)}/ocr-stage-review.mjs --stage <stage> --root <repo> --out <raw.json> [--from <ref> --to <ref> | --commit <sha> | --diff <diff.json>] [--rule <rule.json>] [--background-file <context.md>] [--ocr-bin <ocr>]\n`);
 }
 
 function readDiffPaths(root, diff) {
@@ -65,6 +67,7 @@ function buildOcrArgs(opts) {
   if (opts.from) review.push('--from', opts.from, '--to', opts.to);
   if (opts.commit) review.push('--commit', opts.commit);
   if (opts.rule) review.push('--rule', path.resolve(opts.rule));
+  if (opts.backgroundFile) review.push('--background-file', path.resolve(opts.backgroundFile));
   return review;
 }
 
@@ -87,7 +90,9 @@ function main(argv) {
     process.stderr.write(`ocr-stage-review: ${error.message}\n`);
     return EXIT.CONFIG;
   }
-  const result = spawnSync(opts.ocrBin, args, {
+  const ocrBin = resolveOcrExecutable(opts.ocrBin);
+  const invocation = buildOcrInvocation(ocrBin, args);
+  const result = spawnSync(invocation.command, invocation.args, {
     cwd: path.resolve(opts.root),
     encoding: 'utf8',
     shell: false,

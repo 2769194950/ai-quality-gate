@@ -25,9 +25,19 @@ const normalize = (payload) => portableize(payload);
 /** Markdown 等自由文本用 portableizeText（路径嵌在表格/句子里）。 */
 const scrubText = (text) => portableizeText(text);
 
+// These snapshots describe the deterministic preview contract, so do not let a
+// developer's installed OCR CLI change the recorded provider metadata. A
+// missing explicit binary also preserves the historical OCR_CLI_NOT_FOUND
+// fixture reason without changing the machine's global OCR configuration.
+const runOfflinePreview = (argv) => {
+  const result = runPreview([...argv, '--ocr-bin', path.join(ADAPTER_ROOT, 'demo', 'no-such-ocr-binary.exe')]);
+  if (result.payload?.provider) result.payload.provider.ocr_bin = null;
+  return result;
+};
+
 test('fixtures: preview.default.json 与当前运行结果一致（真实产物回归）', () => {
   const stored = normalize(readJson('preview.default.json'));
-  const now = normalize(runPreview(['--diff', DEMO_DIFF, '--rule', DEMO_RULE, '--json']).payload);
+  const now = normalize(runOfflinePreview(['--diff', DEMO_DIFF, '--rule', DEMO_RULE, '--json']).payload);
   assert.equal(stableJson(now), stableJson(stored), '默认预览结果与存档夹具不一致（选择/分组语义发生漂移）');
   assert.equal(now.mode, 'preview');
   assert.equal(now.llm_called, false);
@@ -41,20 +51,20 @@ test('fixtures: preview.default.json 与当前运行结果一致（真实产物�
 
 test('fixtures: preview.token-budget-300.json 记录 token 预算降级形态', () => {
   const stored = normalize(readJson('preview.token-budget-300.json'));
-  const now = normalize(runPreview(['--diff', DEMO_DIFF, '--rule', DEMO_RULE, '--token-budget', '300', '--json']).payload);
+  const now = normalize(runOfflinePreview(['--diff', DEMO_DIFF, '--rule', DEMO_RULE, '--token-budget', '300', '--json']).payload);
   assert.equal(stableJson(now), stableJson(stored), 'token 预算降级结果与存档夹具不一致');
   assert.ok(now.counts.downgraded_groups >= 10, '低预算下应出现大量单文件降级组');
   assert.ok(now.groups.filter((g) => g.downgraded).every((g) => g.file_count === 1 && g.downgrade_reason === 'token_budget_exceeded'));
   assert.equal(now.grouping.invariant_ok, true);
   // 降级不得改变选择集合：安全与选择语义与默认预算完全一致
-  const base = runPreview(['--diff', DEMO_DIFF, '--rule', DEMO_RULE, '--json']).payload;
+  const base = runOfflinePreview(['--diff', DEMO_DIFF, '--rule', DEMO_RULE, '--json']).payload;
   assert.deepEqual(now.selectedPaths, base.selectedPaths);
   assert.deepEqual(now.excludedPaths, base.excludedPaths);
 });
 
 test('fixtures: selection.default.md 为真实运行生成的「文件/决策/原因」三列表格', () => {
   const stored = fs.readFileSync(path.join(FIXTURES, 'selection.default.md'), 'utf8');
-  const now = runPreview(['--diff', DEMO_DIFF, '--rule', DEMO_RULE, '--md']).markdown;
+  const now = runOfflinePreview(['--diff', DEMO_DIFF, '--rule', DEMO_RULE, '--md']).markdown;
   assert.ok(now, '--md 必须输出 Markdown');
   assert.equal(scrubText(now), scrubText(stored), 'selection.md 与存档不一致');
   assert.match(stored, /\|\s*文件\s*\|\s*决策\s*\|\s*原因\s*\|/);
@@ -207,4 +217,3 @@ test('GAP-6: 实际输出中三类路径都被抹平，且报告出命中的占�
   assert.equal(value.counts.selected, 14);
   assert.equal(value.counts.excluded, 9);
 });
-

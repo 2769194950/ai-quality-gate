@@ -28,6 +28,36 @@ export const DEGRADE_REASONS = Object.freeze({
 /** 只允许这些环境变量进入子进程（R1）。 */
 export const ENV_ALLOWLIST = Object.freeze(['PATH', 'Path', 'SystemRoot', 'windir', 'ComSpec', 'PATHEXT', 'TEMP', 'TMP']);
 
+function executableCandidates(requested) {
+  if (path.isAbsolute(requested)) return [requested];
+  const dirs = String(process.env.PATH || process.env.Path || '')
+    .split(path.delimiter)
+    .filter(Boolean);
+  const exts = process.platform === 'win32' ? ['.ps1', '.exe', '.cmd', '.bat', '.js', ''] : [''];
+  return dirs.flatMap((dir) => exts.map((ext) => path.join(dir, `${requested}${ext}`)));
+}
+
+export function resolveOcrExecutable(requested = 'ocr') {
+  for (const candidate of executableCandidates(requested)) {
+    if (isExecutableFile(candidate)) return candidate;
+  }
+  return requested;
+}
+
+export function buildOcrInvocation(bin, args) {
+  const ext = path.extname(bin).toLowerCase();
+  if (process.platform === 'win32' && ext === '.ps1') {
+    return { command: 'powershell.exe', args: ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', bin, ...args] };
+  }
+  if (ext === '.js') return { command: process.execPath, args: [bin, ...args] };
+  return { command: bin, args };
+}
+
+function spawnOcr(bin, args, options) {
+  const invocation = buildOcrInvocation(bin, args);
+  return spawnSync(invocation.command, invocation.args, options);
+}
+
 /** 子进程环境：白名单 + 显式离线标记，无任何密钥。 */
 export function buildChildEnv(baseEnv = process.env, extra = {}) {
   const env = {};
@@ -74,18 +104,12 @@ export function probeOcr(opts = {}) {
   if (opts.ocrBin) {
     candidates.push(path.resolve(opts.ocrBin));
   } else {
-    const dirs = String(process.env.PATH || process.env.Path || '')
-      .split(path.delimiter)
-      .filter(Boolean);
-    const exts = process.platform === 'win32' ? ['', '.cmd', '.exe', '.bat', '.ps1'] : [''];
-    for (const dir of dirs) {
-      for (const ext of exts) candidates.push(path.join(dir, `ocr${ext}`));
-    }
+    candidates.push(...executableCandidates('ocr'));
   }
 
   for (const candidate of candidates) {
     if (!isExecutableFile(candidate)) continue;
-    const res = spawnSync(candidate, ['--version'], {
+    const res = spawnOcr(candidate, ['--version'], {
       encoding: 'utf8',
       timeout: Number.isFinite(opts.timeoutMs) ? opts.timeoutMs : 3000,
       env: buildChildEnv(process.env),
@@ -159,7 +183,7 @@ export function runOcrReview(opts = {}) {
   const command = [probe.bin, ...args].join(' ');
   let res;
   try {
-    res = spawnSync(probe.bin, args, {
+    res = spawnOcr(probe.bin, args, {
       encoding: 'utf8',
       timeout: timeoutMs,
       env: buildChildEnv(process.env),
