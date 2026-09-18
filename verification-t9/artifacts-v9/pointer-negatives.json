@@ -1,0 +1,22 @@
+﻿[
+    {
+        "case":  "n1-stale",
+        "exit":  1,
+        "line":  "STALE verification-t9/artifacts-v8/pointer-negatives/n1-stale.txt recorded=91c689dd0577 current=92d56be67c93 payload_sha256_ok=true counts={\"testFiles\":15,\"tests\":145,\"pass\":145,\"fail\":0,\"exit_code\":0} expected={\"testFiles\":11,\"tests\":109,\"pass\":109,\"fail\":0,\"exit_code\":0}"
+    },
+    {
+        "case":  "n2-tampered",
+        "exit":  2,
+        "line":  "TAMPERED verification-t9/artifacts-v8/pointer-negatives/n2-tampered.txt recorded=74a28c906b73 current=92d56be67c93 payload_sha256_ok=false counts={\"testFiles\":15,\"tests\":145,\"pass\":145,\"fail\":0,\"exit_code\":0} expected={\"testFiles\":14,\"tests\":131,\"pass\":131,\"fail\":0,\"exit_code\":0}"
+    },
+    {
+        "case":  "n3-countdrift",
+        "exit":  1,
+        "line":  "STALE verification-t9/artifacts-v8/pointer-negatives/n3-countdrift.txt recorded=74a28c906b73 current=92d56be67c93 payload_sha256_ok=true counts={\"testFiles\":15,\"tests\":145,\"pass\":145,\"fail\":0,\"exit_code\":0} expected={\"testFiles\":14,\"tests\":999,\"pass\":131,\"fail\":0,\"exit_code\":0}"
+    },
+    {
+        "case":  "n4-nomarker",
+        "exit":  3,
+        "line":  "node : UNPARSABLE verification-t9/artifacts-v8/pointer-negatives/n4-nomarker.txt: marker line not found: # --- payload \r"
+    }
+]

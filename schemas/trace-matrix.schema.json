@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-quality-gate.local/schemas/trace-matrix.schema.json",
+  "title": "qgate trace matrix",
+  "description": "JSON Schema draft 2020-12 for verification/trace-matrix.json (docs/01-architecture.md §5.3.3, traceMatrixSchemaVersion=1.0). It is the requirementId -> testIds -> codePaths -> covered mapping that proves bidirectional requirement coverage, and it is what the trace_matrix check consumes.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "generated_at",
+    "generated_by",
+    "run_id",
+    "pipeline",
+    "summary",
+    "requirements"
+  ],
+  "properties": {
+    "schemaVersion": { "type": "string", "const": "1.0" },
+    "generated_at": { "type": "string", "minLength": 20, "description": "RFC3339 UTC timestamp." },
+    "generated_by": { "type": "string", "const": "qgate trace" },
+    "run_id": { "type": "string", "minLength": 1, "description": "The run this matrix was generated from." },
+    "pipeline": {
+      "type": "array",
+      "prefixItems": [
+        { "const": "requirements" },
+        { "const": "design" },
+        { "const": "build" },
+        { "const": "review" },
+        { "const": "verify" }
+      ],
+      "minItems": 5,
+      "maxItems": 5,
+      "description": "Always the five frozen stages in order (§3.1)."
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requirements", "covered", "uncovered", "orphanTestIds", "coverageRatio"],
+      "properties": {
+        "requirements": { "type": "integer", "minimum": 0, "description": "Equals requirements.length." },
+        "covered": { "type": "integer", "minimum": 0 },
+        "uncovered": { "type": "integer", "minimum": 0, "description": "covered + uncovered must equal requirements." },
+        "orphanTestIds": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "|ledgerIndex.testIds - union(requirements[].testIds)|; must be 0."
+        },
+        "coverageRatio": { "type": "number", "minimum": 0, "maximum": 1, "description": "round(covered / requirements, 4); 0 when there are no requirements." }
+      }
+    },
+    "requirements": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/requirementTrace" }
+    }
+  },
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "kind", "excerpt"],
+      "description": "Evidence reference in the form frozen by §5.3.1.",
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "kind": { "type": "string", "enum": ["file", "stdout", "json_pointer", "ledger", "trace"] },
+        "excerpt": { "type": "string", "maxLength": 4096 }
+      }
+    },
+    "requirementTrace": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "requirementId",
+        "title",
+        "priority",
+        "stage",
+        "testIds",
+        "codePaths",
+        "covered",
+        "evidence"
+      ],
+      "properties": {
+        "requirementId": {
+          "type": "string",
+          "pattern": "^REQ-[A-Z0-9-]+-[0-9]{3}$",
+          "description": "Globally unique requirement id."
+        },
+        "title": { "type": "string", "minLength": 1, "description": "Requirement title, non-empty." },
+        "priority": { "type": "string", "enum": ["P0", "P1", "P2"] },
+        "stage": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "enum": ["requirements", "design", "build", "review", "verify"] },
+          "description": "Stages this requirement traces to; at least one."
+        },
+        "testIds": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^T-[A-Z0-9-]+-[0-9]{3}$" },
+          "description": "Non-empty for P0/P1 requirements; the engine enforces that."
+        },
+        "codePaths": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Project-root-relative paths or globs; may be empty."
+        },
+        "covered": {
+          "type": "boolean",
+          "description": "testIds is non-empty and every testId appears in the ledger index when testIdSource=ledger-index."
+        },
+        "evidence": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/evidence" },
+          "description": "Must be non-empty when covered=true and empty when covered=false."
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "covered": { "const": true } }, "required": ["covered"] },
+          "then": { "properties": { "evidence": { "minItems": 1 } } },
+          "else": { "properties": { "evidence": { "maxItems": 0 } } }
+        },
+        {
+          "if": {
+            "properties": { "priority": { "enum": ["P0", "P1"] } },
+            "required": ["priority"]
+          },
+          "then": { "properties": { "testIds": { "minItems": 1 } } }
+        }
+      ]
+    }
+  }
+}

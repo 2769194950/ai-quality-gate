@@ -1,0 +1,26 @@
+﻿[
+    {
+        "cwd":  "E:\\Desktop\\ai-quality-gate",
+        "exit":  0,
+        "files":  "14",
+        "tests":  "131",
+        "pass":  "131",
+        "fail":  "0"
+    },
+    {
+        "cwd":  "E:\\ai-quality-gate",
+        "exit":  0,
+        "files":  "14",
+        "tests":  "131",
+        "pass":  "131",
+        "fail":  "0"
+    },
+    {
+        "cwd":  "E:\\Desktop",
+        "exit":  0,
+        "files":  "14",
+        "tests":  "131",
+        "pass":  "131",
+        "fail":  "0"
+    }
+]

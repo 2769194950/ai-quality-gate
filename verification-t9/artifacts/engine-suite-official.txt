@@ -1,0 +1,83 @@
+﻿v24.19.0
+v24.19.0
+v24.19.0
+v24.19.0
+v24.19.0
+v24.19.0
+v24.19.0
+v24.19.0
+v24.19.0
+v24.19.0
+v24.19.0
+v24.19.0
+v24.19.0
+v24.19.0
+v24.19.0
+✔ T-QG-009 a required evidence file that disappears makes the gate fail with exit 1 (257.6567ms)
+✔ T-QG-008 a missing human-gate approval blocks the gate with HUMAN_GATE_NOT_APPROVED (229.4137ms)
+✔ T-QG-008 a rejected decision is recorded as rejected, not as missing (228.5242ms)
+✔ T-QG-016 a required:false gate does not change overall_passed but reports approvalState (208.6572ms)
+✔ T-QG-011 exit code 2 covers unknown commands and illegal option combinations (4.3908ms)
+✔ T-QG-011 exit code 3 covers unknown explain subjects and unresolvable evidence (234.6893ms)
+✔ T-QG-014 a scripted provider replays its fixture and never reaches the network (3.262ms)
+✔ T-QG-014 llm and external providers degrade to deterministic without breaking the run (0.2773ms)
+✔ T-QG-013 only high-severity findings above the confidence threshold become blockers (0.7689ms)
+✔ T-QG-014 an unreadable scripted provider module fails the check with PROVIDER_FAILED, not a crash (23.3684ms)
+✔ T-QG-010 secret values are redacted in evidence, stdout and stderr (24.9755ms)
+✔ T-QG-010 the package declares no runtime dependency and the CLI needs no install (0.7025ms)
+✔ T-QG-002 legal five-stage configuration validates and yields five ordered gates (46.7594ms)
+✔ T-QG-002 six illegal configurations exit 2 with CONFIG_INVALID and a jsonPointer (3.8579ms)
+✔ T-QG-002 unknown check.type reports the exact offending pointer (0.6694ms)
+✔ T-QG-002 validateConfig rejects a missing provider and an illegal human gate position (1.1446ms)
+✔ T-QG-004 RunResult key sets match the frozen schema exactly (214.6852ms)
+✔ T-QG-004 every evidence reference of a passing run resolves (219.1433ms)
+✔ T-QG-004 --summary emits exactly the five gates in stage order (329.3283ms)
+✔ T-QG-001 stages execute in the frozen order regardless of config order (26.5017ms)
+✔ T-QG-001 a failing required gate fails the run but later checks still execute (25.1437ms)
+✔ T-QG-003 file_exists passes and fails with traceable evidence (25.2256ms)
+✔ T-QG-003 file_not_exists passes and fails (23.9696ms)
+✔ T-QG-003 regex supports each/any/all/count and reports line numbers (168.0997ms)
+✔ T-QG-003 command check compares exit codes and records them (224.8683ms)
+✔ T-QG-003 json_assert evaluates exists/equals/matches and fails with the pointer (24.7877ms)
+✔ T-QG-003 policy checks pass/fail and report the frozen violation prefix (74.0726ms)
+✔ T-QG-003 trace_matrix passes when closed and fails with TRACE_GAP when a test id is uncovered (94.6571ms)
+✔ T-QG-003 all seven check types are registered (0.207ms)
+✔ T-QG-006 selection and grouping are byte-stable across repeated calls (4.9687ms)
+✔ T-QG-010 the demo run is identical from two different working directories (437.5249ms)
+✔ T-QG-010 packages/qgate declares no runtime dependency and stays pure ESM (16.3741ms)
+✔ T-QG-010 no implementation file performs a network call (13.0299ms)
+✔ T-QG-006 selection results never contain a secret path even with the widest include (7.1911ms)
+✔ T-QG-006 grouping caps buckets at ten files and degrades over-budget buckets (83.3518ms)
+✔ T-QG-005 two identical runs differ only in the runtime fields (703.6744ms)
+✔ T-QG-006 pnpm-free preview of the demo reports the frozen filter reasons (14.7913ms)
+✔ all four schemas exist, parse, and declare draft 2020-12 with a unique non-empty $id (0.7798ms)
+✔ version constants are pinned to "1.0" as required (11.6995ms)
+✔ enums stay in sync with the frozen contract values (0.5591ms)
+✔ config: the canonical §5.1 example is valid (7.9832ms)
+✔ config: the newly declared top-level, provider, policy and check fields are legal (10.5449ms)
+✔ config: the newly declared fields still reject unknown neighbours and bad types (82.5705ms)
+✔ config: check.type "file_exist" is still invalid after the field-table extension (5.5805ms)
+✔ config: the checked-in canonical fixture matches the §5.1 example and stays valid (5.2116ms)
+✔ config: check.type "file_exist" is invalid (6.4213ms)
+✔ config: unknown fields are rejected at every level (additionalProperties:false) (17.1962ms)
+✔ config: required fields and enum values are enforced (8.9329ms)
+✔ config: the seven check types each accept their documented field table (11.2186ms)
+✔ run-result: a fully populated result is valid (0.7782ms)
+✔ run-result: a MISSING baseline field is invalid (3.9813ms)
+✔ run-result: an EXTRA field is invalid (4.4356ms)
+✔ run-result: gate.humanGate must be an object or exactly null (1.708ms)
+✔ run-result: evidence arrays must be non-empty and kinds are frozen (3.1042ms)
+✔ evidence-ledger: both the ledger and the ledger index validate (1.4782ms)
+✔ evidence-ledger: append-only/index invariants are enforced (4.5778ms)
+✔ trace-matrix: a covered and an uncovered requirement both validate (1.4632ms)
+✔ trace-matrix: requirementId, testId, priority and covered/evidence rules are enforced (7.0085ms)
+✔ the four schemas cover every frozen §5 field-table entry and nothing surplus (1.1516ms)
+✔ config.schema.json declares the required-key set of every entity (0.3861ms)
+ℹ tests 60
+ℹ suites 0
+ℹ pass 60
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4292.2213

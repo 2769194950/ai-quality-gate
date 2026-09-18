@@ -1,0 +1,26 @@
+﻿[
+    {
+        "tag":  "canonical",
+        "exit":  0,
+        "bytes":  18315,
+        "sha256":  "F445867EB613FED4D3BC489A5C1ECEC345C277DC174B1A404A047C995CA03F77"
+    },
+    {
+        "tag":  "junction",
+        "exit":  0,
+        "bytes":  18315,
+        "sha256":  "F445867EB613FED4D3BC489A5C1ECEC345C277DC174B1A404A047C995CA03F77"
+    },
+    {
+        "tag":  "desktop",
+        "exit":  0,
+        "bytes":  18315,
+        "sha256":  "F445867EB613FED4D3BC489A5C1ECEC345C277DC174B1A404A047C995CA03F77"
+    },
+    {
+        "tag":  "cdrive",
+        "exit":  0,
+        "bytes":  18315,
+        "sha256":  "F445867EB613FED4D3BC489A5C1ECEC345C277DC174B1A404A047C995CA03F77"
+    }
+]

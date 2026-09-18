@@ -1,0 +1,188 @@
+{
+  "version": "1.0",
+  "projectRoot": ".",
+  "provider": {
+    "type": "deterministic",
+    "timeoutMs": 30000,
+    "fixture": "packages/qgate/examples/fixtures/provider-recordings.json",
+    "confidenceThreshold": 0.7
+  },
+  "policy": {
+    "evidenceDir": "verification/evidence",
+    "reportDir": "verification/reports",
+    "failFast": false,
+    "scanRoots": ["packages/qgate/src", "packages/qgate/bin", "schemas"]
+  },
+  "selection": {
+    "include": ["**/*"],
+    "exclude": [],
+    "extensions": [".mjs", ".js", ".json", ".md", ".yaml", ".yml", ".txt"],
+    "defaultExcludedPaths": [".git", "node_modules", "dist", "build", "coverage", ".qgate/evidence", "verification/evidence"],
+    "maxFileSizeBytes": 262144,
+    "maxFilesPerGroup": 10,
+    "tokenBudgetPerGroup": 12000,
+    "ruleFile": ".opencodereview/rule.json"
+  },
+  "grouping": {
+    "maxFilesPerGroup": 10,
+    "tokenBudgetPerGroup": 12000,
+    "tokensPerFile": 4
+  },
+  "gates": [
+    {
+      "id": "req-spec",
+      "stage": "requirements",
+      "required": true,
+      "checks": [
+        {
+          "id": "req-doc-exists",
+          "type": "file_exists",
+          "file": "docs/00-requirements.md",
+          "required": true,
+          "severity": "high",
+          "description": "the requirements document must exist"
+        },
+        {
+          "id": "req-ids-present",
+          "type": "regex",
+          "required": true,
+          "severity": "high",
+          "files": ["docs/00-requirements.md"],
+          "pattern": "REQ-QUALITY-GATE-\\d{3}",
+          "flags": "gm",
+          "mode": "count",
+          "minMatches": 12,
+          "countMode": "unique"
+        },
+        {
+          "id": "req-index-valid",
+          "type": "json_assert",
+          "required": true,
+          "file": "docs/requirements-index.json",
+          "assertions": [
+            { "pointer": "/requirements/0/id", "exists": true },
+            { "pointer": "/requirements", "exists": true }
+          ]
+        }
+      ],
+      "humanGate": {
+        "role": "product",
+        "approvalRecord": "verification/approvals/req-to-design/approval.json",
+        "enforcement": "blocking"
+      }
+    },
+    {
+      "id": "interface-frozen",
+      "stage": "design",
+      "required": true,
+      "checks": [
+        {
+          "id": "contract-fields-present",
+          "type": "regex",
+          "required": true,
+          "files": ["docs/01-architecture.md"],
+          "pattern": "requirementId|overall_passed|json_assert|trace_matrix|humanGate",
+          "mode": "each",
+          "minMatches": 5
+        },
+        {
+          "id": "schemas-exist",
+          "type": "file_exists",
+          "file": "schemas/*.schema.json",
+          "required": true
+        }
+      ],
+      "humanGate": {
+        "role": "architect",
+        "approvalRecord": "verification/approvals/design-to-build/approval.json",
+        "enforcement": "blocking"
+      }
+    },
+    {
+      "id": "build-deterministic",
+      "stage": "build",
+      "required": true,
+      "checks": [
+        {
+          "id": "no-dep",
+          "type": "json_assert",
+          "required": true,
+          "file": "packages/qgate/package.json",
+          "assertions": [{ "pointer": "/dependencies", "equals": {} }]
+        },
+        {
+          "id": "unit-tests",
+          "type": "command",
+          "required": true,
+          "severity": "high",
+          "run": ["node", "--test", "packages/qgate/test/"],
+          "expectExitCode": 0,
+          "timeoutMs": 120000,
+          "captureStdout": true,
+          "stdoutRegex": "^# pass \\d+"
+        },
+        {
+          "id": "no-bypass",
+          "type": "policy",
+          "required": true,
+          "policyId": "SAFE_001",
+          "onFail": "fail",
+          "expectedFiles": ["packages/qgate/src/config.mjs", "packages/qgate/src/core.mjs"]
+        }
+      ]
+    },
+    {
+      "id": "review-counterexample",
+      "stage": "review",
+      "required": true,
+      "checks": [
+        {
+          "id": "negative-fixtures",
+          "type": "file_exists",
+          "file": "packages/qgate/examples/invalid/*.json",
+          "minCount": 1,
+          "required": true,
+          "severity": "high"
+        },
+        {
+          "id": "invalid-must-fail",
+          "type": "json_assert",
+          "required": true,
+          "severity": "high",
+          "file": "verification/negative/oom-unknown-type.result.json",
+          "assertions": [{ "pointer": "/exitCode", "equals": 2 }]
+        },
+        {
+          "id": "review-no-bypass",
+          "type": "policy",
+          "required": true,
+          "severity": "high",
+          "policyId": "CONTRACT_001",
+          "onFail": "fail",
+          "expectedFiles": ["docs/01-architecture.md", "schemas/config.schema.json"]
+        }
+      ],
+      "humanGate": {
+        "role": "reviewer",
+        "approvalRecord": "verification/approvals/review-to-verify/approval.json",
+        "enforcement": "blocking"
+      }
+    },
+    {
+      "id": "verify-coverage",
+      "stage": "verify",
+      "required": true,
+      "checks": [
+        {
+          "id": "trace-complete",
+          "type": "trace_matrix",
+          "required": true,
+          "requirementsFile": "docs/requirements-index.json",
+          "traceFile": "verification/trace-matrix.json",
+          "enforce": "strict",
+          "testIdSource": "ledger-index"
+        }
+      ]
+    }
+  ]
+}

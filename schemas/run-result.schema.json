@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-quality-gate.local/schemas/run-result.schema.json",
+  "title": "qgate RunResult",
+  "description": "JSON Schema draft 2020-12 for the frozen RunResult contract (docs/01-architecture.md §5.2, runResultSchemaVersion=1.0). additionalProperties is false on the result, gate, blocker, check and evidence objects, so this schema enforces the REQ-QUALITY-GATE-004 key-set assertion directly: a RunResult with a missing baseline field or an extra field is invalid.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "run_id",
+    "started_at",
+    "finished_at",
+    "duration_ms",
+    "overall_passed",
+    "provider",
+    "gates"
+  ],
+  "properties": {
+    "version": { "type": "string", "const": "1.0" },
+    "run_id": {
+      "type": "string",
+      "minLength": 9,
+      "description": "Run identity of the form `<ISO-ms timestamp>-<8 hex chars>`."
+    },
+    "started_at": { "type": "string", "minLength": 20, "description": "RFC3339 UTC timestamp." },
+    "finished_at": { "type": "string", "minLength": 20, "description": "RFC3339 UTC timestamp, >= started_at." },
+    "duration_ms": { "type": "integer", "minimum": 0 },
+    "overall_passed": {
+      "type": "boolean",
+      "description": "Equals gates.filter(g => g.required).every(g => g.passed), evaluated over the gates that RAN (see the gates property). If every gate is optional the value is true. A failed required check blocks regardless of its severity; severity only grades and escalates."
+    },
+    "provider": { "$ref": "#/$defs/provider" },
+    "gates": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/gate" },
+      "description": "Ordered by the five frozen stages (requirements, design, build, review, verify). Only gates that actually RAN appear here: with --stage/--gate the not-run gates are OMITTED (never carried as passed:false or passed:true), and are listed only in the --summary envelope as not_run_gates. The top-level overall_passed formula therefore evaluates every() over the required gates that ran (see docs/01-architecture.md SS5.2.1)."
+    }
+  },
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "kind", "excerpt"],
+      "description": "Evidence reference (§5.3.1). Every judgement must carry at least one.",
+      "properties": {
+        "path": { "type": "string", "minLength": 1, "description": "Project-root-relative POSIX path; must resolve." },
+        "kind": { "type": "string", "enum": ["file", "stdout", "json_pointer", "ledger", "trace"] },
+        "excerpt": { "type": "string", "maxLength": 4096, "description": "sha256:<hex> or a line fragment for kind=file; a JSON Pointer for kind=json_pointer." }
+      }
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["blocker", "high", "medium", "low"],
+      "description": "blocker/high block phase advancement; medium is technical debt; low is recorded only."
+    },
+    "provider": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "degraded", "detail"],
+      "properties": {
+        "type": { "type": "string", "enum": ["deterministic", "scripted", "llm", "external"] },
+        "degraded": { "type": "boolean", "description": "true when a requested provider fell back to deterministic offline behaviour." },
+        "detail": { "type": "string" }
+      }
+    },
+    "humanGateResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "approvalRecord", "approvalState", "approvedBy", "approvedAt"],
+      "description": "Present as an object when the gate declares a humanGate, and exactly null when it does not (§5.2).",
+      "properties": {
+        "role": { "type": "string", "enum": ["product", "architect", "reviewer"] },
+        "approvalRecord": { "type": "string", "minLength": 1 },
+        "approvalState": {
+          "type": "string",
+          "enum": ["approved", "missing", "rejected", "role_mismatch"]
+        },
+        "approvedBy": {
+          "description": "Signer name, or null when unsigned. Expressed as oneOf with an explicit null branch (never as a nullable type union) so that any future string keyword such as minLength or pattern actually applies.",
+          "oneOf": [
+            { "type": "string" },
+            { "type": "null" }
+          ]
+        },
+        "approvedAt": {
+          "description": "RFC3339 UTC signing time, or null when unsigned. Expressed as oneOf with an explicit null branch (never as a nullable type union) so that any future string keyword such as minLength or pattern actually applies.",
+          "oneOf": [
+            { "type": "string" },
+            { "type": "null" }
+          ]
+        }
+      }
+    },
+    "blocker": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["checkId", "severity", "message", "evidence"],
+      "properties": {
+        "checkId": { "type": "string", "minLength": 1, "description": "The check that blocked; the gate id when a human gate blocks." },
+        "severity": { "$ref": "#/$defs/severity" },
+        "message": { "type": "string", "minLength": 1, "description": "Machine-readable prefix plus explanation; prefixes are frozen in §9.2." },
+        "evidence": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/evidence" } }
+      }
+    },
+    "checkResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "passed", "severity", "evidence"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "type": {
+          "type": "string",
+          "enum": ["file_exists", "file_not_exists", "regex", "command", "json_assert", "trace_matrix", "policy"]
+        },
+        "passed": { "type": "boolean", "description": "The real judgement, unaffected by onFail=warn." },
+        "severity": { "$ref": "#/$defs/severity" },
+        "evidence": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/evidence" } }
+      }
+    },
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "stage", "required", "passed", "humanGate", "blockers", "checks"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "stage": { "type": "string", "enum": ["requirements", "design", "build", "review", "verify"] },
+        "required": { "type": "boolean" },
+        "passed": { "type": "boolean", "description": "Frozen semantics (t27): true if and only if the gate contains NO check with required===true && passed===false && onFail!==\"warn\", and its human gate is satisfied. severity is NOT a blocking switch - it only grades, orders and escalates findings; the sole explicit non-blocking channel is onFail=\"warn\"." },
+        "humanGate": {
+          "oneOf": [
+            { "$ref": "#/$defs/humanGateResult" },
+            { "type": "null" }
+          ]
+        },
+        "blockers": { "type": "array", "items": { "$ref": "#/$defs/blocker" } },
+        "checks": { "type": "array", "items": { "$ref": "#/$defs/checkResult" } }
+      }
+    }
+  }
+}

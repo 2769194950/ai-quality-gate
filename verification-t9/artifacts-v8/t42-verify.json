@@ -1,0 +1,97 @@
+{
+  "cwd": "E:\\Desktop\\ai-quality-gate",
+  "cases": [
+    {
+      "id": "h1_alias_of_env_plain",
+      "exit": 0,
+      "included": [
+        "src/app.mjs"
+      ],
+      "excluded": [
+        ".env|sensitive_path_never_included",
+        "docs.txt|hardlink_secret_alias:same-inode-as-sensitive-path"
+      ],
+      "aliasSelected": false,
+      "aliasExclusionReason": "docs.txt|hardlink_secret_alias:same-inode-as-sensitive-path",
+      "ok": true
+    },
+    {
+      "id": "h2_alias_of_env_key_shaped",
+      "exit": 0,
+      "included": [
+        "src/app.mjs"
+      ],
+      "excluded": [
+        ".env|sensitive_path_never_included",
+        "notes.txt|hardlink_secret_alias:same-inode-as-sensitive-path"
+      ],
+      "aliasSelected": false,
+      "aliasExclusionReason": "notes.txt|hardlink_secret_alias:same-inode-as-sensitive-path",
+      "ok": true
+    },
+    {
+      "id": "h3_alias_of_credentials_json",
+      "exit": 0,
+      "included": [
+        "src/app.mjs"
+      ],
+      "excluded": [
+        "Credentials.json|sensitive_path_never_included",
+        "handbook.txt|hardlink_secret_alias:same-inode-as-sensitive-path"
+      ],
+      "aliasSelected": false,
+      "aliasExclusionReason": "handbook.txt|hardlink_secret_alias:same-inode-as-sensitive-path",
+      "ok": true
+    },
+    {
+      "id": "low_hit_rate_diff_still_excludes_alias",
+      "exit": 0,
+      "included": [
+        "gone/five.js",
+        "gone/four.js",
+        "gone/one.js",
+        "gone/six.js",
+        "gone/three.js",
+        "gone/two.js",
+        "src/app.mjs"
+      ],
+      "aliasSelected": false,
+      "ok": true
+    },
+    {
+      "id": "coverage_case_variants_diff_mode",
+      "exit": 0,
+      "included": [
+        "src/app.mjs"
+      ],
+      "excluded": [
+        "Credentials.json|sensitive_path_never_included",
+        "Secrets/db.txt|sensitive_path_never_included"
+      ],
+      "ok": true
+    },
+    {
+      "id": "coverage_default_excluded_dirs_diff_mode",
+      "exit": 0,
+      "included": [
+        "src/app.mjs"
+      ],
+      "excluded": [
+        "dist/bundle.mjs|default_excluded_dir:dist",
+        "node_modules/pkg/index.mjs|default_excluded_dir:node_modules"
+      ],
+      "ok": true
+    },
+    {
+      "id": "coverage_root_mode_includes_inrepo_diff_file",
+      "exit": 0,
+      "included": [
+        "diff.json",
+        "src/app.mjs"
+      ],
+      "diffFileIncluded": true,
+      "envExcluded": true,
+      "ok": true
+    }
+  ]
+}

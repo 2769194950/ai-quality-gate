@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-quality-gate.local/schemas/ocr-findings.schema.json",
+  "title": "OpenCodeReview normalized findings",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["id", "path", "startLine", "endLine", "content", "category", "severity"],
+    "properties": {
+      "id": { "type": "string", "minLength": 1 },
+      "path": { "type": "string", "pattern": "^(?!/)(?![A-Za-z]:/)(?!.*(?:^|/)\.\.(?:/|$)).+" },
+      "startLine": { "type": "integer", "minimum": 0 },
+      "endLine": { "type": "integer", "minimum": 0 },
+      "content": { "type": "string", "minLength": 1 },
+      "category": { "type": "string", "minLength": 1 },
+      "severity": { "enum": ["blocker", "high", "medium", "low"] },
+      "requirementId": { "type": ["string", "null"] },
+      "existingCode": { "type": ["string", "null"] },
+      "suggestionCode": { "type": ["string", "null"] },
+      "source": { "type": "string" }
+    }
+  }
+}

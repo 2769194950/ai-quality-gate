@@ -1,0 +1,93 @@
+﻿{
+  "cwd": "E:\\Desktop\\ai-quality-gate",
+  "cases": [
+    {
+      "id": "missing_fixture",
+      "exit": 3,
+      "errorCode": "PROVIDER_FAILED",
+      "provider": null,
+      "expectFail": true,
+      "ok": true,
+      "silentFallback": false,
+      "errorMessage": "provider fixture not found or unreadable: fixtures/missing.json"
+    },
+    {
+      "id": "unparsable_fixture",
+      "exit": 3,
+      "errorCode": "PROVIDER_FAILED",
+      "provider": null,
+      "expectFail": true,
+      "ok": true,
+      "silentFallback": false,
+      "errorMessage": "provider fixture is not parseable JSON: C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\b2-provider-KnAjtH\\repo\\fixtures\\broken.json"
+    },
+    {
+      "id": "empty_recordings_fixture",
+      "exit": 3,
+      "errorCode": "PROVIDER_FAILED",
+      "provider": null,
+      "expectFail": true,
+      "ok": true,
+      "silentFallback": false,
+      "errorMessage": "provider fixture contains no recordings: fixtures/empty.json"
+    },
+    {
+      "id": "no_recordings_key_fixture",
+      "exit": 3,
+      "errorCode": "PROVIDER_FAILED",
+      "provider": null,
+      "expectFail": true,
+      "ok": true,
+      "silentFallback": false,
+      "errorMessage": "provider fixture must expose a \"recordings\" array: C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\b2-provider-KnAjtH\\repo\\fixtures\\bad.json"
+    },
+    {
+      "id": "scripted_missing_fixture",
+      "exit": 3,
+      "errorCode": "PROVIDER_FAILED",
+      "provider": null,
+      "expectFail": true,
+      "ok": true,
+      "silentFallback": false,
+      "errorMessage": "provider fixture not found or unreadable: fixtures/missing.json"
+    },
+    {
+      "id": "llm_missing_fixture",
+      "exit": 3,
+      "errorCode": "PROVIDER_FAILED",
+      "provider": null,
+      "expectFail": true,
+      "ok": true,
+      "silentFallback": false,
+      "errorMessage": "provider fixture not found or unreadable: fixtures/missing.json"
+    },
+    {
+      "id": "usable_fixture_control",
+      "exit": 0,
+      "errorCode": null,
+      "provider": {
+        "type": "deterministic",
+        "degraded": false,
+        "detail": "offline-fixture"
+      },
+      "expectFail": false,
+      "ok": true,
+      "silentFallback": false,
+      "errorMessage": null
+    },
+    {
+      "id": "no_fixture_key_control",
+      "exit": 0,
+      "errorCode": null,
+      "provider": {
+        "type": "deterministic",
+        "degraded": false,
+        "detail": "offline-fixture"
+      },
+      "expectFail": false,
+      "ok": true,
+      "silentFallback": false,
+      "errorMessage": null
+    }
+  ]
+}

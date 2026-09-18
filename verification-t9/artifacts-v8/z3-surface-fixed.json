@@ -1,0 +1,48 @@
+{
+  "root": "E:\\Desktop\\ai-quality-gate",
+  "cwd": "E:\\Desktop\\ai-quality-gate",
+  "check_safe002": {
+    "passed": true,
+    "violations": [],
+    "selected": 143,
+    "secretPathsExcluded": 17,
+    "secretPathRules": [
+      "secret-env",
+      "secret-pem",
+      "secret-key",
+      "secret-rsa",
+      "secret-credentials",
+      "secret-dir",
+      "secret-p12",
+      "secret-kubeconfig"
+    ],
+    "widestInclude": "**/*"
+  },
+  "preview": {
+    "exit": 0,
+    "ok": true,
+    "included": 143,
+    "includedInAuditTree": 0,
+    "includedInRuntimeOutputTree": 0,
+    "auditTreeSample": [],
+    "selectedCountField": null,
+    "excludedByReason": {
+      "secret_path": 17,
+      "binary": 17,
+      "default_excluded_path": 710,
+      "extension": 2
+    },
+    "invariants": {
+      "secretPathsSelected": [],
+      "ocrAvailable": false
+    },
+    "secretPathsSelected": 0
+  },
+  "summary": {
+    "checkScanExcludesAuditTrees": true,
+    "previewExcludesAuditTrees": true,
+    "previewExcludesRuntimeOutput": true,
+    "safe002NotRegressed": true,
+    "checkAndPreviewAgreeOnAuditTrees": true
+  }
+}

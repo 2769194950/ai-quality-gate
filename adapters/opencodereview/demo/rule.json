@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "_note": "演示用规则文件（fixture）。L1 层：通过 --rule 显式传入时生效，优先级高于项目级/用户级/内置。路径以 adapters/opencodereview/demo 为锚（与 --root 同根）。",
+  "include": [
+    { "id": "demo-src", "pattern": "src/**/*.mjs", "reason": "demo 源码参与评审" },
+    { "id": "demo-tests", "pattern": "**/*.test.mjs", "reason": "测试文件必须参与评审（覆盖注入链路）" },
+    { "id": "demo-manifest", "pattern": "package.json", "reason": "依赖清单参与评审" }
+  ],
+  "exclude": [
+    { "id": "demo-readme", "pattern": "**/*.md", "reason": "演示：规则层可排除文档" },
+    { "id": "demo-backup", "pattern": "**/*.bak", "reason": "备份文件不参与评审" }
+  ],
+  "includeExtensions": [".mjs", ".json", ".md"],
+  "maxTokensPerGroup": 4096,
+  "grouping": {
+    "maxFilesPerGroup": 10,
+    "buckets": [
+      {
+        "id": "injection-chain",
+        "patterns": [
+          "src/chain/user-handler.mjs",
+          "src/chain/user-service.mjs",
+          "src/chain/user-repository.mjs",
+          "src/chain/user-mapper.mjs"
+        ]
+      }
+    ]
+  }
+}

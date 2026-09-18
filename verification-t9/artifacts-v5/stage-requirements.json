@@ -1,0 +1,90 @@
+﻿{
+  "version": "1.0",
+  "run_id": "2026-09-17T20-29-25.575Z-ca917a6d",
+  "started_at": "2026-09-17T20:29:25.575Z",
+  "finished_at": "2026-09-17T20:29:25.586Z",
+  "duration_ms": 11,
+  "overall_passed": true,
+  "provider": {
+    "type": "deterministic",
+    "degraded": false,
+    "detail": "offline-fixture"
+  },
+  "gates": [
+    {
+      "id": "req-spec",
+      "stage": "requirements",
+      "required": true,
+      "passed": true,
+      "humanGate": {
+        "role": "product",
+        "approvalRecord": ".qgate/approvals/req-to-design/approval.json",
+        "approvalState": "approved",
+        "approvedBy": "product-owner",
+        "approvedAt": "2026-05-04T09:00:00Z"
+      },
+      "blockers": [],
+      "checks": [
+        {
+          "id": "req-doc-exists",
+          "type": "file_exists",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "REQUIREMENTS.md",
+              "kind": "file",
+              "excerpt": "sha256:25415ce90c074379226e6562183820637782fff5d337b21133ca25ae7f0de97e"
+            },
+            {
+              "path": "REQUIREMENTS.md",
+              "kind": "file",
+              "excerpt": "matchedFiles=1 minCount=1"
+            }
+          ]
+        },
+        {
+          "id": "req-ids-present",
+          "type": "regex",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "REQUIREMENTS.md",
+              "kind": "file",
+              "excerpt": "7 match(es); L9:REQ-DEMO-001 | L18:REQ-DEMO-002 | L24:REQ-DEMO-002"
+            },
+            {
+              "path": "REQUIREMENTS.md",
+              "kind": "json_pointer",
+              "excerpt": "pattern=REQ-DEMO-\\d{3} mode=count countMode=unique totalMatches=7 uniqueMatches=6 minMatches=4"
+            }
+          ]
+        },
+        {
+          "id": "req-index-valid",
+          "type": "json_assert",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": ".qgate/requirements-index.json",
+              "kind": "json_pointer",
+              "excerpt": "/requirements -> exists=true expected=true"
+            },
+            {
+              "path": ".qgate/requirements-index.json",
+              "kind": "json_pointer",
+              "excerpt": "/requirements/0/id -> matches=/^REQ-DEMO-\\d{3}$/ against REQ-DEMO-001"
+            },
+            {
+              "path": ".qgate/requirements-index.json",
+              "kind": "json_pointer",
+              "excerpt": "/schemaVersion -> equals=\"1.0\" expected=\"1.0\""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

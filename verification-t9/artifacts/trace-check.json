@@ -1,0 +1,42 @@
+﻿{
+  "traceFile": "verification-t9/artifacts/trace.json",
+  "projectRoot": "mini-service",
+  "requirementCount": 6,
+  "summary": {
+    "requirements": 6,
+    "covered": 6,
+    "uncovered": 0,
+    "orphanTestIds": 0,
+    "coverageRatio": 1
+  },
+  "computed": {
+    "coveredCount": 6,
+    "uncoveredCount": 0,
+    "coverageRatio": 1,
+    "ledgerTestIdCount": 16,
+    "unionTestIdCount": 16
+  },
+  "notCovered": [],
+  "emptyTestIds": [],
+  "coveredRuleViolations": [],
+  "coveredWithoutEvidence": [],
+  "orphans": [],
+  "missingFromIndex": [],
+  "missingFromTrace": [],
+  "checks": {
+    "everyRequirementCovered": true,
+    "everyRequirementHasTestIds": true,
+    "coveredFlagMatchesFrozenRule": true,
+    "coveredRequiresEvidence": true,
+    "summaryRequirementsEqualsArrayLength": true,
+    "summaryCoveredPlusUncoveredConsistent": true,
+    "summaryCoveredEqualsCounted": true,
+    "summaryUncoveredEqualsCounted": true,
+    "orphanTestIdsZero": true,
+    "coverageRatioMatches": true,
+    "pipelineIsFiveStages": true,
+    "generatedByIsQgateTrace": true,
+    "requirementIdsBidirectional": true
+  },
+  "allChecksPass": true
+}

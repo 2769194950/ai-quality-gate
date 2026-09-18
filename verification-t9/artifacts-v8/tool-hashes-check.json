@@ -1,0 +1,901 @@
+{
+  "manifest": "artifacts-v8\\verifier-tool-hashes.json",
+  "pinned_tree_fingerprint": "74a28c906b7337967bf2d1aa6c0fb33c0cf5eac18277f1544e59d123b6540bc3",
+  "current_tree_fingerprint": "74a28c906b7337967bf2d1aa6c0fb33c0cf5eac18277f1544e59d123b6540bc3",
+  "entries": 127,
+  "match": 127,
+  "drift": 0,
+  "missing": 0,
+  "driftFiles": [],
+  "rows": [
+    {
+      "kind": "tool",
+      "rel": "tools/b1-coverage-matrix.mjs",
+      "expected": "54d170d93965869a2af50b3039889e56f4ca08ade6ed0e9a82039aafa5df6087",
+      "actual": "54d170d93965869a2af50b3039889e56f4ca08ade6ed0e9a82039aafa5df6087",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/b2-provider-fixture.mjs",
+      "expected": "fb76e29ed9baad78c333a7dc4460cd460cf8601fcfd78fe52d8e1b5c635371b6",
+      "actual": "fb76e29ed9baad78c333a7dc4460cd460cf8601fcfd78fe52d8e1b5c635371b6",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/b4-unmaterialized.mjs",
+      "expected": "6fa91646ec30b4162658f8c28a143ed06499a8618409d51dc368a07b928d811b",
+      "actual": "6fa91646ec30b4162658f8c28a143ed06499a8618409d51dc368a07b928d811b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/baseline-freshness.mjs",
+      "expected": "7ef2db4628b19b0ad99d1b47dfefb34dbeeeb3a7c47063d36a1741584789ece3",
+      "actual": "7ef2db4628b19b0ad99d1b47dfefb34dbeeeb3a7c47063d36a1741584789ece3",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/contract-fields.mjs",
+      "expected": "0d25774e8653816bc4d6d61f551c94e254a76f3a02995613ab544ddb5194712c",
+      "actual": "0d25774e8653816bc4d6d61f551c94e254a76f3a02995613ab544ddb5194712c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/evidence-pointer.mjs",
+      "expected": "76469c60040432d4d2aa8b47ff4b23231e2a3f3cfc33932cba7e9b3ca65ef9b5",
+      "actual": "76469c60040432d4d2aa8b47ff4b23231e2a3f3cfc33932cba7e9b3ca65ef9b5",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/fixture-diff.mjs",
+      "expected": "9263e19d967d21adf976d2f87f75c24dae8730f94f964e828bc5ae38d17af76b",
+      "actual": "9263e19d967d21adf976d2f87f75c24dae8730f94f964e828bc5ae38d17af76b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/hardlink-probe.mjs",
+      "expected": "9c8cdefcd6d0aac77b062bb36917355a6e2e19cfca8b4bf69df679014ed29916",
+      "actual": "9c8cdefcd6d0aac77b062bb36917355a6e2e19cfca8b4bf69df679014ed29916",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/leaf-diff.mjs",
+      "expected": "c2d9869294f6fd57d7f4a8cd686e4170d770877f233dd9a12b1493e4d6f00b2a",
+      "actual": "c2d9869294f6fd57d7f4a8cd686e4170d770877f233dd9a12b1493e4d6f00b2a",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/normalize-runresult.mjs",
+      "expected": "f3a4790381e7615f42e117c808458f21d70129bcda795ca01c8ee34b993984ee",
+      "actual": "f3a4790381e7615f42e117c808458f21d70129bcda795ca01c8ee34b993984ee",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/preview-crosscheck.mjs",
+      "expected": "bc47b8f6772c12f563d6f36258584ffd41e22f96ec82d8e5fdcbb9058a671772",
+      "actual": "bc47b8f6772c12f563d6f36258584ffd41e22f96ec82d8e5fdcbb9058a671772",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/schema-check-v3.mjs",
+      "expected": "3531a17f22e46c04b85f51ed3f3963d2674b423fa44f8c3e0c593489289ea1af",
+      "actual": "3531a17f22e46c04b85f51ed3f3963d2674b423fa44f8c3e0c593489289ea1af",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/schema-eval.mjs",
+      "expected": "4a071e5d150ed84ad0075faed2a626476c5de6feab54167be232e8e65f91e906",
+      "actual": "4a071e5d150ed84ad0075faed2a626476c5de6feab54167be232e8e65f91e906",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/schema-meta.mjs",
+      "expected": "a8a71ba87344bb7bd117ba685c38e7bade0a16f45e72d22219ca9a79b2ce88f4",
+      "actual": "a8a71ba87344bb7bd117ba685c38e7bade0a16f45e72d22219ca9a79b2ce88f4",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/t42-verify.mjs",
+      "expected": "e7cfaefbfa4148d0950b2843ecf20f3c29de517987d7d160846a0437d17e0e03",
+      "actual": "e7cfaefbfa4148d0950b2843ecf20f3c29de517987d7d160846a0437d17e0e03",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/tool-hashes-check.mjs",
+      "expected": "ce60dc8a8c720d161833e4d183b0f984966427a0a04ae149dc952077d384d34a",
+      "actual": "ce60dc8a8c720d161833e4d183b0f984966427a0a04ae149dc952077d384d34a",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/trace-check.mjs",
+      "expected": "a8b23c07d375873c581f7821d727700994fc8ff0c763e52bfa42edf03db7af5e",
+      "actual": "a8b23c07d375873c581f7821d727700994fc8ff0c763e52bfa42edf03db7af5e",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/tree-fingerprint.mjs",
+      "expected": "45dc12f6e30bf7aad1e63871e6b3cf86c433cc49dc5a5640f594922a3066d07a",
+      "actual": "45dc12f6e30bf7aad1e63871e6b3cf86c433cc49dc5a5640f594922a3066d07a",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/v1-comment-boundary.mjs",
+      "expected": "2467c4edf01f67e7887eccfea36d7b6e961cf05a5df3db8f4a7a752db8bb462c",
+      "actual": "2467c4edf01f67e7887eccfea36d7b6e961cf05a5df3db8f4a7a752db8bb462c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/v2-engine-identity.mjs",
+      "expected": "3f2122eb97d29e0a103dba70f8524e62d0fdd31f4116109f48e0788aaa39a113",
+      "actual": "3f2122eb97d29e0a103dba70f8524e62d0fdd31f4116109f48e0788aaa39a113",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/v3-cases.mjs",
+      "expected": "ec89b2174f4ae596e8fa1f47b75d313b1152916cb22d5126c4cc8640c42f7679",
+      "actual": "ec89b2174f4ae596e8fa1f47b75d313b1152916cb22d5126c4cc8640c42f7679",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/v5-counting.mjs",
+      "expected": "a6568ff8c0ea39ce6d9650d83468e068ae4469cef37f5e6095562cac36c9bf44",
+      "actual": "a6568ff8c0ea39ce6d9650d83468e068ae4469cef37f5e6095562cac36c9bf44",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/w12-engine-case.mjs",
+      "expected": "a1c439618d6cc5441c057ead59e2fe377f8ae3367e4331952e11374752652d60",
+      "actual": "a1c439618d6cc5441c057ead59e2fe377f8ae3367e4331952e11374752652d60",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/w3-audit-rows.mjs",
+      "expected": "9421fd2052af3a01ef124bb4ba74705fa0e3cbacc7d0add2941739946c565eb4",
+      "actual": "9421fd2052af3a01ef124bb4ba74705fa0e3cbacc7d0add2941739946c565eb4",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/w45-net-parity.mjs",
+      "expected": "676ab1d4c2009368e78ced52fd5919792488abc0fe588cccaf53523a79866842",
+      "actual": "676ab1d4c2009368e78ced52fd5919792488abc0fe588cccaf53523a79866842",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/y1-named-client-parity.mjs",
+      "expected": "214440258f39e6e75e24e2a10a421851fa466fe6b63bac0cbe209a6caf08b543",
+      "actual": "214440258f39e6e75e24e2a10a421851fa466fe6b63bac0cbe209a6caf08b543",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/y2-f13-scanroots.mjs",
+      "expected": "f735c4db432e32d4476559e48321ee23c596002e9df68a574d5492cca196518d",
+      "actual": "f735c4db432e32d4476559e48321ee23c596002e9df68a574d5492cca196518d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/y5-bypass-windows-names.mjs",
+      "expected": "e7cd054aecbd7634cb268af14584132062f0b4a7b6ddb56accd5167b23cb32d2",
+      "actual": "e7cd054aecbd7634cb268af14584132062f0b4a7b6ddb56accd5167b23cb32d2",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/y5-table-integrity.mjs",
+      "expected": "e7f8143f4a2216c060c3666a929a6aefda62d10f3c941c61d8844e50ab50c962",
+      "actual": "e7f8143f4a2216c060c3666a929a6aefda62d10f3c941c61d8844e50ab50c962",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/absconfig-cdrive.json",
+      "expected": "b9ac098e4baabff7ff20aa155e6181cdf3f72500d672042d79a4c3b9531fb7ef",
+      "actual": "b9ac098e4baabff7ff20aa155e6181cdf3f72500d672042d79a4c3b9531fb7ef",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/absconfig-desktop.json",
+      "expected": "c80280ae3b83eb9cd05033ab28fb34bc29a034cbc510b8d6b9e7b00b934bdcf3",
+      "actual": "c80280ae3b83eb9cd05033ab28fb34bc29a034cbc510b8d6b9e7b00b934bdcf3",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/absconfig-junction.json",
+      "expected": "746393b0127bcaded2f835adf088b60a4bb1b65c9ace1769af5bd507420e4ce1",
+      "actual": "746393b0127bcaded2f835adf088b60a4bb1b65c9ace1769af5bd507420e4ce1",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/adapter-preview-default.json",
+      "expected": "f7d0feb3fa5c0749c86cac4648421bf61b3304407c7443a0bd8605e754af8a39",
+      "actual": "f7d0feb3fa5c0749c86cac4648421bf61b3304407c7443a0bd8605e754af8a39",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/adapter-preview-default.stderr.txt",
+      "expected": "717c6cd3796b1c60b95ba93e4072d2c0e79604ec7a131579aee977313eeacfea",
+      "actual": "717c6cd3796b1c60b95ba93e4072d2c0e79604ec7a131579aee977313eeacfea",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/adapter-preview-include-flags.json",
+      "expected": "e6d994149abea43c810267316aa5b4b1a008f24e80da9779688be95be3fb861a",
+      "actual": "e6d994149abea43c810267316aa5b4b1a008f24e80da9779688be95be3fb861a",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/adapter-preview-include-flags.stderr.txt",
+      "expected": "9fd16bac3071d10aa158f106c58bb2604d7458c6aaf9cab211fd568f5e67ac92",
+      "actual": "9fd16bac3071d10aa158f106c58bb2604d7458c6aaf9cab211fd568f5e67ac92",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/adapter-preview-safe002-include.json",
+      "expected": "597615b9b699ee894685f98b0947b8de8e18ee69c06e7fb7938b090c8f40f1b6",
+      "actual": "597615b9b699ee894685f98b0947b8de8e18ee69c06e7fb7938b090c8f40f1b6",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/adapter-preview-safe002-include.stderr.txt",
+      "expected": "02218b7f4f2943e827f1b2b0271e7a440779784cc9916da7998227e02d2084b3",
+      "actual": "02218b7f4f2943e827f1b2b0271e7a440779784cc9916da7998227e02d2084b3",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/adapter-preview-same-files.json",
+      "expected": "7155eb5f24d2e53d2abf958498a3e917b034a1c16272e603a5c3f6f1cb258a45",
+      "actual": "7155eb5f24d2e53d2abf958498a3e917b034a1c16272e603a5c3f6f1cb258a45",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/adapter-preview-same-files.stderr.txt",
+      "expected": "6db717f9fcff1361eb0eab66cc726625eb4d6bd93b2e1cd4e2248732dcef23bb",
+      "actual": "6db717f9fcff1361eb0eab66cc726625eb4d6bd93b2e1cd4e2248732dcef23bb",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/adapter-suite-3cwd.json",
+      "expected": "4b0fe1389d8fe1d3d6d3f3070897636199c3fe35b8b5d80ac8c4d4685e777022",
+      "actual": "4b0fe1389d8fe1d3d6d3f3070897636199c3fe35b8b5d80ac8c4d4685e777022",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/adapter-suite-current.txt",
+      "expected": "4b9b64754aad216ee43f375b5ead1c7d937674743bd845a4ef2c43f52b09c58c",
+      "actual": "4b9b64754aad216ee43f375b5ead1c7d937674743bd845a4ef2c43f52b09c58c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/adapter-suite.txt",
+      "expected": "fb4b68f7f78f6b4883fa62920f742e84372345c15223f1af877ff596cc1226b7",
+      "actual": "fb4b68f7f78f6b4883fa62920f742e84372345c15223f1af877ff596cc1226b7",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/b1-coverage-matrix.json",
+      "expected": "d7e9e2fdbee1b407a5b5ef16f1d82ef5ba36e19e502e0e1deece950cf0b854be",
+      "actual": "d7e9e2fdbee1b407a5b5ef16f1d82ef5ba36e19e502e0e1deece950cf0b854be",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/b2-provider-fixture.json",
+      "expected": "2edafc9df8e0ffcb00d01bfe1f1857f59ff3faa150c1719d35ba75337107d226",
+      "actual": "2edafc9df8e0ffcb00d01bfe1f1857f59ff3faa150c1719d35ba75337107d226",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/b4-unmaterialized.json",
+      "expected": "5c957bf797d20e1b5761035f301abee1f8686e365b743cf4186f71dd19659c83",
+      "actual": "5c957bf797d20e1b5761035f301abee1f8686e365b743cf4186f71dd19659c83",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/baseline-freshness.json",
+      "expected": "b84c7e34964c5cd70c1908d7a13b0df3760fb1b958dc7148b8c2e00829df6f0f",
+      "actual": "b84c7e34964c5cd70c1908d7a13b0df3760fb1b958dc7148b8c2e00829df6f0f",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/ci-authoritative.json",
+      "expected": "a7c36fc39a69cbc5a7a6dadf0160bc2bd423f6c855835a481655a3128f3cd7e1",
+      "actual": "a7c36fc39a69cbc5a7a6dadf0160bc2bd423f6c855835a481655a3128f3cd7e1",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/ci-contract.json",
+      "expected": "9a662fe8f3b7a6b9eb7e4125452be810f6ec9b378bd31d43575c78bbe360f83e",
+      "actual": "9a662fe8f3b7a6b9eb7e4125452be810f6ec9b378bd31d43575c78bbe360f83e",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/ci-stage-build.json",
+      "expected": "4a29abdc2c585f592440e94c40a1995fe29ef515d4f920d47869f712af30e5b2",
+      "actual": "4a29abdc2c585f592440e94c40a1995fe29ef515d4f920d47869f712af30e5b2",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/ci-stage-design.json",
+      "expected": "0167a4e8ac71f42b247f01c50ec7de8798fd8a37a6fe79a4ce7076d0c33ca62d",
+      "actual": "0167a4e8ac71f42b247f01c50ec7de8798fd8a37a6fe79a4ce7076d0c33ca62d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/ci-stage-requirements.json",
+      "expected": "6e80e4b2afa87f495f4127afd012604c38a0a10e3de0290edeb2f41289b7044f",
+      "actual": "6e80e4b2afa87f495f4127afd012604c38a0a10e3de0290edeb2f41289b7044f",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/ci-stage-review.json",
+      "expected": "ad92c3b3280a591e7b24d505d0f79653545f1cae7a83a413a90bce80985a8653",
+      "actual": "ad92c3b3280a591e7b24d505d0f79653545f1cae7a83a413a90bce80985a8653",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/ci-three-step.json",
+      "expected": "2b5e60bf7515bc321bc7520d85cd69a865195ab4fef7a27ef1ae661fc7a46a62",
+      "actual": "2b5e60bf7515bc321bc7520d85cd69a865195ab4fef7a27ef1ae661fc7a46a62",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/ci-trace-write.txt",
+      "expected": "ebfec1d4343e82ddac57febefdab8d65e384d04bca649665dc7474f88ec41738",
+      "actual": "ebfec1d4343e82ddac57febefdab8d65e384d04bca649665dc7474f88ec41738",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/ci-warmup.json",
+      "expected": "9325f2c7872fd35182c7388967f0bf7bb53bb1f6431e6f0d7d520eaecf55e91d",
+      "actual": "9325f2c7872fd35182c7388967f0bf7bb53bb1f6431e6f0d7d520eaecf55e91d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/contract-fields-rootcheck.json",
+      "expected": "0201dd5b3b558c8b1c8ce36930f2646a28bb82a8807975266a2e720e453b7667",
+      "actual": "0201dd5b3b558c8b1c8ce36930f2646a28bb82a8807975266a2e720e453b7667",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/contract-fields-warmup.json",
+      "expected": "dfba657596c3f015d6189d4079dc7d9d63c181e1730f0ddda59cd0a57cc4b4c3",
+      "actual": "dfba657596c3f015d6189d4079dc7d9d63c181e1730f0ddda59cd0a57cc4b4c3",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/contract-fields.json",
+      "expected": "a92d761fb233aeabee822305c777d460ef18e4ab0979b23622e7f2c2454a3503",
+      "actual": "a92d761fb233aeabee822305c777d460ef18e4ab0979b23622e7f2c2454a3503",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/cwd-canonical.json",
+      "expected": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "actual": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/cwd-canonical.stderr.txt",
+      "expected": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "actual": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/cwd-cdrive.json",
+      "expected": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "actual": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/cwd-cdrive.stderr.txt",
+      "expected": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "actual": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/cwd-desktop.json",
+      "expected": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "actual": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/cwd-desktop.stderr.txt",
+      "expected": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "actual": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/cwd-junction.json",
+      "expected": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "actual": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/cwd-junction.stderr.txt",
+      "expected": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "actual": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/cwd-parity.json",
+      "expected": "c312d3f9a4e2cb3964c5132a9d0a5681a7cef3d3dd5bf4e8e140474e79a67aad",
+      "actual": "c312d3f9a4e2cb3964c5132a9d0a5681a7cef3d3dd5bf4e8e140474e79a67aad",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/demo-check.json",
+      "expected": "fc3f8cb8acc62632807f2b865ddb367d8fd60be0cdffd77958b8b4082bd0a97e",
+      "actual": "fc3f8cb8acc62632807f2b865ddb367d8fd60be0cdffd77958b8b4082bd0a97e",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/demo-summary.txt",
+      "expected": "b1498a9c5cd460eb6167f72eedc56eb5166a2a7ae9ecee2ba5c8f7a3867a5398",
+      "actual": "b1498a9c5cd460eb6167f72eedc56eb5166a2a7ae9ecee2ba5c8f7a3867a5398",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/determinism.txt",
+      "expected": "ff1df297b0a805b3a8a6fc05f63a8fbf8e499152a1aff313c1aaf77350c8ad4b",
+      "actual": "ff1df297b0a805b3a8a6fc05f63a8fbf8e499152a1aff313c1aaf77350c8ad4b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/engine-preview-cli-rule.json",
+      "expected": "e2b977cc35e18ede9b2a64c856dc48f0adb17e22ec29bfcfdbb4627172a6f87d",
+      "actual": "e2b977cc35e18ede9b2a64c856dc48f0adb17e22ec29bfcfdbb4627172a6f87d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/engine-preview-cli-rule.stderr.txt",
+      "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/engine-preview-same-files.json",
+      "expected": "b61cb4d2fc8bac822fdc0eb6dca4d95d4c3ec2f2a830004aa0506928702311a8",
+      "actual": "b61cb4d2fc8bac822fdc0eb6dca4d95d4c3ec2f2a830004aa0506928702311a8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/engine-suite-test-all.txt",
+      "expected": "4f18266129e21992286f4efc7c016f0e090c343bb7ced4331185e00361f79a18",
+      "actual": "4f18266129e21992286f4efc7c016f0e090c343bb7ced4331185e00361f79a18",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/engine-suite-test-contract.txt",
+      "expected": "24572ad40f463da2270975db898e0426bb2529d093fdb231bdeb5050d36e82ec",
+      "actual": "24572ad40f463da2270975db898e0426bb2529d093fdb231bdeb5050d36e82ec",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/engine-suite-test.txt",
+      "expected": "64858641023e6c158b448e3334c5bea99f62d19b0955be3cc6501e3854f34815",
+      "actual": "64858641023e6c158b448e3334c5bea99f62d19b0955be3cc6501e3854f34815",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/envelope-build.json",
+      "expected": "c08641516e30edcfbb19b26401deb1ffead09fcbb783d27c2b1259829caa2d8c",
+      "actual": "c08641516e30edcfbb19b26401deb1ffead09fcbb783d27c2b1259829caa2d8c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/envelope-build.stdout.txt",
+      "expected": "662d67d0b37f1492079ea7d3f666bdae4a600137063c505b8e4b96d6924d5029",
+      "actual": "662d67d0b37f1492079ea7d3f666bdae4a600137063c505b8e4b96d6924d5029",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/envelope-design.json",
+      "expected": "70362c8581c234543c63d39f88e4ba018b6302f3f6b4f7b03e8822cb2e4f24a4",
+      "actual": "70362c8581c234543c63d39f88e4ba018b6302f3f6b4f7b03e8822cb2e4f24a4",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/envelope-design.stdout.txt",
+      "expected": "fae6cfe4ff0a5857e81cd77f12ed5017e4302d25975a5ef8309d4ce20e2c81d9",
+      "actual": "fae6cfe4ff0a5857e81cd77f12ed5017e4302d25975a5ef8309d4ce20e2c81d9",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/envelope-requirements.json",
+      "expected": "a038a5c0de38051fe412e48e7068a0bbd891798e11b17b9ea5ff9a4bfed63774",
+      "actual": "a038a5c0de38051fe412e48e7068a0bbd891798e11b17b9ea5ff9a4bfed63774",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/envelope-requirements.stdout.txt",
+      "expected": "3433cee405663f4792aeca99a988ca8533611efaf908de4febefce6814c3a62c",
+      "actual": "3433cee405663f4792aeca99a988ca8533611efaf908de4febefce6814c3a62c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/envelope-review.json",
+      "expected": "4260fcf05865a35b21733b3b65691fbc20944c5afbdcb5b2963c37ed52cad795",
+      "actual": "4260fcf05865a35b21733b3b65691fbc20944c5afbdcb5b2963c37ed52cad795",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/envelope-review.stdout.txt",
+      "expected": "11314ed341ea1fc4d3328247ba264d12d99126c22ed8b252082d482a9c238af3",
+      "actual": "11314ed341ea1fc4d3328247ba264d12d99126c22ed8b252082d482a9c238af3",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/final-battery-exits.json",
+      "expected": "4f121c788ec9c8baece20ba4853ad76d1917c9061e236bb175fdbfe86f317ab5",
+      "actual": "4f121c788ec9c8baece20ba4853ad76d1917c9061e236bb175fdbfe86f317ab5",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/fingerprint-scope.json",
+      "expected": "e937a1df69b79aefe109da0d882225f8c92dd3753bd5ee2eec8adeb6b9839b37",
+      "actual": "e937a1df69b79aefe109da0d882225f8c92dd3753bd5ee2eec8adeb6b9839b37",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/fixture-diff.json",
+      "expected": "5ea2fe0ba461597c228145893890ef23e8b050724a1e1bd16644c57e90fa1957",
+      "actual": "5ea2fe0ba461597c228145893890ef23e8b050724a1e1bd16644c57e90fa1957",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/hardlink-probe.json",
+      "expected": "89cd2e5b9b0aaedc87e444f253aa47982a21c2395fe0f91dcf6aaeec44815c9a",
+      "actual": "89cd2e5b9b0aaedc87e444f253aa47982a21c2395fe0f91dcf6aaeec44815c9a",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/input-unchanged.txt",
+      "expected": "bf739b43c6adeef6b02945c903eb6ade0970dea6488c5ad8e692e04095c7a8b8",
+      "actual": "bf739b43c6adeef6b02945c903eb6ade0970dea6488c5ad8e692e04095c7a8b8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/preview-crosscheck.json",
+      "expected": "bebdc9363f19b849e777ceffe136349a21dedcec30f60d812102585584eaa746",
+      "actual": "bebdc9363f19b849e777ceffe136349a21dedcec30f60d812102585584eaa746",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/root-check.json",
+      "expected": "6175fe5250e790848bd3ef06aebcbf6c935519ffcda9e586e8f53f023c7a1144",
+      "actual": "6175fe5250e790848bd3ef06aebcbf6c935519ffcda9e586e8f53f023c7a1144",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/root-scripts.json",
+      "expected": "74ad2e326098081149159be8c6b7e2a14b3f46baa89727c156666ca9b1dd4593",
+      "actual": "74ad2e326098081149159be8c6b7e2a14b3f46baa89727c156666ca9b1dd4593",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/rootcheck-side-effects.txt",
+      "expected": "bb6aa96400db153b344825d04c799fe7834df7442b6cc66968daf1a8e721658b",
+      "actual": "bb6aa96400db153b344825d04c799fe7834df7442b6cc66968daf1a8e721658b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/rootconfig-idempotency.json",
+      "expected": "213b86c0d026f005e727d3b7c6aff3241fab5c5173eb03f46ba46e6bfb1c3941",
+      "actual": "213b86c0d026f005e727d3b7c6aff3241fab5c5173eb03f46ba46e6bfb1c3941",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/rootconfig-scratch-run1.json",
+      "expected": "5854571a9b444e19ae384c8db2a4f4105d78506562000e0a335e2bde2286bdd8",
+      "actual": "5854571a9b444e19ae384c8db2a4f4105d78506562000e0a335e2bde2286bdd8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/rootconfig-scratch-run2.json",
+      "expected": "47120bc28c446d6ac4fd9133a91e1445c3608ef9890f52bf26e42808988d6b7b",
+      "actual": "47120bc28c446d6ac4fd9133a91e1445c3608ef9890f52bf26e42808988d6b7b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/rootconfig-scratch-run3.json",
+      "expected": "9383ee8a2d4e38da37c59f999cb6946fc816a1bd503f3806ad7c1e0886fabbd7",
+      "actual": "9383ee8a2d4e38da37c59f999cb6946fc816a1bd503f3806ad7c1e0886fabbd7",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/rootcwd-canonical.json",
+      "expected": "af3ad98e71295acae1588e5a8b0d2f960018c47868e568a87b018d9c9d009188",
+      "actual": "af3ad98e71295acae1588e5a8b0d2f960018c47868e568a87b018d9c9d009188",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/rootcwd-cdrive.json",
+      "expected": "409f293a85c4faed5266b8a1f4ca232b92f2883c8e0daa83dbe8d58dc9546247",
+      "actual": "409f293a85c4faed5266b8a1f4ca232b92f2883c8e0daa83dbe8d58dc9546247",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/rootcwd-desktop.json",
+      "expected": "dfab608addcf5b026319dc50de615636edafef389a62e60a55af5927229f7e71",
+      "actual": "dfab608addcf5b026319dc50de615636edafef389a62e60a55af5927229f7e71",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/run1.json",
+      "expected": "0e4fa86de299b2bd5780b924f0045b329af60f4cd299f6a704d7896059db6b2c",
+      "actual": "0e4fa86de299b2bd5780b924f0045b329af60f4cd299f6a704d7896059db6b2c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/run2.json",
+      "expected": "c0afc348c364acc5d35add9f82503ceab1187ad1bfb2ec9206fd04b67ca39977",
+      "actual": "c0afc348c364acc5d35add9f82503ceab1187ad1bfb2ec9206fd04b67ca39977",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/schema-checks.txt",
+      "expected": "2102dc370762cb3d952fd77a3976b46af3841233fb7e27555398e8fb2a299ffd",
+      "actual": "2102dc370762cb3d952fd77a3976b46af3841233fb7e27555398e8fb2a299ffd",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/schema-eval.json",
+      "expected": "e29339c3995addb9c2e820e8a21a468d78da8669cff2fc737486add5f2249961",
+      "actual": "e29339c3995addb9c2e820e8a21a468d78da8669cff2fc737486add5f2249961",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/schema-meta.json",
+      "expected": "67c33ffbfcb47cd8f875ee8dfdd31172571adebfca2fc3e9c553f81dff8980b6",
+      "actual": "67c33ffbfcb47cd8f875ee8dfdd31172571adebfca2fc3e9c553f81dff8980b6",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/stage-build.json",
+      "expected": "57b7ab8f25086a2982d72a93b606b04deb9be9c9653818fb117d8578ff1c974e",
+      "actual": "57b7ab8f25086a2982d72a93b606b04deb9be9c9653818fb117d8578ff1c974e",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/stage-design.json",
+      "expected": "1d69ff51704f70778b3c7627f5526f5d0684f2b3071d5498082cf0fe554ca4fd",
+      "actual": "1d69ff51704f70778b3c7627f5526f5d0684f2b3071d5498082cf0fe554ca4fd",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/stage-requirements.json",
+      "expected": "8384d540bf6ccc364cb88ac6bead0a0e82881a115eaee08ae9a5e90d5de8b8de",
+      "actual": "8384d540bf6ccc364cb88ac6bead0a0e82881a115eaee08ae9a5e90d5de8b8de",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/stage-review.json",
+      "expected": "464b087f5b1338f14197f1fd67cf065029a28d8a02fb99018af25df7a56a00fb",
+      "actual": "464b087f5b1338f14197f1fd67cf065029a28d8a02fb99018af25df7a56a00fb",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/t42-verify.json",
+      "expected": "3e68d8f50fddf3997a214049014500c9c501370580e92ea24da1c8c012113c6f",
+      "actual": "3e68d8f50fddf3997a214049014500c9c501370580e92ea24da1c8c012113c6f",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/tool-hashes-check.json",
+      "expected": "10d47fcbfef7f2a3c874c5fbad9bb4b9387126326a6bc054edfb92ee24bc0c1a",
+      "actual": "10d47fcbfef7f2a3c874c5fbad9bb4b9387126326a6bc054edfb92ee24bc0c1a",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/tool-hashes-drift-negative.txt",
+      "expected": "d1d8d7ab7f10d88939c94f48fd69cbf36293c4cc9b80de4724451241b566df9b",
+      "actual": "d1d8d7ab7f10d88939c94f48fd69cbf36293c4cc9b80de4724451241b566df9b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/trace-check.json",
+      "expected": "f9d077da8bd1da15827bd8353b534d6cd83551858c46720c0dfd038469d353fd",
+      "actual": "f9d077da8bd1da15827bd8353b534d6cd83551858c46720c0dfd038469d353fd",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/trace.json",
+      "expected": "eb05b6a059a0a85626700afe3aeb655dd8606c184139b4888bd312eb95c076a7",
+      "actual": "eb05b6a059a0a85626700afe3aeb655dd8606c184139b4888bd312eb95c076a7",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/v1-comment-boundary.json",
+      "expected": "36d195618ebb68e05cea3799b4c782d2cfe4052248eb06801cd0845a92b7c8cc",
+      "actual": "36d195618ebb68e05cea3799b4c782d2cfe4052248eb06801cd0845a92b7c8cc",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/v2-engine-identity.json",
+      "expected": "e9d2f135320a074e7506db9e090b34cac13aa4b3c98f47e0a5b1e4739919c5fb",
+      "actual": "e9d2f135320a074e7506db9e090b34cac13aa4b3c98f47e0a5b1e4739919c5fb",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/v3-cases.json",
+      "expected": "1a3c0a9987a4966177304d9389c91d817e6c82ffe1cc560d54c9151ca981e977",
+      "actual": "1a3c0a9987a4966177304d9389c91d817e6c82ffe1cc560d54c9151ca981e977",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/v5-counting.json",
+      "expected": "0f4b4769393ee0e73a3554a89e6e3a6feafa2f8baa16d297ff85c80a71f7e8e8",
+      "actual": "0f4b4769393ee0e73a3554a89e6e3a6feafa2f8baa16d297ff85c80a71f7e8e8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/w12-engine-case.json",
+      "expected": "8924f05047335df14be20a27a6a79a4b558a293ac7ce9d579f9fb4ffbfa86c21",
+      "actual": "8924f05047335df14be20a27a6a79a4b558a293ac7ce9d579f9fb4ffbfa86c21",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/w3-audit-rows.json",
+      "expected": "7c11535ae455aa3834126c514374ba2f5c51f68895ea7968687d446c7445bc62",
+      "actual": "7c11535ae455aa3834126c514374ba2f5c51f68895ea7968687d446c7445bc62",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/w45-net-parity.json",
+      "expected": "c54971b14ac35c2600cca2211fa38b8638c633d1be4d691826b09303cf52abdb",
+      "actual": "c54971b14ac35c2600cca2211fa38b8638c633d1be4d691826b09303cf52abdb",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/x2-baseline-rerecord.json",
+      "expected": "a1afe43a6fe4c598ed919093bb58c76ac50de3306fda173b61bdf43720029dcc",
+      "actual": "a1afe43a6fe4c598ed919093bb58c76ac50de3306fda173b61bdf43720029dcc",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/y1-named-client-parity.json",
+      "expected": "516946f64df7e8d255afee81619145dfec8d7907f2b8ff934c8979e22d4d3af8",
+      "actual": "516946f64df7e8d255afee81619145dfec8d7907f2b8ff934c8979e22d4d3af8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/y2-f13-scanroots.json",
+      "expected": "8aeff629d1bdea393b450790b8ceac424e481c1908a46f566a5e8bc57a1adae3",
+      "actual": "8aeff629d1bdea393b450790b8ceac424e481c1908a46f566a5e8bc57a1adae3",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/y5-bypass-windows-names.json",
+      "expected": "896627afc6636eafcbc40ddf2ed45216f90d16e6b79ca53d61008e443a34b7b0",
+      "actual": "896627afc6636eafcbc40ddf2ed45216f90d16e6b79ca53d61008e443a34b7b0",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/y5-table-integrity.json",
+      "expected": "688f70f46740248804af3ffb760746101bee61ba7d2d0f40ca56144c8d4828eb",
+      "actual": "688f70f46740248804af3ffb760746101bee61ba7d2d0f40ca56144c8d4828eb",
+      "status": "MATCH"
+    }
+  ]
+}

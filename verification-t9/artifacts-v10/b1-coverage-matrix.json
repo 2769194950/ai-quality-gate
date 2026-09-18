@@ -1,0 +1,324 @@
+{
+  "cwd": "E:\\Desktop\\ai-quality-gate",
+  "repo": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\b1-matrix-35LXuJ\\repo",
+  "diffFiles": [
+    "src/app.mjs",
+    ".env",
+    "Credentials.json",
+    "Secrets/db.txt",
+    "assets/logo.png",
+    "node_modules/pkg/index.mjs",
+    "dist/bundle.mjs",
+    "notes.lock",
+    "docs.txt",
+    "vault.example",
+    "promo.txt",
+    "shared.txt",
+    "copy.txt"
+  ],
+  "cells": [
+    {
+      "path": "P1_diff_only",
+      "decision": "D01_sensitive_path",
+      "file": ".env",
+      "want": "excluded",
+      "observed": "excluded",
+      "reason": "sensitive_path_never_included",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P1_diff_only",
+      "decision": "D02_case_variant_path",
+      "file": "Credentials.json",
+      "want": "excluded",
+      "observed": "excluded",
+      "reason": "sensitive_path_never_included",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P1_diff_only",
+      "decision": "D03_case_variant_dir",
+      "file": "Secrets/db.txt",
+      "want": "excluded",
+      "observed": "excluded",
+      "reason": "sensitive_path_never_included",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P1_diff_only",
+      "decision": "D04_binary_extension",
+      "file": "assets/logo.png",
+      "want": "excluded",
+      "observed": "excluded",
+      "reason": "binary_file:extension",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P1_diff_only",
+      "decision": "D05_default_excluded_dir",
+      "file": "node_modules/pkg/index.mjs",
+      "want": "excluded",
+      "observed": "excluded",
+      "reason": "default_excluded_dir:node_modules",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P1_diff_only",
+      "decision": "D06_unsupported_extension",
+      "file": "notes.lock",
+      "want": "excluded",
+      "observed": "excluded",
+      "reason": "unsupported_extension:.lock",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P1_diff_only",
+      "decision": "D07_hardlink_alias_of_sensitive",
+      "file": "docs.txt",
+      "want": "excluded",
+      "observed": "excluded",
+      "reason": "hardlink_secret_alias:same-inode-as-sensitive-path",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P1_diff_only",
+      "decision": "D08_hardlink_secret_content",
+      "file": "promo.txt",
+      "want": "excluded",
+      "observed": "excluded",
+      "reason": "hardlink_secret_alias:secret-content-in-hardlinked-file",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P1_diff_only",
+      "decision": "D09_hardlink_neutral_content",
+      "file": "copy.txt",
+      "want": "selected",
+      "observed": "selected",
+      "reason": null,
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P1_diff_only",
+      "decision": "D10_negative_ordinary_file",
+      "file": "src/app.mjs",
+      "want": "selected",
+      "observed": "selected",
+      "reason": null,
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P2_root_only",
+      "decision": "D01_sensitive_path",
+      "file": ".env",
+      "want": "excluded",
+      "observed": "excluded",
+      "reason": "sensitive_path_never_included",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P2_root_only",
+      "decision": "D02_case_variant_path",
+      "file": "Credentials.json",
+      "want": "excluded",
+      "observed": "excluded",
+      "reason": "sensitive_path_never_included",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P2_root_only",
+      "decision": "D03_case_variant_dir",
+      "file": "Secrets/db.txt",
+      "want": "excluded",
+      "observed": "excluded",
+      "reason": "sensitive_path_never_included",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P2_root_only",
+      "decision": "D04_binary_extension",
+      "file": "assets/logo.png",
+      "want": "excluded",
+      "observed": "excluded",
+      "reason": "binary_file:extension",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P2_root_only",
+      "decision": "D05_default_excluded_dir",
+      "file": "node_modules/pkg/index.mjs",
+      "want": "excluded",
+      "observed": "excluded",
+      "reason": "default_excluded_dir:node_modules",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P2_root_only",
+      "decision": "D06_unsupported_extension",
+      "file": "notes.lock",
+      "want": "excluded",
+      "observed": "excluded",
+      "reason": "unsupported_extension:.lock",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P2_root_only",
+      "decision": "D07_hardlink_alias_of_sensitive",
+      "file": "docs.txt",
+      "want": "excluded",
+      "observed": "excluded",
+      "reason": "hardlink_secret_alias:same-inode-as-sensitive-path",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P2_root_only",
+      "decision": "D08_hardlink_secret_content",
+      "file": "promo.txt",
+      "want": "excluded",
+      "observed": "excluded",
+      "reason": "hardlink_secret_alias:secret-content-in-hardlinked-file",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P2_root_only",
+      "decision": "D09_hardlink_neutral_content",
+      "file": "copy.txt",
+      "want": "selected",
+      "observed": "selected",
+      "reason": null,
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P2_root_only",
+      "decision": "D10_negative_ordinary_file",
+      "file": "src/app.mjs",
+      "want": "selected",
+      "observed": "selected",
+      "reason": null,
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P3_diff_with_root",
+      "decision": "D01_sensitive_path",
+      "file": ".env",
+      "want": "excluded",
+      "observed": "excluded",
+      "reason": "sensitive_path_never_included",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P3_diff_with_root",
+      "decision": "D02_case_variant_path",
+      "file": "Credentials.json",
+      "want": "excluded",
+      "observed": "excluded",
+      "reason": "sensitive_path_never_included",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P3_diff_with_root",
+      "decision": "D03_case_variant_dir",
+      "file": "Secrets/db.txt",
+      "want": "excluded",
+      "observed": "excluded",
+      "reason": "sensitive_path_never_included",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P3_diff_with_root",
+      "decision": "D04_binary_extension",
+      "file": "assets/logo.png",
+      "want": "excluded",
+      "observed": "excluded",
+      "reason": "binary_file:extension",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P3_diff_with_root",
+      "decision": "D05_default_excluded_dir",
+      "file": "node_modules/pkg/index.mjs",
+      "want": "excluded",
+      "observed": "excluded",
+      "reason": "default_excluded_dir:node_modules",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P3_diff_with_root",
+      "decision": "D06_unsupported_extension",
+      "file": "notes.lock",
+      "want": "excluded",
+      "observed": "excluded",
+      "reason": "unsupported_extension:.lock",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P3_diff_with_root",
+      "decision": "D07_hardlink_alias_of_sensitive",
+      "file": "docs.txt",
+      "want": "excluded",
+      "observed": "excluded",
+      "reason": "hardlink_secret_alias:same-inode-as-sensitive-path",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P3_diff_with_root",
+      "decision": "D08_hardlink_secret_content",
+      "file": "promo.txt",
+      "want": "excluded",
+      "observed": "excluded",
+      "reason": "hardlink_secret_alias:secret-content-in-hardlinked-file",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P3_diff_with_root",
+      "decision": "D09_hardlink_neutral_content",
+      "file": "copy.txt",
+      "want": "selected",
+      "observed": "selected",
+      "reason": null,
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "path": "P3_diff_with_root",
+      "decision": "D10_negative_ordinary_file",
+      "file": "src/app.mjs",
+      "want": "selected",
+      "observed": "selected",
+      "reason": null,
+      "ok": true,
+      "exit": 0
+    }
+  ],
+  "failures": [],
+  "cellCount": 30,
+  "okCount": 30
+}

@@ -1,0 +1,31 @@
+{
+  "name": "qgate",
+  "version": "1.0.0",
+  "description": "Deterministic quality-gate contract engine: 5-stage pipeline, 7 check types, offline providers, zero runtime dependencies.",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "bin": {
+    "qgate": "./bin/qgate.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "exports": {
+    ".": "./src/index.mjs",
+    "./contract": "./src/contract.mjs"
+  },
+  "files": [
+    "bin",
+    "src",
+    "gates",
+    "examples",
+    "test"
+  ],
+  "scripts": {
+    "test": "node --test --experimental-test-isolation=none test/*.test.mjs",
+    "test:isolated": "node --test test/",
+    "contract": "node bin/qgate.mjs contract --check",
+    "check:demo": "node bin/qgate.mjs check --config ../../demo/qgate.config.json"
+  }
+}

@@ -1,0 +1,295 @@
+{
+  "task": "t18",
+  "kind": "verification",
+  "verifier": "verifier",
+  "attempt_id": "2701a07c-ffa1-4b7a-ba96-012490d010a4",
+  "generated_at": "2026-09-18T02:37:17+08:00",
+  "canonical_cwd": "E:\\Desktop\\ai-quality-gate",
+  "workspace_aliases": {
+    "real_path": "E:\\Desktop\\ai-quality-gate",
+    "junction": "E:\\ai-quality-gate",
+    "note": "Every assertion records the cwd it ran in. Default is the repository's canonical path. The junction was used only for the deliberate cross-cwd probes (assertions 4 and the GAP-5 counter-runs)."
+  },
+  "environment": {
+    "node": "v24.19.0",
+    "npm": "11.13.0",
+    "git_installed": "2.46.0.windows.1",
+    "is_git_repository": false,
+    "git_evidence": "git rev-parse --is-inside-work-tree => fatal: not a git repository; Test-Path E:\\Desktop\\.git / E:\\ai-quality-gate\\.git / E:\\.git => False,False,False",
+    "node_modules_present": false,
+    "runtime_dependencies": { "package.json": {}, "packages/qgate/package.json": {}, "adapters/opencodereview/package.json": {} },
+    "api_key_env_vars_present": [],
+    "api_key_env_probe": "Get-ChildItem Env: | Where-Object { $_.Name -match '(?i)api[_-]?key|anthropic|openai|(^|_)token|secret|proxy' } => 0 names",
+    "test_runner_limit": "`node --test <dir>` fails with Error: spawn EPERM (sandbox denies piped child-process stdio). Ruling C: platform boundary, not a code defect. `node --test --experimental-test-isolation=none <files>` and per-file in-process execution are the accepted equivalents and are annotated everywhere."
+  },
+  "revision": {
+    "repo_is_not_a_git_repo": true,
+    "substitute_for_commit_hash": "sha256 manifest over the measured surface, computed by verification-t9/tools/tree-fingerprint.mjs",
+    "fingerprints": [
+      { "when": "02:34:0x before", "full": "8186b79b1e6f0d8b503c714dc6eb2cce0bf9a8e892d0b15442d6a2455390c03f" },
+      { "when": "02:35:32 after measurements", "full": "447e7f40b5962c493cd8e5369ff36cdf791cdc12707c22c0e3b9e1121e1e1baa", "code_only": "15e9688d295dc03fb0ceea15cd291ad47e009a4f8314c9c6de8978e5478a0342" },
+      { "when": "02:36:01 report time", "full": "1525b74a9ca7c3159edf3fab3d6fcc4868202f864abfed92e79cc5ab9b83e7e5", "files": 140, "code_only": "f0202c836e8d3433a2e28bbf79b903dcc15a5d9be00935c8c3e0a3a289856e72", "newest": "docs/01-architecture.md 02:35:57" }
+    ],
+    "moving_surfaces_during_verification": "docs/01-architecture.md was still being revised (t16) between 02:35:29 and 02:35:57; all doc-derived statements below were read at 02:35:38-02:35:57 and are pinned to that revision. All runtime measurements were taken at cwd=E:\\Desktop\\ai-quality-gate between 02:34 and 02:36."
+  },
+  "incidents": [
+    {
+      "id": "INC-1",
+      "occurred_at": "2026-09-18T02:32:06+08:00",
+      "summary": "verification/** was cleared during t9, destroying the verifier's evidence set; core-engineer acknowledged running `Remove-Item verification -Recurse -Force`.",
+      "lost": "verification/report.json (34799 B), verification/README.md, 9 tools under verification/tools/**, 36 artifacts under verification/artifacts/**, and the negative fixtures under verification/negative/",
+      "survivors_at_the_time": "5 engine-written files only (verification/evidence/ledger-*.json x3, verification/evidence/ledger-index.json, verification/trace-matrix.json)",
+      "correlated_event": "a new root-level qgate.config.json appeared at 02:32:05 whose policy.evidenceDir/reportDir resolve under verification/**",
+      "structural_cause": "the engine's default evidenceDir/reportDir point at verification/**, so any 'clean end-to-end run' written from the repository root recreates (and a preceding cleanup deletes) the verifier's working directory unless it is owned by someone else",
+      "detection_evidence": "at 02:32:07 `node verification/tools/tree-fingerprint.mjs` => Cannot find module …; both the junction and the real path then showed only the 4 engine files above",
+      "remediation": "captain renamed the verifier's deliverable root to verification-t9/** and issued verification/.captain-freeze.json",
+      "counted_as_delivery_failure": false,
+      "note": "Recorded for audit only; per the task contract it is excluded from the summary fail count."
+    }
+  ],
+  "directory_ownership_disclosure": {
+    "rule_in_force_now": "verification/** belongs to the engine/audit chain; the verifier's private products live in verification-t9/**.",
+    "pre_ruling_writes": "11 files had been created between 02:32:45 and 02:33:42 (verification/tools/*.mjs x9, verification/negative/safe002-include.rule.json, verification/artifacts/preview-compare/engine-rule.json) before the t18 ownership ruling reached the verifier.",
+    "resolution": "at 02:37 the captain explicitly authorised deleting those leftovers as the verifier's own migrated copies. Deleted: verification/tools/**, verification/artifacts/**, verification/negative/**. Kept untouched: verification/.captain-freeze.json, verification/evidence/**, verification/trace-matrix.json.",
+    "state_after_cleanup": "verification/ = 3 top-level entries (evidence, .captain-freeze.json, trace-matrix.json), 12 files, all engine-written or captain-authored; verification-t9/ = 4 top-level entries (artifacts, negative, tools, report.json), 153 files.",
+    "verification_untouched_since": "no further write or delete under verification/** by the verifier"
+  },
+  "assertions": [
+    {
+      "id": "1",
+      "claim": "packages/qgate 与 adapters/opencodereview 测试套件全绿，记录真实通过数与运行方式",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "command": "node --test --experimental-test-isolation=none packages/qgate/test/config-and-run-result.test.mjs packages/qgate/test/pipeline-and-checks.test.mjs packages/qgate/test/acceptance.test.mjs packages/qgate/test/schema-contract.test.mjs ; node adapters/opencodereview/tools/run-tests.mjs",
+      "expected": "引擎 60/60、适配层 57/57，0 fail；沙箱 EPERM 用隔离关闭/逐文件进程内等价运行并标注",
+      "actual": "引擎 exit=0 → tests 60 / pass 60 / fail 0 / skipped 0（构成：config-and-run-result 7/7、pipeline-and-checks 18/18、acceptance 12/12、schema-contract 23/23；逐文件单独运行亦为 60/60）。适配层 exit=0 → tests 57 / pass 57 / fail 0（ci-workflow 7、fixtures 5、grouping-rules 14、ocr-runner 7、selection 24）。字面量 `node --test packages/qgate/test/` 与 `node --test adapters/opencodereview/test/` 均报 Error: spawn EPERM（exit 1），按裁决 C 标注为平台边界。非仓库根 cwd（E:\\Desktop 与 junction E:\\ai-quality-gate）下适配层为 54/57，按裁决 B 记 blocked（GAP-5），不判 fail。",
+      "status": "pass",
+      "evidence": ["verification-t9/artifacts/engine-suite-official.txt", "verification-t9/artifacts/adapter-suite.txt", "verification-t9/artifacts/cwd-probe.txt"]
+    },
+    {
+      "id": "2",
+      "claim": "demo 五阶段门禁端到端通过，gates 恰为 requirements/design/build/review/verify",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "command": "node packages/qgate/bin/qgate.mjs check --config demo/qgate.config.json --summary",
+      "expected": "exit 0；overall_passed=true；5 个 gate，stage 恰为五阶段",
+      "actual": "exit=0；overall_passed=true；gates stages=[\"requirements\",\"design\",\"build\",\"review\",\"verify\"]（5/5，无 skip）；approvals_missing=0；provider={\"type\":\"deterministic\",\"degraded\":false,\"detail\":\"offline-fixture\"}。stdout 为纯 JSON（首字符 '{'）。",
+      "status": "pass",
+      "evidence": ["verification-t9/artifacts/check-summary.txt", "verification-t9/artifacts/runresult-1.json"]
+    },
+    {
+      "id": "3",
+      "claim": "同一命令连续两次运行，除 run_id/started_at/finished_at/duration_ms 外输出一致",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "command": "node packages/qgate/bin/qgate.mjs check --config demo/qgate.config.json --json  (twice) ; node verification-t9/tools/normalize-runresult.mjs verification-t9/artifacts/runresult-1.json verification-t9/artifacts/runresult-2.json ; node verification-t9/tools/leaf-diff.mjs verification-t9/artifacts/runresult-1.json verification-t9/artifacts/runresult-2.json",
+      "expected": "两次规范化哈希相等；未剔除的差异只应落在运行时字段",
+      "actual": "两次 exit=0；normalized sha256 均为 6e4999bf6c958af85a22ab7202b82bad3d9883b6799cd5da917139d98bc6c1ac；normalized-equal=true；剔除键=[duration_ms,finished_at,run_id,started_at]；另有 3 处字符串内嵌 run_id 被规范化为 <RUN_ID>。逐叶子比对（239 个叶子）仅 3 处不同，全部为运行时字段：/run_id、/started_at、/finished_at。",
+      "status": "pass",
+      "evidence": ["verification-t9/artifacts/determinism-same-cwd.txt", "verification-t9/artifacts/leaf-diff-same-cwd.txt", "verification-t9/artifacts/runresult-1.json", "verification-t9/artifacts/runresult-2.json"]
+    },
+    {
+      "id": "4",
+      "claim": "确定性（按裁决 B 分两部分）：① 固定 cwd 两次运行一致；② 跨 cwd 是否一致（给出两个 cwd 与差异键）；并记录无网络、无 API Key 的环境证据",
+      "cwd": "① E:\\Desktop\\ai-quality-gate；② E:\\Desktop\\ai-quality-gate vs E:\\ai-quality-gate（junction）；附加：E:\\Desktop\\ai-quality-gate\\packages\\qgate（t2 声称的对照 cwd）",
+      "command": "node verification-t9/tools/leaf-diff.mjs …runresult-1.json …runresult-2.json ; node verification-t9/tools/normalize-runresult.mjs …runresult-1.json …runresult-cwd-junction.json ; node verification-t9/tools/leaf-diff.mjs …adapter-preview-default.json …adapter-preview-cwd-junction.json ; (cd packages/qgate; node ../../packages/qgate/bin/qgate.mjs check --config demo/qgate.config.json --json) ; node -e \"…check --config E:\\Desktop\\ai-quality-gate\\demo\\qgate.config.json…\" ; Get-ChildItem Env: … ; Test-Path node_modules",
+      "expected": "① 固定 cwd 两次运行除运行时字段外一致（应通过）；② 跨 cwd 当前预期不一致（GAP-5），须给出两个 cwd 与差异键；无 API Key/无网络依赖",
+      "actual": "① 通过：同 cwd（仓库根）两次运行 239 个叶子中仅 3 个运行时叶子不同（见断言 3）。② 不一致，且已定位：引擎 `check --json` 在 cwd=E:\\Desktop\\ai-quality-gate 与 cwd=E:\\ai-quality-gate 之间，剔除 4 个运行时字段后仍有**恰 1 个**语义叶子不同 —— /gates/3/checks/3/evidence/0/excerpt（CONTRACT_001 的 scannedConfig 绝对路径：E:\\Desktop\\ai-quality-gate\\demo\\qgate.config.json vs E:\\ai-quality-gate\\demo\\qgate.config.json）；适配层 `ocr-preview --json`（同一命令、相对 --diff，无 --rule）在两个 cwd 间有 **4 个**叶子不同：/rules/layer_trace/0/file、/rules/layer_trace/1/file、/rules/loaded_layers/0/file、/source/path（均为 cwd 锚定的绝对路径留痕）。附带核对 t2 的对照口径：cwd=packages/qgate 且用相对 `--config demo/qgate.config.json` 时 exit=2 CONFIG_NOT_FOUND（该对照按原文不可复现）；改用绝对 --config 后 exit=0，与仓库根运行的差异叶子=4 且全部是运行时字段（语义差异 0），即 t2 的结论在绝对配置路径下成立。③ 环境：匹配 api|key|token|anthropic|openai|secret|proxy 的环境变量名 0 个；无 node_modules；三个 package.json 的 dependencies/devDependencies 全为 {}；SAFE_001/SAFE_003 policy check 在 RunResult 中 passed=true。",
+      "status": "pass",
+      "evidence": ["verification-t9/artifacts/determinism-cross-cwd.txt", "verification-t9/artifacts/leaf-diff-engine-check-cwd.txt", "verification-t9/artifacts/leaf-diff-adapter-cwd.txt", "verification-t9/artifacts/runresult-cwd-junction.json", "verification-t9/artifacts/adapter-preview-cwd-junction.json", "verification-t9/artifacts/leaf-diff-engine-abs-config-cwd.txt", "verification-t9/artifacts/runresult-cwd-pkg-qugate-abs.json"]
+    },
+    {
+      "id": "5",
+      "claim": "反向用例 A（强制）：复制 demo 配置到 verification-t9/negative/ 并删除一个必需证据文件后，check 必须以退出码 1 结束且 blockers 出现该确切路径",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "command": "node packages/qgate/bin/qgate.mjs check --config verification-t9/negative/A-missing-evidence/qgate.config.json --json ; node packages/qgate/bin/qgate.mjs check --config verification-t9/negative/A-control/qgate.config.json --json",
+      "expected": "A exit=1，overall_passed=false，blockers 含 .qgate/evidence/test-results.json；未删文件的对照 exit=0",
+      "actual": "A：exit=1，overall_passed=false，**唯一** blocker = {gate:build-deterministic, checkId:test-results-threshold, message:\"FILE_MISSING: .qgate/evidence/test-results.json does not exist (json_assert requires a single JSON file)\"}，含确切路径。对照 A-control（同一副本、未删文件）：exit=0，overall_passed=true，5/5 gate passed，FILE_MISSING blocker 数=0。删除是唯一变量，因果成立。",
+      "status": "pass",
+      "evidence": ["verification-t9/artifacts/negative-A-missing-evidence.json", "verification-t9/artifacts/negative-A-control.json", "verification-t9/negative/A-missing-evidence/", "verification-t9/negative/A-control/"]
+    },
+    {
+      "id": "6",
+      "claim": "反向用例 B（强制）：非法配置必须以退出码 2 结束并给出可读诊断，绝不静默通过",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "command": "node packages/qgate/bin/qgate.mjs check --config verification-t9/negative/B1-missing-version/qgate.config.json --json ; node packages/qgate/bin/qgate.mjs check --config verification-t9/negative/B2-bad-check-type/qgate.config.json --json ; node packages/qgate/bin/qgate.mjs check --config verification-t9/negative/B3-does-not-exist/nope.json --json",
+      "expected": "三例均 exit=2；error.code ∈ {CONFIG_INVALID, CONFIG_NOT_FOUND}",
+      "actual": "B1（缺 version）：exit=2、ok=false、error.code=CONFIG_INVALID、jsonPointer=/version、message=\"configuration is not valid: version must be the literal \\\"1.0\\\"\"。B2（check.type=\"file_exist\"）：exit=2、CONFIG_INVALID、jsonPointer=/gates/0/checks/0/type、message=\"…check.type \\\"file_exist\\\" is not allowed\"。B3（配置不存在）：exit=2、CONFIG_NOT_FOUND、message=\"configuration file not found: verification-t9/negative/B3-does-not-exist/nope.json\"。",
+      "status": "pass",
+      "evidence": ["verification-t9/artifacts/negative-B1-missing-version.json", "verification-t9/artifacts/negative-B2-bad-check-type.json", "verification-t9/artifacts/negative-B3-config-not-found.json"]
+    },
+    {
+      "id": "7",
+      "claim": "安全不变量：适配层 preview 的 selected 不含任何 .env*/*.pem/*.key/id_rsa*/credentials*/secrets/**；显式 include 这些路径后依然排除",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "command": "node adapters/opencodereview/bin/ocr-preview.mjs --diff adapters/opencodereview/demo/diff.json --rule adapters/opencodereview/demo/rule.json --json ; node adapters/opencodereview/bin/ocr-preview.mjs --diff adapters/opencodereview/demo/diff.json --rule verification-t9/negative/safe002-include.rule.json --json ; node adapters/opencodereview/bin/ocr-preview.mjs --diff adapters/opencodereview/demo/diff.json --include '.env*' --include '**/*.pem' --include '**/id_rsa*' --include 'secrets/**' --include '**/credentials*' --json",
+      "expected": "三种场景下 selection.included、selected[].path、ruleMatch[].file、groups[].files 均无密钥路径；密钥路径出现在 excluded 且 reason=sensitive_path_never_included",
+      "actual": "三场景 exit 均 0，included 均为 14，泄漏计数均为 0；四类密钥路径 .env.production、.opencodereview/secrets/db-password.txt、config/tls/server.pem、src/chain/id_rsa 每次全部出现在 excluded（reason=sensitive_path_never_included、rule_source=SAFETY_INVARIANT）；safety={no_sensitive_selected:true, sensitive_paths_never_reincludable:true, violations:[], grouping_invariants_ok:true}。",
+      "status": "pass",
+      "evidence": ["verification-t9/artifacts/adapter-preview-default.json", "verification-t9/artifacts/adapter-preview-safe002-include.json", "verification-t9/artifacts/adapter-preview-include-flags.json", "verification-t9/artifacts/preview-crosscheck.json", "verification-t9/negative/safe002-include.rule.json"]
+    },
+    {
+      "id": "8",
+      "claim": "traceability：每个 requirementId 的 covered=true 且 testIds 非空；summary 计数与数组长度自洽",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "command": "node packages/qgate/bin/qgate.mjs trace --config demo/qgate.config.json --json ; node verification-t9/tools/trace-check.mjs",
+      "expected": "exit 0；全 covered；summary.requirements==长度、covered+uncovered==requirements、orphanTestIds==0、coverageRatio==round(covered/reqs,4)",
+      "actual": "exit=0；requirements=6、covered=6、uncovered=0、orphanTestIds=0、coverageRatio=1；13/13 检查 OK（含 covered==testIds非空且全部命中 ledger-index.testIds、covered=true 必带 evidence、与 requirements-index 双向一致、pipeline 恰五阶段、generated_by==\"qgate trace\"）；allChecksPass=true。",
+      "status": "pass",
+      "evidence": ["verification-t9/artifacts/trace.json", "verification-t9/artifacts/trace-check.json"]
+    },
+    {
+      "id": "9",
+      "claim": "文档与实现一致性抽查：§5.1 config 与 §5.2 RunResult 的字段名/类型/枚举与真实输出逐个比对，并列出任何不一致",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "command": "node verification-t9/tools/contract-fields.mjs --json ; node verification-t9/tools/preview-crosscheck.mjs --json",
+      "expected": "文档字段表（含最终版 §5.1 七项声明）与 schema 属性集合、真实 RunResult 键集合、三份真实配置键集合无差异",
+      "actual": "mismatch count = 0。覆盖 29 个 schema 层级（config 15：顶层/provider/policy/selection/grouping/gate/humanGate/checkBase + 7 个 check 变体；run-result 7；evidence-ledger 4；trace-matrix 3）+ 真实 RunResult 的 top/provider/gate/humanGate/check/evidence（本次通过的运行里 blocker 对象数为 0，故 blocker 层标为“本次运行未行使”，不计 mismatch；抽样规模：5 gate / 19 check / 3 humanGate / 39 evidence）+ 三份真实配置。最终版 §5.1 顶层 7 项（version、provider、gates、policy、projectRoot、selection、grouping）与 schema 完全一致；provider 7 项、policy 4 项（含 scanRoots）、selection 8 项、grouping 3 项一致。另：§6.2.1 引擎 ruleMatch 键集与 §6.2.2 适配层 6 组键集与真实输出逐字一致（见断言 12）。列出的一致性问题见 inconsistencies（I1-I10）。",
+      "status": "pass",
+      "evidence": ["verification-t9/artifacts/contract-fields.json", "verification-t9/tools/contract-fields.mjs"]
+    },
+    {
+      "id": "10",
+      "claim": "未验证项如实标 blocked 并说明具体原因，不得写成 pass",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "command": "(记录型断言：逐条引用无法执行的命令与其原因，见 blockedItems)",
+      "expected": "所有当前环境无法验证的项逐条标 blocked 并给出可复现原因",
+      "actual": "6 项 blocked，见顶层 blockedItems：B1 非仓库根 cwd 下适配层 54/57（cwd 依赖，GAP-5，按裁决 B 标 blocked 而非 fail）、B2 GitHub Actions 真实执行（无网络/runner）、B3 干净 checkout/commit 哈希复现（无 git 仓库）、B4 §9.1 approval.json 无 JSON Schema 制品、B5 引擎侧跨 cwd 差异叶子（CONTRACT_001 scannedConfig）尚未被 §6.2.3 GAP-5 文本覆盖（等待文档修订）、B6 字面量 `node --test <dir>`（spawn EPERM，裁决 C）。",
+      "status": "blocked",
+      "evidence": ["verification-t9/artifacts/leaf-diff-engine-check-cwd.txt", "verification-t9/artifacts/adapter-suite.txt"]
+    },
+    {
+      "id": "11",
+      "claim": "schemas/ 下 4 份 JSON Schema 存在、可解析、$schema 为 2020-12，字段集合与最终版 §5.1/§9.1 一致；三份配置 valid=true 且 check.type=\"file_exist\" valid=false",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "command": "node verification-t9/tools/schema-meta.mjs ; node verification-t9/tools/schema-eval.mjs ; node verification-t9/tools/contract-fields.mjs --json",
+      "expected": "4 份 draft 2020-12 + $id/title/description；demo、_canonical-config、examples/valid/five-stage 三份 valid=true；反向控制 valid=false",
+      "actual": "4 份文件存在且可解析：均 $schema=https://json-schema.org/draft/2020-12/schema，各有 $id/title/description（config $id=https://ai-quality-gate.local/schemas/config.schema.json）。求值（复用 packages/qgate/test/helpers/json-schema.mjs）：demo/qgate.config.json => valid=true, errors=[]；packages/qgate/test/_canonical-config.json => valid=true, errors=[]；packages/qgate/examples/valid/five-stage.json => valid=true, errors=[]；（附加）examples/valid/self-contained-five-stage.json => valid=true, errors=[]。反向控制（demo 配置 check.type=\"file_exist\"）=> valid=false, errors=[{instancePath:\"/gates/0/checks/0/type\",keyword:\"enum\",message:\"must be one of \\\"file_exists\\\"|\\\"file_not_exists\\\"|\\\"regex\\\"|\\\"command\\\"|\\\"json_assert\\\"|\\\"trace_matrix\\\"|\\\"policy\\\", got string(10)\"},{instancePath:\"/gates/0/checks/0\",keyword:\"oneOf\",message:\"must match exactly one subschema, matched 0\"}]。§9.1：run-result 的 humanGate.approvedBy/approvedAt 为 string|null 语义（写法偏差见 I2）；approval.json 本身无专用 schema。方法与局限：Node 无内置 JSON Schema 校验器且项目要求零依赖，故使用仓库自带的 draft 2020-12 子集求值器（未知关键字被忽略），只声称“按该求值器求值”，不声称完成完整 2020-12 合规校验。",
+      "status": "pass",
+      "evidence": ["verification-t9/artifacts/schema-eval.json", "verification-t9/artifacts/schema-meta.txt", "verification-t9/artifacts/contract-fields.json"]
+    },
+    {
+      "id": "12",
+      "claim": "独立复跑验证 priority 归一化公式 engine_priority = adapter_priority - 1（同一文件树、同一 CLI 层 --rule），并复核 §6.2.1/§6.2.2 键集",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "command": "node packages/qgate/bin/qgate.mjs preview --root verification-t9/artifacts/preview-compare/demo --rule verifier-engine-rule.json --json ; node adapters/opencodereview/bin/ocr-preview.mjs --root verification-t9/artifacts/preview-compare/demo --rule verification-t9/artifacts/preview-compare/demo/rule.json --json ; node verification-t9/tools/preview-crosscheck.mjs",
+      "expected": "两侧 ruleMatch 键集与 §6.2.1/§6.2.2 逐字一致；同一棵树同一层级的 priority 差恰为 1（engine = adapter − 1）",
+      "actual": "同一份复制树（verification-t9/artifacts/preview-compare/demo，双方各跑一次，exit 均 0）。引擎 ruleMatch 层值与优先级：{\"cli\":[0],\"builtin\":[3]}（cli 层 14 个文件 priority=0；builtin 层 5 个文件 priority=3）；适配层：{\"cli\":[1]}（18 个文件 priority=1）。同树同层的 14 个文件逐项比对 delta 全为 1 ⇒ **engine_priority = adapter_priority − 1 成立**（CLI 层 0 = 1 − 1；builtin 层亦满足 3 = 4 − 1，见 §6.2.2.4）。键集 6/6 一致：engineRuleMatch=[file,ruleSource,ruleId,match,severity,category,priority]；adapterRuleMatch=[decision,file,pattern,priority,reason,ruleId,ruleSource]；adapterSelected 8 键；adapterExcluded 7 键；adapterGroups 6 键；adapterSelection=[excluded,included]。两侧 ruleMatch 长度均等于 selection.included（引擎 19/19，适配层 18/18）。",
+      "status": "pass",
+      "evidence": ["verification-t9/artifacts/preview-crosscheck.json", "verification-t9/artifacts/engine-preview-same-files.json", "verification-t9/artifacts/adapter-preview-same-files.json", "verification-t9/artifacts/engine-preview-cli-rule.json"]
+    }
+  ],
+  "summary": { "pass": 11, "fail": 0, "blocked": 1, "total": 12 },
+  "inconsistencies": [
+    {
+      "id": "I1",
+      "severity": "high",
+      "title": "根 package.json 的 7 个脚本全部指向不存在的配置路径",
+      "problem": "scripts.check/check:json/check:summary/trace/preview/report/verify 均使用 --config demo/mini-service/.qgate/config.json；该文件不存在（真实 demo 配置是 demo/qgate.config.json，且根目录另有 qgate.config.json）。",
+      "evidence": "Select-String package.json -Pattern 'demo/'（7 行）；Test-Path demo/mini-service/.qgate/config.json => False",
+      "requiredFix": "core-engineer（t7 集成 owner）：把脚本指向 demo/qgate.config.json 或仓库根 qgate.config.json，并在 README 以真实命令为准。"
+    },
+    {
+      "id": "I2",
+      "severity": "medium",
+      "title": "run-result.schema.json 的可空字符串写法与 §9.1/schemas/README 的说明相反",
+      "problem": "§9.1 与 schemas/README 声称 nullable 字符串使用 oneOf:[{type:\"string\"},{type:\"null\"}] 而非 type:[\"string\",\"null\"]（后者会让 pattern/maxLength 静默失效）；实测 run-result 的 $defs.humanGateResult.properties.approvedBy/approvedAt 都是 {\"type\":[\"string\",\"null\"]}，而 evidence-ledger 的 testId 才是 oneOf 形式。当前两字段无 pattern/maxLength，故无实际校验力损失，但文档所述理由与制品不符。",
+      "evidence": "verification-t9/artifacts/schema-meta.txt",
+      "requiredFix": "architect：把两字段改为 oneOf 形式，或修正 §9.1 与 schemas/README 的表述。"
+    },
+    {
+      "id": "I3",
+      "severity": "medium",
+      "title": "stdio 不可管道时 command.stdoutRegex 未评估却报 passed=true",
+      "problem": "demo 的 build-deterministic/command-smoke 声明 stdoutRegex=\"^v\\\\d+\\\\.\"，证据显示 \"stdout not captured: piped stdio unavailable, command ran with inherited stdio\"，检查仍 passed=true —— 一条声明了输出断言的必需检查在取不到输出时静默通过（断言从未被评估）。同类环境下所有 stdoutRegex 检查都会失去校验力。",
+      "evidence": "verification-t9/artifacts/runresult-1.json → gates[build-deterministic].checks[command-smoke]（evidence 两条：command=… exitCode=0；stdout not captured…）",
+      "requiredFix": "core-engineer：stdio 不可用时若声明了 stdoutRegex，应标为未评估/降级（显式记账或 fail），或改用临时文件捕获子进程输出。"
+    },
+    {
+      "id": "I4",
+      "severity": "low",
+      "title": "§5.1 补声明段落自相矛盾（写 5 项、列 7 项）",
+      "problem": "docs/01-architecture.md L333 写「上述 5 项」，括号内却列出 7 个字段（projectRoot、selection、grouping、provider.fixture、provider.confidenceThreshold、policy.scanRoots、policy.expectedFiles）。",
+      "evidence": "Select-String docs/01-architecture.md -Pattern '上述 \\d+ 项' → L333",
+      "requiredFix": "architect：改为「上述 7 项」。"
+    },
+    {
+      "id": "I5",
+      "severity": "low",
+      "title": "§6.2 描述的 check --summary 输出形态与实现不符",
+      "problem": "§6.2 命令表 L711 称 --summary 行为是「每个门禁一行：stage | gate | passed | blockers | checks」（人类表格）；实测输出是 JSON 对象 {overall_passed, gates[], run_id, provider, approvals_missing}。",
+      "evidence": "verification-t9/artifacts/check-summary.txt",
+      "requiredFix": "architect：把 §6.2 的 --summary 一行改为真实结构，或在实现中提供文档所述表格。"
+    },
+    {
+      "id": "I6",
+      "severity": "low",
+      "title": "两侧 --rule 的规则文件格式不兼容且失效方向不对称",
+      "problem": "引擎 `qgate preview --rule` 要求 {\"rules\":[{id,match,severity,category}]}；适配层 `ocr-preview --rule` 要求 {include,exclude,grouping}。实测：引擎吃适配层 demo/rule.json => exit=2 CONFIG_INVALID「rule file has no \"rules\" array」；适配层吃引擎格式文件 => exit=0 且静默忽略（规则层不生效）。§6.2.3 GAP-1..GAP-5 只覆盖输出字段名与 cwd，未覆盖该输入格式差异。",
+      "evidence": "verification-t9/artifacts/engine-preview.json（首次尝试的 CONFIG_INVALID 原始输出）",
+      "requiredFix": "architect/captain：在 §6.2.3 增补该缺口；适配层至少在 --rule 文件不含自身格式键时报错而非静默忽略。"
+    },
+    {
+      "id": "I7",
+      "severity": "medium",
+      "title": "§3.4 的「双 cwd RunResult 深度相等」退出条件与实测不符（引擎 check 侧）",
+      "problem": "docs L127 称确定性部分含「双 cwd 复跑一致」、L130 把「同一配置在 2 个不同 cwd 下 RunResult（剔除运行时字段）深度相等」写成 build 阶段退出条件。实测：同一相对 --config 在 cwd=E:\\Desktop\\ai-quality-gate 与 cwd=E:\\ai-quality-gate（同一棵树，junction 拼写）之间，剔除 4 个运行时字段后仍有恰 1 个语义叶子不同（CONTRACT_001 证据里的 scannedConfig 绝对路径）。GAP-5 只把跨 cwd 缺口归给适配层，未覆盖引擎 check 的这一叶子。",
+      "evidence": "verification-t9/artifacts/leaf-diff-engine-check-cwd.txt, verification-t9/artifacts/determinism-cross-cwd.txt",
+      "requiredFix": "architect：把该叶子并入 GAP-5（或让 CONTRACT_001 证据使用项目相对路径），并让 §3.4 的退出条件与 §6.2.3 的结论一致。"
+    },
+    {
+      "id": "I8",
+      "severity": "low",
+      "title": "REQ-010 的验证方式引用不存在的测试文件",
+      "problem": "docs/00-requirements.md L129 把 `node packages/qgate/test/zero-dep.test.mjs` 写进 REQ-010 的验证方式；该文件不存在（现有测试文件为 acceptance / config-and-run-result / pipeline-and-checks / schema-contract）。",
+      "evidence": "Test-Path packages/qgate/test/zero-dep.test.mjs => False；Get-ChildItem packages/qgate/test/*.test.mjs",
+      "requiredFix": "architect：改为 acceptance.test.mjs 中的零依赖断言（t2 报告称断言存在），或补上该测试文件。"
+    },
+    {
+      "id": "I9",
+      "severity": "low",
+      "title": "GAP-5 的「恰 1 个叶子不同」比实测窄",
+      "problem": "§6.2.3 GAP-5（L840）称跨 cwd「仅有 1 个叶子键不同：$.rules.layer_trace[1].file」。用文档化的相对调用（--diff adapters/.../diff.json，不带 --rule）在两个 cwd 间实测为 **4 个**叶子不同：/rules/layer_trace/0/file、/rules/layer_trace/1/file、/rules/loaded_layers/0/file、/source/path。t16 新增的「现象 2」已经把同样这 4 个键列为夹具固化的绝对路径，两处口径尚未互相引用。",
+      "evidence": "verification-t9/artifacts/leaf-diff-adapter-cwd.txt；docs/01-architecture.md L840 与 L852 对照",
+      "requiredFix": "architect：把 L840 的「恰 1 个」限定为“仅 --rule 项目的路径变化时”，或直接引用现象 2 的 4 键清单。"
+    },
+    {
+      "id": "I10",
+      "severity": "low",
+      "title": "包内仍留有临时探针脚本",
+      "problem": "packages/qgate/test/_probe-t17-read.mjs（02:34:50）等一次性诊断脚本仍在包内（此前还有 scripts/test-child.mjs、scripts/diagnose-run-tests-v4.mjs、scripts/probe-tokens.mjs、test/_probe-cwd.mjs、test/_probe-diff.mjs）。它们不在 package.json 的 files 清单内，但会污染仓库与全文件指纹。",
+      "evidence": "Get-ChildItem -Recurse packages/qgate -Include '_probe*.mjs' → packages/qgate/test/_probe-t17-read.mjs",
+      "requiredFix": "core-engineer：删除探针脚本，后续把一次性诊断放到系统临时目录。"
+    },
+    {
+      "id": "I11",
+      "severity": "medium",
+      "title": "（已解决，留档）§6.2.3 早前实测数字被证伪，t16 已改正",
+      "problem": "02:30 的文档称 tools/run-tests.mjs 在 cwd=仓库根 与 cwd=E:\\Desktop 均为 57/54/3，并称夹具失败“不是 cwd 导致的”。02:31 复跑：仓库根 57/57/0；非仓库根/junction 拼写 54/57/3；同一命令随 cwd 变化，故确实与 cwd 相关。t16 于 02:35:38 重写了该段（现象 1/现象 2 + 判据改为“运行时的绝对路径拼写”）。",
+      "evidence": "docs/01-architecture.md L848-L856；verification-t9/artifacts/adapter-suite.txt",
+      "requiredFix": "无需再改；留档以说明验证与文档修订的先后关系。"
+    }
+  ],
+  "blockedItems": [
+    { "id": "B1", "item": "非仓库根 cwd 下的适配层测试 54/57", "reason": "cwd 依赖（GAP-5）：cwd=仓库规范路径 E:\\Desktop\\ai-quality-gate => 57/57；cwd=E:\\Desktop 与 cwd=junction E:\\ai-quality-gate => 54/57（3 条 fixtures 回归）。按裁决 B 标 blocked，不判 fail。", "substitute": "全部正式断言固定在仓库根执行；两个 cwd 计数均已记录。" },
+    { "id": "B2", "item": "GitHub Actions 工作流真实执行", "reason": "离线沙箱无网络与 runner。", "substitute": "adapters/opencodereview/test/ci-workflow.test.mjs 7/7 通过（进程内）。" },
+    { "id": "B3", "item": "干净 checkout / commit 哈希复现", "reason": "本项目不在任何 git 仓库内（git rev-parse => fatal: not a git repository）。", "substitute": "同一 workspace 重跑同一命令 + 规范化哈希 + 全文件 sha256 指纹。" },
+    { "id": "B4", "item": "§9.1 approval.json 的 schema 级校验", "reason": "schemas/ 只有 config / run-result / evidence-ledger / trace-matrix，没有 approval.json 的 schema。", "substitute": "文本核对 §9.1 与 RunResult 侧 humanGate 字段形态（见 I2）。" },
+    { "id": "B5", "item": "引擎侧跨 cwd 差异叶子（CONTRACT_001 scannedConfig）的文档覆盖", "reason": "§6.2.3 GAP-5 只记录适配层 layer_trace 与 loaded_layers；实测量到的引擎 check 叶子虽已固定（1 个语义叶子），但文档尚未覆盖。", "substitute": "verification-t9/artifacts/leaf-diff-engine-check-cwd.txt 已给出精确差异。" },
+    { "id": "B6", "item": "字面量 `node --test <dir>`", "reason": "沙箱拒绝 test-runner 子进程管道 stdio：Error: spawn EPERM（exit 1）。裁决 C 认定平台边界。", "substitute": "`node --test --experimental-test-isolation=none <files>` 与逐文件进程内运行，断言数与通过数据实记账。" }
+  ],
+  "method_notes": [
+    "Schema 求值使用仓库自带的零依赖 2020-12 子集求值器；不是完整规范实现，故不声称完成完整合规校验。",
+    "确定性比对使用 verification-t9/tools/normalize-runresult.mjs（剔除 run_id/started_at/finished_at/duration_ms/ledgerId/updated_at/generated_at + 字符串内嵌 run_id/RFC3339 规范化 + 排序键 + sha256），并用 leaf-diff.mjs 给出“未剔除时到底哪些叶子不同”。",
+    "contract-fields 对真实 RunResult 的 blocker/check/humanGate/evidence 采用整轮并集（不是单点抽样）：通过的运行里 blocker 对象数为 0，该层标为“本次运行未行使”，不计 mismatch。",
+    "所有包内命令的 cwd 均记录在每条断言的 cwd 字段；cwd 探针见 verification-t9/artifacts/cwd-probe.txt。",
+    "本次未修改 packages/qgate/**、adapters/**、schemas/**、docs/** 的任何字节；产物全部位于 verification-t9/**。"
+  ],
+  "changedPaths": [
+    "verification-t9/report.json",
+    "verification-t9/review.md",
+    "verification-t9/tools/ (9 scripts: tree-fingerprint, schema-eval, schema-meta, contract-fields, normalize-runresult, leaf-diff, trace-check, preview-crosscheck, fixture-diff)",
+    "verification-t9/artifacts/ (captured CLI outputs, fingerprints, diffs, tool reports, preview-compare/demo copy)",
+    "verification-t9/negative/ (A-missing-evidence, A-control, B1-missing-version, B2-bad-check-type, safe002-include.rule.json)",
+    "verification/tools/*.mjs (9 files, pre-ruling 02:32:45-02:33:32 — deleted at 02:37 by captain's instruction)",
+    "verification/negative/safe002-include.rule.json (pre-ruling 02:33:41 — deleted at 02:37 by captain's instruction)",
+    "verification/artifacts/preview-compare/engine-rule.json (pre-ruling 02:33:42 — deleted at 02:37 by captain's instruction)"
+  ]
+}

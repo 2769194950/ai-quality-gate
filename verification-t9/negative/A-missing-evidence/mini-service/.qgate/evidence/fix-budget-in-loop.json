@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0",
+  "purpose": "AI fix budget ledger (docs/01-architecture.md §4.3): in-loop quick fixes vs. post-gate fixes.",
+  "policy": {
+    "inLoopMaxAttempts": 2,
+    "postGateMaxAttempts": 0,
+    "escalationReason": "FIX_BUDGET_EXCEEDED",
+    "forbiddenInLoopCategories": ["public-interface-field-change", "security-invariant"]
+  },
+  "findings": [
+    {
+      "findingId": "F-0001",
+      "category": "logic-defect",
+      "phase": "in-loop",
+      "attempts": [
+        { "attempt": 1, "at": "2026-05-05T09:10:00Z", "result": "failed", "detail": "typo fixed, invariant still violated" },
+        { "attempt": 2, "at": "2026-05-05T09:20:00Z", "result": "failed", "detail": "validation added, fixture not regenerated" }
+      ],
+      "escalate": true,
+      "reason": "FIX_BUDGET_EXCEEDED: logic defect survived 2 in-loop attempts",
+      "nextPhase": "post-gate"
+    },
+    {
+      "findingId": "F-0004",
+      "category": "security-invariant",
+      "phase": "post-gate",
+      "attempts": [],
+      "escalate": true,
+      "reason": "SECURITY_INVARIANT: secret-path include coverage may not be auto-fixed in-loop",
+      "humanDecision": "rejected",
+      "humanDecisionRecord": ".qgate/approvals/interface-frozen/approval.json"
+    },
+    {
+      "findingId": "F-0002",
+      "category": "doc-wording",
+      "phase": "in-loop",
+      "attempts": [
+        { "attempt": 1, "at": "2026-05-05T09:30:00Z", "result": "fixed", "detail": "acceptance criterion rewritten" }
+      ],
+      "escalate": false,
+      "reason": null
+    }
+  ]
+}

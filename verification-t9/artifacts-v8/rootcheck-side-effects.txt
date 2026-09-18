@@ -1,0 +1,6 @@
+﻿root-config check: files added/removed in the whole repo (excluding node_modules)
+exit=0
+added:
+verification\evidence\ledger-2026-09-18T03-05-56.179Z-7b91e96d.json
+removed:
+

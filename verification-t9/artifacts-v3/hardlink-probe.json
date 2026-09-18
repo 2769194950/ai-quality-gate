@@ -1,0 +1,53 @@
+﻿{
+  "cwd": "E:\\Desktop\\ai-quality-gate",
+  "variants": [
+    {
+      "id": "alias_of_env_plain_content",
+      "secretFile": ".env",
+      "aliasFile": "docs.txt",
+      "exit": 0,
+      "included": [
+        "docs.txt",
+        "src/app.mjs"
+      ],
+      "aliasSelected": true,
+      "sensitiveLeakByPattern": [],
+      "excluded": [
+        ".env|sensitive_path_never_included"
+      ],
+      "hardlinkAliases": []
+    },
+    {
+      "id": "alias_of_env_key_shaped_content",
+      "secretFile": ".env",
+      "aliasFile": "notes.txt",
+      "exit": 0,
+      "included": [
+        "notes.txt",
+        "src/app.mjs"
+      ],
+      "aliasSelected": true,
+      "sensitiveLeakByPattern": [],
+      "excluded": [
+        ".env|sensitive_path_never_included"
+      ],
+      "hardlinkAliases": []
+    },
+    {
+      "id": "alias_of_credentials_json",
+      "secretFile": "Credentials.json",
+      "aliasFile": "handbook.txt",
+      "exit": 0,
+      "included": [
+        "handbook.txt",
+        "src/app.mjs"
+      ],
+      "aliasSelected": true,
+      "sensitiveLeakByPattern": [],
+      "excluded": [
+        "Credentials.json|sensitive_path_never_included"
+      ],
+      "hardlinkAliases": []
+    }
+  ]
+}

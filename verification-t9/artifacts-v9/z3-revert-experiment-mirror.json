@@ -1,0 +1,126 @@
+{
+  "copy": "E:\\Desktop\\t66-z3-mirror",
+  "probe": "verification-t9/tools/z3-f19-scan-surface.mjs",
+  "patch": {
+    "target": "packages/qgate/src/selection.mjs",
+    "removed": "  'verification',\n  'verification-t9',\n]);",
+    "applied": true,
+    "bytesRemoved": 39
+  },
+  "control": {
+    "root": "E:\\Desktop\\t66-z3-mirror",
+    "cwd": "E:\\Desktop\\t66-z3-mirror",
+    "check_safe002": {
+      "passed": true,
+      "violations": [],
+      "selected": 143,
+      "secretPathsExcluded": 17,
+      "secretPathRules": [
+        "secret-env",
+        "secret-pem",
+        "secret-key",
+        "secret-rsa",
+        "secret-credentials",
+        "secret-dir",
+        "secret-p12",
+        "secret-kubeconfig"
+      ],
+      "widestInclude": "**/*"
+    },
+    "preview": {
+      "exit": 0,
+      "ok": true,
+      "included": 143,
+      "includedInAuditTree": 0,
+      "includedInRuntimeOutputTree": 0,
+      "auditTreeSample": [],
+      "selectedCountField": null,
+      "excludedByReason": {
+        "secret_path": 17,
+        "binary": 17,
+        "default_excluded_path": 720,
+        "extension": 2
+      },
+      "invariants": {
+        "secretPathsSelected": [],
+        "ocrAvailable": false
+      },
+      "secretPathsSelected": 0
+    },
+    "summary": {
+      "checkScanExcludesAuditTrees": true,
+      "previewExcludesAuditTrees": true,
+      "previewExcludesRuntimeOutput": true,
+      "safe002NotRegressed": true,
+      "checkAndPreviewAgreeOnAuditTrees": true
+    }
+  },
+  "reverted": {
+    "root": "E:\\Desktop\\t66-z3-mirror",
+    "cwd": "E:\\Desktop\\t66-z3-mirror",
+    "check_safe002": {
+      "passed": true,
+      "violations": [],
+      "selected": 819,
+      "secretPathsExcluded": 17,
+      "secretPathRules": [
+        "secret-env",
+        "secret-pem",
+        "secret-key",
+        "secret-rsa",
+        "secret-credentials",
+        "secret-dir",
+        "secret-p12",
+        "secret-kubeconfig"
+      ],
+      "widestInclude": "**/*"
+    },
+    "preview": {
+      "exit": 0,
+      "ok": true,
+      "included": 819,
+      "includedInAuditTree": 676,
+      "includedInRuntimeOutputTree": 0,
+      "auditTreeSample": [
+        "verification-t9/artifacts-v3/adapter-default.json",
+        "verification-t9/artifacts-v3/adapter-flags.json",
+        "verification-t9/artifacts-v3/adapter-malicious.json",
+        "verification-t9/artifacts-v3/adapter-preview-default.json",
+        "verification-t9/artifacts-v3/adapter-preview-include-flags.json"
+      ],
+      "selectedCountField": null,
+      "excludedByReason": {
+        "secret_path": 17,
+        "binary": 17,
+        "default_excluded_path": 44,
+        "extension": 2
+      },
+      "invariants": {
+        "secretPathsSelected": [],
+        "ocrAvailable": false
+      },
+      "secretPathsSelected": 0
+    },
+    "summary": {
+      "checkScanExcludesAuditTrees": false,
+      "previewExcludesAuditTrees": false,
+      "previewExcludesRuntimeOutput": true,
+      "safe002NotRegressed": true,
+      "checkAndPreviewAgreeOnAuditTrees": false
+    }
+  },
+  "delta": {
+    "check_selected": 676,
+    "preview_included": 676,
+    "preview_audit_tree_entries": 676,
+    "secretPathsExcluded_control": 17,
+    "secretPathsExcluded_reverted": 17
+  },
+  "summary": {
+    "bothPathsMovedTogether": true,
+    "controlExcludesAuditTrees": true,
+    "revertingBringsAuditTreesBackOnPreview": true,
+    "revertingBringsAuditTreesBackOnCheck": true,
+    "safetyNotRegressedByRevert": true
+  }
+}

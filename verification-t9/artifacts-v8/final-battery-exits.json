@@ -1,0 +1,66 @@
+﻿[
+    {
+        "command":  "tree-fingerprint",
+        "exit":  0
+    },
+    {
+        "command":  "baseline-freshness --deep",
+        "exit":  0
+    },
+    {
+        "command":  "tool-hashes-check",
+        "exit":  0
+    },
+    {
+        "command":  "y1-named-client-parity",
+        "exit":  4
+    },
+    {
+        "command":  "y2-f13-scanroots",
+        "exit":  0
+    },
+    {
+        "command":  "y5-bypass-windows-names",
+        "exit":  0
+    },
+    {
+        "command":  "y5-table-integrity",
+        "exit":  0
+    },
+    {
+        "command":  "preview-crosscheck --artifacts v8",
+        "exit":  0
+    },
+    {
+        "command":  "check-report-v8",
+        "exit":  0
+    },
+    {
+        "command":  "evidence-pointer check n1 (STALE)",
+        "exit":  1
+    },
+    {
+        "command":  "evidence-pointer check n2 (TAMPERED)",
+        "exit":  2
+    },
+    {
+        "command":  "evidence-pointer check n3 (COUNT-DRIFT)",
+        "exit":  1
+    },
+    {
+        "command":  "evidence-pointer check n4 (UNPARSABLE)",
+        "exit":  3
+    },
+    {
+        "command":  "contract-fields (no arg, fail-closed)",
+        "exit":  3
+    },
+    {
+        "command":  "trace-check (no arg, fail-closed)",
+        "exit":  3
+    },
+    {
+        "command":  "preview-crosscheck (no arg, fail-closed)",
+        "exit":  3
+    }
+]

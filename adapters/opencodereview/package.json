@@ -1,0 +1,41 @@
+{
+  "name": "@ai-quality-gate/ocr-adapter",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "OpenCodeReview 适配层：确定性文件选择/分组/规则 + ocr 缺失降级 + CI 模板（离线、零依赖、无需 API Key）",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "ocr-preview": "./bin/ocr-preview.mjs"
+  },
+  "exports": {
+    ".": "./src/ocr-pipeline.mjs",
+    "./selection": "./src/selection.mjs",
+    "./grouping": "./src/grouping.mjs",
+    "./rules": "./src/rules.mjs",
+    "./filters": "./src/filters.mjs",
+    "./ocr-runner": "./src/ocr-runner.mjs",
+    "./reflection": "./src/reflection.mjs"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "ci/",
+    "demo/",
+    "test/",
+    "tools/",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test test/",
+    "test:files": "node tools/run-tests.mjs",
+    "preview": "node bin/ocr-preview.mjs --diff demo/diff.json --rule demo/rule.json --json",
+    "preview:md": "node bin/ocr-preview.mjs --diff demo/diff.json --rule demo/rule.json --md",
+    "gen:demo": "node tools/gen-demo-fixtures.mjs"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

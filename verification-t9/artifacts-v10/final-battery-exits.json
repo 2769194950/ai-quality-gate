@@ -1,0 +1,38 @@
+﻿[
+    {
+        "command":  "tree-fingerprint",
+        "exit":  0
+    },
+    {
+        "command":  "baseline-freshness --deep",
+        "exit":  0
+    },
+    {
+        "command":  "evidence-pointer check --deep",
+        "exit":  0
+    },
+    {
+        "command":  "tool-hashes-check",
+        "exit":  0
+    },
+    {
+        "command":  "w3-path-cwd-matrix",
+        "exit":  0
+    },
+    {
+        "command":  "y1-named-client-parity",
+        "exit":  0
+    },
+    {
+        "command":  "preview-crosscheck --artifacts v10",
+        "exit":  0
+    },
+    {
+        "command":  "root gate",
+        "exit":  0
+    },
+    {
+        "command":  "check-report-v10",
+        "exit":  0
+    }
+]

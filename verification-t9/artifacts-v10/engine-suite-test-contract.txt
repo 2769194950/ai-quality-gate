@@ -1,0 +1,46 @@
+exit=0
+node.exe : npm warn Unknown env config "manage-package-manager-versions". This will stop working in the next major vers
+ion of npm. See `npm help npmrc` for supported config options.
+At line:1 char:1
++ & "D:\nodejs/node.exe" "E:\npm-global/node_modules/npm/bin/npm-cli.js ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (npm warn Unknow...config options.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+> ai-quality-gate@1.0.0 test:contract
+> node --test --experimental-test-isolation=none packages/qgate/test/schema-contract.test.mjs
+
+✔ all four schemas exist, parse, and declare draft 2020-12 with a unique non-empty $id (2.0136ms)
+✔ version constants are pinned to "1.0" as required (6.8656ms)
+✔ enums stay in sync with the frozen contract values (1.3845ms)
+✔ config: the canonical §5.1 example is valid (3.379ms)
+✔ config: the newly declared top-level, provider, policy and check fields are legal (4.9246ms)
+✔ config: the newly declared fields still reject unknown neighbours and bad types (37.8053ms)
+✔ config: check.type "file_exist" is still invalid after the field-table extension (3.2796ms)
+✔ config: the checked-in canonical fixture matches the §5.1 example and stays valid (3.0227ms)
+✔ config: check.type "file_exist" is invalid (2.1893ms)
+✔ config: unknown fields are rejected at every level (additionalProperties:false) (7.8854ms)
+✔ config: required fields and enum values are enforced (5.9379ms)
+✔ config: the seven check types each accept their documented field table (5.4172ms)
+✔ run-result: a fully populated result is valid (0.4505ms)
+✔ run-result: a MISSING baseline field is invalid (2.6696ms)
+✔ run-result: an EXTRA field is invalid (2.0947ms)
+✔ run-result: gate.humanGate must be an object or exactly null (1.2733ms)
+✔ run-result: evidence arrays must be non-empty and kinds are frozen (1.6995ms)
+✔ evidence-ledger: both the ledger and the ledger index validate (0.9043ms)
+✔ evidence-ledger: append-only/index invariants are enforced (3.0599ms)
+✔ trace-matrix: a covered and an uncovered requirement both validate (1.033ms)
+✔ trace-matrix: requirementId, testId, priority and covered/evidence rules are enforced (3.4119ms)
+✔ the four schemas cover every frozen §5 field-table entry and nothing surplus (0.6923ms)
+✔ config.schema.json declares the required-key set of every entity (0.1816ms)
+✔ T-QG-007/T-QG-015 the §6.6 `ok` self-description matches the three real output surfaces (1400.6135ms)
+✔ T-QG-007 §9.3 the self-check compares every described constant, not just seven (7.1456ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1576.0828

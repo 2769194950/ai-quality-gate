@@ -1,0 +1,183 @@
+{
+  "cwd": "E:\\Desktop\\ai-quality-gate",
+  "platform": {
+    "platform": "win32",
+    "caseInsensitiveFs": true,
+    "caseSensitiveSimulation": "absent root (same code path: the root contributes no files)"
+  },
+  "cases": [
+    {
+      "label": "N1 aggregate guard: one resolvable root among two",
+      "onDisk": [
+        "src/app.mjs"
+      ],
+      "scanRoots": [
+        "NOPE",
+        "src"
+      ],
+      "expectedFiles": null,
+      "exit": 0,
+      "overall_passed": true,
+      "check_passed": true,
+      "filesScanned": 1,
+      "declaredTargetNotFound": [],
+      "declaredTargetEvidence": [],
+      "emptyScanViolation": null,
+      "evidencePaths": [
+        "src/app.mjs",
+        "qgate.config.json"
+      ],
+      "keepsConfigSpelling": false,
+      "excerpts": [
+        "policy scan sample (1 file(s) scanned)",
+        "SAFE_001 metrics={\"filesScanned\":1,\"violations\":0,\"patterns\":[\"environment key read\",\"environment key read (call)\",\"vault reference\"],\"scanSurface\":{\"candidates\":1,\"scanned\":1,\"excluded\":{\"prose\":0,\"fixtures\":0,\"otherExtension\":0,\"oversize\":0,\"skippedDirectories\":[\".git\",\"node_modules\",\".qgate\",\"coverage\",\"dist\",\"build\",\".cache\",\"verification\",\"verification-t9\",\"artifacts\"]},\"note\":\"prose cannot read a key and recorded evidence echoes this policy's own output, so both are out of the default surface; list them in policy.expectedFiles to scan them explicitly\"}}"
+      ]
+    },
+    {
+      "label": "absent-only root (same code path as a mis-cased root on a case-sensitive FS)",
+      "onDisk": [
+        "src/app.mjs"
+      ],
+      "scanRoots": [
+        "NOPE"
+      ],
+      "expectedFiles": null,
+      "exit": 1,
+      "overall_passed": false,
+      "check_passed": false,
+      "filesScanned": 0,
+      "declaredTargetNotFound": [],
+      "declaredTargetEvidence": [],
+      "emptyScanViolation": "/scan no file was scanned: the safety invariant cannot be evaluated (empty scan set). Check policy.scanRoots / policy.expectedFiles.",
+      "evidencePaths": [
+        "qgate.config.json",
+        "qgate.config.json"
+      ],
+      "keepsConfigSpelling": false,
+      "excerpts": [
+        "SAFE_001 metrics={\"filesScanned\":0,\"violations\":1,\"patterns\":[\"environment key read\",\"environment key read (call)\",\"vault reference\"],\"scanSurface\":{\"candidates\":0,\"scanned\":0,\"excluded\":{\"prose\":0,\"fixtures\":0,\"otherExtension\":0,\"oversize\":0,\"skippedDirectories\":[\".git\",\"node_modules\",\".qgate\",\"coverage\",\"dist\",\"build\",\".cache\",\"verification\",\"verification-t9\",\"artifacts\"]},\"note\":\"prose cannot read a key and recorded evidence echoes this policy's own output, so both are out of the default surface; list them in policy.expectedFiles to scan them explicitly\"}}",
+        "/scan no file was scanned: the safety invariant cannot be evaluated (empty scan set). Check policy.scanRoots / policy.expectedFiles."
+      ]
+    },
+    {
+      "label": "mis-cased root on case-insensitive NTFS (SRC resolves to src)",
+      "onDisk": [
+        "src/app.mjs"
+      ],
+      "scanRoots": [
+        "SRC"
+      ],
+      "expectedFiles": null,
+      "exit": 0,
+      "overall_passed": true,
+      "check_passed": true,
+      "filesScanned": 1,
+      "declaredTargetNotFound": [],
+      "declaredTargetEvidence": [],
+      "emptyScanViolation": null,
+      "evidencePaths": [
+        "SRC/app.mjs",
+        "qgate.config.json"
+      ],
+      "keepsConfigSpelling": true,
+      "excerpts": [
+        "policy scan sample (1 file(s) scanned)",
+        "SAFE_001 metrics={\"filesScanned\":1,\"violations\":0,\"patterns\":[\"environment key read\",\"environment key read (call)\",\"vault reference\"],\"scanSurface\":{\"candidates\":1,\"scanned\":1,\"excluded\":{\"prose\":0,\"fixtures\":0,\"otherExtension\":0,\"oversize\":0,\"skippedDirectories\":[\".git\",\"node_modules\",\".qgate\",\"coverage\",\"dist\",\"build\",\".cache\",\"verification\",\"verification-t9\",\"artifacts\"]},\"note\":\"prose cannot read a key and recorded evidence echoes this policy's own output, so both are out of the default surface; list them in policy.expectedFiles to scan them explicitly\"}}"
+      ]
+    },
+    {
+      "label": "mis-cased expectedFiles on case-insensitive NTFS",
+      "onDisk": [
+        "src/app.mjs"
+      ],
+      "scanRoots": null,
+      "expectedFiles": [
+        "SRC/app.mjs"
+      ],
+      "exit": 0,
+      "overall_passed": true,
+      "check_passed": true,
+      "filesScanned": 1,
+      "declaredTargetNotFound": [],
+      "declaredTargetEvidence": [
+        "declared scan target"
+      ],
+      "emptyScanViolation": null,
+      "evidencePaths": [
+        "SRC/app.mjs",
+        "SRC/app.mjs",
+        "qgate.config.json"
+      ],
+      "keepsConfigSpelling": true,
+      "excerpts": [
+        "declared scan target",
+        "policy scan sample (1 file(s) scanned)",
+        "SAFE_001 metrics={\"filesScanned\":1,\"violations\":0,\"patterns\":[\"environment key read\",\"environment key read (call)\",\"vault reference\"],\"scanSurface\":{\"candidates\":2,\"scanned\":2,\"excluded\":{\"prose\":0,\"fixtures\":0,\"otherExtension\":0,\"oversize\":0,\"skippedDirectories\":[\".git\",\"node_modules\",\".qgate\",\"coverage\",\"dist\",\"build\",\".cache\",\"verification\",\"verification-t9\",\"artifacts\"]},\"note\":\"prose cannot read a key and recorded evidence echoes this policy's own output, so both are out of the default surface; list them in policy.expectedFiles to scan them explicitly\"}}"
+      ]
+    },
+    {
+      "label": "unresolvable expectedFiles entry is recorded, never a silent pass",
+      "onDisk": [
+        "src/app.mjs"
+      ],
+      "scanRoots": null,
+      "expectedFiles": [
+        "NOPE/app.mjs"
+      ],
+      "exit": 1,
+      "overall_passed": false,
+      "check_passed": false,
+      "filesScanned": 0,
+      "declaredTargetNotFound": [
+        "declared scan target not found: NOPE/app.mjs"
+      ],
+      "declaredTargetEvidence": [],
+      "emptyScanViolation": "/scan no file was scanned: the safety invariant cannot be evaluated (empty scan set). Check policy.scanRoots / policy.expectedFiles.",
+      "evidencePaths": [
+        "qgate.config.json",
+        "qgate.config.json",
+        "qgate.config.json"
+      ],
+      "keepsConfigSpelling": false,
+      "excerpts": [
+        "declared scan target not found: NOPE/app.mjs",
+        "SAFE_001 metrics={\"filesScanned\":0,\"violations\":1,\"patterns\":[\"environment key read\",\"environment key read (call)\",\"vault reference\"],\"scanSurface\":{\"candidates\":2,\"scanned\":2,\"excluded\":{\"prose\":0,\"fixtures\":0,\"otherExtension\":0,\"oversize\":0,\"skippedDirectories\":[\".git\",\"node_modules\",\".qgate\",\"coverage\",\"dist\",\"build\",\".cache\",\"verification\",\"verification-t9\",\"artifacts\"]},\"note\":\"prose cannot read a key and recorded evidence echoes this policy's own output, so both are out of the default surface; list them in policy.expectedFiles to scan them explicitly\"}}",
+        "/scan no file was scanned: the safety invariant cannot be evaluated (empty scan set). Check policy.scanRoots / policy.expectedFiles."
+      ]
+    },
+    {
+      "label": "control: correctly spelled root",
+      "onDisk": [
+        "src/app.mjs"
+      ],
+      "scanRoots": [
+        "src"
+      ],
+      "expectedFiles": null,
+      "exit": 0,
+      "overall_passed": true,
+      "check_passed": true,
+      "filesScanned": 1,
+      "declaredTargetNotFound": [],
+      "declaredTargetEvidence": [],
+      "emptyScanViolation": null,
+      "evidencePaths": [
+        "src/app.mjs",
+        "qgate.config.json"
+      ],
+      "keepsConfigSpelling": false,
+      "excerpts": [
+        "policy scan sample (1 file(s) scanned)",
+        "SAFE_001 metrics={\"filesScanned\":1,\"violations\":0,\"patterns\":[\"environment key read\",\"environment key read (call)\",\"vault reference\"],\"scanSurface\":{\"candidates\":1,\"scanned\":1,\"excluded\":{\"prose\":0,\"fixtures\":0,\"otherExtension\":0,\"oversize\":0,\"skippedDirectories\":[\".git\",\"node_modules\",\".qgate\",\"coverage\",\"dist\",\"build\",\".cache\",\"verification\",\"verification-t9\",\"artifacts\"]},\"note\":\"prose cannot read a key and recorded evidence echoes this policy's own output, so both are out of the default surface; list them in policy.expectedFiles to scan them explicitly\"}}"
+      ]
+    }
+  ],
+  "summary": {
+    "n1_aggregate_one_root_resolves": true,
+    "absent_only_root_fails_closed": true,
+    "miscased_root_resolves_on_windows": true,
+    "miscased_root_keeps_config_spelling": true,
+    "miscased_expectedFiles_resolves_on_windows": true,
+    "unresolvable_expectedFiles_recorded": true
+  }
+}

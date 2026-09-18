@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0",
+  "source": "project",
+  "description": "Project-level review rules for the mini-service demo fixture. Precedence: --rule > project > user > builtin; the first matching rule wins (docs/01-architecture.md §4.1).",
+  "rules": [
+    {
+      "id": "demo-openapi",
+      "match": "openapi.yaml",
+      "severity": "high",
+      "category": "interface-contract",
+      "notes": "Interface drift is a blocker: field names are frozen."
+    },
+    {
+      "id": "demo-requirements",
+      "match": "REQUIREMENTS.md",
+      "severity": "medium",
+      "category": "requirements",
+      "notes": "Requirement wording is reviewable but never blocks by itself."
+    },
+    {
+      "id": "demo-evidence",
+      "match": ".qgate/evidence/**",
+      "severity": "low",
+      "category": "evidence",
+      "notes": "Recorded evidence is inspected for shape, not style."
+    },
+    {
+      "id": "demo-fixture",
+      "match": "**/*.json",
+      "severity": "low",
+      "category": "config"
+    }
+  ]
+}

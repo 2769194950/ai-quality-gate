@@ -1,0 +1,53 @@
+{
+  "version": "1.0",
+  "_fixture": true,
+  "_note": [
+    "本文件是 OCR 适配层的 **离线夹具（fixture）**，用于演示 `ocr review --format json` 的输出形状。",
+    "它不是任何真实 ocr 调用的结果，也不涉及任何网络请求或 API Key。",
+    "真实 ocr 存在时，adapters/opencodereview/src/ocr-runner.mjs 会调用 `ocr review --format json`",
+    "并用其 stdout 替换本夹具；ocr 不存在时降级到本地确定性实现，并在输出中标注 degraded:true。",
+    "路径以 adapters/opencodereview/demo 为锚（与 --root 同根）。"
+  ],
+  "mode": "review",
+  "source": "ocr-review-json-fixture",
+  "provider": { "type": "deterministic", "degraded": false, "llm_called": false },
+  "summary": {
+    "files_reviewed": 14,
+    "groups": 4,
+    "findings": 3,
+    "blockers": 1
+  },
+  "groups": [
+    { "id": "bucket:injection-chain", "files": ["src/chain/user-handler.mjs", "src/chain/user-service.mjs", "src/chain/user-repository.mjs", "src/chain/user-mapper.mjs"] },
+    { "id": "src/reader", "files": ["src/reader/reader-part-1.mjs", "src/reader/reader-part-2.mjs", "src/reader/reader-part-3.mjs"] }
+  ],
+  "findings": [
+    {
+      "id": "OCR-FIXTURE-001",
+      "severity": "blocker",
+      "file": "src/chain/user-mapper.mjs",
+      "line": 5,
+      "message": "mapper 读取 row.created_at，但 repository 返回的字段名已改为 createdAt，导致 createdAt 为 Invalid Date",
+      "ruleId": "OCR-R-001-FIELD-CONTRACT",
+      "evidence": [{ "kind": "file", "path": "src/chain/user-repository.mjs", "excerpt": "return { id, name, created_at: ... }" }]
+    },
+    {
+      "id": "OCR-FIXTURE-002",
+      "severity": "medium",
+      "file": "src/chain/user-handler.mjs",
+      "line": 4,
+      "message": "handler 直接解构 req.params，缺少防御式校验",
+      "ruleId": "OCR-R-014-INPUT-VALIDATION",
+      "evidence": [{ "kind": "file", "path": "src/chain/user-handler.mjs" }]
+    },
+    {
+      "id": "OCR-FIXTURE-003",
+      "severity": "low",
+      "file": "src/util/format.mjs",
+      "line": 2,
+      "message": "formatDate 未处理无效输入",
+      "ruleId": "OCR-R-030-DEFENSIVE-DEFAULT",
+      "evidence": [{ "kind": "file", "path": "src/util/format.mjs" }]
+    }
+  ]
+}

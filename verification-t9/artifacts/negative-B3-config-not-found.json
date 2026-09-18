@@ -1,0 +1,16 @@
+﻿{
+  "ok": false,
+  "error": {
+    "code": "CONFIG_NOT_FOUND",
+    "message": "configuration file not found: verification-t9/negative/B3-does-not-exist/nope.json",
+    "jsonPointer": null,
+    "details": [
+      {
+        "jsonPointer": "",
+        "expected": "readable JSON file",
+        "actual": "E:\\Desktop\\ai-quality-gate\\verification-t9\\negative\\B3-does-not-exist\\nope.json",
+        "message": "configuration file not found: verification-t9/negative/B3-does-not-exist/nope.json"
+      }
+    ]
+  }
+}

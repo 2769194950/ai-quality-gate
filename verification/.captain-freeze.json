@@ -1,0 +1,50 @@
+{
+  "marker": "captain-freeze",
+  "issued_by": "captain",
+  "issued_at_note": "issued immediately after the verification/ wipe incident at 02:32:06; task reference updated from t9 to t24 after t9 was cancelled and superseded by t18 then t24",
+  "owner": "verifier",
+  "protected_paths": [
+    "verification-t9/tools/**",
+    "verification-t9/artifacts/**",
+    "verification-t9/negative/**",
+    "verification-t9/report.json",
+    "verification-t9/report-v3.json",
+    "verification-t9/review.md"
+  ],
+  "other_members_written_paths": [
+    "verification/review.md (reviewer, round 1)",
+    "verification/review-round2.md (reviewer, round 2)",
+    "verification/review-round3.md (reviewer, round 3)"
+  ],
+  "engine_written_paths_not_owned_by_verifier": [
+    "verification/evidence/**",
+    "verification/reports/**",
+    "verification/trace-matrix.json"
+  ],
+  "ownership_ruling": {
+    "verification_t9_dir": "verifier only (private evidence area)",
+    "verification_dir": "engine audit chain (evidence/reports/trace-matrix) + reviewer review files + captain-owned freeze marker",
+    "deletion_rights": "captain only -- no other member may delete or clear verification/**",
+    "note": "normal engine output landing in verification/** is NOT pollution; it is the contract-mandated audit chain"
+  },
+  "incident": {
+    "summary": "verification/ was cleared at ~02:32:06, destroying all t9 evidence artifacts.",
+    "lost": "report.json (34799 B), 9 tools, 36 artifacts, negative fixtures",
+    "survivors": "engine-written files only",
+    "correlated_event": "a new root-level qgate.config.json appeared at 02:32:05 whose evidenceDir/reportDir/traceFile all resolve under verification/**",
+    "admitted_by": "core-engineer (Remove-Item verification -Recurse -Force without reading the directory listing first)",
+    "lesson": "read the directory listing before deleting another owner's exclusive directory"
+  },
+  "policy_until_t24_completes": {
+    "rule": "No member other than the verifier may create, modify, or delete anything under verification-t9/**, and no member may delete or clear anything under verification/** (deletion is captain-only).",
+    "engine_output_redirection": "A run whose evidenceDir/reportDir/traceFile resolves under verification/** is acceptable for release and CI (contract-mandated), but scratch/debug runs should be redirected (e.g. .qgate/out/**) so they do not churn the audit chain mid-verification.",
+    "clean_runs": "A clean end-to-end run targeting verification/** should be avoided while t24 is producing its report, so the verifier's fingerprint stays meaningful.",
+    "if_you_need_a_clean_run": "Use a separate scratch output directory and tell the captain."
+  },
+  "prohibited": [
+    "deleting or clearing verification/** or verification-t9/** for any reason (captain-only)",
+    "whole-file rewriting of files owned by another member",
+    "writing verification-t9/** as anyone other than the verifier"
+  ],
+  "questions_about_this_marker": "Ask the captain before changing anything under verification/** or verification-t9/**."
+}

@@ -1,0 +1,450 @@
+﻿{
+  "cwd": "E:\\Desktop\\ai-quality-gate",
+  "cases": [
+    {
+      "id": "negA_missing_evidence_file",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-demo-NXsHFo\\qgate.config.json --json",
+      "status": 1,
+      "code": null,
+      "overall_passed": false,
+      "blockers": [
+        {
+          "gate": "build-deterministic",
+          "checkId": "test-results-threshold",
+          "message": "FILE_MISSING: .qgate/evidence/test-results.json does not exist (json_assert requires a single JSON file)"
+        }
+      ],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "negA_control_intact",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-demo-8I4RLy\\qgate.config.json --json",
+      "status": 0,
+      "code": null,
+      "overall_passed": true,
+      "blockers": [],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "negB1_missing_version",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-demo-PtPnhn\\qgate.config.json --json",
+      "status": 2,
+      "code": "CONFIG_INVALID",
+      "overall_passed": null,
+      "blockers": [],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "negB2_bad_check_type",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-demo-fYyO5J\\qgate.config.json --json",
+      "status": 2,
+      "code": "CONFIG_INVALID",
+      "overall_passed": null,
+      "blockers": [],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "negB3_config_not_found",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-demo-SaaPLG\\nope.json --json",
+      "status": 2,
+      "code": "CONFIG_NOT_FOUND",
+      "overall_passed": null,
+      "blockers": [],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "bom_valid",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-demo-hpJ4dR\\bom.config.json --json",
+      "status": 0,
+      "code": null,
+      "overall_passed": true,
+      "blockers": [],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "bom_then_invalid_json",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-demo-hpJ4dR\\bom-bad.config.json --json",
+      "status": 2,
+      "code": "CONFIG_INVALID",
+      "overall_passed": null,
+      "blockers": [],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "unknown_key_in_provider",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-demo-ISCqOW\\qgate.config.json --json",
+      "status": 2,
+      "code": "CONFIG_INVALID",
+      "overall_passed": null,
+      "blockers": [],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "unknown_key_in_policy",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-demo-VEVTsZ\\qgate.config.json --json",
+      "status": 2,
+      "code": "CONFIG_INVALID",
+      "overall_passed": null,
+      "blockers": [],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "unknown_key_in_selection",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-demo-bmoM5O\\qgate.config.json --json",
+      "status": 2,
+      "code": "CONFIG_INVALID",
+      "overall_passed": null,
+      "blockers": [],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "unknown_key_in_grouping",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-demo-8t9cdN\\qgate.config.json --json",
+      "status": 2,
+      "code": "CONFIG_INVALID",
+      "overall_passed": null,
+      "blockers": [],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "A2_R1_missing_ledger_basis",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-demo-P0hLUF\\qgate.config.json --json",
+      "status": 1,
+      "code": null,
+      "overall_passed": false,
+      "blockers": [
+        {
+          "gate": "verify-coverage",
+          "checkId": "trace-complete",
+          "message": "TRACE_GAP: coverage basis missing / not evaluated: testIdSource=\"ledger-index\" but the ledger index records no testId evidence, so no coverage can be certified (declare testIdSource:\"trace-only\" explicitly to certify from the trace document alone)"
+        }
+      ],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "A2_control_A_intact_basis",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-demo-ya9jaD\\qgate.config.json --json",
+      "status": 0,
+      "code": null,
+      "overall_passed": true,
+      "blockers": [],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "A2_control_B_explicit_trace_only",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-demo-z4gt4C\\qgate.config.json --json",
+      "status": 0,
+      "code": null,
+      "overall_passed": true,
+      "blockers": [],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "A4_control_history_intact_carrier",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-demo-q1MaaK\\qgate.config.json --json",
+      "status": 0,
+      "code": null,
+      "overall_passed": true,
+      "blockers": [],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "A4_H8_deleted_carrying_check",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-demo-q1MaaK\\qgate.config.json --json",
+      "status": 1,
+      "code": null,
+      "overall_passed": false,
+      "blockers": [
+        {
+          "gate": "verify-coverage",
+          "checkId": "trace-complete",
+          "message": "TRACE_GAP: REQ-DEMO-006 is covered only by historical evidence: testId T-QG-003 is produced by check(s) \"req-index-valid\", which is absent from the current configuration (qgate.config.json)"
+        }
+      ],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "A6_comment_only_is_prose",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-policy-cS8BYB\\qgate.config.json --json",
+      "status": 0,
+      "code": null,
+      "overall_passed": true,
+      "blockers": [],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "A6_real_code_env_read_detected",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-policy-kdyi8X\\qgate.config.json --json",
+      "status": 1,
+      "code": null,
+      "overall_passed": false,
+      "blockers": [
+        {
+          "gate": "sec-gate",
+          "checkId": "policy-safe-001",
+          "message": "POLICY_VIOLATION_SAFE_001: environment key read in src/real-read.mjs: export function f(){ return process.env.ANTHROPIC_API_KEY; }"
+        }
+      ],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "A6_other_env_spellings_detected",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-policy-fszZdL\\qgate.config.json --json",
+      "status": 1,
+      "code": null,
+      "overall_passed": false,
+      "blockers": [
+        {
+          "gate": "sec-gate",
+          "checkId": "policy-safe-001",
+          "message": "POLICY_VIOLATION_SAFE_001: environment key read in src/bracket-read.mjs: export const a = process.env['ANTHROPIC_API_KEY'];; environment key read in src/bracket-read.mjs: export const b = process.env.OPENAI_API_KEY;"
+        }
+      ],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "A6_string_literal_detected",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-policy-1h4M83\\qgate.config.json --json",
+      "status": 1,
+      "code": null,
+      "overall_passed": false,
+      "blockers": [
+        {
+          "gate": "sec-gate",
+          "checkId": "policy-safe-001",
+          "message": "POLICY_VIOLATION_SAFE_001: environment key read in src/string-literal.mjs: export const s = \"process.env.X_API_KEY\";"
+        }
+      ],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "A6_expectedFiles_reincludes_markdown",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-policy-2pj5ih\\qgate.config.json --json",
+      "status": 1,
+      "code": null,
+      "overall_passed": false,
+      "blockers": [
+        {
+          "gate": "sec-gate",
+          "checkId": "policy-safe-001",
+          "message": "POLICY_VIOLATION_SAFE_001: environment key read in docs/notes.md: The reader uses process.env.MY_SECRET_TOKEN at runtime."
+        }
+      ],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "A6_empty_scan_set_must_fail",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-empty-WHu08l\\qgate.config.json --json",
+      "status": 1,
+      "code": null,
+      "overall_passed": false,
+      "blockers": [
+        {
+          "gate": "sec-gate",
+          "checkId": "policy-safe-001",
+          "message": "POLICY_VIOLATION_SAFE_001: no file was scanned: the safety invariant cannot be evaluated (empty scan set). Check policy.scanRoots / policy.expectedFiles."
+        }
+      ],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "provider_fixture_missing",
+      "args": "check --config <tmp, provider.fixture=fixtures/does-not-exist.json> --json",
+      "status": 3,
+      "code": "PROVIDER_FAILED",
+      "provider": null,
+      "overall_passed": null,
+      "expect": "no silent pass: either exit 3 PROVIDER_FAILED, or exit 0 only with an explicit degraded flag",
+      "ok": true
+    },
+    {
+      "id": "provider_scripted_missing_module",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-demo-iQVukK\\qgate.config.json --json",
+      "status": 3,
+      "code": "PROVIDER_FAILED",
+      "overall_passed": null,
+      "blockers": [],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "qgate_repo_root_probe",
+      "args": "check --config <tmp> --json  (with and without env QGATE_REPO_ROOT=<bogus>)",
+      "statusWithout": 0,
+      "statusWith": 0,
+      "sameNormalizedResult": true,
+      "expect": "the env var must not silently re-anchor the repository",
+      "ok": true
+    },
+    {
+      "id": "A3_1_structural_self_certification",
+      "args": "check --config <tmp demo copy> --json then read .qgate/evidence/ledger-index.json",
+      "status": 0,
+      "stdoutHead": "{\n  \"version\": \"1.0\",\n  \"run_id\": \"2026-09-17T20-00-57.325Z-be10c0dd\",\n  \"starte",
+      "stderrHead": "",
+      "ledgerTestIds": [
+        "T-QG-001",
+        "T-QG-002",
+        "T-QG-003",
+        "T-QG-004",
+        "T-QG-006",
+        "T-QG-007",
+        "T-QG-008",
+        "T-QG-009",
+        "T-QG-010",
+        "T-QG-012",
+        "T-QG-013",
+        "T-QG-014",
+        "T-QG-015",
+        "T-QG-016"
+      ],
+      "ranCheckIds": [
+        "req-doc-exists",
+        "req-ids-present",
+        "req-index-valid",
+        "interface-exists",
+        "interface-fields",
+        "rule-file-exists",
+        "no-loose-ends",
+        "no-dep",
+        "command-smoke",
+        "test-results-threshold",
+        "no-network-surface",
+        "negative-fixtures",
+        "invalid-must-fail",
+        "severity-mix",
+        "no-bypass",
+        "trace-complete",
+        "coverage-threshold",
+        "no-secret-paths",
+        "no-key-reads"
+      ],
+      "requirementIdsDeclaredCovered": [
+        "REQ-DEMO-001:undefined",
+        "REQ-DEMO-002:undefined",
+        "REQ-DEMO-003:undefined",
+        "REQ-DEMO-004:undefined",
+        "REQ-DEMO-005:undefined",
+        "REQ-DEMO-006:undefined"
+      ],
+      "note": "coverage basis = ledger testIds, which are derived from the engine static map src/contract.mjs checkTestIds; no root-side test file was executed by this run"
+    },
+    {
+      "id": "A3_2_declared_covered_without_test",
+      "args": "check --config <tmp> --json ; trace --config <tmp> --json",
+      "checkStatus": 0,
+      "traceStatus": 0,
+      "traceCovered": [
+        "REQ-DEMO-001:true:2",
+        "REQ-DEMO-002:true:3",
+        "REQ-DEMO-003:true:2",
+        "REQ-DEMO-004:true:3",
+        "REQ-DEMO-005:true:2",
+        "REQ-DEMO-006:true:2"
+      ],
+      "traceSummary": {
+        "requirements": 6,
+        "covered": 6,
+        "uncovered": 0,
+        "orphanTestIds": 0,
+        "coverageRatio": 1
+      },
+      "note": "index declares covered=true for the first requirement; the run must not certify it by declaration alone"
+    },
+    {
+      "id": "required_failing_check_default_severity",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-sev-swn1WU\\qgate.config.json --json",
+      "status": 1,
+      "code": null,
+      "overall_passed": false,
+      "blockers": [
+        {
+          "gate": "g1",
+          "checkId": "pattern-check",
+          "message": "REGEX_MISMATCH: pattern=NO_SUCH_TOKEN_XYZ mode=count total matches 0 < minMatches=1"
+        }
+      ],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "ledger_tamper_content",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-demo-wxRzbE\\qgate.config.json --json",
+      "status": 3,
+      "code": "EVIDENCE_UNRESOLVED",
+      "overall_passed": null,
+      "blockers": [],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "ledger_tamper_index_sha256",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-demo-o0xagh\\qgate.config.json --json",
+      "status": 3,
+      "code": "EVIDENCE_UNRESOLVED",
+      "overall_passed": null,
+      "blockers": [],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "ledger_tamper_index_runIds",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-demo-gZc49w\\qgate.config.json --json",
+      "status": 3,
+      "code": "EVIDENCE_UNRESOLVED",
+      "overall_passed": null,
+      "blockers": [],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "ledger_tamper_unregistered_ledger",
+      "args": "check --config C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\v3-demo-mO15KE\\qgate.config.json --json",
+      "status": 3,
+      "code": "EVIDENCE_UNRESOLVED",
+      "overall_passed": null,
+      "blockers": [],
+      "ok": true,
+      "note": null
+    },
+    {
+      "id": "adapter_case_and_hardlink_bypass",
+      "args": "ocr-preview --diff <tmp> --rule <tmp, include **/*> --json",
+      "status": 0,
+      "included": [
+        "src/app.mjs"
+      ],
+      "leaked": [],
+      "excluded": [
+        ".env|sensitive_path_never_included",
+        "Credentials.json|sensitive_path_never_included",
+        "Secrets/db.txt|sensitive_path_never_included",
+        "docs.txt|hardlink_secret_alias:same-inode-as-sensitive-path"
+      ],
+      "expect": "case-variant Credentials.json / Secrets/db.txt and the docs.txt hardlink alias must not be selected",
+      "ok": true
+    }
+  ]
+}

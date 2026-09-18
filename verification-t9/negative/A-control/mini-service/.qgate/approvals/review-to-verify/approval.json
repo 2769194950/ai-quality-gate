@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "gateId": "review-to-verify",
+  "role": "reviewer",
+  "decision": "approved",
+  "approvedBy": "reviewer",
+  "approvedAt": "2026-05-04T10:00:00Z",
+  "claims": [
+    {
+      "claimId": "counterexamples-recorded",
+      "statement": "Invalid configurations exit 2 and secret paths stay excluded under the widest include pattern.",
+      "testIds": ["T-QG-008", "T-QG-012"]
+    },
+    {
+      "claimId": "findings-gated",
+      "statement": "Only high-severity findings at or above the confidence threshold may become blockers.",
+      "testIds": ["T-QG-013"]
+    }
+  ],
+  "notes": "Demo fixture approval for the review -> verify handover; the verify stage may now run."
+}

@@ -1,0 +1,85 @@
+﻿{
+  "cwd": "E:\\Desktop\\ai-quality-gate",
+  "rows": [
+    {
+      "row": "selection.extensions — user allowlist deliberately case-sensitive (README L170)",
+      "separateRuns": true,
+      "upperAllowlist": {
+        "extensions": [
+          ".MJS"
+        ],
+        "included": [],
+        "appReason": "extension"
+      },
+      "lowerAllowlist": {
+        "extensions": [
+          ".mjs"
+        ],
+        "included": [
+          "src/app.mjs"
+        ]
+      },
+      "rationaleHolds": true,
+      "note": "caller must NOT reuse one preview result for both allowlists (different configs) — hence two separate runs"
+    },
+    {
+      "row": "scan-surface SKIP_DIRECTORIES deliberately case-sensitive (README L174)",
+      "upperDirScanned": {
+        "root": "<tmp>/upper (NODE_MODULES/dep.mjs)",
+        "filesScanned": 1,
+        "violations": 1,
+        "passed": false,
+        "detail": [
+          "NODE_MODULES/dep.mjs"
+        ]
+      },
+      "lowerDirSkipped": {
+        "root": "<tmp>/lower (node_modules/dep.mjs)",
+        "filesScanned": 0,
+        "violations": 1,
+        "passed": false
+      },
+      "rationaleHolds": true,
+      "note": "the lower tree additionally fails with the empty-scan-set violation (fail-closed), which is why its exit/passed value alone is not the discriminator — filesScanned is"
+    },
+    {
+      "row": "binary extension list already insensitive (README L168)",
+      "excluded": {
+        "assets/LOGO.PNG": "binary",
+        "assets/other.png": "binary"
+      },
+      "rationaleHolds": true,
+      "note": "both spellings are excluded with a binary reason ⇒ the list is case-insensitive"
+    },
+    {
+      "row": "policy.scanRoots: an unresolvable root ⇒ empty scan set = violation (README L173)",
+      "caseMismatchedRoot": {
+        "scanRoots": [
+          "SRC"
+        ],
+        "passed": true,
+        "filesScanned": 1
+      },
+      "absentRoot": {
+        "scanRoots": [
+          "NOPE"
+        ],
+        "passed": false,
+        "filesScanned": 0
+      },
+      "correctRoot": {
+        "scanRoots": [
+          "src"
+        ],
+        "passed": true,
+        "filesScanned": 1
+      },
+      "rationaleHolds": true,
+      "docNuance": "on this case-insensitive filesystem `SRC` resolves to `src` (filesScanned=1), so README L173’s \"a case mismatch walks nothing\" is only true on case-sensitive filesystems"
+    }
+  ],
+  "summary": {
+    "rows": 4,
+    "allRationalesHold": true
+  }
+}

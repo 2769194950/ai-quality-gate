@@ -1,0 +1,122 @@
+{
+  "version": "1.0",
+  "fixture": true,
+  "note": "本文件是 OCR 适配层的离线夹具（fixture），不是真实 git diff 导出，也不来自任何真实 ocr 调用。相对路径以 adapters/opencodereview/demo 为锚（与 --root 同根）。",
+  "files": [
+    {
+      "path": ".env.production",
+      "status": "modified",
+      "binary": false
+    },
+    {
+      "path": ".opencodereview/secrets/db-password.txt",
+      "status": "modified",
+      "binary": false
+    },
+    {
+      "path": "assets/logo.png",
+      "status": "added",
+      "binary": true
+    },
+    {
+      "path": "config/service-account.json",
+      "status": "modified",
+      "binary": false
+    },
+    {
+      "path": "config/tls/server.pem",
+      "status": "modified",
+      "binary": false
+    },
+    {
+      "path": "dist/bundle.js",
+      "status": "modified",
+      "binary": false
+    },
+    {
+      "path": "node_modules/left-pad/index.js",
+      "status": "modified",
+      "binary": false
+    },
+    {
+      "path": "src/chain/chain.test.mjs",
+      "status": "added",
+      "binary": false
+    },
+    {
+      "path": "src/chain/id_rsa",
+      "status": "modified",
+      "binary": false
+    },
+    {
+      "path": "src/chain/user-handler.mjs",
+      "status": "added",
+      "binary": false
+    },
+    {
+      "path": "src/chain/user-handler.mjs.bak",
+      "status": "modified",
+      "binary": false
+    },
+    {
+      "path": "src/chain/user-mapper.mjs",
+      "status": "added",
+      "binary": false
+    },
+    {
+      "path": "src/chain/user-repository.mjs",
+      "status": "added",
+      "binary": false
+    },
+    {
+      "path": "src/chain/user-service.mjs",
+      "status": "added",
+      "binary": false
+    },
+    {
+      "path": "src/reader/reader-part-1.mjs",
+      "status": "modified",
+      "binary": false
+    },
+    {
+      "path": "src/reader/reader-part-2.mjs",
+      "status": "modified",
+      "binary": false
+    },
+    {
+      "path": "src/reader/reader-part-3.mjs",
+      "status": "modified",
+      "binary": false
+    },
+    {
+      "path": "src/reader/reader-part-4.mjs",
+      "status": "modified",
+      "binary": false
+    },
+    {
+      "path": "src/reader/reader-part-5.mjs",
+      "status": "modified",
+      "binary": false
+    },
+    {
+      "path": "src/reader/reader-part-6.mjs",
+      "status": "modified",
+      "binary": false
+    },
+    {
+      "path": "src/reader/reader-part-7.mjs",
+      "status": "modified",
+      "binary": false
+    },
+    {
+      "path": "src/reader/reader-part-8.mjs",
+      "status": "modified",
+      "binary": false
+    },
+    {
+      "path": "src/util/format.mjs",
+      "status": "modified",
+      "binary": false
+    }
+  ]
+}

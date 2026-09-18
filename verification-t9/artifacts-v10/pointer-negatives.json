@@ -1,0 +1,27 @@
+﻿[
+    {
+        "case":  "n1-stale",
+        "exit":  1,
+        "first":  "STALE verification-t9/artifacts-v8/pointer-negatives/n1-stale.txt recorded=91c689dd0577 current=efbe6e05344a payload_sha256_ok=true counts={\"testFiles"
+    },
+    {
+        "case":  "n2-tampered",
+        "exit":  2,
+        "first":  "TAMPERED verification-t9/artifacts-v8/pointer-negatives/n2-tampered.txt recorded=74a28c906b73 current=efbe6e05344a payload_sha256_ok=false counts={\"te"
+    },
+    {
+        "case":  "n3-countdrift",
+        "exit":  1,
+        "first":  "STALE verification-t9/artifacts-v8/pointer-negatives/n3-countdrift.txt recorded=74a28c906b73 current=efbe6e05344a payload_sha256_ok=true counts={\"test"
+    },
+    {
+        "case":  "n4-nomarker",
+        "exit":  3,
+        "first":  "node : UNPARSABLE verification-t9/artifacts-v8/pointer-negatives/n4-nomarker.txt: marker line not found: # --- payload \r"
+    },
+    {
+        "case":  "n5-countdrift-current",
+        "exit":  1,
+        "first":  "STALE verification-t9/artifacts-v8/pointer-negatives/n5-countdrift-current.txt recorded=92d56be67c93 current=efbe6e05344a payload_sha256_ok=true count"
+    }
+]

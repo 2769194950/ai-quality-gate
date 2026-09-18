@@ -1,0 +1,286 @@
+# .github/workflows/quality-gate.yml
+# ─────────────────────────────────────────────────────────────────────────────
+# AI Quality Gate —— 五阶段 CI（契约来源：docs/01-architecture.md §8.2 / REQ-QUALITY-GATE-015）
+#
+# 恰好 5 个 job，与 AI-Native SDLC 五阶段一一对应：
+#   requirements → design → build → review → verify
+# 每个 job 调用对应阶段的 qgate 命令，失败判据为退出码 1。
+#
+# ── 配置来源（唯一、被提交、可独立读取）─────────────────────────────────────
+# 唯一配置就是**仓库根已提交的 `qgate.config.json`**（§8.2 的仓库级示例配置）。
+# 全程 `--config qgate.config.json`，**没有第二个配置**：仓库里每个 commit 都让被引用的
+# 文件存在，测试也能在无前序步骤的前提下独立执行。
+#
+# 为什么**不**用「运行时生成一份 CI 专用配置」：
+#   1) 生成物是瞬时的，于是「测试/复现需要先跑前一步生成文件」——测试不再能独立证明 CI；
+#   2) 会变成两份仓库级配置（根配置 + 生成物），两者必然漂移；
+#   3) 放在 `adapters/opencodereview/ci/` 下的配置会被 `inferRootFromConfig` 推成
+#      该目录（引擎按「配置文件所在目录」解析相对路径），门禁相对路径全部错位。
+#
+# 输出路径：根配置的 `policy.evidenceDir/reportDir` 按 §8.2 指向 `verification/**`
+# （审计链的契约位置）。CI runner 是新容器，因此写入 `verification/**` 不会与本地开发
+# 互相干扰；这也正是 §8.2 要求的审计链落点，artifact 直接上传该目录。
+#
+# ── CI 非显然约束（未来维护者必读）：verify 为什么是三段式 ──────────────────
+# verify 门禁（trace_matrix, enforce=strict）要求 trace 矩阵与账本一致，而
+# `qgate trace --write` 的 covered 判定**依赖 ledger-index**。全新 runner 上没有任何输出：
+#   1) 先直接跑一次完整流水线 ⇒ 因 trace 缺失而**预期失败**（退出码 1），
+#      但这一步会把 16 个 testId 写进 `verification/evidence/ledger-index.json`；
+#   2) 此时账本已完整，`trace --write` 才能写出 `covered=16/16` 的矩阵（退出码 0）；
+#   3) 再跑一次完整流水线 ⇒ 退出码 0 / overall_passed=true。
+# 若颠倒顺序（先 trace 后 check），第 1 步只能写出 `covered=false` 的矩阵，
+# 随后 check 用现场账本算出 `covered=true`，两者不一致 ⇒ TRACE_GAP 判失败。
+# 实测反例：`--stage review` 预热只能写满 15/16 个 testId（缺 verify 阶段的 T-QG-016），
+# `--stage build` 只写满 12/16 ⇒ **预热必须用完整流水线（不带 --stage）**，否则第 3 步仍失败。
+# 该顺序是 CI 侧的必要条件，**不是**要去掉 TRACE_GAP 的牙齿——引擎刻意不在 check 里
+# 自动刷新 trace，以保留「改了需求却没刷新 trace」这一审计能力。
+#
+# 本地等价复现（先进仓库根；verify 为三段式，顺序不可颠倒）：
+#   node packages/qgate/bin/qgate.mjs contract --json
+#   node packages/qgate/bin/qgate.mjs check --stage requirements --config qgate.config.json --json
+#   node packages/qgate/bin/qgate.mjs check --stage design       --config qgate.config.json --json
+#   node packages/qgate/bin/qgate.mjs check --stage build        --config qgate.config.json --json
+#   node packages/qgate/bin/qgate.mjs check --stage review       --config qgate.config.json --json
+#   node packages/qgate/bin/qgate.mjs check --config qgate.config.json --json || true   # 预热（预期 1）
+#   node packages/qgate/bin/qgate.mjs trace --config qgate.config.json --write          # 生成 trace
+#   node packages/qgate/bin/qgate.mjs check --config qgate.config.json --json           # 权威判定（0）
+# 退出码契约：0=通过 1=门禁失败 2=配置错误 3=内部错误。
+#
+# 复用模板：adapters/opencodereview/ci/github-actions.yml（workflow_call，参数表见该文件头部）
+#   本文件等价于该模板的裸调用。
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: Quality Gate
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: quality-gate-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  QGATE_ENTRY: packages/qgate/bin/qgate.mjs
+  # 唯一配置：仓库根已提交的 qgate.config.json（无第二份配置、无运行时生成）
+  QGATE_CONFIG: qgate.config.json
+  OCR_ADAPTER_ROOT: adapters/opencodereview
+  # 根配置按 §8.2 的审计链落点（与 policy.evidenceDir / policy.reportDir 一致）
+  QGATE_EVIDENCE_DIR: verification/evidence
+  # 离线硬保证：显式声明确定性 provider，不读取任何密钥。
+  QGATE_PROVIDER: deterministic
+  OCR_OFFLINE: '1'
+  NO_COLOR: '1'
+
+jobs:
+  # ── 阶段 1/5：requirements ────────────────────────────────────────────────
+  requirements:
+    name: requirements
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        with:
+          node-version: '20'
+      - name: Contract self-check (qgate contract --json)
+        run: node "$QGATE_ENTRY" contract --json
+      - name: Run stage requirements
+        run: node "$QGATE_ENTRY" check --stage requirements --config "$QGATE_CONFIG" --json
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        with:
+          name: qgate-evidence-requirements
+          # 与根配置的 policy.evidenceDir 一致；if-no-files-found: error
+          # 让「上传路径与实际输出目录不一致」立刻失败，而不是静默上传空包。
+          path: verification/evidence/
+          if-no-files-found: error
+          retention-days: 14
+
+  # ── 阶段 2/5：design ──────────────────────────────────────────────────────
+  design:
+    name: design
+    needs: requirements
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        with:
+          node-version: '20'
+      - name: Run stage design
+        run: node "$QGATE_ENTRY" check --stage design --config "$QGATE_CONFIG" --json
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        with:
+          name: qgate-evidence-design
+          path: verification/evidence/
+          if-no-files-found: error
+          retention-days: 14
+
+  # ── 阶段 3/5：build（附 OCR 适配层确定性预览） ────────────────────────────
+  build:
+    name: build
+    needs: design
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        with:
+          node-version: '20'
+      - name: Run stage build
+        run: node "$QGATE_ENTRY" check --stage build --config "$QGATE_CONFIG" --json
+      # ocr CLI 不存在时本步仍退出 0（degraded:true），选择/分组与 qgate preview 同源。
+      - name: OCR adapter deterministic preview (offline, llm_called=false)
+        run: |
+          node "$OCR_ADAPTER_ROOT/bin/ocr-preview.mjs" \
+            --diff "$OCR_ADAPTER_ROOT/demo/diff.json" \
+            --rule "$OCR_ADAPTER_ROOT/demo/rule.json" \
+            --json \
+            --out "$QGATE_EVIDENCE_DIR/ocr-selection-preview.json" \
+            --quiet
+      # 安全断言：selected 中不得出现任何密钥/凭证路径；且 .env.production 必须出现在 excluded。
+      - name: Assert safety invariant (no secret path can be selected)
+        run: |
+          node -e '
+            const fs = require("fs");
+            const p = process.env.QGATE_EVIDENCE_DIR + "/ocr-selection-preview.json";
+            const r = JSON.parse(fs.readFileSync(p, "utf8"));
+            const bad = (r.selectedPaths || []).filter((f) =>
+              /(^|\/)\.env(\.|$)|\.pem$|\.key$|id_rsa|credentials|(^|\/)secrets\//.test(f));
+            if (bad.length > 0) {
+              console.error("SAFETY_VIOLATION: secret paths in selected: " + bad.join(", "));
+              process.exit(3);
+            }
+            if (!(r.excludedPaths || []).includes(".env.production")) {
+              console.error("SAFETY_VIOLATION: .env.production must appear in excludedPaths");
+              process.exit(3);
+            }
+            console.log("SAFETY_OK selected=" + (r.selectedPaths || []).length + " excluded=" + (r.excludedPaths || []).length);
+          '
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        with:
+          name: qgate-evidence-build
+          path: verification/evidence/
+          if-no-files-found: error
+          retention-days: 14
+
+  # ── 阶段 4/5：review ──────────────────────────────────────────────────────
+  review:
+    name: review
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        with:
+          node-version: '20'
+      - name: Run stage review
+        run: node "$QGATE_ENTRY" check --stage review --config "$QGATE_CONFIG" --json
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        with:
+          name: qgate-evidence-review
+          path: verification/evidence/
+          if-no-files-found: error
+          retention-days: 14
+
+  # ── 阶段 5/5：verify（三段式 + 人类门禁制品校验） ────────────────────────
+  verify:
+    name: verify
+    needs: review
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      overall-outcome: ${{ steps.pipeline.outcome }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        with:
+          node-version: '20'
+      # 人类门禁：以审批制品的「存在性 + 角色匹配」判定（§9.1），不涉及任何 secret。
+      - name: Check human-gate approval records (existence + role match)
+        run: |
+          node -e '
+            const fs = require("fs");
+            const gates = [
+              { id: "req-to-design",    role: "product"   },
+              { id: "design-to-build",  role: "architect" },
+              { id: "review-to-verify", role: "reviewer"  }
+            ];
+            let missing = 0;
+            for (const gate of gates) {
+              const file = "verification/approvals/" + gate.id + "/approval.json";
+              if (!fs.existsSync(file)) {
+                console.log("MISSING " + gate.id + " (" + gate.role + ")");
+                missing += 1;
+                continue;
+              }
+              const rec = JSON.parse(fs.readFileSync(file, "utf8"));
+              const ok = rec.gateId === gate.id && rec.role === gate.role && rec.decision === "approved";
+              console.log((ok ? "OK" : "MISMATCH") + " " + gate.id + " role=" + rec.role + " decision=" + rec.decision);
+              if (!ok) missing += 1;
+            }
+            if (missing > 0) console.log("HUMAN_GATE_NOT_APPROVED: " + missing + " record(s) missing or mismatched");
+            process.exit(0);
+          '
+      # 第 1 步：预热 —— 写入完整账本。全新 runner 上此刻没有 trace ⇒ verify 门禁
+      # **预期失败（退出码 1）**，用 `|| true` 显式吞掉；真正的判据在第 3 步。
+      - name: Warm-up run (fills the evidence ledger; trace is intentionally absent here)
+        run: |
+          node "$QGATE_ENTRY" check --config "$QGATE_CONFIG" --json || true
+          test -f "$QGATE_EVIDENCE_DIR/ledger-index.json" \
+            || { echo "ledger-index.json was not produced by the warm-up run"; exit 3; }
+      # 第 2 步：账本已完整 ⇒ 此时生成的 trace 才能算出 covered=16/16
+      - name: Generate trace matrix from the complete ledger
+        run: node "$QGATE_ENTRY" trace --config "$QGATE_CONFIG" --write
+      # 第 3 步：权威判定（无 || true，退出码 1 即 job 失败）
+      - name: Run full pipeline (authoritative verdict)
+        id: pipeline
+        run: node "$QGATE_ENTRY" check --config "$QGATE_CONFIG" --json
+      - name: Upload evidence (audit chain)
+        if: always()
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        with:
+          name: qgate-evidence-verify
+          # 与根配置的 policy.evidenceDir / policy.reportDir / trace_matrix.traceFile 逐一对应
+          path: |
+            verification/evidence/
+            verification/reports/
+            verification/trace-matrix.json
+          if-no-files-found: warn
+          retention-days: 14

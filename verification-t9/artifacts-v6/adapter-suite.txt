@@ -1,0 +1,140 @@
+# evidence: adapter-suite-baseline
+# format: pointer+hash v1
+# status: SUPERSEDED
+# record_command: node adapters/opencodereview/tools/run-tests.mjs
+# record_cwd: E:\Desktop\ai-quality-gate
+# record_at_utc: 2026-09-18T02:35:18Z
+# tree_fingerprint: 91c689dd0577f46ade5373aff9554fbc4d2c38f7b76b4e02198b91a5dde67624
+# tree_fingerprint_files: n/a (historical)
+# fingerprint_tool: node verification-t9/tools/tree-fingerprint.mjs
+# expected: testFiles=11;tests=109;pass=109;fail=0;exit_code=0
+# exit_code: 0
+# argv_json: ["node","adapters/opencodereview/tools/run-tests.mjs"]
+# content_sha256: 2b665876a6c81d0fbc6474d902212cd1dfa0ed0c7aebbebe5c763fad51880ca3
+# freshness_rule: FRESH iff recomputed tree_fingerprint == tree_fingerprint above AND content_sha256 matches the payload;
+#   check with: node verification-t9/tools/evidence-pointer.mjs check verification-t9/artifacts-v6/adapter-suite.txt [--deep]   (0 FRESH / 1 STALE / 2 TAMPERED)
+# note: historical snapshot (quoted by report-v6); converted to pointer+hash in t60/X1 WITHOUT re-running: payload bytes unchanged. Recorded at the t55 revision 91c689dd... (11 files / 109 tests). Superseded by verification-t9/artifacts-v8/adapter-suite.txt (14 files / 131 tests).
+# --- payload (content_sha256 covers the bytes after this line) ---# [t55/W6 re-record 2026-09-18] SUPERSEDED BASELINE (this copy is quoted by report-v3..v6)
+# previous baseline: 10 test file(s), 102 test(s).
+# current baseline (authoritative copy: verification-t9/artifacts-v7/adapter-suite.txt): 11 test file(s), 109 test(s).
+# The fresh run output follows.
+# ---
+run-tests: 共 11 个测试文件（进程内执行）
+✔ CI: 恰好 5 个 job，与五阶段一一对应且顺序正确 (3.3877ms)
+✔ CI: 每个 stage job 调用对应阶段的 qgate 命令，verify 跑完整流水线（三段式） (0.7684ms)
+✔ CI: 引用的每个文件都存在于仓库中（无运行时生成再引用的跨步骤依赖） (3.1781ms)
+✔ CI: 所有 uses 固定 40 位 SHA，且只使用白名单 action (2.9549ms)
+✔ CI: permissions 不超过 contents:read + pull-requests:write (1.1551ms)
+✔ CI: 不出现任何仓库密钥引用 (1.8398ms)
+✔ CI: 复用了 adapters/opencodereview/ci/github-actions.yml 模板并声明输入参数 (3.433ms)
+✔ CI: workflow 内嵌的 node -e 脚本可独立执行（无前序产物依赖） (37.4948ms)
+✔ GAP-5/GAP-6: 三种 cwd 下 layer_trace / loaded_layers / source.path 完全一致 (576.8569ms)
+✔ GAP-5/GAP-6: 输出中不含任何仓库/适配层/家目录绝对路径（夹具与运行时同源） (48.7004ms)
+✔ GAP-5: 显式 --root 行为未回归（显式参数优先于推断锚点） (29.9951ms)
+✔ GAP-5: 固定 cwd 下重复运行仍字节级一致（确定性未被修复破坏） (59.3021ms)
+✔ 安全不变量未受影响：密钥路径仍不可被 include 重新纳入 (32.2831ms)
+✔ fixtures: preview.default.json 与当前运行结果一致（真实产物回归） (31.5188ms)
+✔ fixtures: preview.token-budget-300.json 记录 token 预算降级形态 (63.4476ms)
+✔ fixtures: selection.default.md 为真实运行生成的「文件/决策/原因」三列表格 (29.1772ms)
+✔ fixtures: 两次运行的字节级一致性（同一进程内重复调用） (60.3492ms)
+✔ 契约: ruleMatch 形状规则成立，字段名与 README §1.2 记录的现状逐字一致 (30.6427ms)
+✔ t51: 已录夹具的键集与当前实现同步（含 t48 新增的全部键） (1.2209ms)
+✔ GAP-6: scrubber 抹平三类路径（适配层根 / 仓库根+项目级规则 / 家目录） (0.533ms)
+✔ GAP-6: scrubber 不误替非仓库绝对路径，且统一分隔符 (2.2976ms)
+✔ GAP-6: 实际输出中三类路径都被抹平，且报告出命中的占位符 (32.053ms)
+✔ 分组常量: MAX_FILES_PER_GROUP=10 与默认 token 预算 (0.6153ms)
+✔ 分组: 0 个文件 ⇒ 0 组且不抛错 (2.4635ms)
+✔ 分组: 显式 maxFilesPerGroup 无法突破硬上限 10 (0.4061ms)
+✔ 分组: 每个文件恰好出现在一个组里（无重复、无遗漏） (1.2704ms)
+✔ 分组: token 预算降级为单文件桶并记录原因与预算 (1.5208ms)
+✔ 分组: 分组异常时回退 per-file（不产生部分结果） (0.4405ms)
+✔ 分组: 显式分桶规则把调用链捆在一起，未命中者按目录分段 (1.5118ms)
+✔ 分组: 公共前缀与自动分段语义稳定 (0.6881ms)
+✔ 规则: 内置层永远存在且不含 include（结构上不可能救回敏感路径） (0.5182ms)
+✔ 规则: 非法规则文件 ⇒ RuleError(CONFIG_INVALID)；缺失文件返回 null (14.0452ms)
+✔ 规则: effectiveSettings 高优先层覆盖低优先层 (0.2239ms)
+✔ 规则: classifyFile 的判定顺序 —— 安全层先于任何 include (1.1074ms)
+✔ 规则: --include 追加为最高优先层（priority 0） (0.4379ms)
+✔ 分组: groupTokens 按 tokens/size 确定性求和 (0.1462ms)
+✔ F1: --diff（diff 与仓库并列）下三类硬链接别名全部排除 (48.1602ms)
+✔ F1: --diff（diff 放在仓库内）下三类别名同样全部排除 (40.0067ms)
+✔ F1: --root 枚举路径下三类别名同样全部排除（t33 既有行为不得回归） (41.9977ms)
+✔ F1: --diff 下排除依据是「同源 inode」（身份链），不是内容形态启发式 (44.5865ms)
+✔ F1: 身份链为空时（无敏感文件存在于盘上）不得误排除普通硬链接 (31.2291ms)
+✔ F1: diff 含大量不存在路径（命中率<50%）时仍必须锚定根并排除别名 (45.7432ms)
+✔ F1: diff 位于不同布局时安全判定结果一致（并列 / 仓库内 / 上级目录） (64.9325ms)
+✔ t54: 导入网络模块本身即违规 —— 四种形态都不依赖调用点 (1.9172ms)
+✔ t54: 调用形态仍照旧报出（修复未替换既有调用面判定） (1.1365ms)
+✔ t54: 非网络模块不得被导入面判定误报 (0.3844ms)
+✔ t54: 注释行与否定行内的网络导入写法不被报（边界不放宽） (0.4068ms)
+✔ t54: 纯模块名字符串字面量不被报（只有真实导入语法才算） (0.1825ms)
+✔ t54: 与引擎同判（文本级同形边界，含字面量内嵌导入语法） (0.218ms)
+✔ t54: 端到端（目录级断言）同样捕获导入面，且与 selection 无关 (13.4937ms)
+✔ 降级: ocr 不存在 ⇒ available=false + OCR_CLI_NOT_FOUND，且不抛异常 (0.6577ms)
+✔ 降级: --no-ocr / OCR_DISABLE=1 走显式跳过原因 (0.233ms)
+✔ 降级: 假 ocr 脚本非零退出 ⇒ 尝试后回落本地（不抛出） (3.741ms)
+✔ 零密钥: 子进程环境为白名单，绝不透传任何密钥变量 (0.5438ms)
+✔ 零密钥: 适配层源码不含密钥读取（逐行扫描可执行代码） (13.3934ms)
+✔ OCR JSON 夹具: 形状与真实 ocr review --format json 对齐，并显式标注 fixture (1.3695ms)
+✔ reflection: 规则化复核剔除不可定位/无证据/重复/敏感路径建议 (1.6407ms)
+✔ 规则格式: 引擎格式 {rules:[{match}]} 被识别为「本层不支持」而非静默 (0.6634ms)
+✔ 规则格式: 用引擎格式规则时 degraded:true + RULE_FORMAT_UNSUPPORTED（不再静默） (30.3669ms)
+✔ 规则格式: 适配层格式不误报（format_supported=true，规则正常生效） (31.0264ms)
+✔ 规则格式: 告警在 --md 输出中可见（人类读者也能看到） (27.1732ms)
+✔ 规则格式: 无规则文件时不产生格式告警（不误报） (18.9788ms)
+✔ 规则格式: 项目级规则文件用引擎格式时同样被上报（不只是 --rule 层） (24.4754ms)
+✔ B1: 敏感路径匹配大小写不敏感（路径级） (0.9044ms)
+✔ B1: 默认排除目录与密钥扩展名同样大小写不敏感 (0.4032ms)
+✔ B1: diff 模式下大小写变体被排除，且安全断言与事实一致（端到端） (26.9956ms)
+✔ B1: safety 断言不再给出假保证（伪断言与真实断言一致） (19.6392ms)
+✔ H2: 硬链接到密钥内容 ⇒ 被排除并给出机器可读原因（不再静默纳入） (24.5653ms)
+✔ H2: 密钥形态内容扫描的精确性（真密钥命中、占位符与文档不误报） (1.0382ms)
+✔ H2: 单链接普通文件零影响（不做内容扫描、不误排除） (3.6199ms)
+✔ H3: SAFE_001 覆盖 8 种 env 名写法（含大小写变体与 bracket 形式） (11.8871ms)
+✔ H3: SAFE_001 额外覆盖解构 / getenv / vault，且不误报普通文本 (8.8727ms)
+✔ H3: SAFE_003 检出 4 种网络写法（含静态命名空间 import 别名与动态 import） (6.8137ms)
+✔ H3: SAFE_003 别名解析与不误报（解构成员、require 形态、普通文本） (0.345ms)
+✔ H3: 适配层自身源码通过两个扫描器（self-scan，防误报回归） (11.4134ms)
+✔ H2: safety 断言可独立捕获硬链接偷渡（不依赖路径过滤的正确性） (18.7653ms)
+✔ D06: `.lock` 与二进制扩展名的排除理由串不重叠（各自语义独立，且都仍排除） (1.142ms)
+✔ 回归: demo 夹具仍按预期工作（占位符密钥文件不因新扫描器而误判） (28.6838ms)
+✔ 回归: 最宽泛 include 仍救不回敏感路径（大小写变体亦然） (22.8381ms)
+✔ CLI: --diff --rule --json 输出合法 JSON，mode=preview 且 llm_called=false (29.8798ms)
+✔ CLI: --json 与 --md 互斥 ⇒ 退出码 2 + CONFIG_INVALID (0.4381ms)
+✔ CLI: --md 输出 selection.md 风格「文件/决策/原因」三列表格 (30.2882ms)
+✔ 安全: 敏感路径清单覆盖 .env* / *.pem / *.key / id_rsa* / credentials* / secrets/** (0.789ms)
+✔ 安全: .env.production 只出现在 excluded，selected 中永不出现密钥路径 (30.3966ms)
+✔ 安全: 最宽泛 include（**/*、**/.*、secrets/**）也无法把敏感路径重新纳入 (48.3603ms)
+✔ 过滤: 二进制文件始终排除（扩展名 + 魔数） (30.2145ms)
+✔ 过滤: 默认排除目录（.git/、node_modules/、dist/）始终排除 (27.9759ms)
+✔ 过滤: 不支持的扩展名始终排除 (31.4112ms)
+✔ 规则: 四层优先级顺序为 --rule > 项目 > 用户 > 内置 (36.3173ms)
+✔ 规则: 每一层单独生效（--rule / 项目 / 用户 / 内置） (102.0671ms)
+✔ 规则: glob 语义（**、*、?、{a,b}、basename 模式）确定且可解释 (0.571ms)
+✔ 分组: MAX_FILES_PER_GROUP 字面量为 10（测试按源码字面量断言） (0.4352ms)
+✔ 分组: 单组文件数超过 10 时确定性切块，且每组 ≤ 10 (0.59ms)
+✔ 分组: 超过 token 预算时降级为单文件桶（含真实文件大小路径） (59.7269ms)
+✔ 分组: 跨文件注入链路（handler→service→repository→mapper）被放进同一组 (29.1661ms)
+✔ 降级: ocr 不存在时退出 0 且标注 degraded:true（含真实原因） (21.0224ms)
+✔ 降级: probeOcr 返回结构化原因；子进程环境不含任何 API Key (9.7171ms)
+✔ 零密钥: 设置哨兵 API Key 后输出与无 Key 时字节级一致 (60.111ms)
+✔ 确定性: 同输入两次运行 JSON（含选择与分组）字节级一致 (59.3422ms)
+✔ 确定性: 输入顺序打乱后选择与分组结果不变 (43.7544ms)
+✔ --root 扫描模式：与 --diff 走同一选择代码（同源）且确定 (46.669ms)
+✔ 夹具路径真实存在：diff.json 引用的每个路径都对应夹具根下真实文件 (2.8931ms)
+✔ 不改动 packages/qgate：适配层不引用、不写入 core-engineer 目录 (14.4461ms)
+✔ t48: 未物化路径不进入 groups[].files（覆盖面派生值不受污染） (59.5125ms)
+✔ t48: 未物化事实仍可查（unmaterialized 列表 + selected[].materialized=false） (42.5048ms)
+✔ t48: 物化后为空的组被丢弃（与 --root 的组数对齐） (41.9069ms)
+✔ t48: 全部物化时计数与旧口径一致（不引入回归） (30.8367ms)
+✔ t48: demo 夹具不受影响（真实产物 14 入选 / 9 排除 / 4 组，全部物化） (28.7879ms)
+✔ t48: token 逻辑未被改动（未物化项 tokens 仍为 0，总量不膨胀） (65.0634ms)
+run-tests: 完成，用时 2779 ms
+ℹ tests 109
+ℹ suites 0
+ℹ pass 109
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2766.4095

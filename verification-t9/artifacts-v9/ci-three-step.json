@@ -1,0 +1,34 @@
+﻿[
+    {
+        "step":  "contract --json",
+        "exit":  0
+    },
+    {
+        "step":  "check --stage requirements",
+        "exit":  0
+    },
+    {
+        "step":  "check --stage design",
+        "exit":  0
+    },
+    {
+        "step":  "check --stage build",
+        "exit":  0
+    },
+    {
+        "step":  "check --stage review",
+        "exit":  0
+    },
+    {
+        "step":  "warmup full pipeline (expected 1)",
+        "exit":  1
+    },
+    {
+        "step":  "trace --write",
+        "exit":  0
+    },
+    {
+        "step":  "authoritative check (expected 0)",
+        "exit":  0
+    }
+]

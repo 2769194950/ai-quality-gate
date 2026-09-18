@@ -1,0 +1,4 @@
+﻿valid=true  verification-t9/artifacts-v10/demo-check.json  vs  schemas/run-result.schema.json  errors=0
+valid=true  verification-t9/artifacts-v10/run1.json  vs  schemas/run-result.schema.json  errors=0
+valid=true  verification-t9/artifacts-v10/stage-build.json  vs  schemas/run-result.schema.json  errors=0
+valid=true  verification-t9/artifacts-v10/trace.json  vs  schemas/trace-matrix.schema.json  errors=0

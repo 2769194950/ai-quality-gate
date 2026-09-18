@@ -1,0 +1,19 @@
+{
+  "_fixture": true,
+  "_note": [
+    "本文件是 **fixture**，用于复现「rule.json 格式不对称」缺陷（verifier I6 / t15 收尾项）。",
+    "它使用**引擎（qgate）的规则文件格式** `{ schemaVersion, rules: [{ id, match, severity, category }] }`，",
+    "而不是本适配层的格式 `{ include, exclude, includeExtensions, grouping }`。",
+    "实测的不对称行为：",
+    "  * 引擎 side：接受该格式（exit 0），按 match 逐条匹配；遇到适配层格式则 exit 2 / CONFIG_INVALID。",
+    "  * 适配层 side（修复前）：**静默忽略**该文件 —— 输出与「完全不带 --rule」逐字段相同，",
+    "    用户以为规则生效了，实际一条都没应用。",
+    "修复后：适配层显式上报 `degraded:true` + `degraded_reason=RULE_FORMAT_UNSUPPORTED`，",
+    "并在 --md 输出里给出告警段落与两侧格式差异说明（见 src/rules.mjs 的 inspectRuleShape）。"
+  ],
+  "schemaVersion": "1.0",
+  "rules": [
+    { "id": "only-src", "match": "**/src/**", "severity": "high", "category": "source" },
+    { "id": "deny-all", "match": "**/*", "severity": "low", "category": "other" }
+  ]
+}

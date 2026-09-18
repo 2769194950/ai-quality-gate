@@ -1,0 +1,57 @@
+﻿[
+    {
+        "script":  "test",
+        "exit":  0,
+        "bytes":  9867
+    },
+    {
+        "script":  "test:all",
+        "exit":  0,
+        "bytes":  9874
+    },
+    {
+        "script":  "test:contract",
+        "exit":  0,
+        "bytes":  2105
+    },
+    {
+        "script":  "check",
+        "exit":  0,
+        "bytes":  1229
+    },
+    {
+        "script":  "check:json",
+        "exit":  0,
+        "bytes":  15382
+    },
+    {
+        "script":  "check:summary",
+        "exit":  0,
+        "bytes":  1229
+    },
+    {
+        "script":  "contract",
+        "exit":  0,
+        "bytes":  404
+    },
+    {
+        "script":  "trace",
+        "exit":  0,
+        "bytes":  1193
+    },
+    {
+        "script":  "preview",
+        "exit":  0,
+        "bytes":  292
+    },
+    {
+        "script":  "report",
+        "exit":  0,
+        "bytes":  117
+    },
+    {
+        "script":  "verify",
+        "exit":  0,
+        "bytes":  15382
+    }
+]

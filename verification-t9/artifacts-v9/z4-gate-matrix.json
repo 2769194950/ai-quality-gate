@@ -1,0 +1,166 @@
+{
+  "copy": "E:\\Desktop\\t66-z4",
+  "scenarios": [
+    {
+      "label": "A pointer recorded at an older revision (stale)",
+      "exit": 1,
+      "overall_passed": false,
+      "gates": 5,
+      "gatesPassed": 4,
+      "failing": [
+        {
+          "gate": "verify-coverage",
+          "check": "baseline-freshness",
+          "type": "command",
+          "message": null,
+          "evidence": [
+            "command=node verification-t9/tools/baseline-freshness.mjs --deep --quiet cwd=. exitCode=1 expected=0",
+            "stdout: BASELINE-FRESHNESS current=92d56be67c93 files=6 fresh=0 superseded=5 stale=1 tampered=0 count_drift=0"
+          ]
+        }
+      ],
+      "failingIds": [
+        "verify-coverage:baseline-freshness"
+      ],
+      "blockerText": [
+        "command=node verification-t9/tools/baseline-freshness.mjs --deep --quiet cwd=. exitCode=1 expected=0",
+        "stdout: BASELINE-FRESHNESS current=92d56be67c93 files=6 fresh=0 superseded=5 stale=1 tampered=0 count_drift=0"
+      ]
+    },
+    {
+      "label": "B re-record in the copy",
+      "exit": 0,
+      "overall_passed": true,
+      "gates": 5,
+      "gatesPassed": 5,
+      "failing": [],
+      "failingIds": [],
+      "blockerText": [],
+      "recordExit": 0
+    },
+    {
+      "label": "C in-scope write after recording",
+      "exit": 1,
+      "overall_passed": false,
+      "gates": 5,
+      "gatesPassed": 4,
+      "failing": [
+        {
+          "gate": "verify-coverage",
+          "check": "baseline-freshness",
+          "type": "command",
+          "message": null,
+          "evidence": [
+            "command=node verification-t9/tools/baseline-freshness.mjs --deep --quiet cwd=. exitCode=1 expected=0",
+            "stdout: BASELINE-FRESHNESS current=c861e40f5607 files=6 fresh=0 superseded=5 stale=1 tampered=0 count_drift=0"
+          ]
+        }
+      ],
+      "failingIds": [
+        "verify-coverage:baseline-freshness"
+      ],
+      "blockerText": [
+        "command=node verification-t9/tools/baseline-freshness.mjs --deep --quiet cwd=. exitCode=1 expected=0",
+        "stdout: BASELINE-FRESHNESS current=c861e40f5607 files=6 fresh=0 superseded=5 stale=1 tampered=0 count_drift=0"
+      ]
+    },
+    {
+      "label": "D re-record after the write",
+      "exit": 0,
+      "overall_passed": true,
+      "gates": 5,
+      "gatesPassed": 5,
+      "failing": [],
+      "failingIds": [],
+      "blockerText": [],
+      "recordExit": 0
+    },
+    {
+      "label": "E verifier tool deleted (fail-closed)",
+      "exit": 1,
+      "overall_passed": false,
+      "gates": 5,
+      "gatesPassed": 4,
+      "failing": [
+        {
+          "gate": "verify-coverage",
+          "check": "baseline-freshness",
+          "type": "command",
+          "message": null,
+          "evidence": [
+            "command=node verification-t9/tools/baseline-freshness.mjs --deep --quiet cwd=. exitCode=1 expected=0",
+            "stdout: <empty>"
+          ]
+        }
+      ],
+      "failingIds": [
+        "verify-coverage:baseline-freshness"
+      ],
+      "blockerText": [
+        "command=node verification-t9/tools/baseline-freshness.mjs --deep --quiet cwd=. exitCode=1 expected=0",
+        "stdout: <empty>"
+      ]
+    },
+    {
+      "label": "F authoritative pointer removed, superseded copies remain (fail-closed)",
+      "exit": 1,
+      "overall_passed": false,
+      "gates": 5,
+      "gatesPassed": 4,
+      "failing": [
+        {
+          "gate": "verify-coverage",
+          "check": "baseline-freshness",
+          "type": "command",
+          "message": null,
+          "evidence": [
+            "command=node verification-t9/tools/baseline-freshness.mjs --deep --quiet cwd=. exitCode=3 expected=0",
+            "stdout: <empty>"
+          ]
+        }
+      ],
+      "failingIds": [
+        "verify-coverage:baseline-freshness"
+      ],
+      "blockerText": [
+        "command=node verification-t9/tools/baseline-freshness.mjs --deep --quiet cwd=. exitCode=3 expected=0",
+        "stdout: <empty>"
+      ]
+    },
+    {
+      "label": "G no pointer file at all (fail-closed discovery)",
+      "exit": 1,
+      "overall_passed": false,
+      "gates": 5,
+      "gatesPassed": 4,
+      "failing": [
+        {
+          "gate": "verify-coverage",
+          "check": "baseline-freshness",
+          "type": "command",
+          "message": null,
+          "evidence": [
+            "command=node verification-t9/tools/baseline-freshness.mjs --deep --quiet cwd=. exitCode=3 expected=0",
+            "stdout: <empty>"
+          ]
+        }
+      ],
+      "failingIds": [
+        "verify-coverage:baseline-freshness"
+      ],
+      "blockerText": [
+        "command=node verification-t9/tools/baseline-freshness.mjs --deep --quiet cwd=. exitCode=3 expected=0",
+        "stdout: <empty>"
+      ]
+    }
+  ],
+  "summary": {
+    "staleIsRed": true,
+    "recordTurnsItGreen": true,
+    "inScopeWriteTurnsItRed": true,
+    "restoreTurnsItGreenAgain": true,
+    "missingToolFailsClosed": true,
+    "noAuthoritativePointerFailsClosed": true,
+    "noPointerAtAllFailsClosed": true
+  }
+}

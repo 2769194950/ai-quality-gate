@@ -1,0 +1,622 @@
+﻿{
+  "security": [
+    {
+      "label": "adapter demo diff + demo rule (default)",
+      "includedCount": 14,
+      "selectedCount": 14,
+      "leakedInSelectionIncluded": [],
+      "leakedInSelected": [],
+      "leakedInRuleMatch": [],
+      "leakedInGroups": [],
+      "secretsExcluded": [
+        {
+          "path": ".env.production",
+          "reason": "sensitive_path_never_included",
+          "decided_by": "safety",
+          "rule_source": "SAFETY_INVARIANT"
+        },
+        {
+          "path": ".opencodereview/secrets/db-password.txt",
+          "reason": "sensitive_path_never_included",
+          "decided_by": "safety",
+          "rule_source": "SAFETY_INVARIANT"
+        },
+        {
+          "path": "config/tls/server.pem",
+          "reason": "sensitive_path_never_included",
+          "decided_by": "safety",
+          "rule_source": "SAFETY_INVARIANT"
+        },
+        {
+          "path": "src/chain/id_rsa",
+          "reason": "sensitive_path_never_included",
+          "decided_by": "safety",
+          "rule_source": "SAFETY_INVARIANT"
+        }
+      ],
+      "safetyBlock": {
+        "grouping_invariants_ok": true,
+        "grouping_violations": [],
+        "no_sensitive_selected": true,
+        "rule": "SAFETY-001: selected 列表不得包含密钥/凭证路径、二进制、默认排除目录、不支持扩展名",
+        "sensitive_paths_never_reincludable": true,
+        "violations": []
+      },
+      "invariantHolds": true
+    },
+    {
+      "label": "adapter demo diff + SAFE_002 malicious --rule (explicit include of secret paths)",
+      "includedCount": 14,
+      "selectedCount": 14,
+      "leakedInSelectionIncluded": [],
+      "leakedInSelected": [],
+      "leakedInRuleMatch": [],
+      "leakedInGroups": [],
+      "secretsExcluded": [
+        {
+          "path": ".env.production",
+          "reason": "sensitive_path_never_included",
+          "decided_by": "safety",
+          "rule_source": "SAFETY_INVARIANT"
+        },
+        {
+          "path": ".opencodereview/secrets/db-password.txt",
+          "reason": "sensitive_path_never_included",
+          "decided_by": "safety",
+          "rule_source": "SAFETY_INVARIANT"
+        },
+        {
+          "path": "config/tls/server.pem",
+          "reason": "sensitive_path_never_included",
+          "decided_by": "safety",
+          "rule_source": "SAFETY_INVARIANT"
+        },
+        {
+          "path": "src/chain/id_rsa",
+          "reason": "sensitive_path_never_included",
+          "decided_by": "safety",
+          "rule_source": "SAFETY_INVARIANT"
+        }
+      ],
+      "safetyBlock": {
+        "grouping_invariants_ok": true,
+        "grouping_violations": [],
+        "no_sensitive_selected": true,
+        "rule": "SAFETY-001: selected 列表不得包含密钥/凭证路径、二进制、默认排除目录、不支持扩展名",
+        "sensitive_paths_never_reincludable": true,
+        "violations": []
+      },
+      "invariantHolds": true
+    },
+    {
+      "label": "adapter demo diff + --include .env* / **/*.pem / **/id_rsa* / secrets/** / **/credentials*",
+      "includedCount": 14,
+      "selectedCount": 14,
+      "leakedInSelectionIncluded": [],
+      "leakedInSelected": [],
+      "leakedInRuleMatch": [],
+      "leakedInGroups": [],
+      "secretsExcluded": [
+        {
+          "path": ".env.production",
+          "reason": "sensitive_path_never_included",
+          "decided_by": "safety",
+          "rule_source": "SAFETY_INVARIANT"
+        },
+        {
+          "path": ".opencodereview/secrets/db-password.txt",
+          "reason": "sensitive_path_never_included",
+          "decided_by": "safety",
+          "rule_source": "SAFETY_INVARIANT"
+        },
+        {
+          "path": "config/tls/server.pem",
+          "reason": "sensitive_path_never_included",
+          "decided_by": "safety",
+          "rule_source": "SAFETY_INVARIANT"
+        },
+        {
+          "path": "src/chain/id_rsa",
+          "reason": "sensitive_path_never_included",
+          "decided_by": "safety",
+          "rule_source": "SAFETY_INVARIANT"
+        }
+      ],
+      "safetyBlock": {
+        "grouping_invariants_ok": true,
+        "grouping_violations": [],
+        "no_sensitive_selected": true,
+        "rule": "SAFETY-001: selected 列表不得包含密钥/凭证路径、二进制、默认排除目录、不支持扩展名",
+        "sensitive_paths_never_reincludable": true,
+        "violations": []
+      },
+      "invariantHolds": true
+    }
+  ],
+  "keySetChecks": [
+    {
+      "name": "engineRuleMatch",
+      "claimed": [
+        "category",
+        "file",
+        "match",
+        "priority",
+        "ruleId",
+        "ruleSource",
+        "severity"
+      ],
+      "actual": [
+        "category",
+        "file",
+        "match",
+        "priority",
+        "ruleId",
+        "ruleSource",
+        "severity"
+      ],
+      "missingFromActual": [],
+      "extraInActual": [],
+      "match": true
+    },
+    {
+      "name": "adapterRuleMatch",
+      "claimed": [
+        "decision",
+        "file",
+        "pattern",
+        "priority",
+        "reason",
+        "ruleId",
+        "ruleSource"
+      ],
+      "actual": [
+        "decision",
+        "file",
+        "pattern",
+        "priority",
+        "reason",
+        "ruleId",
+        "ruleSource"
+      ],
+      "missingFromActual": [],
+      "extraInActual": [],
+      "match": true
+    },
+    {
+      "name": "adapterSelected",
+      "claimed": [
+        "decided_by",
+        "path",
+        "pattern",
+        "reason",
+        "rule_id",
+        "rule_source",
+        "size",
+        "tokens"
+      ],
+      "actual": [
+        "decided_by",
+        "path",
+        "pattern",
+        "reason",
+        "rule_id",
+        "rule_source",
+        "size",
+        "tokens"
+      ],
+      "missingFromActual": [],
+      "extraInActual": [],
+      "match": true
+    },
+    {
+      "name": "adapterExcluded",
+      "claimed": [
+        "decided_by",
+        "path",
+        "pattern",
+        "reason",
+        "rule_id",
+        "rule_source",
+        "severity"
+      ],
+      "actual": [
+        "decided_by",
+        "path",
+        "pattern",
+        "reason",
+        "rule_id",
+        "rule_source",
+        "severity"
+      ],
+      "missingFromActual": [],
+      "extraInActual": [],
+      "match": true
+    },
+    {
+      "name": "adapterGroups",
+      "claimed": [
+        "downgrade_reason",
+        "downgraded",
+        "estimated_tokens",
+        "file_count",
+        "files",
+        "id"
+      ],
+      "actual": [
+        "downgrade_reason",
+        "downgraded",
+        "estimated_tokens",
+        "file_count",
+        "files",
+        "id"
+      ],
+      "missingFromActual": [],
+      "extraInActual": [],
+      "match": true
+    },
+    {
+      "name": "adapterSelection",
+      "claimed": [
+        "excluded",
+        "included"
+      ],
+      "actual": [
+        "excluded",
+        "included"
+      ],
+      "missingFromActual": [],
+      "extraInActual": [],
+      "match": true
+    }
+  ],
+  "coverage": {
+    "adapterRuleMatchLength": 18,
+    "adapterSelectionIncludedLength": 18,
+    "ruleMatchLengthEqualsIncluded": true,
+    "engineRuleMatchLength": 19,
+    "engineSelectionIncludedLength": 19,
+    "engineRuleMatchLengthEqualsIncluded": true
+  },
+  "priority": {
+    "engineLayers": {
+      "builtin": [
+        3
+      ],
+      "cli": [
+        0
+      ]
+    },
+    "adapterLayers": {
+      "cli": [
+        1
+      ]
+    },
+    "formulaChecks": [
+      {
+        "layer": "cli",
+        "adapterPriorities": [
+          1
+        ],
+        "enginePriorities": [
+          0
+        ],
+        "deltas": [
+          1
+        ],
+        "formulaHolds": true,
+        "pairs": [
+          {
+            "adapterPriority": 1,
+            "enginePriority": 0,
+            "delta": 1
+          }
+        ]
+      }
+    ],
+    "sameTreeOverlap": {
+      "both": 18,
+      "engineOnly": 1,
+      "adapterOnly": 0,
+      "perFile": [
+        {
+          "file": "diff.json",
+          "engineLayer": "builtin",
+          "adapterLayer": "cli",
+          "enginePriority": 3,
+          "adapterPriority": 1,
+          "sameLayer": false,
+          "delta": null
+        },
+        {
+          "file": "ocr-review.sample.json",
+          "engineLayer": "builtin",
+          "adapterLayer": "cli",
+          "enginePriority": 3,
+          "adapterPriority": 1,
+          "sameLayer": false,
+          "delta": null
+        },
+        {
+          "file": "rule.json",
+          "engineLayer": "builtin",
+          "adapterLayer": "cli",
+          "enginePriority": 3,
+          "adapterPriority": 1,
+          "sameLayer": false,
+          "delta": null
+        },
+        {
+          "file": "src/chain/chain.test.mjs",
+          "engineLayer": "cli",
+          "adapterLayer": "cli",
+          "enginePriority": 0,
+          "adapterPriority": 1,
+          "sameLayer": true,
+          "delta": 1
+        },
+        {
+          "file": "src/chain/user-handler.mjs",
+          "engineLayer": "cli",
+          "adapterLayer": "cli",
+          "enginePriority": 0,
+          "adapterPriority": 1,
+          "sameLayer": true,
+          "delta": 1
+        },
+        {
+          "file": "src/chain/user-mapper.mjs",
+          "engineLayer": "cli",
+          "adapterLayer": "cli",
+          "enginePriority": 0,
+          "adapterPriority": 1,
+          "sameLayer": true,
+          "delta": 1
+        },
+        {
+          "file": "src/chain/user-repository.mjs",
+          "engineLayer": "cli",
+          "adapterLayer": "cli",
+          "enginePriority": 0,
+          "adapterPriority": 1,
+          "sameLayer": true,
+          "delta": 1
+        },
+        {
+          "file": "src/chain/user-service.mjs",
+          "engineLayer": "cli",
+          "adapterLayer": "cli",
+          "enginePriority": 0,
+          "adapterPriority": 1,
+          "sameLayer": true,
+          "delta": 1
+        },
+        {
+          "file": "src/reader/reader-part-1.mjs",
+          "engineLayer": "cli",
+          "adapterLayer": "cli",
+          "enginePriority": 0,
+          "adapterPriority": 1,
+          "sameLayer": true,
+          "delta": 1
+        },
+        {
+          "file": "src/reader/reader-part-2.mjs",
+          "engineLayer": "cli",
+          "adapterLayer": "cli",
+          "enginePriority": 0,
+          "adapterPriority": 1,
+          "sameLayer": true,
+          "delta": 1
+        },
+        {
+          "file": "src/reader/reader-part-3.mjs",
+          "engineLayer": "cli",
+          "adapterLayer": "cli",
+          "enginePriority": 0,
+          "adapterPriority": 1,
+          "sameLayer": true,
+          "delta": 1
+        },
+        {
+          "file": "src/reader/reader-part-4.mjs",
+          "engineLayer": "cli",
+          "adapterLayer": "cli",
+          "enginePriority": 0,
+          "adapterPriority": 1,
+          "sameLayer": true,
+          "delta": 1
+        },
+        {
+          "file": "src/reader/reader-part-5.mjs",
+          "engineLayer": "cli",
+          "adapterLayer": "cli",
+          "enginePriority": 0,
+          "adapterPriority": 1,
+          "sameLayer": true,
+          "delta": 1
+        },
+        {
+          "file": "src/reader/reader-part-6.mjs",
+          "engineLayer": "cli",
+          "adapterLayer": "cli",
+          "enginePriority": 0,
+          "adapterPriority": 1,
+          "sameLayer": true,
+          "delta": 1
+        },
+        {
+          "file": "src/reader/reader-part-7.mjs",
+          "engineLayer": "cli",
+          "adapterLayer": "cli",
+          "enginePriority": 0,
+          "adapterPriority": 1,
+          "sameLayer": true,
+          "delta": 1
+        },
+        {
+          "file": "src/reader/reader-part-8.mjs",
+          "engineLayer": "cli",
+          "adapterLayer": "cli",
+          "enginePriority": 0,
+          "adapterPriority": 1,
+          "sameLayer": true,
+          "delta": 1
+        },
+        {
+          "file": "src/util/format.mjs",
+          "engineLayer": "cli",
+          "adapterLayer": "cli",
+          "enginePriority": 0,
+          "adapterPriority": 1,
+          "sameLayer": true,
+          "delta": 1
+        },
+        {
+          "file": "verifier-engine-rule.json",
+          "engineLayer": "builtin",
+          "adapterLayer": "cli",
+          "enginePriority": 3,
+          "adapterPriority": 1,
+          "sameLayer": false,
+          "delta": null
+        }
+      ]
+    },
+    "sameLayerComparable": [
+      {
+        "file": "src/chain/chain.test.mjs",
+        "engineLayer": "cli",
+        "adapterLayer": "cli",
+        "enginePriority": 0,
+        "adapterPriority": 1,
+        "sameLayer": true,
+        "delta": 1
+      },
+      {
+        "file": "src/chain/user-handler.mjs",
+        "engineLayer": "cli",
+        "adapterLayer": "cli",
+        "enginePriority": 0,
+        "adapterPriority": 1,
+        "sameLayer": true,
+        "delta": 1
+      },
+      {
+        "file": "src/chain/user-mapper.mjs",
+        "engineLayer": "cli",
+        "adapterLayer": "cli",
+        "enginePriority": 0,
+        "adapterPriority": 1,
+        "sameLayer": true,
+        "delta": 1
+      },
+      {
+        "file": "src/chain/user-repository.mjs",
+        "engineLayer": "cli",
+        "adapterLayer": "cli",
+        "enginePriority": 0,
+        "adapterPriority": 1,
+        "sameLayer": true,
+        "delta": 1
+      },
+      {
+        "file": "src/chain/user-service.mjs",
+        "engineLayer": "cli",
+        "adapterLayer": "cli",
+        "enginePriority": 0,
+        "adapterPriority": 1,
+        "sameLayer": true,
+        "delta": 1
+      },
+      {
+        "file": "src/reader/reader-part-1.mjs",
+        "engineLayer": "cli",
+        "adapterLayer": "cli",
+        "enginePriority": 0,
+        "adapterPriority": 1,
+        "sameLayer": true,
+        "delta": 1
+      },
+      {
+        "file": "src/reader/reader-part-2.mjs",
+        "engineLayer": "cli",
+        "adapterLayer": "cli",
+        "enginePriority": 0,
+        "adapterPriority": 1,
+        "sameLayer": true,
+        "delta": 1
+      },
+      {
+        "file": "src/reader/reader-part-3.mjs",
+        "engineLayer": "cli",
+        "adapterLayer": "cli",
+        "enginePriority": 0,
+        "adapterPriority": 1,
+        "sameLayer": true,
+        "delta": 1
+      },
+      {
+        "file": "src/reader/reader-part-4.mjs",
+        "engineLayer": "cli",
+        "adapterLayer": "cli",
+        "enginePriority": 0,
+        "adapterPriority": 1,
+        "sameLayer": true,
+        "delta": 1
+      },
+      {
+        "file": "src/reader/reader-part-5.mjs",
+        "engineLayer": "cli",
+        "adapterLayer": "cli",
+        "enginePriority": 0,
+        "adapterPriority": 1,
+        "sameLayer": true,
+        "delta": 1
+      },
+      {
+        "file": "src/reader/reader-part-6.mjs",
+        "engineLayer": "cli",
+        "adapterLayer": "cli",
+        "enginePriority": 0,
+        "adapterPriority": 1,
+        "sameLayer": true,
+        "delta": 1
+      },
+      {
+        "file": "src/reader/reader-part-7.mjs",
+        "engineLayer": "cli",
+        "adapterLayer": "cli",
+        "enginePriority": 0,
+        "adapterPriority": 1,
+        "sameLayer": true,
+        "delta": 1
+      },
+      {
+        "file": "src/reader/reader-part-8.mjs",
+        "engineLayer": "cli",
+        "adapterLayer": "cli",
+        "enginePriority": 0,
+        "adapterPriority": 1,
+        "sameLayer": true,
+        "delta": 1
+      },
+      {
+        "file": "src/util/format.mjs",
+        "engineLayer": "cli",
+        "adapterLayer": "cli",
+        "enginePriority": 0,
+        "adapterPriority": 1,
+        "sameLayer": true,
+        "delta": 1
+      }
+    ]
+  },
+  "engineCliRuleLayers": {
+    "project": [
+      1
+    ],
+    "builtin": [
+      3
+    ]
+  }
+}

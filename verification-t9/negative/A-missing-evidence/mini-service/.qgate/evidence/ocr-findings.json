@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1.0",
+  "provider": "scripted",
+  "threshold": 0.7,
+  "rule": "a finding becomes a blocker only when confidence >= threshold AND severity in {high, blocker}",
+  "findings": [
+    {
+      "id": "F-0001",
+      "severity": "high",
+      "confidence": 0.86,
+      "source": "scripted-fixture",
+      "file": "openapi.yaml",
+      "line": 33,
+      "message": "amount is declared integer but the request example carries a float; minor-unit invariant at risk (REQ-DEMO-0003)",
+      "candidate_blocker": true
+    },
+    {
+      "id": "F-0002",
+      "severity": "medium",
+      "confidence": 0.91,
+      "source": "scripted-fixture",
+      "file": "REQUIREMENTS.md",
+      "line": 20,
+      "message": "acceptance criterion wording for REQ-DEMO-0001 could be more explicit",
+      "candidate_blocker": false,
+      "downgradeReason": "severity_below_high"
+    },
+    {
+      "id": "F-0003",
+      "severity": "low",
+      "confidence": 0.55,
+      "source": "scripted-fixture",
+      "file": "openapi.yaml",
+      "line": 8,
+      "message": "info.description could mention the offline fixture explicitly",
+      "candidate_blocker": false,
+      "downgradeReason": "confidence_below_threshold"
+    }
+  ],
+  "summary": {
+    "high": 1,
+    "medium": 1,
+    "low": 1,
+    "candidate_blockers": 1,
+    "downgraded": 2
+  },
+  "recorded_at": "2026-05-05T10:00:00Z"
+}

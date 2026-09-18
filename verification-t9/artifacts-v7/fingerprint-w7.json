@@ -1,0 +1,906 @@
+﻿{
+  "fingerprint": "91c689dd0577f46ade5373aff9554fbc4d2c38f7b76b4e02198b91a5dde67624",
+  "fileCount": 149,
+  "newest": {
+    "path": "packages/qgate/gates/README.md",
+    "sizeBytes": 18634,
+    "sha256": "7c5164decf981c5ddbbf0f63584f7cacc33712718917929ca22aa5f506bee048",
+    "mtime": "2026-09-18T02:28:35.473Z"
+  },
+  "files": [
+    {
+      "path": ".github/workflows/quality-gate.yml",
+      "sizeBytes": 14707,
+      "sha256": "42ada79dece2c0864ef1ff0ae74d0690dd455de2e3622c65e36e1b7d4d255cac",
+      "mtime": "2026-09-17T18:45:24.767Z"
+    },
+    {
+      "path": "adapters/opencodereview/README.md",
+      "sizeBytes": 57759,
+      "sha256": "b0d373d3db07f8e0a3c26b583a75a7cfbe66b55769a0c8ed2e197ea6069958f4",
+      "mtime": "2026-09-18T02:28:23.082Z"
+    },
+    {
+      "path": "adapters/opencodereview/bin/ocr-preview.mjs",
+      "sizeBytes": 10015,
+      "sha256": "681d1e5861ff04340e513295c545ae558233bc3940e24058f0dbdb67530a3416",
+      "mtime": "2026-09-17T18:13:12.950Z"
+    },
+    {
+      "path": "adapters/opencodereview/ci/github-actions.yml",
+      "sizeBytes": 13594,
+      "sha256": "0842be5edab9f19559023712d4d1369cc459d201e8291391468e902bffecd8af",
+      "mtime": "2026-09-17T18:46:14.219Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/.env.production",
+      "sizeBytes": 116,
+      "sha256": "32ef1ebbba1a4d91cb72a9d4ed86d0f508c7adf315409739d17b79076ec742ff",
+      "mtime": "2026-09-17T18:17:59.412Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/.opencodereview/secrets/db-password.txt",
+      "sizeBytes": 25,
+      "sha256": "f73fe676a2f73e72c2ebefac5b13b52fd02ad85de77fd958aab1fbe9c1d4a472",
+      "mtime": "2026-09-17T18:17:59.412Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/assets/logo.png",
+      "sizeBytes": 16,
+      "sha256": "02a3e298f1533f62558c58e4c70edcab9af5a50d62d925fd5390942020fb0fb8",
+      "mtime": "2026-09-17T18:17:59.412Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/config/service-account.json",
+      "sizeBytes": 70,
+      "sha256": "54d3859fa896ba18586a1fbb99bec9f5b109971f67efe27ea355dab7063edbf0",
+      "mtime": "2026-09-17T18:17:59.412Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/config/tls/server.pem",
+      "sizeBytes": 79,
+      "sha256": "c54bddc187b0f26372a036258349c70485491e9a868445e80e669dc0ec2b19c5",
+      "mtime": "2026-09-17T18:17:59.412Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/diff.json",
+      "sizeBytes": 2700,
+      "sha256": "f6f0176863715bff2c720dd21e4765494d2161fa145c0703402933710b595d5c",
+      "mtime": "2026-09-17T18:17:59.426Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/dist/bundle.js",
+      "sizeBytes": 32,
+      "sha256": "ab13a9ffabc2ae45568fb4ee4e16b4b0c9a4c18cf5a13a72c4eceab006064d57",
+      "mtime": "2026-09-17T18:17:59.412Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/ocr-review.sample.json",
+      "sizeBytes": 2264,
+      "sha256": "a9d079e97bbafe1650b3303da5d1f2391ca3ca8af51e17a5ff8cc26ebceb9b00",
+      "mtime": "2026-09-17T18:15:26.763Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/rule.engine-format.json",
+      "sizeBytes": 1185,
+      "sha256": "b97b2d401dd1070a6247aa76ca378dcfe4dee1c010a574c5528f128a6b66c8f4",
+      "mtime": "2026-09-17T18:49:19.894Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/rule.json",
+      "sizeBytes": 1168,
+      "sha256": "4d2c858403988daaf878cbbbb5a5b90633a430584101c340f68227320db3999d",
+      "mtime": "2026-09-17T18:15:26.733Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/src/chain/chain.test.mjs",
+      "sizeBytes": 415,
+      "sha256": "84ad4ddceddd6c061887841d7a697cbbc5bd2465912337bd8c27d4315d78373d",
+      "mtime": "2026-09-17T18:17:59.417Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/src/chain/id_rsa",
+      "sizeBytes": 37,
+      "sha256": "4f64c7ae0f94f2c648f08b5e5a54021f49037715fff080c78a15533f3de942d0",
+      "mtime": "2026-09-17T18:17:59.418Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/src/chain/user-handler.mjs",
+      "sizeBytes": 302,
+      "sha256": "78e2119a882b204440c08ff06c1452c6e1ae03816f28238e3bfa23bbad87eeb1",
+      "mtime": "2026-09-17T18:17:59.418Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/src/chain/user-handler.mjs.bak",
+      "sizeBytes": 38,
+      "sha256": "4eadf961d4a61b8f9e000cfcbcc1b29acf2ca2588a3b6570eff639e9a0e6922a",
+      "mtime": "2026-09-17T18:17:59.419Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/src/chain/user-mapper.mjs",
+      "sizeBytes": 236,
+      "sha256": "6713261910b10ef5eda0c1223852c691e8ec8784190a864fc8bbd30baa86b8ed",
+      "mtime": "2026-09-17T18:17:59.419Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/src/chain/user-repository.mjs",
+      "sizeBytes": 277,
+      "sha256": "ebf6ad81ce1a2b4991e42409cd4917dd19c34fa666ec452a00e7b24f18bd95c7",
+      "mtime": "2026-09-17T18:17:59.420Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/src/chain/user-service.mjs",
+      "sizeBytes": 404,
+      "sha256": "98c07ed062d0792ccf593fcea9dd73689cd246fc48e110dfac6e0c3dfc42feee",
+      "mtime": "2026-09-17T18:17:59.420Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/src/reader/reader-part-1.mjs",
+      "sizeBytes": 336,
+      "sha256": "3e7a3b56b98a958875093f924a9c097d39dcf52e824ce1e048b7ccc5da94e430",
+      "mtime": "2026-09-17T18:17:59.421Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/src/reader/reader-part-2.mjs",
+      "sizeBytes": 336,
+      "sha256": "881b091e2f959e2665c5d42b1e5b1553b8e02b62966d6492aa2fb04504088175",
+      "mtime": "2026-09-17T18:17:59.421Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/src/reader/reader-part-3.mjs",
+      "sizeBytes": 336,
+      "sha256": "27e3d739f74cd7a83af823c6f31773f17b9ef4e42123b470ec975d81ed39249f",
+      "mtime": "2026-09-17T18:17:59.421Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/src/reader/reader-part-4.mjs",
+      "sizeBytes": 336,
+      "sha256": "23b34d13f49e66310da56c674057511c73a6ff07ed54fb9810cd27edea0cc76a",
+      "mtime": "2026-09-17T18:17:59.423Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/src/reader/reader-part-5.mjs",
+      "sizeBytes": 336,
+      "sha256": "b74025466897851ffd10dda5de57810b7b097526688283068415d49076a67472",
+      "mtime": "2026-09-17T18:17:59.423Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/src/reader/reader-part-6.mjs",
+      "sizeBytes": 336,
+      "sha256": "7a50403b7a3232b0cc5d300aa897f6f842d41adef233404012db8b94e55ac8f1",
+      "mtime": "2026-09-17T18:17:59.424Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/src/reader/reader-part-7.mjs",
+      "sizeBytes": 336,
+      "sha256": "352366784e02fb5c6f502f49b1f58c4d7423cae522cff837f0bc7949595eebe2",
+      "mtime": "2026-09-17T18:17:59.424Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/src/reader/reader-part-8.mjs",
+      "sizeBytes": 336,
+      "sha256": "5fb346eacba26ddbe1210f183749f62f48ecb1e08c0301277a5fccc9163cd8d8",
+      "mtime": "2026-09-17T18:17:59.425Z"
+    },
+    {
+      "path": "adapters/opencodereview/demo/src/util/format.mjs",
+      "sizeBytes": 78,
+      "sha256": "4ccfe3156259009bd7755eb1f829501ecb79a09d48e34a74a9d8d1c112512e6e",
+      "mtime": "2026-09-17T18:17:59.425Z"
+    },
+    {
+      "path": "adapters/opencodereview/package.json",
+      "sizeBytes": 1170,
+      "sha256": "ccc5118c5f916e0fe566317cde80a5b32c534ccc032cf94b412c1670ead694b9",
+      "mtime": "2026-09-17T18:12:45.774Z"
+    },
+    {
+      "path": "adapters/opencodereview/src/filters.mjs",
+      "sizeBytes": 21006,
+      "sha256": "fd26a7369c4dd8ab2339c0d58ce9682cbe80cb0f0c3ce2ac0cb440cd2e6c0ce1",
+      "mtime": "2026-09-17T20:38:03.654Z"
+    },
+    {
+      "path": "adapters/opencodereview/src/grouping.mjs",
+      "sizeBytes": 10067,
+      "sha256": "fc57e2e049aa487bf6d04593b48891a44d6b90cc11acb9fe6f7607c07b72d55a",
+      "mtime": "2026-09-17T18:10:41.302Z"
+    },
+    {
+      "path": "adapters/opencodereview/src/ocr-pipeline.mjs",
+      "sizeBytes": 16982,
+      "sha256": "a388b3e35a1c934561c00dce773346e4e4a4ae564001f253d3e6fb5e7bb795ad",
+      "mtime": "2026-09-17T20:23:10.113Z"
+    },
+    {
+      "path": "adapters/opencodereview/src/ocr-runner.mjs",
+      "sizeBytes": 19521,
+      "sha256": "11d3e0b20d4fb809600be36a5f696e7a0e56462cd3c52d6b08e99b294b754b70",
+      "mtime": "2026-09-18T02:25:59.219Z"
+    },
+    {
+      "path": "adapters/opencodereview/src/reflection.mjs",
+      "sizeBytes": 3634,
+      "sha256": "009a526a2e855a64f7165c18bfe4941d624f13e65adac56aeb6c289f8119b2e9",
+      "mtime": "2026-09-17T18:06:14.886Z"
+    },
+    {
+      "path": "adapters/opencodereview/src/rules.mjs",
+      "sizeBytes": 11606,
+      "sha256": "fbbdb9e4fc0510e8d85b9c25a6045f492f55b1eb6a4c9eac0431256d021b9ee7",
+      "mtime": "2026-09-17T18:48:55.417Z"
+    },
+    {
+      "path": "adapters/opencodereview/src/selection.mjs",
+      "sizeBytes": 16021,
+      "sha256": "fc20ef12a0cb67bfe1e46db3bb9e37bd83ebe30e0f8c050edf28cb1cab548f94",
+      "mtime": "2026-09-17T20:22:14.082Z"
+    },
+    {
+      "path": "adapters/opencodereview/src/util.mjs",
+      "sizeBytes": 5603,
+      "sha256": "6d57d8d7bba8ae29be377a27f60591231483c6159ee8f0f527c399905e7435c8",
+      "mtime": "2026-09-17T19:18:30.895Z"
+    },
+    {
+      "path": "adapters/opencodereview/test/ci-workflow.test.mjs",
+      "sizeBytes": 16293,
+      "sha256": "90928518e7b9b97c581fe710ab772866992001027ca378e0ecf760f58a3ba181",
+      "mtime": "2026-09-17T18:46:32.776Z"
+    },
+    {
+      "path": "adapters/opencodereview/test/determinism.test.mjs",
+      "sizeBytes": 8844,
+      "sha256": "6f5011e889e108519841ba862f50a107affa817c24ae38ee2ccd1f92a2a726b3",
+      "mtime": "2026-09-17T18:48:04.968Z"
+    },
+    {
+      "path": "adapters/opencodereview/test/fixtures.test.mjs",
+      "sizeBytes": 13853,
+      "sha256": "6cb89283f0966b9fbf0d7e7b0283c6867e060ec7621e5ee27668f991d8be173f",
+      "mtime": "2026-09-17T20:39:03.129Z"
+    },
+    {
+      "path": "adapters/opencodereview/test/fixtures/preview.default.json",
+      "sizeBytes": 18126,
+      "sha256": "5c67aaed3eb3f7315adb7d39216c7162767b0e87a268db8f0dc24ca3e9eb92c1",
+      "mtime": "2026-09-17T20:39:43.726Z"
+    },
+    {
+      "path": "adapters/opencodereview/test/fixtures/preview.token-budget-300.json",
+      "sizeBytes": 20879,
+      "sha256": "2755a4dc347cdb50f175a37bb6ad60d004021eb5e6baac3b4c485d3590cd4d90",
+      "mtime": "2026-09-17T20:39:43.762Z"
+    },
+    {
+      "path": "adapters/opencodereview/test/fixtures/selection.default.md",
+      "sizeBytes": 3879,
+      "sha256": "389c9478e77856a97ffb740abecf25a1566f79497f29bea195cd715762da0a95",
+      "mtime": "2026-09-17T20:39:43.797Z"
+    },
+    {
+      "path": "adapters/opencodereview/test/grouping-rules.test.mjs",
+      "sizeBytes": 7987,
+      "sha256": "3223ac5e8eb5587b76befa8a38559595dde7ef89a209effa96db47def37d90f0",
+      "mtime": "2026-09-17T18:10:30.272Z"
+    },
+    {
+      "path": "adapters/opencodereview/test/hardlink-diff.test.mjs",
+      "sizeBytes": 11737,
+      "sha256": "cebcb16f2bd67e17d9c866065e607196460d307d8076bac72c06991be0d2b4fb",
+      "mtime": "2026-09-17T19:55:15.140Z"
+    },
+    {
+      "path": "adapters/opencodereview/test/helpers.mjs",
+      "sizeBytes": 3579,
+      "sha256": "b87a4e1d1e0bd14dcd0aafccd09073ddff7b200580b5826e230ebf55d3467b89",
+      "mtime": "2026-09-17T18:07:29.601Z"
+    },
+    {
+      "path": "adapters/opencodereview/test/network-import.test.mjs",
+      "sizeBytes": 7274,
+      "sha256": "ea4c72d18625dc71bbf2ce0787b2dddac834417b999e84c55232e532eae739df",
+      "mtime": "2026-09-18T02:26:31.979Z"
+    },
+    {
+      "path": "adapters/opencodereview/test/ocr-runner.test.mjs",
+      "sizeBytes": 7194,
+      "sha256": "dcedaac94c2f2205f255d6d225cfcdd35dfd874d3bba6b32324c5a9ffa18e11e",
+      "mtime": "2026-09-17T18:10:19.634Z"
+    },
+    {
+      "path": "adapters/opencodereview/test/portable.mjs",
+      "sizeBytes": 5176,
+      "sha256": "a71ead3ad42e47f97b5a61c61ca5592b9b4a2fbabb023778aec393fc1c008dab",
+      "mtime": "2026-09-17T18:42:57.644Z"
+    },
+    {
+      "path": "adapters/opencodereview/test/rule-format.test.mjs",
+      "sizeBytes": 6585,
+      "sha256": "3c574e5b86fa57a72d8a9e976944b049c980c73ef80e2576ef5069ffc02e9485",
+      "mtime": "2026-09-17T18:49:36.412Z"
+    },
+    {
+      "path": "adapters/opencodereview/test/security-bypass.test.mjs",
+      "sizeBytes": 19881,
+      "sha256": "532ea896dfaa9fb7cdf61d9b4b298958baf09a217bf008565248e344638649fb",
+      "mtime": "2026-09-17T20:38:44.281Z"
+    },
+    {
+      "path": "adapters/opencodereview/test/selection.test.mjs",
+      "sizeBytes": 25907,
+      "sha256": "d7889f56c0b292a39fa5f184d2557177c911a3678cd3337a141248580590e2d4",
+      "mtime": "2026-09-17T18:17:45.608Z"
+    },
+    {
+      "path": "adapters/opencodereview/test/unmaterialized.test.mjs",
+      "sizeBytes": 7294,
+      "sha256": "e3f106ab4ad6b3dcbba5242946b2784e20bf0403dc260cd487d7ee2aa9e6338a",
+      "mtime": "2026-09-17T20:23:59.636Z"
+    },
+    {
+      "path": "adapters/opencodereview/tools/gen-demo-fixtures.mjs",
+      "sizeBytes": 6871,
+      "sha256": "447c6b396467e33a1799c30a2118bd7873f6001bb7768132d6a6d32ce1e28085",
+      "mtime": "2026-09-17T18:15:05.503Z"
+    },
+    {
+      "path": "adapters/opencodereview/tools/record-fixtures.mjs",
+      "sizeBytes": 3494,
+      "sha256": "f637f604b7a5decafd8124fef3a8956ccacd40df5026f699ef6875d326c56460",
+      "mtime": "2026-09-17T18:43:00.874Z"
+    },
+    {
+      "path": "adapters/opencodereview/tools/run-tests.mjs",
+      "sizeBytes": 1576,
+      "sha256": "33cd0b6e5e79f41340cf19c031ccc3e99ce8b8fb36e22cb92ff5b6e19191cbba",
+      "mtime": "2026-09-17T18:12:48.447Z"
+    },
+    {
+      "path": "demo/mini-service/.env",
+      "sizeBytes": 327,
+      "sha256": "a147efbc2a87fb3ad19280b5bb4897f02f25f832a58315d6d8adc9662090c26b",
+      "mtime": "2026-09-17T18:10:40.337Z"
+    },
+    {
+      "path": "demo/mini-service/.env.local",
+      "sizeBytes": 208,
+      "sha256": "f27a367aa51fea3847fd58e6582b3055e93d83be3f635457cb1fc2796884230b",
+      "mtime": "2026-09-17T18:10:40.519Z"
+    },
+    {
+      "path": "demo/mini-service/.opencodereview/rule.json",
+      "sizeBytes": 1015,
+      "sha256": "6b87a10152676f539d283c9940dd20f98a276a39e31f06ff2a562bee92a84f2f",
+      "mtime": "2026-09-17T18:10:30.983Z"
+    },
+    {
+      "path": "demo/mini-service/.qgate/approvals/README.md",
+      "sizeBytes": 889,
+      "sha256": "0c2fceb66b6618ac05be37902c015b68fc5969db4232bd5987a78436462bb6f3",
+      "mtime": "2026-09-17T18:10:35.263Z"
+    },
+    {
+      "path": "demo/mini-service/.qgate/approvals/design-to-build/approval.json",
+      "sizeBytes": 748,
+      "sha256": "35c3765d59bc3fa996cccc3835858223d4956155434a1b8160638b6975f340d1",
+      "mtime": "2026-09-17T18:11:16.659Z"
+    },
+    {
+      "path": "demo/mini-service/.qgate/approvals/req-to-design/approval.json",
+      "sizeBytes": 753,
+      "sha256": "e0e13dd4898aafd12e7a5afb99f5b1e9e6b5b9f4ebcb3b578b0aebc1afc932d3",
+      "mtime": "2026-09-17T18:11:16.582Z"
+    },
+    {
+      "path": "demo/mini-service/.qgate/approvals/review-to-verify/approval.json",
+      "sizeBytes": 699,
+      "sha256": "a9f91c5e99c0eb115503f154f823393cf7639b403476fa12f5aa2d95ef2bbf5e",
+      "mtime": "2026-09-17T18:11:16.745Z"
+    },
+    {
+      "path": "demo/mini-service/.qgate/negative/secret-include.result.json",
+      "sizeBytes": 900,
+      "sha256": "71a912ef9b167f1987ded7494cf85c7f3663a74c7511fe298d04562f202981e2",
+      "mtime": "2026-09-17T18:10:31.062Z"
+    },
+    {
+      "path": "demo/mini-service/.qgate/negative/unknown-check-type.result.json",
+      "sizeBytes": 849,
+      "sha256": "f93b5b6a7e30ddb76063d4737720393e29ca333ed66b18dcffce5fd23c8cbeed",
+      "mtime": "2026-09-17T18:10:31.018Z"
+    },
+    {
+      "path": "demo/mini-service/.qgate/requirements-index.json",
+      "sizeBytes": 2380,
+      "sha256": "ef484acde4fedfeecf8b14d106d69ca383bb95ffbab0461f682319c3d3aad673",
+      "mtime": "2026-09-17T19:03:13.835Z"
+    },
+    {
+      "path": "demo/mini-service/.qgate/trace-matrix.json",
+      "sizeBytes": 4070,
+      "sha256": "2b7cdeb8ac01e6cc291692399030fcbaa6104ad5a6342e02bfe7d6ea15120a96",
+      "mtime": "2026-09-17T19:06:40.449Z"
+    },
+    {
+      "path": "demo/mini-service/REQUIREMENTS.md",
+      "sizeBytes": 3142,
+      "sha256": "25415ce90c074379226e6562183820637782fff5d337b21133ca25ae7f0de97e",
+      "mtime": "2026-09-17T19:01:57.051Z"
+    },
+    {
+      "path": "demo/mini-service/SELECTION-NOTES.md",
+      "sizeBytes": 810,
+      "sha256": "6686a8c2269d3dc703aa7f14bf540be083a4b4569e391ce7402666e5a20d9fc1",
+      "mtime": "2026-09-17T18:10:40.368Z"
+    },
+    {
+      "path": "demo/mini-service/config/service.key",
+      "sizeBytes": 317,
+      "sha256": "cd99b9299308f1839b17f6f22a8a212637f5471613e3e1dacde028c45a1975ad",
+      "mtime": "2026-09-17T18:10:40.477Z"
+    },
+    {
+      "path": "demo/mini-service/openapi.yaml",
+      "sizeBytes": 3084,
+      "sha256": "7cc4b41e02ad00156c8c73d3cc125268e5bd8114f2dd8f25c59dfe521bf6d304",
+      "mtime": "2026-09-17T19:01:57.044Z"
+    },
+    {
+      "path": "demo/mini-service/package.json",
+      "sizeBytes": 296,
+      "sha256": "a6a506d80bf35ea5e35852f88e5e01b0872cac353ba7d2b24b137cdf0335c471",
+      "mtime": "2026-09-17T18:10:19.064Z"
+    },
+    {
+      "path": "demo/qgate.config.json",
+      "sizeBytes": 9616,
+      "sha256": "3c12aa52c002333e715ceb86b685f30b3fa956fb1cbef18ddd8f54e010a27473",
+      "mtime": "2026-09-17T19:01:57.056Z"
+    },
+    {
+      "path": "docs/00-requirements.md",
+      "sizeBytes": 29921,
+      "sha256": "8c7c12b3e0ba40d695ca873f36fb1dbaab6b32c3367008a812bf475c54cc0c07",
+      "mtime": "2026-09-17T19:33:49.104Z"
+    },
+    {
+      "path": "docs/01-architecture.md",
+      "sizeBytes": 166773,
+      "sha256": "d475959d613d8f2f628339f182a41d17a063c0e97ad5e1ead9d42e02aca5edf5",
+      "mtime": "2026-09-17T20:35:27.669Z"
+    },
+    {
+      "path": "docs/02-playbook.md",
+      "sizeBytes": 89713,
+      "sha256": "532b25079a0d39b9b9168c81ab9c0f51b8af0d7fce53687a0db691081369c02c",
+      "mtime": "2026-09-17T19:28:00.528Z"
+    },
+    {
+      "path": "docs/requirements-index.json",
+      "sizeBytes": 5662,
+      "sha256": "8e48d5477bff5913ae402878723558fe7b219a76655973920813880cae4e17ce",
+      "mtime": "2026-09-17T19:33:49.106Z"
+    },
+    {
+      "path": "package.json",
+      "sizeBytes": 1390,
+      "sha256": "39074f7033209bbc3ddf7ca1f0c643c94d3540c0326cc98a5389bcd8e2928a72",
+      "mtime": "2026-09-17T18:50:56.957Z"
+    },
+    {
+      "path": "packages/qgate/bin/qgate.mjs",
+      "sizeBytes": 520,
+      "sha256": "e7a9edbccdfca9ba15d1078e7cd3c8871bd01743be636a9abf190e48df5fc2f7",
+      "mtime": "2026-09-17T18:14:41.499Z"
+    },
+    {
+      "path": "packages/qgate/examples/README.md",
+      "sizeBytes": 3123,
+      "sha256": "78437e4c8895529eb36bd679c861c7bf03bfd8be2762d8557836ce49282c5f3e",
+      "mtime": "2026-09-17T19:38:27.897Z"
+    },
+    {
+      "path": "packages/qgate/examples/fixtures/provider-recordings.json",
+      "sizeBytes": 4217,
+      "sha256": "8444376495a59aa08c066adf3d52426acc2c370c8719097a5ffc43358c3f5840",
+      "mtime": "2026-09-17T18:54:56.612Z"
+    },
+    {
+      "path": "packages/qgate/examples/fixtures/scripted-provider.mjs",
+      "sizeBytes": 1492,
+      "sha256": "6eb2c798a91443a3fde516ed379de8d636c34522b629c45e09c54be4a4bb25b6",
+      "mtime": "2026-09-17T18:30:08.890Z"
+    },
+    {
+      "path": "packages/qgate/examples/invalid/bad-provider-type.json",
+      "sizeBytes": 313,
+      "sha256": "d763c5a8f8153a878422397b4d0f29422bb08165bef96ba0e2b833df66422e2a",
+      "mtime": "2026-09-17T18:13:22.773Z"
+    },
+    {
+      "path": "packages/qgate/examples/invalid/duplicate-check-id.json",
+      "sizeBytes": 442,
+      "sha256": "66f5d9f675924cc7cce12ef5b3631c9e7c5f464c63f29ee51c412e859cb7beba",
+      "mtime": "2026-09-17T18:13:22.738Z"
+    },
+    {
+      "path": "packages/qgate/examples/invalid/empty-gates.json",
+      "sizeBytes": 81,
+      "sha256": "ef0835e68d0dc7066fa9f3c9c32b9355cc05e9c4e652f59484d85ddf69e55810",
+      "mtime": "2026-09-17T18:13:22.808Z"
+    },
+    {
+      "path": "packages/qgate/examples/invalid/missing-version.json",
+      "sizeBytes": 292,
+      "sha256": "f5caae949385e913214c5e928a388e69ac5db195e03872fd047bad5a3fae45b1",
+      "mtime": "2026-09-17T18:13:22.701Z"
+    },
+    {
+      "path": "packages/qgate/examples/invalid/unknown-check-type.json",
+      "sizeBytes": 311,
+      "sha256": "0c25bc2cce69e7065e04ee0dd7aee91815be625456401277f08aaa3dbafb9022",
+      "mtime": "2026-09-17T18:13:22.621Z"
+    },
+    {
+      "path": "packages/qgate/examples/invalid/unknown-stage.json",
+      "sizeBytes": 308,
+      "sha256": "6ca87c867de59a731ac15523de41ddc4626b495c32a39c6db8f071a30019b29f",
+      "mtime": "2026-09-17T18:13:22.663Z"
+    },
+    {
+      "path": "packages/qgate/examples/severity-mix.json",
+      "sizeBytes": 1545,
+      "sha256": "c9c59323952d3264c8674e4d6ec1d9d3384090c1f2d3ae233ebc79b8a6961721",
+      "mtime": "2026-09-17T18:13:17.842Z"
+    },
+    {
+      "path": "packages/qgate/examples/valid/five-stage.json",
+      "sizeBytes": 4757,
+      "sha256": "f9ab5fd683e4b614d536b24efa006345ac8f11198935a899600dc72413bb0943",
+      "mtime": "2026-09-17T19:34:43.731Z"
+    },
+    {
+      "path": "packages/qgate/gates/README.md",
+      "sizeBytes": 18634,
+      "sha256": "7c5164decf981c5ddbbf0f63584f7cacc33712718917929ca22aa5f506bee048",
+      "mtime": "2026-09-18T02:28:35.473Z"
+    },
+    {
+      "path": "packages/qgate/gates/contract.json",
+      "sizeBytes": 6651,
+      "sha256": "c9cbacc047d1d86291bfc80b49d76a05ee1255f2538bf5140ea341bad8581608",
+      "mtime": "2026-09-17T19:41:00.912Z"
+    },
+    {
+      "path": "packages/qgate/package.json",
+      "sizeBytes": 777,
+      "sha256": "947090f4d5344a96c7b48250c1b64ef238c89c2d0664348ded3cf5a93965c501",
+      "mtime": "2026-09-17T18:29:38.147Z"
+    },
+    {
+      "path": "packages/qgate/scripts/README.md",
+      "sizeBytes": 4157,
+      "sha256": "aaf4c57edb476b849c5381913f5ea5c223f380121149a7f6f81e1132dd154f94",
+      "mtime": "2026-09-17T18:44:31.354Z"
+    },
+    {
+      "path": "packages/qgate/scripts/record-fixtures.mjs",
+      "sizeBytes": 5015,
+      "sha256": "e10689c22dcfefb00acb6976173617a8165c377a7e4c4b66b4f14e498ce22071",
+      "mtime": "2026-09-17T18:54:52.379Z"
+    },
+    {
+      "path": "packages/qgate/scripts/reset-demo-evidence.mjs",
+      "sizeBytes": 2401,
+      "sha256": "28069525c2e4f28db56d688cac2c53548bc0315dfa340a6c9d76107fc4c6f236",
+      "mtime": "2026-09-17T19:40:26.086Z"
+    },
+    {
+      "path": "packages/qgate/scripts/run-check.mjs",
+      "sizeBytes": 1504,
+      "sha256": "c5f82d1304b8eae56b444f9da581c62dec9aae55be269e67fa404ecaa8d34b05",
+      "mtime": "2026-09-17T18:21:59.064Z"
+    },
+    {
+      "path": "packages/qgate/scripts/tree-sha256.mjs",
+      "sizeBytes": 1860,
+      "sha256": "e745ef1e1043dff3824532088b789168b8f413c997c91d057383b25f76080fc1",
+      "mtime": "2026-09-17T18:42:04.765Z"
+    },
+    {
+      "path": "packages/qgate/src/checks/_shared.mjs",
+      "sizeBytes": 1009,
+      "sha256": "313063421b7abf73fcaff84245e5b0e9affb39e28e2c54b2ad3040da1f18d7a1",
+      "mtime": "2026-09-17T18:08:02.702Z"
+    },
+    {
+      "path": "packages/qgate/src/checks/command.mjs",
+      "sizeBytes": 7788,
+      "sha256": "4c33e7e51d1b8171439b741c04e1b9c8bdb7d4e810066237d614efe793ed64c7",
+      "mtime": "2026-09-17T18:39:08.628Z"
+    },
+    {
+      "path": "packages/qgate/src/checks/file_exists.mjs",
+      "sizeBytes": 1272,
+      "sha256": "4de7d9834aedd1bb9816c0bf37753436ea038b8e1261d4b8a9ffe6c7a6e4c84b",
+      "mtime": "2026-09-17T19:16:54.316Z"
+    },
+    {
+      "path": "packages/qgate/src/checks/file_not_exists.mjs",
+      "sizeBytes": 1335,
+      "sha256": "888250aec7a3e01eaa970de53d0d344790202bd7ff2813ea66f01e6fab8ae6c4",
+      "mtime": "2026-09-17T19:12:20.806Z"
+    },
+    {
+      "path": "packages/qgate/src/checks/index.mjs",
+      "sizeBytes": 2448,
+      "sha256": "58798dc07cda271adcd3bc3e0fc6ca58444e8e7a151fd1704061b5c93a9aeb1c",
+      "mtime": "2026-09-17T18:08:19.051Z"
+    },
+    {
+      "path": "packages/qgate/src/checks/json_assert.mjs",
+      "sizeBytes": 2618,
+      "sha256": "1fa6508923cfb59011e4724d9e25f7cf60bbc879fb947908fb84d05560b1820c",
+      "mtime": "2026-09-17T19:12:20.890Z"
+    },
+    {
+      "path": "packages/qgate/src/checks/policy.mjs",
+      "sizeBytes": 3629,
+      "sha256": "ae5282b65de8fd33077ae9c53684e0c9876e3ba826ba3cdda2ff6fd8b4bd0d33",
+      "mtime": "2026-09-17T19:16:58.978Z"
+    },
+    {
+      "path": "packages/qgate/src/checks/regex.mjs",
+      "sizeBytes": 4749,
+      "sha256": "6f6cc969e5ad4b2a43a37cb4d00201bf694dafb2584d76561e623e160b4ed51e",
+      "mtime": "2026-09-17T19:12:30.487Z"
+    },
+    {
+      "path": "packages/qgate/src/checks/trace_matrix.mjs",
+      "sizeBytes": 4063,
+      "sha256": "eaffdfacbf151c09216bfc4239b520c24f8cd72b49d3f3633441a8dd0598fe46",
+      "mtime": "2026-09-17T19:32:42.335Z"
+    },
+    {
+      "path": "packages/qgate/src/cli.mjs",
+      "sizeBytes": 34844,
+      "sha256": "9428ff4a255011f89ffe8d1b0a13f09f4d695a9dd2232db82dec64ec5d2da37e",
+      "mtime": "2026-09-17T19:42:24.953Z"
+    },
+    {
+      "path": "packages/qgate/src/config.mjs",
+      "sizeBytes": 28071,
+      "sha256": "ddde65382e4ab5b8dfc48f197dd25857167ff72e376584e304b91f37e7945970",
+      "mtime": "2026-09-17T19:22:53.072Z"
+    },
+    {
+      "path": "packages/qgate/src/contract.mjs",
+      "sizeBytes": 14015,
+      "sha256": "f9d843a70afa7a6477142c50125ed64568b6827dfb356e8cb2122088e75c0e3b",
+      "mtime": "2026-09-17T19:54:31.182Z"
+    },
+    {
+      "path": "packages/qgate/src/core.mjs",
+      "sizeBytes": 13687,
+      "sha256": "24321d27eed594b1cfdb25bc68f30a2b0b7f86531e901d3240386482cb8f1b4c",
+      "mtime": "2026-09-17T19:24:48.858Z"
+    },
+    {
+      "path": "packages/qgate/src/errors.mjs",
+      "sizeBytes": 1665,
+      "sha256": "b228b4bc59e99b8ced1ab504411092a36942c5b62465c30c259c6e96fb8dcd41",
+      "mtime": "2026-09-17T18:05:54.367Z"
+    },
+    {
+      "path": "packages/qgate/src/evidence.mjs",
+      "sizeBytes": 6607,
+      "sha256": "8b7baab07c53277b8a6d2967c8cc164d64c1b1841448839c4a0d45c8e2bac046",
+      "mtime": "2026-09-17T19:12:16.513Z"
+    },
+    {
+      "path": "packages/qgate/src/grouping.mjs",
+      "sizeBytes": 2526,
+      "sha256": "8f43f4d560d88e3f485c79260b56bf619616f7377f5f989c377b983da96d016f",
+      "mtime": "2026-09-17T18:06:49.887Z"
+    },
+    {
+      "path": "packages/qgate/src/human-gate.mjs",
+      "sizeBytes": 5858,
+      "sha256": "6a3b9fcfe12d42b544cef51a5b210acf8af58920f1804058865c2a032fe2a3c4",
+      "mtime": "2026-09-17T18:10:59.108Z"
+    },
+    {
+      "path": "packages/qgate/src/index.mjs",
+      "sizeBytes": 1147,
+      "sha256": "32af5d3a3c5570b87ab40d7047e8fdffbece9822f25ed2c1b44170acf7cafc6c",
+      "mtime": "2026-09-17T18:09:17.395Z"
+    },
+    {
+      "path": "packages/qgate/src/ledger.mjs",
+      "sizeBytes": 8237,
+      "sha256": "0bef75ee5ed7f72fb46609123c33dca5f143360608bf1a1237ecb92854ff3de1",
+      "mtime": "2026-09-17T19:00:56.717Z"
+    },
+    {
+      "path": "packages/qgate/src/pipeline.mjs",
+      "sizeBytes": 358,
+      "sha256": "db72c8bfa174d35ddbce55bc1aa89eb4850a3aa9797ea1da54676971d1cd101e",
+      "mtime": "2026-09-17T18:09:17.364Z"
+    },
+    {
+      "path": "packages/qgate/src/policy.mjs",
+      "sizeBytes": 35378,
+      "sha256": "6322256f422906fd606d1e51a76e599f87be8fd9d6a9b5e43f0874ec226c92cd",
+      "mtime": "2026-09-18T02:25:35.056Z"
+    },
+    {
+      "path": "packages/qgate/src/provider.mjs",
+      "sizeBytes": 13710,
+      "sha256": "fec70ef18128a45853baea4b2001cb8d4a122cbf915bbba97d8bf23d972316a4",
+      "mtime": "2026-09-17T19:56:36.117Z"
+    },
+    {
+      "path": "packages/qgate/src/providers/index.mjs",
+      "sizeBytes": 453,
+      "sha256": "6dfca3d867badd186ddbc63d547fbeb94ccb226e630c3033a9d8dbd8d863c599",
+      "mtime": "2026-09-17T18:06:59.132Z"
+    },
+    {
+      "path": "packages/qgate/src/report.mjs",
+      "sizeBytes": 3586,
+      "sha256": "a1c35ea50b901fb873a797a26c4a6a14582e4a11c6bc0a99b65bcb16e17dc75c",
+      "mtime": "2026-09-17T18:09:14.818Z"
+    },
+    {
+      "path": "packages/qgate/src/rules.mjs",
+      "sizeBytes": 5792,
+      "sha256": "236790dafbe86cf4960e046bae950eee6e053019fbaa2c07ddcfc59299a31162",
+      "mtime": "2026-09-17T18:46:55.518Z"
+    },
+    {
+      "path": "packages/qgate/src/selection.mjs",
+      "sizeBytes": 13905,
+      "sha256": "6096faff9c70090a9e77972c1bbaae99a655f5b3d67d4c4b028dcabaa0e4efce",
+      "mtime": "2026-09-18T02:26:27.899Z"
+    },
+    {
+      "path": "packages/qgate/src/trace.mjs",
+      "sizeBytes": 21756,
+      "sha256": "be3bf108de2229deb3ef44414979a08b6afeab4f08e6ce8d528928571bf882f5",
+      "mtime": "2026-09-17T19:32:36.918Z"
+    },
+    {
+      "path": "packages/qgate/src/util/fsx.mjs",
+      "sizeBytes": 3273,
+      "sha256": "45d3b976e30061876f31ff3cec0e742e4b9584ffe815f5a189ac19ea5120ca98",
+      "mtime": "2026-09-17T18:46:05.440Z"
+    },
+    {
+      "path": "packages/qgate/src/util/glob.mjs",
+      "sizeBytes": 4767,
+      "sha256": "cb22ca0167756dfcc74bba82e9cc7f9e839ab52ef29fb675bca911d7b711e7ea",
+      "mtime": "2026-09-18T02:24:52.159Z"
+    },
+    {
+      "path": "packages/qgate/src/util/hash.mjs",
+      "sizeBytes": 1530,
+      "sha256": "c84542f4d79da4dfd95925e13bfe4422a462f9eb7fd75fb158491fdf7ce4c39f",
+      "mtime": "2026-09-17T18:05:31.095Z"
+    },
+    {
+      "path": "packages/qgate/src/util/jsonptr.mjs",
+      "sizeBytes": 1990,
+      "sha256": "401dd2ab030b5f7c2ecdba3b51e61dcfcfaeb76ce289c12b6a5047e368d21ca5",
+      "mtime": "2026-09-17T18:05:31.127Z"
+    },
+    {
+      "path": "packages/qgate/src/util/text.mjs",
+      "sizeBytes": 4782,
+      "sha256": "58e3f949995715e6ab96dc5ddd72dac7e0b6f557d4fda37b1cfb68c6367f0879",
+      "mtime": "2026-09-17T18:22:50.296Z"
+    },
+    {
+      "path": "packages/qgate/test/_canonical-config.json",
+      "sizeBytes": 5417,
+      "sha256": "55673d921e0b4412f1649824350c4e4ec66c209dc6b641f07b1ff335d6f35e6a",
+      "mtime": "2026-09-17T18:16:58.827Z"
+    },
+    {
+      "path": "packages/qgate/test/acceptance.test.mjs",
+      "sizeBytes": 29707,
+      "sha256": "2a8b7c811fe19c43e5d2080dd722cb6709e201f10850d1026bd75b2990b23757",
+      "mtime": "2026-09-17T19:01:57.075Z"
+    },
+    {
+      "path": "packages/qgate/test/ci-template.test.mjs",
+      "sizeBytes": 17885,
+      "sha256": "666e9133b128ace8cbf0d0ea862092b443aadde8d99185d51037bba09fa8fd71",
+      "mtime": "2026-09-17T19:15:13.234Z"
+    },
+    {
+      "path": "packages/qgate/test/config-and-run-result.test.mjs",
+      "sizeBytes": 10376,
+      "sha256": "13f59044300e170208e8b4ef1fd5e9527f8da4d9674a38b188381402d57ef59b",
+      "mtime": "2026-09-17T19:05:28.991Z"
+    },
+    {
+      "path": "packages/qgate/test/contract-hardening.test.mjs",
+      "sizeBytes": 28993,
+      "sha256": "341441a3d093568c7c0e657d750c497f82d83ef4a954720a81b1c0b36a5f9a89",
+      "mtime": "2026-09-18T02:27:14.526Z"
+    },
+    {
+      "path": "packages/qgate/test/evidence-resolution.test.mjs",
+      "sizeBytes": 12563,
+      "sha256": "d07be40e81114e7bae06f6d7defa68d08d3883e10435fb5aa8bfc68886488d5e",
+      "mtime": "2026-09-17T19:14:14.347Z"
+    },
+    {
+      "path": "packages/qgate/test/helpers.mjs",
+      "sizeBytes": 6629,
+      "sha256": "68fa8ca27f55f59fd2baa0328af633062354632c44c436029ee0db4b7ed56f53",
+      "mtime": "2026-09-17T18:23:18.610Z"
+    },
+    {
+      "path": "packages/qgate/test/helpers/json-schema.mjs",
+      "sizeBytes": 10794,
+      "sha256": "db25efdd4bcd3c342155018ae19504c010c30eecbcb4782fa6249c3991d08d4c",
+      "mtime": "2026-09-17T18:10:12.768Z"
+    },
+    {
+      "path": "packages/qgate/test/pipeline-and-checks.test.mjs",
+      "sizeBytes": 21989,
+      "sha256": "fea16c91d05eb0fed277595918cadef6f7bf21e8e9ecf8383f470a744f756fad",
+      "mtime": "2026-09-17T19:01:57.075Z"
+    },
+    {
+      "path": "packages/qgate/test/robustness.test.mjs",
+      "sizeBytes": 19591,
+      "sha256": "9b18cd346344d5f7638ef64624e2a63e002579278f0ac01bd60056db120c017f",
+      "mtime": "2026-09-17T19:07:03.232Z"
+    },
+    {
+      "path": "packages/qgate/test/schema-contract.test.mjs",
+      "sizeBytes": 51390,
+      "sha256": "4bad3710c31abe10a4b0e19d6645e0d3ed519080052647d802a92eb195057c1e",
+      "mtime": "2026-09-17T19:55:24.608Z"
+    },
+    {
+      "path": "qgate.config.json",
+      "sizeBytes": 7716,
+      "sha256": "7627a38680bb9f75f6d53610eb66d2aca26ccd7855b0c937168c331d8142e76e",
+      "mtime": "2026-09-17T18:34:31.892Z"
+    },
+    {
+      "path": "schemas/README.md",
+      "sizeBytes": 12135,
+      "sha256": "f3d4fb25fd52b07f422f1579e05f70ff3354708d498eea1c493c34a45e0a0a47",
+      "mtime": "2026-09-17T18:48:16.932Z"
+    },
+    {
+      "path": "schemas/config.schema.json",
+      "sizeBytes": 20592,
+      "sha256": "9816402baa7286f705d8fd61f62aeb4e0612dc218f8c8147ee464da985346c39",
+      "mtime": "2026-09-17T18:35:52.649Z"
+    },
+    {
+      "path": "schemas/evidence-ledger.schema.json",
+      "sizeBytes": 6124,
+      "sha256": "97658d8aaac123749f87304a82e93da802c96dae916bcebe0da8b0d31dab4e35",
+      "mtime": "2026-09-17T18:12:11.611Z"
+    },
+    {
+      "path": "schemas/run-result.schema.json",
+      "sizeBytes": 7187,
+      "sha256": "74e1807d372ecb00af16ad6dd73803e805dce96e575db8426018ae9a93482ae5",
+      "mtime": "2026-09-17T18:51:37.358Z"
+    },
+    {
+      "path": "schemas/trace-matrix.schema.json",
+      "sizeBytes": 5039,
+      "sha256": "107113bb0588a32d9881f9de0e60e9b27a87905c8a7cf8d117aef91e8a7b070d",
+      "mtime": "2026-09-17T18:08:52.056Z"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+﻿{
+  "authority": "verification-t9/tools/tree-fingerprint.mjs",
+  "targets": [
+    "packages/qgate",
+    "adapters/opencodereview",
+    "schemas",
+    "docs",
+    ".github",
+    "demo/qgate.config.json",
+    "demo/mini-service",
+    "package.json",
+    "qgate.config.json"
+  ],
+  "skipDirs": [
+    "node_modules",
+    ".git"
+  ],
+  "skipPrefixes": [
+    "demo/mini-service/.qgate/evidence",
+    "demo/mini-service/.qgate/reports"
+  ],
+  "excludesVerifierArea": true,
+  "excludesVerifierAreaNote": "verification/** and verification-t9/** are NOT targets, so verifier-side tool/artefact edits cannot change the fingerprint.",
+  "algorithm": "per-file sha256 over the sorted absolute tree of `targets` -> manifest lines `<sha256>  <posix-relative-path>` sorted by path -> sha256 of that manifest string (join '\\n')",
+  "modes": {
+    "default": "all targets",
+    "--code-only": "additionally skips packages/qgate/scripts/ and packages/qgate/test/_probe-*.mjs",
+    "--product-only": "SUPPLEMENTARY only: additionally skips any path segment in test/tests/__tests__ — used to show that a revision differs only in test trees; never used as the revision identity"
+  },
+  "x4_decision": "option (b): the authoritative fingerprint KEEPS adapters/opencodereview/test/** (and every other test tree) in scope. Consequence, written into the process as a hard rule: fingerprint changes => every `adapter-suite` evidence pointer is STALE and MUST be re-recorded (node verification-t9/tools/evidence-pointer.mjs check <file> exits 1). Option (a) (excluding test trees) was rejected because it would make the baseline-freshness check blind precisely to the event it must catch (a test file being added/renamed changes the recorded testFile/test counts without changing a test-blind fingerprint).",
+  "requestedMode": {
+    "codeOnly": false,
+    "productOnly": false
+  }
+}

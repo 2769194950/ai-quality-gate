@@ -1,0 +1,4093 @@
+{
+  "manifest": "artifacts-v8\\verifier-tool-hashes.json",
+  "pinned_tree_fingerprint": "efbe6e05344ad9c37616729eb3049c3f43e8556af3be27c78d844a1794efb44d",
+  "current_tree_fingerprint": "efbe6e05344ad9c37616729eb3049c3f43e8556af3be27c78d844a1794efb44d",
+  "entries": 583,
+  "match": 583,
+  "drift": 0,
+  "missing": 0,
+  "driftFiles": [],
+  "rows": [
+    {
+      "kind": "tool",
+      "rel": "tools/b1-coverage-matrix.mjs",
+      "expected": "54d170d93965869a2af50b3039889e56f4ca08ade6ed0e9a82039aafa5df6087",
+      "actual": "54d170d93965869a2af50b3039889e56f4ca08ade6ed0e9a82039aafa5df6087",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/b2-provider-fixture.mjs",
+      "expected": "fb76e29ed9baad78c333a7dc4460cd460cf8601fcfd78fe52d8e1b5c635371b6",
+      "actual": "fb76e29ed9baad78c333a7dc4460cd460cf8601fcfd78fe52d8e1b5c635371b6",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/b4-unmaterialized.mjs",
+      "expected": "6fa91646ec30b4162658f8c28a143ed06499a8618409d51dc368a07b928d811b",
+      "actual": "6fa91646ec30b4162658f8c28a143ed06499a8618409d51dc368a07b928d811b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/baseline-freshness.mjs",
+      "expected": "84fee1f1bceab79b6737d5cdbb63c5f51609fdb2b4dc2a818b88a86b2e70c445",
+      "actual": "84fee1f1bceab79b6737d5cdbb63c5f51609fdb2b4dc2a818b88a86b2e70c445",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/contract-fields.mjs",
+      "expected": "0d25774e8653816bc4d6d61f551c94e254a76f3a02995613ab544ddb5194712c",
+      "actual": "0d25774e8653816bc4d6d61f551c94e254a76f3a02995613ab544ddb5194712c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/evidence-pointer.mjs",
+      "expected": "76469c60040432d4d2aa8b47ff4b23231e2a3f3cfc33932cba7e9b3ca65ef9b5",
+      "actual": "76469c60040432d4d2aa8b47ff4b23231e2a3f3cfc33932cba7e9b3ca65ef9b5",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/fixture-diff.mjs",
+      "expected": "9263e19d967d21adf976d2f87f75c24dae8730f94f964e828bc5ae38d17af76b",
+      "actual": "9263e19d967d21adf976d2f87f75c24dae8730f94f964e828bc5ae38d17af76b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/hardlink-probe.mjs",
+      "expected": "9c8cdefcd6d0aac77b062bb36917355a6e2e19cfca8b4bf69df679014ed29916",
+      "actual": "9c8cdefcd6d0aac77b062bb36917355a6e2e19cfca8b4bf69df679014ed29916",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/leaf-diff.mjs",
+      "expected": "c2d9869294f6fd57d7f4a8cd686e4170d770877f233dd9a12b1493e4d6f00b2a",
+      "actual": "c2d9869294f6fd57d7f4a8cd686e4170d770877f233dd9a12b1493e4d6f00b2a",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/normalize-runresult.mjs",
+      "expected": "f3a4790381e7615f42e117c808458f21d70129bcda795ca01c8ee34b993984ee",
+      "actual": "f3a4790381e7615f42e117c808458f21d70129bcda795ca01c8ee34b993984ee",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/preview-crosscheck.mjs",
+      "expected": "bc47b8f6772c12f563d6f36258584ffd41e22f96ec82d8e5fdcbb9058a671772",
+      "actual": "bc47b8f6772c12f563d6f36258584ffd41e22f96ec82d8e5fdcbb9058a671772",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/schema-check-v3.mjs",
+      "expected": "3531a17f22e46c04b85f51ed3f3963d2674b423fa44f8c3e0c593489289ea1af",
+      "actual": "3531a17f22e46c04b85f51ed3f3963d2674b423fa44f8c3e0c593489289ea1af",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/schema-eval.mjs",
+      "expected": "4a071e5d150ed84ad0075faed2a626476c5de6feab54167be232e8e65f91e906",
+      "actual": "4a071e5d150ed84ad0075faed2a626476c5de6feab54167be232e8e65f91e906",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/schema-meta.mjs",
+      "expected": "a8a71ba87344bb7bd117ba685c38e7bade0a16f45e72d22219ca9a79b2ce88f4",
+      "actual": "a8a71ba87344bb7bd117ba685c38e7bade0a16f45e72d22219ca9a79b2ce88f4",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/t42-verify.mjs",
+      "expected": "e7cfaefbfa4148d0950b2843ecf20f3c29de517987d7d160846a0437d17e0e03",
+      "actual": "e7cfaefbfa4148d0950b2843ecf20f3c29de517987d7d160846a0437d17e0e03",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/tool-hashes-check.mjs",
+      "expected": "dfb93b315917d5febd441cc28e4320f18a03ebb9fdf1dc612c21a07e994b023f",
+      "actual": "dfb93b315917d5febd441cc28e4320f18a03ebb9fdf1dc612c21a07e994b023f",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/trace-check.mjs",
+      "expected": "a8b23c07d375873c581f7821d727700994fc8ff0c763e52bfa42edf03db7af5e",
+      "actual": "a8b23c07d375873c581f7821d727700994fc8ff0c763e52bfa42edf03db7af5e",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/tree-fingerprint.mjs",
+      "expected": "45dc12f6e30bf7aad1e63871e6b3cf86c433cc49dc5a5640f594922a3066d07a",
+      "actual": "45dc12f6e30bf7aad1e63871e6b3cf86c433cc49dc5a5640f594922a3066d07a",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/v1-comment-boundary.mjs",
+      "expected": "2467c4edf01f67e7887eccfea36d7b6e961cf05a5df3db8f4a7a752db8bb462c",
+      "actual": "2467c4edf01f67e7887eccfea36d7b6e961cf05a5df3db8f4a7a752db8bb462c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/v2-engine-identity.mjs",
+      "expected": "3f2122eb97d29e0a103dba70f8524e62d0fdd31f4116109f48e0788aaa39a113",
+      "actual": "3f2122eb97d29e0a103dba70f8524e62d0fdd31f4116109f48e0788aaa39a113",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/v3-cases.mjs",
+      "expected": "ec89b2174f4ae596e8fa1f47b75d313b1152916cb22d5126c4cc8640c42f7679",
+      "actual": "ec89b2174f4ae596e8fa1f47b75d313b1152916cb22d5126c4cc8640c42f7679",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/v5-counting.mjs",
+      "expected": "a6568ff8c0ea39ce6d9650d83468e068ae4469cef37f5e6095562cac36c9bf44",
+      "actual": "a6568ff8c0ea39ce6d9650d83468e068ae4469cef37f5e6095562cac36c9bf44",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/w12-engine-case.mjs",
+      "expected": "a1c439618d6cc5441c057ead59e2fe377f8ae3367e4331952e11374752652d60",
+      "actual": "a1c439618d6cc5441c057ead59e2fe377f8ae3367e4331952e11374752652d60",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/w3-audit-rows.mjs",
+      "expected": "9421fd2052af3a01ef124bb4ba74705fa0e3cbacc7d0add2941739946c565eb4",
+      "actual": "9421fd2052af3a01ef124bb4ba74705fa0e3cbacc7d0add2941739946c565eb4",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/w3-path-cwd-matrix.mjs",
+      "expected": "1df7c84be3707f47f833406f9df6b69f167e24024678c7fdb49e29b93baa2641",
+      "actual": "1df7c84be3707f47f833406f9df6b69f167e24024678c7fdb49e29b93baa2641",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/w45-net-parity.mjs",
+      "expected": "676ab1d4c2009368e78ced52fd5919792488abc0fe588cccaf53523a79866842",
+      "actual": "676ab1d4c2009368e78ced52fd5919792488abc0fe588cccaf53523a79866842",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/y1-named-client-parity.mjs",
+      "expected": "28d87b11c161c1d4f66ab4a70dcf755eb006fb14c043bef08010b262d0dc284e",
+      "actual": "28d87b11c161c1d4f66ab4a70dcf755eb006fb14c043bef08010b262d0dc284e",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/y2-f13-scanroots.mjs",
+      "expected": "f735c4db432e32d4476559e48321ee23c596002e9df68a574d5492cca196518d",
+      "actual": "f735c4db432e32d4476559e48321ee23c596002e9df68a574d5492cca196518d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/y5-bypass-windows-names.mjs",
+      "expected": "e7cd054aecbd7634cb268af14584132062f0b4a7b6ddb56accd5167b23cb32d2",
+      "actual": "e7cd054aecbd7634cb268af14584132062f0b4a7b6ddb56accd5167b23cb32d2",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/y5-table-integrity.mjs",
+      "expected": "e7f8143f4a2216c060c3666a929a6aefda62d10f3c941c61d8844e50ab50c962",
+      "actual": "e7f8143f4a2216c060c3666a929a6aefda62d10f3c941c61d8844e50ab50c962",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/z3-f19-scan-surface.mjs",
+      "expected": "b2646852515484888b090ad7f0312e51ef8863c747cc8f6805e69e622b966aec",
+      "actual": "b2646852515484888b090ad7f0312e51ef8863c747cc8f6805e69e622b966aec",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/z3-revert-experiment.mjs",
+      "expected": "31b6eab6aa423062622e33433db13ad38ee7f2db6c48b54927d35b14b447474c",
+      "actual": "31b6eab6aa423062622e33433db13ad38ee7f2db6c48b54927d35b14b447474c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "tool",
+      "rel": "tools/z4-gate-matrix.mjs",
+      "expected": "f5b51a7e83a9621aeac4867a3cf83911986534a522bb582a3c1b43389b40cc29",
+      "actual": "f5b51a7e83a9621aeac4867a3cf83911986534a522bb582a3c1b43389b40cc29",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/adapter-preview-cwd-junction.json",
+      "expected": "af39f25ad58f41c9dd41294b6e43d3a9bfa602ce2cffa00f57771e0c0b374632",
+      "actual": "af39f25ad58f41c9dd41294b6e43d3a9bfa602ce2cffa00f57771e0c0b374632",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/adapter-preview-default.json",
+      "expected": "15bfba774b3c4244658588e43ddc8b5c157bc637d723826840e91a7e06cd3e98",
+      "actual": "15bfba774b3c4244658588e43ddc8b5c157bc637d723826840e91a7e06cd3e98",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/adapter-preview-include-flags.json",
+      "expected": "71e230a7a3128a4e99d905ade29e7bbfbe086b89701aa6efc46a77c5bed7e0f2",
+      "actual": "71e230a7a3128a4e99d905ade29e7bbfbe086b89701aa6efc46a77c5bed7e0f2",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/adapter-preview-safe002-include.json",
+      "expected": "b69a9376876596ae8f51306c75e1922221a2787fe7bd0da28a7fcf0e8c67c723",
+      "actual": "b69a9376876596ae8f51306c75e1922221a2787fe7bd0da28a7fcf0e8c67c723",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/adapter-preview-same-files.json",
+      "expected": "e787692a5ca626ab361502f2274d70b9822ad76daae4e02a4bdffd9ad2f5af67",
+      "actual": "e787692a5ca626ab361502f2274d70b9822ad76daae4e02a4bdffd9ad2f5af67",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/adapter-suite.txt",
+      "expected": "6f54ab5f117eb18cf46f9662cebc69958ae471d21dc9a65aa9a2334d3c329803",
+      "actual": "6f54ab5f117eb18cf46f9662cebc69958ae471d21dc9a65aa9a2334d3c329803",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/check-summary.txt",
+      "expected": "3f81b517853d0c3358de9f6c5111c130c1c7ca538208093c5fc32221db189be2",
+      "actual": "3f81b517853d0c3358de9f6c5111c130c1c7ca538208093c5fc32221db189be2",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/contract-fields.json",
+      "expected": "6da89e05a7c524525e3334ff4f1fd412c1396e74b935dc399a959f5d8323da39",
+      "actual": "6da89e05a7c524525e3334ff4f1fd412c1396e74b935dc399a959f5d8323da39",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/cwd-probe.txt",
+      "expected": "4b89d8c546e6301b5df5d05c845935539edc7b26a40972d534dff4f8eaf5e5ec",
+      "actual": "4b89d8c546e6301b5df5d05c845935539edc7b26a40972d534dff4f8eaf5e5ec",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/determinism-cross-cwd.txt",
+      "expected": "a80ab1f78c47df65b0f0024410b85adaab842e9e54399bc1a80a8dac69bd7790",
+      "actual": "a80ab1f78c47df65b0f0024410b85adaab842e9e54399bc1a80a8dac69bd7790",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/determinism-same-cwd.txt",
+      "expected": "85a27e57d07d12599c587afc45f0a168aa76f846e609a57706daa4cf2472ea5e",
+      "actual": "85a27e57d07d12599c587afc45f0a168aa76f846e609a57706daa4cf2472ea5e",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/engine-preview-cli-rule.json",
+      "expected": "df1fc20b7ad13618d70c4e9f6d89f473739e5348f995aab8d20dc52aebd2bd6a",
+      "actual": "df1fc20b7ad13618d70c4e9f6d89f473739e5348f995aab8d20dc52aebd2bd6a",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/engine-preview-same-files.json",
+      "expected": "de1f9d53615f0eaa25b04dc960ab900b42b9372cf6c99ef2ca2b3b9adb0e11f2",
+      "actual": "de1f9d53615f0eaa25b04dc960ab900b42b9372cf6c99ef2ca2b3b9adb0e11f2",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/engine-suite-official.txt",
+      "expected": "0cace4155442ce7c11051f82c16306abcd42e553635d4a514283cdaae50326af",
+      "actual": "0cace4155442ce7c11051f82c16306abcd42e553635d4a514283cdaae50326af",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/fingerprint-after-code-only.txt",
+      "expected": "d5812514d642de9ecd92ae8d83c1df665b9e3f46623961ade9347a6381c159f2",
+      "actual": "d5812514d642de9ecd92ae8d83c1df665b9e3f46623961ade9347a6381c159f2",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/fingerprint-after.txt",
+      "expected": "7e976ee20895157dde7f09883757690886cb5d305e064adf1a9289f0f3691c6b",
+      "actual": "7e976ee20895157dde7f09883757690886cb5d305e064adf1a9289f0f3691c6b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/fingerprint-before.txt",
+      "expected": "1a3b6542395f8e2af4b844a41559ee867d13e029334381c451caabf124fa4620",
+      "actual": "1a3b6542395f8e2af4b844a41559ee867d13e029334381c451caabf124fa4620",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/fingerprint-final-code-only.txt",
+      "expected": "87de30e1873917c8876e208df6fb71d122fea3a8b659ee6d250189dfa97a0b22",
+      "actual": "87de30e1873917c8876e208df6fb71d122fea3a8b659ee6d250189dfa97a0b22",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/fingerprint-final.txt",
+      "expected": "7b7db1a712ff55f6b04011e9d0615022f1f0978fb001a6a2fe45dc7c54e98331",
+      "actual": "7b7db1a712ff55f6b04011e9d0615022f1f0978fb001a6a2fe45dc7c54e98331",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/fixture-diff.json",
+      "expected": "2d69807e3dd4fff11ee3e1c6e952b4be26c41366ba8b959bfec73c58fd3d2ef9",
+      "actual": "2d69807e3dd4fff11ee3e1c6e952b4be26c41366ba8b959bfec73c58fd3d2ef9",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/leaf-diff-adapter-cwd.txt",
+      "expected": "01befb866ef2016d57b325156dacac7d67c71c4ee28f9aa79d754dbea8c31632",
+      "actual": "01befb866ef2016d57b325156dacac7d67c71c4ee28f9aa79d754dbea8c31632",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/leaf-diff-engine-abs-config-cwd.txt",
+      "expected": "098cb9e3b704971b91c0c95ed441a9073ba3bb86bfb5095a52eb7ff4ef83b085",
+      "actual": "098cb9e3b704971b91c0c95ed441a9073ba3bb86bfb5095a52eb7ff4ef83b085",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/leaf-diff-engine-check-cwd.txt",
+      "expected": "ce9bcf3ac547f633605ce51d47c0018cf95e9123e1f67c56e1f3ffa12fc4eb03",
+      "actual": "ce9bcf3ac547f633605ce51d47c0018cf95e9123e1f67c56e1f3ffa12fc4eb03",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/leaf-diff-same-cwd.txt",
+      "expected": "b729fa7d5a92fbca508940493fe7dea844c0ce4ad7303a5c243692d8c276ccf8",
+      "actual": "b729fa7d5a92fbca508940493fe7dea844c0ce4ad7303a5c243692d8c276ccf8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/negative-A-control.json",
+      "expected": "5e67d30b4c476465fc2a22eb5d46960c19aa54e2c4dcfb30c77c876639df81f8",
+      "actual": "5e67d30b4c476465fc2a22eb5d46960c19aa54e2c4dcfb30c77c876639df81f8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/negative-A-missing-evidence.json",
+      "expected": "ce03c9da17bb74f2bcf2806e93f56084a9a7010c341ffe4e9bed0e3301e0a9c1",
+      "actual": "ce03c9da17bb74f2bcf2806e93f56084a9a7010c341ffe4e9bed0e3301e0a9c1",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/negative-B1-missing-version.json",
+      "expected": "84e37578cd4ca73c30f67ee642e11a9684f00694b3aefa6fa2d58f526a13df50",
+      "actual": "84e37578cd4ca73c30f67ee642e11a9684f00694b3aefa6fa2d58f526a13df50",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/negative-B2-bad-check-type.json",
+      "expected": "279c291582e37313a35549ab91a06d2dd64738314ac867f0883406a70e0d79fb",
+      "actual": "279c291582e37313a35549ab91a06d2dd64738314ac867f0883406a70e0d79fb",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/negative-B3-config-not-found.json",
+      "expected": "5ad8b697647e6055070034fa0995b0e0d152f12de9819d71f77c2f8be6f2a205",
+      "actual": "5ad8b697647e6055070034fa0995b0e0d152f12de9819d71f77c2f8be6f2a205",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/preflight-demo-check.json",
+      "expected": "3158b6757c750e03e17c33f7c2fd854990e4ebf49a92db6da9403159b7083274",
+      "actual": "3158b6757c750e03e17c33f7c2fd854990e4ebf49a92db6da9403159b7083274",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/preflight-root-check.json",
+      "expected": "926f74ef3c02084ec2969757fe2d33d6b170c4d9924ceff01f2f4dfcf54fd230",
+      "actual": "926f74ef3c02084ec2969757fe2d33d6b170c4d9924ceff01f2f4dfcf54fd230",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/prestart-root-config-check.json",
+      "expected": "f5329a4f879898f3673e8ff70daf6e013aab19a321a11b6a10a1f27baa383a75",
+      "actual": "f5329a4f879898f3673e8ff70daf6e013aab19a321a11b6a10a1f27baa383a75",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/prestart-stage-requirements.json",
+      "expected": "cc46032387273c62e55e59d154900fc93cd59f4e1c2a08402db89fe39ade45b9",
+      "actual": "cc46032387273c62e55e59d154900fc93cd59f4e1c2a08402db89fe39ade45b9",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/preview-crosscheck.json",
+      "expected": "799719c96c456e3a039c4af2069b874779b19c4eab1cc4acb2f7ddf72f74ac8e",
+      "actual": "799719c96c456e3a039c4af2069b874779b19c4eab1cc4acb2f7ddf72f74ac8e",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/runresult-1.json",
+      "expected": "ffb13c39723042961e47ec3c20eb0f4eef2037eb988d4acd7b51046d6a7c29e8",
+      "actual": "ffb13c39723042961e47ec3c20eb0f4eef2037eb988d4acd7b51046d6a7c29e8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/runresult-2.json",
+      "expected": "6b6aa505516147acd38be31ee45eafadfc91a3d78c925bc25094d8b958349edf",
+      "actual": "6b6aa505516147acd38be31ee45eafadfc91a3d78c925bc25094d8b958349edf",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/runresult-cwd-junction.json",
+      "expected": "182361a6baa6236f6b6b7601161c32f34d4aa5c33c337763ff63937281a4f10c",
+      "actual": "182361a6baa6236f6b6b7601161c32f34d4aa5c33c337763ff63937281a4f10c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/runresult-cwd-pkg-qugate-abs.json",
+      "expected": "8895fbefd6a83bc6711f133ce7f7732f4ac539daaa21b5cc1f74a71aad1a7f29",
+      "actual": "8895fbefd6a83bc6711f133ce7f7732f4ac539daaa21b5cc1f74a71aad1a7f29",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/schema-eval.json",
+      "expected": "49ae4b97d4069963f4a0b77d402a690f601563a0fd4760b0db4dbfc64e440a0b",
+      "actual": "49ae4b97d4069963f4a0b77d402a690f601563a0fd4760b0db4dbfc64e440a0b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/schema-meta.txt",
+      "expected": "658bca0fd852f67495a6eb8d77b9b287ca1f36473a943592b2eb028d88fc5108",
+      "actual": "658bca0fd852f67495a6eb8d77b9b287ca1f36473a943592b2eb028d88fc5108",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/trace-check.json",
+      "expected": "34c4b73e2665cfa2f275ca8449219a146b3b58abaea5520df001b3d608a696f7",
+      "actual": "34c4b73e2665cfa2f275ca8449219a146b3b58abaea5520df001b3d608a696f7",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts/trace.json",
+      "expected": "a2a3ddef1d7dfbd0323322dbde923a1e5d5cf5a8a23b2eb36f4d4b17e50a33c4",
+      "actual": "a2a3ddef1d7dfbd0323322dbde923a1e5d5cf5a8a23b2eb36f4d4b17e50a33c4",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/adapter-preview-default.json",
+      "expected": "f7d0feb3fa5c0749c86cac4648421bf61b3304407c7443a0bd8605e754af8a39",
+      "actual": "f7d0feb3fa5c0749c86cac4648421bf61b3304407c7443a0bd8605e754af8a39",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/adapter-preview-include-flags.json",
+      "expected": "e6d994149abea43c810267316aa5b4b1a008f24e80da9779688be95be3fb861a",
+      "actual": "e6d994149abea43c810267316aa5b4b1a008f24e80da9779688be95be3fb861a",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/adapter-preview-safe002-include.json",
+      "expected": "597615b9b699ee894685f98b0947b8de8e18ee69c06e7fb7938b090c8f40f1b6",
+      "actual": "597615b9b699ee894685f98b0947b8de8e18ee69c06e7fb7938b090c8f40f1b6",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/adapter-preview-same-files.json",
+      "expected": "7155eb5f24d2e53d2abf958498a3e917b034a1c16272e603a5c3f6f1cb258a45",
+      "actual": "7155eb5f24d2e53d2abf958498a3e917b034a1c16272e603a5c3f6f1cb258a45",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/ap-default.err",
+      "expected": "717c6cd3796b1c60b95ba93e4072d2c0e79604ec7a131579aee977313eeacfea",
+      "actual": "717c6cd3796b1c60b95ba93e4072d2c0e79604ec7a131579aee977313eeacfea",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/ap-include.err",
+      "expected": "9fd16bac3071d10aa158f106c58bb2604d7458c6aaf9cab211fd568f5e67ac92",
+      "actual": "9fd16bac3071d10aa158f106c58bb2604d7458c6aaf9cab211fd568f5e67ac92",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/ap-mal.err",
+      "expected": "02218b7f4f2943e827f1b2b0271e7a440779784cc9916da7998227e02d2084b3",
+      "actual": "02218b7f4f2943e827f1b2b0271e7a440779784cc9916da7998227e02d2084b3",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/ap-same.err",
+      "expected": "6db717f9fcff1361eb0eab66cc726625eb4d6bd93b2e1cd4e2248732dcef23bb",
+      "actual": "6db717f9fcff1361eb0eab66cc726625eb4d6bd93b2e1cd4e2248732dcef23bb",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/b1-coverage-matrix.json",
+      "expected": "ec8b07a30282c9e6ef5398a255f27627043ed0322c2762f65b514ba858f1ebed",
+      "actual": "ec8b07a30282c9e6ef5398a255f27627043ed0322c2762f65b514ba858f1ebed",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/b2-provider-fixture.json",
+      "expected": "6074f2aabc4e1577e350058a556498d310bd37d1bc58358e08c260fb533f82dc",
+      "actual": "6074f2aabc4e1577e350058a556498d310bd37d1bc58358e08c260fb533f82dc",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/b4-unmaterialized.json",
+      "expected": "2d27d13effda70b7c2bf36420bb7f42382cf5dbb11a3d5495d81f991cc95e0f9",
+      "actual": "2d27d13effda70b7c2bf36420bb7f42382cf5dbb11a3d5495d81f991cc95e0f9",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/baseline-freshness.json",
+      "expected": "bf18d11096ece7da0a96c460e514424baf833a851587097e3cdbaf74255b23ee",
+      "actual": "bf18d11096ece7da0a96c460e514424baf833a851587097e3cdbaf74255b23ee",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/ci-authoritative.json",
+      "expected": "a9c856610394e100be58828a09ce620050739ddcee421ead0b0e8ee4630cbafd",
+      "actual": "a9c856610394e100be58828a09ce620050739ddcee421ead0b0e8ee4630cbafd",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/ci-contract.json",
+      "expected": "9a662fe8f3b7a6b9eb7e4125452be810f6ec9b378bd31d43575c78bbe360f83e",
+      "actual": "9a662fe8f3b7a6b9eb7e4125452be810f6ec9b378bd31d43575c78bbe360f83e",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/ci-stage-build.json",
+      "expected": "d3db817bb616a77f74d0bc2b181a200898e4c6b3cd8966d172f247f5d1a1865d",
+      "actual": "d3db817bb616a77f74d0bc2b181a200898e4c6b3cd8966d172f247f5d1a1865d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/ci-stage-design.json",
+      "expected": "4e6a9f7276b20c90e78f04de685f7d55847456db1725ed209f545846315b8557",
+      "actual": "4e6a9f7276b20c90e78f04de685f7d55847456db1725ed209f545846315b8557",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/ci-stage-requirements.json",
+      "expected": "bbd0872594c615003b928553c754ee7189fcd64870771a0d209f0475a4cb08eb",
+      "actual": "bbd0872594c615003b928553c754ee7189fcd64870771a0d209f0475a4cb08eb",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/ci-stage-review.json",
+      "expected": "b6c21f5e9c0385fd4fb85436330ec8efdedbc82b115631d1724cc5df8dd6c1e8",
+      "actual": "b6c21f5e9c0385fd4fb85436330ec8efdedbc82b115631d1724cc5df8dd6c1e8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/ci-three-step.json",
+      "expected": "c0f9b65607f168cf4908995b0b15da14b63f5e6dff7464cbe1fda5942cd2d68c",
+      "actual": "c0f9b65607f168cf4908995b0b15da14b63f5e6dff7464cbe1fda5942cd2d68c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/ci-trace-write.txt",
+      "expected": "d029198ebbd33ae317346b1d23296d838c0ea04a48ec5c1fdfc1daaba23dbef7",
+      "actual": "d029198ebbd33ae317346b1d23296d838c0ea04a48ec5c1fdfc1daaba23dbef7",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/ci-warmup.json",
+      "expected": "dcf670ba3f4c872fbeea76fccb2dfb63708bdfa94df502df21a318e28ce8c165",
+      "actual": "dcf670ba3f4c872fbeea76fccb2dfb63708bdfa94df502df21a318e28ce8c165",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/contract-fields-rootcheck.json",
+      "expected": "fd770e21ddc0c9307dd171bc0c5de4ea750501eb5c757b662ae08f54083b23ac",
+      "actual": "fd770e21ddc0c9307dd171bc0c5de4ea750501eb5c757b662ae08f54083b23ac",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/contract-fields-warmup.json",
+      "expected": "b60bbdde47e9510eafc863227b7307db2bdc8457c32ee48c987d1534ab42fdbc",
+      "actual": "b60bbdde47e9510eafc863227b7307db2bdc8457c32ee48c987d1534ab42fdbc",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/cwd-canonical.json",
+      "expected": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "actual": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/cwd-canonical.stderr.txt",
+      "expected": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "actual": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/cwd-cdrive.json",
+      "expected": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "actual": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/cwd-cdrive.stderr.txt",
+      "expected": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "actual": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/cwd-desktop.json",
+      "expected": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "actual": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/cwd-desktop.stderr.txt",
+      "expected": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "actual": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/cwd-junction.json",
+      "expected": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "actual": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/cwd-junction.stderr.txt",
+      "expected": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "actual": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/cwd-parity.json",
+      "expected": "7b86583bb2c95c044633fb336599837505a794c410d2c1e86da413640efc0538",
+      "actual": "7b86583bb2c95c044633fb336599837505a794c410d2c1e86da413640efc0538",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/demo-check.json",
+      "expected": "25e2d2bdf4931ce0acc8861336cd2c714219d8d32d9534c7da9409ff78d566e8",
+      "actual": "25e2d2bdf4931ce0acc8861336cd2c714219d8d32d9534c7da9409ff78d566e8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/demo-summary.txt",
+      "expected": "40c784ca05fdbb4ca9a1bf6484353b0ce9442a1da30c25e93ae596b81cd2504b",
+      "actual": "40c784ca05fdbb4ca9a1bf6484353b0ce9442a1da30c25e93ae596b81cd2504b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/determinism.txt",
+      "expected": "1c4f2e4da340a66438f2bef5ebcf2f4494088f9bcd2ae79386142288329e1e89",
+      "actual": "1c4f2e4da340a66438f2bef5ebcf2f4494088f9bcd2ae79386142288329e1e89",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/engine-preview-cli-rule.json",
+      "expected": "eddc1b960b9ca0ff9d37b78cf0ed64b1f561cfae98ecbd76b2610dc41cff943e",
+      "actual": "eddc1b960b9ca0ff9d37b78cf0ed64b1f561cfae98ecbd76b2610dc41cff943e",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/engine-preview-same-files.json",
+      "expected": "62957c3048a41553fe5e6a6f2b52849fcaf31b1e98e62715cf8a83122373ebc1",
+      "actual": "62957c3048a41553fe5e6a6f2b52849fcaf31b1e98e62715cf8a83122373ebc1",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/engine-suite-test-all.txt",
+      "expected": "571f4eb60f45bd582a72965bbc9c3d16a7e886b62f7c64ca30354c9d6b4067f7",
+      "actual": "571f4eb60f45bd582a72965bbc9c3d16a7e886b62f7c64ca30354c9d6b4067f7",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/engine-suite-test-contract.txt",
+      "expected": "8964db98e5317182b4c92a446d691be382cc3823f4c72fe3a80f69b2d8f5e579",
+      "actual": "8964db98e5317182b4c92a446d691be382cc3823f4c72fe3a80f69b2d8f5e579",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/engine-suite-test.txt",
+      "expected": "9fa0426328e217ec38b348a1c47339dbe8c3a0605021d74cb62c7db2570bbda9",
+      "actual": "9fa0426328e217ec38b348a1c47339dbe8c3a0605021d74cb62c7db2570bbda9",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/envelope-build.json",
+      "expected": "b5843cacfce0d8f91cfb90b89349ab2e2c43267a493719f5e02673c5b2f74d00",
+      "actual": "b5843cacfce0d8f91cfb90b89349ab2e2c43267a493719f5e02673c5b2f74d00",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/envelope-build.stdout.txt",
+      "expected": "740d9afb4c38f4be101348551ac61880d09e01e8afd7533300a6c3141bd3c640",
+      "actual": "740d9afb4c38f4be101348551ac61880d09e01e8afd7533300a6c3141bd3c640",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/envelope-design.json",
+      "expected": "1460e84b267e52c752b7312372e10a54bba4c0e57a63f7f57b8a43a9436890b6",
+      "actual": "1460e84b267e52c752b7312372e10a54bba4c0e57a63f7f57b8a43a9436890b6",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/envelope-design.stdout.txt",
+      "expected": "b16bb1796dd90164aaeee1d811a894ab753893088879b33c1123d32fc734a1d5",
+      "actual": "b16bb1796dd90164aaeee1d811a894ab753893088879b33c1123d32fc734a1d5",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/envelope-requirements.json",
+      "expected": "121c309ad920725c4218609a11db3ea6dad45a81a90b406e168baf0a414e6064",
+      "actual": "121c309ad920725c4218609a11db3ea6dad45a81a90b406e168baf0a414e6064",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/envelope-requirements.stdout.txt",
+      "expected": "116d8c032a1c5f99a3482c1baa05352900353f9cf44e02b319df1f472ebb33e6",
+      "actual": "116d8c032a1c5f99a3482c1baa05352900353f9cf44e02b319df1f472ebb33e6",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/envelope-review.json",
+      "expected": "633f2706f6bac291824be8058b7e0a48a1c065b2cdb0ec9dd1a2aed12787ca39",
+      "actual": "633f2706f6bac291824be8058b7e0a48a1c065b2cdb0ec9dd1a2aed12787ca39",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/envelope-review.stdout.txt",
+      "expected": "2c6609b8ebea8441a7239d3977cc8984c8a17d4803ce57d8e17d5b3b88b3b171",
+      "actual": "2c6609b8ebea8441a7239d3977cc8984c8a17d4803ce57d8e17d5b3b88b3b171",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/ep-cli.err",
+      "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/ep-same.err",
+      "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/fixture-diff.json",
+      "expected": "309b2b4de6e7433792ee1a3176c21d8ae4987b14f90da11c75794d634deda009",
+      "actual": "309b2b4de6e7433792ee1a3176c21d8ae4987b14f90da11c75794d634deda009",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/hardlink-probe.json",
+      "expected": "b7f0c48a020bb439f8be2b986b10fbbdeafb377612b6e4b391e8d216d30e6660",
+      "actual": "b7f0c48a020bb439f8be2b986b10fbbdeafb377612b6e4b391e8d216d30e6660",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/input-unchanged.txt",
+      "expected": "9c8e472404258c05a846ec896fb9a191bdc8a9a86e72ee17cee0cadac192a6a2",
+      "actual": "9c8e472404258c05a846ec896fb9a191bdc8a9a86e72ee17cee0cadac192a6a2",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/perturbation-probe.txt",
+      "expected": "54c6cb47ab876bf164d2127f6ad1fbe24af7e3036ec4d2d9284c696ac21485b9",
+      "actual": "54c6cb47ab876bf164d2127f6ad1fbe24af7e3036ec4d2d9284c696ac21485b9",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/pointer-negatives.json",
+      "expected": "c044ff20a60001dac38dcf39c0a9042a44197238fa24497aaba3db9ef331116d",
+      "actual": "c044ff20a60001dac38dcf39c0a9042a44197238fa24497aaba3db9ef331116d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/preview-crosscheck.json",
+      "expected": "6c8c078b40e80ed89cb3ca01bf2fc3598ebe784ed2d55d06e3099fc857eb6369",
+      "actual": "6c8c078b40e80ed89cb3ca01bf2fc3598ebe784ed2d55d06e3099fc857eb6369",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/root-scripts.json",
+      "expected": "f6d29c4172ba987e45ded623c9d55f4404c58a0057a10227102b620292b52d9a",
+      "actual": "f6d29c4172ba987e45ded623c9d55f4404c58a0057a10227102b620292b52d9a",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/run1.json",
+      "expected": "b260d7aaf1ad04ff9b20a1ea1f5711e7bbee0a9249ac5f045e546b3dd5122b40",
+      "actual": "b260d7aaf1ad04ff9b20a1ea1f5711e7bbee0a9249ac5f045e546b3dd5122b40",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/run2.json",
+      "expected": "b293e83c426deaa3f55cba785b31d1d37991e1a88f3f285b1efd00a42b899981",
+      "actual": "b293e83c426deaa3f55cba785b31d1d37991e1a88f3f285b1efd00a42b899981",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/schema-checks.txt",
+      "expected": "2690fe7974d9f6f58507257ee8647cefda6a1016ade87071491e0b14cbc85f6a",
+      "actual": "2690fe7974d9f6f58507257ee8647cefda6a1016ade87071491e0b14cbc85f6a",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/schema-eval.json",
+      "expected": "3427c1a37b43114c8c14af6b8732cf0f9a9c0b2b21684286a7d205dd711763d3",
+      "actual": "3427c1a37b43114c8c14af6b8732cf0f9a9c0b2b21684286a7d205dd711763d3",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/schema-meta.json",
+      "expected": "9e4c5ec03228148aeff24dffd47175bd78fb29093feeeae84808f97511177859",
+      "actual": "9e4c5ec03228148aeff24dffd47175bd78fb29093feeeae84808f97511177859",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/stage-build.json",
+      "expected": "9d0f942d16ba51010d37041622d0f0d299541ccc0ec5368fed3bfa1e3e3584f2",
+      "actual": "9d0f942d16ba51010d37041622d0f0d299541ccc0ec5368fed3bfa1e3e3584f2",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/stage-design.json",
+      "expected": "65633c91cad3db097ebf9eb02908e48c61b48380b6b9e3d7b40c49315bf76b9f",
+      "actual": "65633c91cad3db097ebf9eb02908e48c61b48380b6b9e3d7b40c49315bf76b9f",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/stage-requirements.json",
+      "expected": "296810d9ff04b0842131ff8055e17de07fd77ecd95d66c8e12922af84c15dc03",
+      "actual": "296810d9ff04b0842131ff8055e17de07fd77ecd95d66c8e12922af84c15dc03",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/stage-review.json",
+      "expected": "cb3c30038de99218a4736d93c1a09fbc10c2a49df1fb0d1c2ce4876023c92a83",
+      "actual": "cb3c30038de99218a4736d93c1a09fbc10c2a49df1fb0d1c2ce4876023c92a83",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/t42-verify.json",
+      "expected": "44591d2f40bbf2200479ab86a2a43af2e048d84ed288b652edead0cd8ab34e1f",
+      "actual": "44591d2f40bbf2200479ab86a2a43af2e048d84ed288b652edead0cd8ab34e1f",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/tool-hashes-check.json",
+      "expected": "614add80502799e3e81c108766ca8e9217817201c02ed880ae68b749a84d9bb7",
+      "actual": "614add80502799e3e81c108766ca8e9217817201c02ed880ae68b749a84d9bb7",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/trace-check.json",
+      "expected": "9c1863e5e32fbbd6067694aaea80867cbe541a1745d640bf098f1ea4996ae04c",
+      "actual": "9c1863e5e32fbbd6067694aaea80867cbe541a1745d640bf098f1ea4996ae04c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/trace.json",
+      "expected": "ba469c38249d3b3de27a7818ef7455209ccaacd939fe664d24fb9e4a1bcba584",
+      "actual": "ba469c38249d3b3de27a7818ef7455209ccaacd939fe664d24fb9e4a1bcba584",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/v1-comment-boundary.json",
+      "expected": "462717028d23060df44e0affbb02d98ffa38b206d8419c5624c4190be6fce4e1",
+      "actual": "462717028d23060df44e0affbb02d98ffa38b206d8419c5624c4190be6fce4e1",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/v2-engine-identity.json",
+      "expected": "2e23f9df7b6b3a16efd4c4a4e214a1cde697d36c120e0bb9db1e96a60687435f",
+      "actual": "2e23f9df7b6b3a16efd4c4a4e214a1cde697d36c120e0bb9db1e96a60687435f",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/v3-cases.json",
+      "expected": "23a6d0e91a6c7e366f021143b6645800f76f338a85a6f3bf02049b27a7ae159a",
+      "actual": "23a6d0e91a6c7e366f021143b6645800f76f338a85a6f3bf02049b27a7ae159a",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/v5-counting.json",
+      "expected": "4c67050a24154de8f3a6cb3b4d33ba22bcf1c88fa8850216d4dbb332326cbc46",
+      "actual": "4c67050a24154de8f3a6cb3b4d33ba22bcf1c88fa8850216d4dbb332326cbc46",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/w12-engine-case.json",
+      "expected": "0f5be6c8078c9f8a110ce41abe157a7bc9d119f98b5cd05a0c3a7f3fe775026d",
+      "actual": "0f5be6c8078c9f8a110ce41abe157a7bc9d119f98b5cd05a0c3a7f3fe775026d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/w3-audit-rows.json",
+      "expected": "8d854f8e3322a47af1adfa0f6b632160b5c953bb0dd53e0f5b75874aecadd4e5",
+      "actual": "8d854f8e3322a47af1adfa0f6b632160b5c953bb0dd53e0f5b75874aecadd4e5",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/w3-path-cwd-matrix.json",
+      "expected": "4c41e3cdc7cd49a24a8ea67a275c4a0c1d6ca384f4b514f97a79acc8a3f47569",
+      "actual": "4c41e3cdc7cd49a24a8ea67a275c4a0c1d6ca384f4b514f97a79acc8a3f47569",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/w4-copy-rootcheck.json",
+      "expected": "c3c86de82cc2b131e601e047d75042c3348b5137d07437af7f4892ef4d42bdc5",
+      "actual": "c3c86de82cc2b131e601e047d75042c3348b5137d07437af7f4892ef4d42bdc5",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/w45-net-parity.json",
+      "expected": "a368dc497ff12d9e4599791127b4916e09dc3e6d995ba3d9e650f46cf3b27b0b",
+      "actual": "a368dc497ff12d9e4599791127b4916e09dc3e6d995ba3d9e650f46cf3b27b0b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/y1-named-client-parity.json",
+      "expected": "a9da0dd8aeeb44640a98b80f6d9749b70c0383ace84728eb5922f6d9caa2feab",
+      "actual": "a9da0dd8aeeb44640a98b80f6d9749b70c0383ace84728eb5922f6d9caa2feab",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/y2-f13-scanroots.json",
+      "expected": "8aeff629d1bdea393b450790b8ceac424e481c1908a46f566a5e8bc57a1adae3",
+      "actual": "8aeff629d1bdea393b450790b8ceac424e481c1908a46f566a5e8bc57a1adae3",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/y5-bypass-windows-names.json",
+      "expected": "63ffdc95a2ad15570ab664a04ad02c1f2022f331765a0c74d8bf8e1783a07edf",
+      "actual": "63ffdc95a2ad15570ab664a04ad02c1f2022f331765a0c74d8bf8e1783a07edf",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/y5-table-integrity.json",
+      "expected": "394e37a62d2a7650c95c09dc02a063d8978fbc1892977a493de429f5493ae1d8",
+      "actual": "394e37a62d2a7650c95c09dc02a063d8978fbc1892977a493de429f5493ae1d8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v10/z3-f19-scan-surface.json",
+      "expected": "1eda49092ab8b2f44cf55f0a8c78c0050243bc5ff7b85bd54d5ea5ec5747ab73",
+      "actual": "1eda49092ab8b2f44cf55f0a8c78c0050243bc5ff7b85bd54d5ea5ec5747ab73",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/adapter-default.json",
+      "expected": "d04b3832967fcec481651cf2ce00d5ee2de6921efbc99a15f93a005be80c15b8",
+      "actual": "d04b3832967fcec481651cf2ce00d5ee2de6921efbc99a15f93a005be80c15b8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/adapter-flags.json",
+      "expected": "d0e3dc252c801c7b05b6cbf56b21fc26688d3df8a7b82ca2302192c8092f7220",
+      "actual": "d0e3dc252c801c7b05b6cbf56b21fc26688d3df8a7b82ca2302192c8092f7220",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/adapter-malicious.json",
+      "expected": "1a18a0d24522f0c0b0b191c8f4aaea79b25377e30c0bd2477fb07b75428f4e3d",
+      "actual": "1a18a0d24522f0c0b0b191c8f4aaea79b25377e30c0bd2477fb07b75428f4e3d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/adapter-preview-default.json",
+      "expected": "d04b3832967fcec481651cf2ce00d5ee2de6921efbc99a15f93a005be80c15b8",
+      "actual": "d04b3832967fcec481651cf2ce00d5ee2de6921efbc99a15f93a005be80c15b8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/adapter-preview-include-flags.json",
+      "expected": "d0e3dc252c801c7b05b6cbf56b21fc26688d3df8a7b82ca2302192c8092f7220",
+      "actual": "d0e3dc252c801c7b05b6cbf56b21fc26688d3df8a7b82ca2302192c8092f7220",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/adapter-preview-safe002-include.json",
+      "expected": "1a18a0d24522f0c0b0b191c8f4aaea79b25377e30c0bd2477fb07b75428f4e3d",
+      "actual": "1a18a0d24522f0c0b0b191c8f4aaea79b25377e30c0bd2477fb07b75428f4e3d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/adapter-preview-same-files.json",
+      "expected": "f3219e514c89e93184bb3e2a88cbac1c0bd893936d8af266bf55c58a1e86ebf4",
+      "actual": "f3219e514c89e93184bb3e2a88cbac1c0bd893936d8af266bf55c58a1e86ebf4",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/adapter-suite.txt",
+      "expected": "115c2a7f2c340d7cf2bce4479195cfbe59fe850c3cfda15185b70029e02898c0",
+      "actual": "115c2a7f2c340d7cf2bce4479195cfbe59fe850c3cfda15185b70029e02898c0",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/ci-authoritative.json",
+      "expected": "cae67c819d5c20e8e3bfacb19f82dba674ab02cfed952f7b48efb60f6f17df77",
+      "actual": "cae67c819d5c20e8e3bfacb19f82dba674ab02cfed952f7b48efb60f6f17df77",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/ci-warmup.json",
+      "expected": "e4719a8c80e76ec86ce6c20f869d5496f67eb909b42f9abd2d44869658f1ccb1",
+      "actual": "e4719a8c80e76ec86ce6c20f869d5496f67eb909b42f9abd2d44869658f1ccb1",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/contract-fields.json",
+      "expected": "df922465b6cb31c19c96ab8983b02b7da634bc8fa6a22cdf116b72574e19e4ba",
+      "actual": "df922465b6cb31c19c96ab8983b02b7da634bc8fa6a22cdf116b72574e19e4ba",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/cwd-canonical.json",
+      "expected": "d04b3832967fcec481651cf2ce00d5ee2de6921efbc99a15f93a005be80c15b8",
+      "actual": "d04b3832967fcec481651cf2ce00d5ee2de6921efbc99a15f93a005be80c15b8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/cwd-cdrive.json",
+      "expected": "d04b3832967fcec481651cf2ce00d5ee2de6921efbc99a15f93a005be80c15b8",
+      "actual": "d04b3832967fcec481651cf2ce00d5ee2de6921efbc99a15f93a005be80c15b8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/cwd-desktop.json",
+      "expected": "d04b3832967fcec481651cf2ce00d5ee2de6921efbc99a15f93a005be80c15b8",
+      "actual": "d04b3832967fcec481651cf2ce00d5ee2de6921efbc99a15f93a005be80c15b8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/cwd-junction.json",
+      "expected": "d04b3832967fcec481651cf2ce00d5ee2de6921efbc99a15f93a005be80c15b8",
+      "actual": "d04b3832967fcec481651cf2ce00d5ee2de6921efbc99a15f93a005be80c15b8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/demo-check.json",
+      "expected": "b1708c7ed3829f723322d47ff729e5561ede9fb933fe2c4ff4a17ea8f5cea674",
+      "actual": "b1708c7ed3829f723322d47ff729e5561ede9fb933fe2c4ff4a17ea8f5cea674",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/demo-summary.txt",
+      "expected": "aa928a7297d2ddab5991b2f64581a1877d02bb508a5174f99af23b3db0cca855",
+      "actual": "aa928a7297d2ddab5991b2f64581a1877d02bb508a5174f99af23b3db0cca855",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/determinism-same-cwd.txt",
+      "expected": "bb6bed3b66af362e5456465b80faba26f3a97260fef6861829a88fe71f019a1e",
+      "actual": "bb6bed3b66af362e5456465b80faba26f3a97260fef6861829a88fe71f019a1e",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/engine-preview-cli-rule.json",
+      "expected": "e60ef60e1fd211b1abd5f2662d71f5b5526f8ba6f70b542ed8c529c33ab69368",
+      "actual": "e60ef60e1fd211b1abd5f2662d71f5b5526f8ba6f70b542ed8c529c33ab69368",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/engine-preview-same-files.json",
+      "expected": "de1f9d53615f0eaa25b04dc960ab900b42b9372cf6c99ef2ca2b3b9adb0e11f2",
+      "actual": "de1f9d53615f0eaa25b04dc960ab900b42b9372cf6c99ef2ca2b3b9adb0e11f2",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/envelope-build.json",
+      "expected": "14a7b0f641769371d6f05c0d81a773d7ee5147f35c240fb0edd3f3cb93f3d349",
+      "actual": "14a7b0f641769371d6f05c0d81a773d7ee5147f35c240fb0edd3f3cb93f3d349",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/envelope-design.json",
+      "expected": "7cfbaab4b8e95f00099df0e699669e2f389f5f947da287fe10f33c22ffd37082",
+      "actual": "7cfbaab4b8e95f00099df0e699669e2f389f5f947da287fe10f33c22ffd37082",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/envelope-requirements.json",
+      "expected": "775d76bf8b4cda96379d716ee2c0199286d283d4d53f6a22dfa7b4e38ed42a73",
+      "actual": "775d76bf8b4cda96379d716ee2c0199286d283d4d53f6a22dfa7b4e38ed42a73",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/envelope-review.json",
+      "expected": "786e5e6b1b2476aa0cb182b777c9eaac6b429a903465970bcd2814e614c6ab98",
+      "actual": "786e5e6b1b2476aa0cb182b777c9eaac6b429a903465970bcd2814e614c6ab98",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/hardlink-probe.json",
+      "expected": "a3d28fb4094d7aa9cb35984b2b1d4acf9c6fe0e7befcf7136d413b07bb617931",
+      "actual": "a3d28fb4094d7aa9cb35984b2b1d4acf9c6fe0e7befcf7136d413b07bb617931",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/leaf-diff-abs-config-across-cwd.txt",
+      "expected": "a0a0816487404d91a9987bc3b8dbaddaef28dc6ea4c3ed93f14869c3b3211dd2",
+      "actual": "a0a0816487404d91a9987bc3b8dbaddaef28dc6ea4c3ed93f14869c3b3211dd2",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/leaf-diff-cross-cwd.txt",
+      "expected": "41a024b47daf0ec9d7b4297c5e47762f7b451f301aba9f06ff1e86877f60b6c5",
+      "actual": "41a024b47daf0ec9d7b4297c5e47762f7b451f301aba9f06ff1e86877f60b6c5",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/leaf-diff-same-cwd.txt",
+      "expected": "661530b7ac501ca99add0e45154f0b25f8a33ea4846b664cec7fcde9dbe061a7",
+      "actual": "661530b7ac501ca99add0e45154f0b25f8a33ea4846b664cec7fcde9dbe061a7",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/matrix-canonical-abs.json",
+      "expected": "01d3f414e61702a718e44c0e1be9048c317efea76386681797ca3f741083c169",
+      "actual": "01d3f414e61702a718e44c0e1be9048c317efea76386681797ca3f741083c169",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/matrix-junction-abs.json",
+      "expected": "caf9d82f252fd8f418be26a63f6c4ce9902d40186ae5262f0f4642475bd506eb",
+      "actual": "caf9d82f252fd8f418be26a63f6c4ce9902d40186ae5262f0f4642475bd506eb",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/preview-1.json",
+      "expected": "c34384e5c97983dc9e56862449d1e149c162ca3a05d519a9dde5b2162ab1f30b",
+      "actual": "c34384e5c97983dc9e56862449d1e149c162ca3a05d519a9dde5b2162ab1f30b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/preview-2.json",
+      "expected": "c34384e5c97983dc9e56862449d1e149c162ca3a05d519a9dde5b2162ab1f30b",
+      "actual": "c34384e5c97983dc9e56862449d1e149c162ca3a05d519a9dde5b2162ab1f30b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/preview-crosscheck.json",
+      "expected": "c68b90644d273a0a4cd4d96fc2c418a4300a6cbe7841cedda8b967572157fb58",
+      "actual": "c68b90644d273a0a4cd4d96fc2c418a4300a6cbe7841cedda8b967572157fb58",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/root-check.json",
+      "expected": "852059251bff15d886ea93d1703960e05634cef790a1e5b4924b704751e5f873",
+      "actual": "852059251bff15d886ea93d1703960e05634cef790a1e5b4924b704751e5f873",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/run-junction-cwd.json",
+      "expected": "eade17096d60b316cdd33f725c2a26382447a84cf2276651c9324fcbcb2fc404",
+      "actual": "eade17096d60b316cdd33f725c2a26382447a84cf2276651c9324fcbcb2fc404",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/run1.json",
+      "expected": "6d2756a44f95f2e3ec776c23318bd3a196e66b5eafae25a8ce9192e5b117ef8f",
+      "actual": "6d2756a44f95f2e3ec776c23318bd3a196e66b5eafae25a8ce9192e5b117ef8f",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/run2.json",
+      "expected": "6982b0857ff256bb61f211f350fba08156a7f2075546f2605d2e7085527bcbb3",
+      "actual": "6982b0857ff256bb61f211f350fba08156a7f2075546f2605d2e7085527bcbb3",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/schema-checks.txt",
+      "expected": "7ecb02a6c3abd19a42e613c9e3b1e35c4d13f59e55e138e75edcf8892be3fa3f",
+      "actual": "7ecb02a6c3abd19a42e613c9e3b1e35c4d13f59e55e138e75edcf8892be3fa3f",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/schema-eval.json",
+      "expected": "33c36e9d3d27afd3870d3d090a7408a1764ce2529c70d78890f968c422b65de9",
+      "actual": "33c36e9d3d27afd3870d3d090a7408a1764ce2529c70d78890f968c422b65de9",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/schema-meta.txt",
+      "expected": "afdf05087c17eff14bdffaec90a0ebae89bfc3cf040c9f998a21c18c54e3b716",
+      "actual": "afdf05087c17eff14bdffaec90a0ebae89bfc3cf040c9f998a21c18c54e3b716",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/stage-build-summary.txt",
+      "expected": "4ab68b74d7e60ef69a4ebacd9c80e6df4adbb98ef3e235b04d3e50d6ee80f4a2",
+      "actual": "4ab68b74d7e60ef69a4ebacd9c80e6df4adbb98ef3e235b04d3e50d6ee80f4a2",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/stage-build.json",
+      "expected": "b8aac899bced77f5b18d611dd6fb65f8d5b80623d1e5d64d4ae98ca5fa50ca43",
+      "actual": "b8aac899bced77f5b18d611dd6fb65f8d5b80623d1e5d64d4ae98ca5fa50ca43",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/stage-design-summary.txt",
+      "expected": "a3cc9ad51f9a973c1e78f8d171bebd3d26c844a907b8b6bbf75be0132c726023",
+      "actual": "a3cc9ad51f9a973c1e78f8d171bebd3d26c844a907b8b6bbf75be0132c726023",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/stage-design.json",
+      "expected": "eeddc7aa10669f90ab36cd1764991afa0e163b050b5545b063d2988f0e3645ff",
+      "actual": "eeddc7aa10669f90ab36cd1764991afa0e163b050b5545b063d2988f0e3645ff",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/stage-requirements-summary.txt",
+      "expected": "d3805f24e6a12f29b8661d9ad8d1b1197d40c868042677ac59b82cf7af09bfc7",
+      "actual": "d3805f24e6a12f29b8661d9ad8d1b1197d40c868042677ac59b82cf7af09bfc7",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/stage-requirements.json",
+      "expected": "218994c6f418eea2f6deda398243351d097c7aa4f7544c03914f919d71349f9c",
+      "actual": "218994c6f418eea2f6deda398243351d097c7aa4f7544c03914f919d71349f9c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/stage-review-summary.txt",
+      "expected": "6225cfd391bb6bbfa8208904a562d93171317af2ab186b8f870022e606002de3",
+      "actual": "6225cfd391bb6bbfa8208904a562d93171317af2ab186b8f870022e606002de3",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/stage-review.json",
+      "expected": "4e0e4125a190e3a1c9dee285d9fbcb525cadf2f2a8726f118655b42fab85859d",
+      "actual": "4e0e4125a190e3a1c9dee285d9fbcb525cadf2f2a8726f118655b42fab85859d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/t42-verify.json",
+      "expected": "82022d1d4b6aa6c8a37635e6e725c436549da497d44d842b100e784ca89ae595",
+      "actual": "82022d1d4b6aa6c8a37635e6e725c436549da497d44d842b100e784ca89ae595",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/trace-check.json",
+      "expected": "a868a9b4fdbcbbcebeff4c7f794a21b24b7cbed107d8a746cd6b79bc0a65a343",
+      "actual": "a868a9b4fdbcbbcebeff4c7f794a21b24b7cbed107d8a746cd6b79bc0a65a343",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/trace.json",
+      "expected": "e6e425844b940f77dd8c011116cfed40d537ef7781fcba9e9675e72cad5feeb2",
+      "actual": "e6e425844b940f77dd8c011116cfed40d537ef7781fcba9e9675e72cad5feeb2",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v3/v3-cases.json",
+      "expected": "17e453d861ade7961ba69d1814862725fdd4d1e6c8c2287a3c114f3203df9e83",
+      "actual": "17e453d861ade7961ba69d1814862725fdd4d1e6c8c2287a3c114f3203df9e83",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/adapter-preview-default.json",
+      "expected": "d04b3832967fcec481651cf2ce00d5ee2de6921efbc99a15f93a005be80c15b8",
+      "actual": "d04b3832967fcec481651cf2ce00d5ee2de6921efbc99a15f93a005be80c15b8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/adapter-preview-include-flags.json",
+      "expected": "d0e3dc252c801c7b05b6cbf56b21fc26688d3df8a7b82ca2302192c8092f7220",
+      "actual": "d0e3dc252c801c7b05b6cbf56b21fc26688d3df8a7b82ca2302192c8092f7220",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/adapter-preview-safe002-include.json",
+      "expected": "1a18a0d24522f0c0b0b191c8f4aaea79b25377e30c0bd2477fb07b75428f4e3d",
+      "actual": "1a18a0d24522f0c0b0b191c8f4aaea79b25377e30c0bd2477fb07b75428f4e3d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/adapter-preview-same-files.json",
+      "expected": "f3219e514c89e93184bb3e2a88cbac1c0bd893936d8af266bf55c58a1e86ebf4",
+      "actual": "f3219e514c89e93184bb3e2a88cbac1c0bd893936d8af266bf55c58a1e86ebf4",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/adapter-suite.txt",
+      "expected": "248dd4aa67ab985a5dee8514c18d3c71582f71c61ecad4e58f19104ed7990ef2",
+      "actual": "248dd4aa67ab985a5dee8514c18d3c71582f71c61ecad4e58f19104ed7990ef2",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/b1-matrix.json",
+      "expected": "06f0ee706d69763efae70ab2729641103cf4f3c04aa1dba8dfd05523c875c0cd",
+      "actual": "06f0ee706d69763efae70ab2729641103cf4f3c04aa1dba8dfd05523c875c0cd",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/b2-provider.json",
+      "expected": "df5cb3b8c0740ce70aa582021d99913cb0435b03c19da23c3bbe6189b7f2b463",
+      "actual": "df5cb3b8c0740ce70aa582021d99913cb0435b03c19da23c3bbe6189b7f2b463",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/b4-unmaterialized.json",
+      "expected": "a952e08f0fc31f2e266fab74f5e782588dd3bb51ba175acfcba949d660acff25",
+      "actual": "a952e08f0fc31f2e266fab74f5e782588dd3bb51ba175acfcba949d660acff25",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/ci-authoritative.json",
+      "expected": "81f1a68b80af77d5fd1957f0ef478a134931151a8885877a74a35ada11c45ea6",
+      "actual": "81f1a68b80af77d5fd1957f0ef478a134931151a8885877a74a35ada11c45ea6",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/ci-warmup.json",
+      "expected": "110ec4ba30e92c1207f245f77f26483f49bd29a26e425cf839959ab4fdd9ae70",
+      "actual": "110ec4ba30e92c1207f245f77f26483f49bd29a26e425cf839959ab4fdd9ae70",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/contract-fields.json",
+      "expected": "2bc87a526c8e22f190ab65d214e9dd12ff9d8af9dfff7286f61a273e6d24ab94",
+      "actual": "2bc87a526c8e22f190ab65d214e9dd12ff9d8af9dfff7286f61a273e6d24ab94",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/cwd-canonical.json",
+      "expected": "d04b3832967fcec481651cf2ce00d5ee2de6921efbc99a15f93a005be80c15b8",
+      "actual": "d04b3832967fcec481651cf2ce00d5ee2de6921efbc99a15f93a005be80c15b8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/cwd-cdrive.json",
+      "expected": "d04b3832967fcec481651cf2ce00d5ee2de6921efbc99a15f93a005be80c15b8",
+      "actual": "d04b3832967fcec481651cf2ce00d5ee2de6921efbc99a15f93a005be80c15b8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/cwd-desktop.json",
+      "expected": "d04b3832967fcec481651cf2ce00d5ee2de6921efbc99a15f93a005be80c15b8",
+      "actual": "d04b3832967fcec481651cf2ce00d5ee2de6921efbc99a15f93a005be80c15b8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/cwd-junction.json",
+      "expected": "d04b3832967fcec481651cf2ce00d5ee2de6921efbc99a15f93a005be80c15b8",
+      "actual": "d04b3832967fcec481651cf2ce00d5ee2de6921efbc99a15f93a005be80c15b8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/demo-check.json",
+      "expected": "ff96a7a9329cd5c15cb7418c8b01f3eb90f48870385526647474754155240f9d",
+      "actual": "ff96a7a9329cd5c15cb7418c8b01f3eb90f48870385526647474754155240f9d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/demo-summary.txt",
+      "expected": "fb7c076a3cc11a24802a21b67c8dc2813cc0ad30c2631de94c5288698902efac",
+      "actual": "fb7c076a3cc11a24802a21b67c8dc2813cc0ad30c2631de94c5288698902efac",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/determinism-same-cwd.txt",
+      "expected": "1178e3ef4ec964d44657dd38d8c769a6d2570ed58935dd255e08cfa0b8ad9833",
+      "actual": "1178e3ef4ec964d44657dd38d8c769a6d2570ed58935dd255e08cfa0b8ad9833",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/engine-preview-cli-rule.json",
+      "expected": "6896a78bd9149222e1dd45ac7a8d9a967135265b6f52a1b61c47ed3ae88bd4e0",
+      "actual": "6896a78bd9149222e1dd45ac7a8d9a967135265b6f52a1b61c47ed3ae88bd4e0",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/engine-preview-same-files.json",
+      "expected": "de1f9d53615f0eaa25b04dc960ab900b42b9372cf6c99ef2ca2b3b9adb0e11f2",
+      "actual": "de1f9d53615f0eaa25b04dc960ab900b42b9372cf6c99ef2ca2b3b9adb0e11f2",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/engine-suite.txt",
+      "expected": "dbe0f98f0d58bfa4963238214849922097f369aa5b1189d03821cb21126f545b",
+      "actual": "dbe0f98f0d58bfa4963238214849922097f369aa5b1189d03821cb21126f545b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/envelope-build.json",
+      "expected": "213644157007788a33e7532d14d5e2e1340ba862a59481e523ab23231b12cb87",
+      "actual": "213644157007788a33e7532d14d5e2e1340ba862a59481e523ab23231b12cb87",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/envelope-design.json",
+      "expected": "0df7c0b4f460af3831744988b41e18d8cf9cbd7e115d48413bd5b5a4d46486d2",
+      "actual": "0df7c0b4f460af3831744988b41e18d8cf9cbd7e115d48413bd5b5a4d46486d2",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/envelope-requirements.json",
+      "expected": "9a3d85db6552b646ce36214dcf6b6ceed90e3f7cfe069dbdcc70997c103f3ffa",
+      "actual": "9a3d85db6552b646ce36214dcf6b6ceed90e3f7cfe069dbdcc70997c103f3ffa",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/envelope-review.json",
+      "expected": "5fdce1c9417f687068936d9ee4f627efb4d24c4cb5fd5b9578242a6bdabb40ec",
+      "actual": "5fdce1c9417f687068936d9ee4f627efb4d24c4cb5fd5b9578242a6bdabb40ec",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/leaf-diff-same-cwd.txt",
+      "expected": "c9de5c04606cbfb0bcb1c75bfe2ac8cf144e9bc7fed92ae9a1a4ebcfd0ca10d8",
+      "actual": "c9de5c04606cbfb0bcb1c75bfe2ac8cf144e9bc7fed92ae9a1a4ebcfd0ca10d8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/preview-crosscheck.json",
+      "expected": "c68b90644d273a0a4cd4d96fc2c418a4300a6cbe7841cedda8b967572157fb58",
+      "actual": "c68b90644d273a0a4cd4d96fc2c418a4300a6cbe7841cedda8b967572157fb58",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/root-check.json",
+      "expected": "cfb9f07ec245c8913d77aa94e58b3e948fc4d615f38a83c3556fa5850cd3fe88",
+      "actual": "cfb9f07ec245c8913d77aa94e58b3e948fc4d615f38a83c3556fa5850cd3fe88",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/run1.json",
+      "expected": "b015bcd8aa3191109a57c487944f74bf12898532b53b592d0327973fd4d122e9",
+      "actual": "b015bcd8aa3191109a57c487944f74bf12898532b53b592d0327973fd4d122e9",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/run2.json",
+      "expected": "edde727a248c81700b2e0f32668061d429d0e0e453c6d58f87391eae267c62f9",
+      "actual": "edde727a248c81700b2e0f32668061d429d0e0e453c6d58f87391eae267c62f9",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/schema-checks.txt",
+      "expected": "623e6ab0c8b669fe8c3331e3b262aaf5bee9093ad1400f06e2ff64d01ad5df53",
+      "actual": "623e6ab0c8b669fe8c3331e3b262aaf5bee9093ad1400f06e2ff64d01ad5df53",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/schema-eval.json",
+      "expected": "33c36e9d3d27afd3870d3d090a7408a1764ce2529c70d78890f968c422b65de9",
+      "actual": "33c36e9d3d27afd3870d3d090a7408a1764ce2529c70d78890f968c422b65de9",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/schema-meta.txt",
+      "expected": "afdf05087c17eff14bdffaec90a0ebae89bfc3cf040c9f998a21c18c54e3b716",
+      "actual": "afdf05087c17eff14bdffaec90a0ebae89bfc3cf040c9f998a21c18c54e3b716",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/stage-build.json",
+      "expected": "24b3927689a5e95b1e1efbc4c7e29a12246ab11f1837a34ed30fc696c17471cd",
+      "actual": "24b3927689a5e95b1e1efbc4c7e29a12246ab11f1837a34ed30fc696c17471cd",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/stage-design.json",
+      "expected": "cf97820eeb53f9e9ca0713e80c3a0e818ef8fefec062a038ea59e8505c6b1f7d",
+      "actual": "cf97820eeb53f9e9ca0713e80c3a0e818ef8fefec062a038ea59e8505c6b1f7d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/stage-requirements.json",
+      "expected": "4622d007ff2162aa484c5011d23d99af0676b05d13e1e82fb8ec32c84f57407f",
+      "actual": "4622d007ff2162aa484c5011d23d99af0676b05d13e1e82fb8ec32c84f57407f",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/stage-review.json",
+      "expected": "0e0845ea6526b22339407c9eb3c8e7615db28c5674f194d74e92b70e64c81053",
+      "actual": "0e0845ea6526b22339407c9eb3c8e7615db28c5674f194d74e92b70e64c81053",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/t42-verify.json",
+      "expected": "82022d1d4b6aa6c8a37635e6e725c436549da497d44d842b100e784ca89ae595",
+      "actual": "82022d1d4b6aa6c8a37635e6e725c436549da497d44d842b100e784ca89ae595",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/trace-check.json",
+      "expected": "388ae3f5db5427097ab440640cf2a77c12aa9ab737507e79dfe5f401ae003ef7",
+      "actual": "388ae3f5db5427097ab440640cf2a77c12aa9ab737507e79dfe5f401ae003ef7",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/trace.json",
+      "expected": "61b62c16c1c9401dc0b510f2f0f3e2675fd019b0512f19372fabd0ad9829b2e9",
+      "actual": "61b62c16c1c9401dc0b510f2f0f3e2675fd019b0512f19372fabd0ad9829b2e9",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v4/v3-cases.json",
+      "expected": "580b29c599d2890fbf448a5674a19d52da007a179e426b0e42337f9ddb9be6b3",
+      "actual": "580b29c599d2890fbf448a5674a19d52da007a179e426b0e42337f9ddb9be6b3",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/adapter-preview-default.json",
+      "expected": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "actual": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/adapter-preview-include-flags.json",
+      "expected": "c4e6d265dc46240c71b6ab8433df171d3e256121c29d42c5ca772c56905336d4",
+      "actual": "c4e6d265dc46240c71b6ab8433df171d3e256121c29d42c5ca772c56905336d4",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/adapter-preview-safe002-include.json",
+      "expected": "0028497358b16a6b3ef94387c55ee6df81ebe27ef5ac9d8b25c56fd117d683d8",
+      "actual": "0028497358b16a6b3ef94387c55ee6df81ebe27ef5ac9d8b25c56fd117d683d8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/adapter-preview-same-files.json",
+      "expected": "e787692a5ca626ab361502f2274d70b9822ad76daae4e02a4bdffd9ad2f5af67",
+      "actual": "e787692a5ca626ab361502f2274d70b9822ad76daae4e02a4bdffd9ad2f5af67",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/b1-matrix.json",
+      "expected": "0937194d4728a97dfee6a5b14b2a40d41cc1eff4fbdbf78f402ae8006afbefe6",
+      "actual": "0937194d4728a97dfee6a5b14b2a40d41cc1eff4fbdbf78f402ae8006afbefe6",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/b2-provider.json",
+      "expected": "1506c4565f510100929fde869c5873aeec77329840e1b0ec0a21776052a20424",
+      "actual": "1506c4565f510100929fde869c5873aeec77329840e1b0ec0a21776052a20424",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/ci-authoritative.json",
+      "expected": "bf9c88f3f1f56b022e4b21e1ed39a1210197d533dde23f538d5da2ee79fc825a",
+      "actual": "bf9c88f3f1f56b022e4b21e1ed39a1210197d533dde23f538d5da2ee79fc825a",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/ci-warmup.json",
+      "expected": "4b279ccb9fc6162495f3072696ac0f45ba7e8d05414cdd9566e5896beb7c51da",
+      "actual": "4b279ccb9fc6162495f3072696ac0f45ba7e8d05414cdd9566e5896beb7c51da",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/contract-fields.json",
+      "expected": "93797ba4a09d93906ece96f5c2e94edfe39bcb88ef7050bf10258ef7ab2031a1",
+      "actual": "93797ba4a09d93906ece96f5c2e94edfe39bcb88ef7050bf10258ef7ab2031a1",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/cwd-canonical.json",
+      "expected": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "actual": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/cwd-cdrive.json",
+      "expected": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "actual": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/cwd-desktop.json",
+      "expected": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "actual": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/cwd-junction.json",
+      "expected": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "actual": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/demo-check.json",
+      "expected": "39f1b704413587cddad730fb6e8bdb7de137bd5e0e5a355db5351ede2db92dcd",
+      "actual": "39f1b704413587cddad730fb6e8bdb7de137bd5e0e5a355db5351ede2db92dcd",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/demo-summary.txt",
+      "expected": "7667802239768e4d1d0c93670f47dd3e99bfecfb5275a21727303495dfb0fbfe",
+      "actual": "7667802239768e4d1d0c93670f47dd3e99bfecfb5275a21727303495dfb0fbfe",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/determinism.txt",
+      "expected": "3b48a5cc57795bc71f708a63a5aa3e9b3a01bb995f0a36089d60288ee854f2c0",
+      "actual": "3b48a5cc57795bc71f708a63a5aa3e9b3a01bb995f0a36089d60288ee854f2c0",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/engine-preview-cli-rule.json",
+      "expected": "83f33ea3de7cd56167a7dacb8a0eed4ee52f31a2fc77ee1643ddb09b996e6dc3",
+      "actual": "83f33ea3de7cd56167a7dacb8a0eed4ee52f31a2fc77ee1643ddb09b996e6dc3",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/engine-preview-same-files.json",
+      "expected": "de1f9d53615f0eaa25b04dc960ab900b42b9372cf6c99ef2ca2b3b9adb0e11f2",
+      "actual": "de1f9d53615f0eaa25b04dc960ab900b42b9372cf6c99ef2ca2b3b9adb0e11f2",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/envelope-build.json",
+      "expected": "93b703b5734373c4c2e7591cefeca9593fa89badc9f19ea0c2ce257b0641fee2",
+      "actual": "93b703b5734373c4c2e7591cefeca9593fa89badc9f19ea0c2ce257b0641fee2",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/envelope-design.json",
+      "expected": "751dd2d883bff6bd0065783d5ea547cbd968a7ce8c3e4b82f17f2b1fd24637f2",
+      "actual": "751dd2d883bff6bd0065783d5ea547cbd968a7ce8c3e4b82f17f2b1fd24637f2",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/envelope-requirements.json",
+      "expected": "4fdea2e9293c78af41abb9c6f1466c0f2636c3571578b5b477ff8301ee1106c8",
+      "actual": "4fdea2e9293c78af41abb9c6f1466c0f2636c3571578b5b477ff8301ee1106c8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/envelope-review.json",
+      "expected": "727421fde9a27701b23ed64487f9c4011576207eb7a4d2aad6ac2d4be8ce81f5",
+      "actual": "727421fde9a27701b23ed64487f9c4011576207eb7a4d2aad6ac2d4be8ce81f5",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/preview-crosscheck-v2.json",
+      "expected": "187b77cb29df5f28b336c828857f75582bd5a84e73daea24e471349d7c011358",
+      "actual": "187b77cb29df5f28b336c828857f75582bd5a84e73daea24e471349d7c011358",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/preview-crosscheck.json",
+      "expected": "ff59434779b2f2e31725e4d052a4af29bfa9286c11e4c4b838ca07c330356ea9",
+      "actual": "ff59434779b2f2e31725e4d052a4af29bfa9286c11e4c4b838ca07c330356ea9",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/root-check.json",
+      "expected": "f12a156e460097d2ccec7d22756a982f03d014eb3add32b15f358f33c4a7438d",
+      "actual": "f12a156e460097d2ccec7d22756a982f03d014eb3add32b15f358f33c4a7438d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/run1.json",
+      "expected": "8a5dd0b4c807e9918d8704371040a11cc8c65d32a018f4d94a6d34effc162941",
+      "actual": "8a5dd0b4c807e9918d8704371040a11cc8c65d32a018f4d94a6d34effc162941",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/run2.json",
+      "expected": "81b8fe427318e2a40feed68ad63a3ba58229f1eda378d3f74efc6cbbc4557d42",
+      "actual": "81b8fe427318e2a40feed68ad63a3ba58229f1eda378d3f74efc6cbbc4557d42",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/schema-checks.txt",
+      "expected": "20b796b40f9ec6ec11019d81f17cb4a77246f50906fef50ed47b95e86ecba350",
+      "actual": "20b796b40f9ec6ec11019d81f17cb4a77246f50906fef50ed47b95e86ecba350",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/schema-eval.json",
+      "expected": "33c36e9d3d27afd3870d3d090a7408a1764ce2529c70d78890f968c422b65de9",
+      "actual": "33c36e9d3d27afd3870d3d090a7408a1764ce2529c70d78890f968c422b65de9",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/schema-meta.txt",
+      "expected": "afdf05087c17eff14bdffaec90a0ebae89bfc3cf040c9f998a21c18c54e3b716",
+      "actual": "afdf05087c17eff14bdffaec90a0ebae89bfc3cf040c9f998a21c18c54e3b716",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/stage-build.json",
+      "expected": "6b1c12b2822bf2cd5f2bc11423f97d0c9e0ce1dfd04564e2ad41cd4eff383ff0",
+      "actual": "6b1c12b2822bf2cd5f2bc11423f97d0c9e0ce1dfd04564e2ad41cd4eff383ff0",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/stage-design.json",
+      "expected": "a7eb66b36306d52ab3d2eed5362ddb566f99779d02af1cc44d873ccb3b959e45",
+      "actual": "a7eb66b36306d52ab3d2eed5362ddb566f99779d02af1cc44d873ccb3b959e45",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/stage-requirements.json",
+      "expected": "641e901b2487f966fe37744a27b68ebf1cf0e18b85642d9fcc268770fb2c6609",
+      "actual": "641e901b2487f966fe37744a27b68ebf1cf0e18b85642d9fcc268770fb2c6609",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/stage-review.json",
+      "expected": "40c948d1aa0937998e54557a9194384ea08be63813aff148da69418d8e62eadd",
+      "actual": "40c948d1aa0937998e54557a9194384ea08be63813aff148da69418d8e62eadd",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/t42-verify.json",
+      "expected": "82022d1d4b6aa6c8a37635e6e725c436549da497d44d842b100e784ca89ae595",
+      "actual": "82022d1d4b6aa6c8a37635e6e725c436549da497d44d842b100e784ca89ae595",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/t52-exit-code-matrix.json",
+      "expected": "1d337800037950f5d61a4fd511cd39244793e149b111852ddbe8a91c8f903df3",
+      "actual": "1d337800037950f5d61a4fd511cd39244793e149b111852ddbe8a91c8f903df3",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/trace-check.json",
+      "expected": "980631a1fbde0a5225849bf59ceb7fb8a32cb2cc5576d9f06ef6cd1fd1304f4e",
+      "actual": "980631a1fbde0a5225849bf59ceb7fb8a32cb2cc5576d9f06ef6cd1fd1304f4e",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/trace.json",
+      "expected": "ab39a1794d0ca7036e5975546e9c6bdecae1b4c3ba77f7b59c3dad8a2dc31e86",
+      "actual": "ab39a1794d0ca7036e5975546e9c6bdecae1b4c3ba77f7b59c3dad8a2dc31e86",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/v1-comment.json",
+      "expected": "944156f46e5bdb89a11bb47e597ae4e0b834e97ea1f3c6944ad685376de18d57",
+      "actual": "944156f46e5bdb89a11bb47e597ae4e0b834e97ea1f3c6944ad685376de18d57",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/v2-identity.json",
+      "expected": "0f5d1f359087612607ee47dc3c5d1391c1077cce46ad3554bb9aa9b8f3a1f55b",
+      "actual": "0f5d1f359087612607ee47dc3c5d1391c1077cce46ad3554bb9aa9b8f3a1f55b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/v3-cases.json",
+      "expected": "fa6d497d31b09e9e944d7e867fb05bba0c318c3706ab6f7742d309a00f0d8687",
+      "actual": "fa6d497d31b09e9e944d7e867fb05bba0c318c3706ab6f7742d309a00f0d8687",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v5/v5-counting.json",
+      "expected": "59745e849a4ebe40dda0966123a70ca42915686fc333e4af7e79b1720a55686b",
+      "actual": "59745e849a4ebe40dda0966123a70ca42915686fc333e4af7e79b1720a55686b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/adapter-preview-default.json",
+      "expected": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "actual": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/adapter-preview-include-flags.json",
+      "expected": "c4e6d265dc46240c71b6ab8433df171d3e256121c29d42c5ca772c56905336d4",
+      "actual": "c4e6d265dc46240c71b6ab8433df171d3e256121c29d42c5ca772c56905336d4",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/adapter-preview-safe002-include.json",
+      "expected": "0028497358b16a6b3ef94387c55ee6df81ebe27ef5ac9d8b25c56fd117d683d8",
+      "actual": "0028497358b16a6b3ef94387c55ee6df81ebe27ef5ac9d8b25c56fd117d683d8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/adapter-preview-same-files.json",
+      "expected": "e787692a5ca626ab361502f2274d70b9822ad76daae4e02a4bdffd9ad2f5af67",
+      "actual": "e787692a5ca626ab361502f2274d70b9822ad76daae4e02a4bdffd9ad2f5af67",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/adapter-suite.txt",
+      "expected": "f2fb72fc7f2b21bcff8bdcc74828dd4fdf71d694dce43068589cf0ad65cfc990",
+      "actual": "f2fb72fc7f2b21bcff8bdcc74828dd4fdf71d694dce43068589cf0ad65cfc990",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/b1-matrix.json",
+      "expected": "b20229504129cfbb12739ca27133bab30f100ffab74d3450a00b109b1e034ae2",
+      "actual": "b20229504129cfbb12739ca27133bab30f100ffab74d3450a00b109b1e034ae2",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/b2-provider.json",
+      "expected": "e20617e05ba2f762f54b0bde09b264ca6b75b290764a180b8b5da8b99d64c2dc",
+      "actual": "e20617e05ba2f762f54b0bde09b264ca6b75b290764a180b8b5da8b99d64c2dc",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/ci-authoritative.json",
+      "expected": "a5a9887d186fe972bf8141b4f3ee568438e60a52787b5b9d2742157485f2f614",
+      "actual": "a5a9887d186fe972bf8141b4f3ee568438e60a52787b5b9d2742157485f2f614",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/ci-warmup.json",
+      "expected": "f70953e721f1d5263d70f76982c5bfd507b2d19e2cd3b9a684372871b854e0fa",
+      "actual": "f70953e721f1d5263d70f76982c5bfd507b2d19e2cd3b9a684372871b854e0fa",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/contract-fields.json",
+      "expected": "a82e9f75deec0f2155ae7b2aebb68430a89a18ddf22fa8cf836061a4922e6bef",
+      "actual": "a82e9f75deec0f2155ae7b2aebb68430a89a18ddf22fa8cf836061a4922e6bef",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/cwd-canonical.json",
+      "expected": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "actual": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/cwd-cdrive.json",
+      "expected": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "actual": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/cwd-desktop.json",
+      "expected": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "actual": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/cwd-junction.json",
+      "expected": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "actual": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/cwd-probe.txt",
+      "expected": "4b89d8c546e6301b5df5d05c845935539edc7b26a40972d534dff4f8eaf5e5ec",
+      "actual": "4b89d8c546e6301b5df5d05c845935539edc7b26a40972d534dff4f8eaf5e5ec",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/demo-check.json",
+      "expected": "ec2c82acb2e26b088c55a8b4a9ef1e6b4f6ea86aaafffd85cb9f3c4ae5277747",
+      "actual": "ec2c82acb2e26b088c55a8b4a9ef1e6b4f6ea86aaafffd85cb9f3c4ae5277747",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/demo-summary.txt",
+      "expected": "edad7f03a9ee7302774d142e04a11b1202fd30dc3fbc6416f6e067528f108981",
+      "actual": "edad7f03a9ee7302774d142e04a11b1202fd30dc3fbc6416f6e067528f108981",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/determinism.txt",
+      "expected": "e111c244f7ecba771c22a1ce5a3a737209aab251b743656bad5ee3f209139245",
+      "actual": "e111c244f7ecba771c22a1ce5a3a737209aab251b743656bad5ee3f209139245",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/engine-preview-cli-rule.json",
+      "expected": "8e3b6b40054d838687845de0b931c03f8582e7268fb6a4762078810402e78c68",
+      "actual": "8e3b6b40054d838687845de0b931c03f8582e7268fb6a4762078810402e78c68",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/engine-preview-same-files.json",
+      "expected": "de1f9d53615f0eaa25b04dc960ab900b42b9372cf6c99ef2ca2b3b9adb0e11f2",
+      "actual": "de1f9d53615f0eaa25b04dc960ab900b42b9372cf6c99ef2ca2b3b9adb0e11f2",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/envelope-build.json",
+      "expected": "b75fb694bc3324b8dd942356daa60ec0bb000da3a3c368aefea4c00a662b372b",
+      "actual": "b75fb694bc3324b8dd942356daa60ec0bb000da3a3c368aefea4c00a662b372b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/envelope-design.json",
+      "expected": "763748378f20e81042f06b16fc052d1374ad0a9624880c3c8ab71b6d021b3c7d",
+      "actual": "763748378f20e81042f06b16fc052d1374ad0a9624880c3c8ab71b6d021b3c7d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/envelope-requirements.json",
+      "expected": "7a846bc177fb34926ef43423db3d61a431c8789f4457eb48756f3dee6c4a097a",
+      "actual": "7a846bc177fb34926ef43423db3d61a431c8789f4457eb48756f3dee6c4a097a",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/envelope-review.json",
+      "expected": "78b52264a2bbbc2310170ca7fa0c972e14e547970e2e8bcfcc15e72e83032ccb",
+      "actual": "78b52264a2bbbc2310170ca7fa0c972e14e547970e2e8bcfcc15e72e83032ccb",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/fixture-diff.json",
+      "expected": "2d69807e3dd4fff11ee3e1c6e952b4be26c41366ba8b959bfec73c58fd3d2ef9",
+      "actual": "2d69807e3dd4fff11ee3e1c6e952b4be26c41366ba8b959bfec73c58fd3d2ef9",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/leaf-diff-same-cwd.txt",
+      "expected": "9dfe3674a797875ca5ef8706c86e781c63a56daf7fc6f17f3acf1caa39365844",
+      "actual": "9dfe3674a797875ca5ef8706c86e781c63a56daf7fc6f17f3acf1caa39365844",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/preview-1.json",
+      "expected": "8e3b6b40054d838687845de0b931c03f8582e7268fb6a4762078810402e78c68",
+      "actual": "8e3b6b40054d838687845de0b931c03f8582e7268fb6a4762078810402e78c68",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/preview-2.json",
+      "expected": "8e3b6b40054d838687845de0b931c03f8582e7268fb6a4762078810402e78c68",
+      "actual": "8e3b6b40054d838687845de0b931c03f8582e7268fb6a4762078810402e78c68",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/preview-crosscheck.json",
+      "expected": "6f01aadca664f6645fd9b04f793cbce57b123242dbcbd01a44a8341f2b79bd22",
+      "actual": "6f01aadca664f6645fd9b04f793cbce57b123242dbcbd01a44a8341f2b79bd22",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/root-check.json",
+      "expected": "fe1ae9b2916ab7beecc6842d1c40c4c199d836dfd486c60d931adb0b92ae0f54",
+      "actual": "fe1ae9b2916ab7beecc6842d1c40c4c199d836dfd486c60d931adb0b92ae0f54",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/run1.json",
+      "expected": "846afb2b38aa45f9c2118190911e01f7aca6ee015aed429e72370e36caa7ea5f",
+      "actual": "846afb2b38aa45f9c2118190911e01f7aca6ee015aed429e72370e36caa7ea5f",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/run2.json",
+      "expected": "bf34fb5e569ef1b4996b185b4f9f0e7f13829386b0765b5aabde878baaa36b83",
+      "actual": "bf34fb5e569ef1b4996b185b4f9f0e7f13829386b0765b5aabde878baaa36b83",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/schema-checks.txt",
+      "expected": "ef3573716677d919ce89599cf7d5ba88798628e54d7249344241deadd7189dcb",
+      "actual": "ef3573716677d919ce89599cf7d5ba88798628e54d7249344241deadd7189dcb",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/schema-eval.json",
+      "expected": "33c36e9d3d27afd3870d3d090a7408a1764ce2529c70d78890f968c422b65de9",
+      "actual": "33c36e9d3d27afd3870d3d090a7408a1764ce2529c70d78890f968c422b65de9",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/schema-meta.txt",
+      "expected": "afdf05087c17eff14bdffaec90a0ebae89bfc3cf040c9f998a21c18c54e3b716",
+      "actual": "afdf05087c17eff14bdffaec90a0ebae89bfc3cf040c9f998a21c18c54e3b716",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/stage-build.json",
+      "expected": "37b58f6111120ab304332639f7177ba7078ee3cad75107bc63c5d5d66c7f86db",
+      "actual": "37b58f6111120ab304332639f7177ba7078ee3cad75107bc63c5d5d66c7f86db",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/stage-design.json",
+      "expected": "75853d41751f3b3b41610d53f3a805578e55e3457721aba623eccddc0af94c68",
+      "actual": "75853d41751f3b3b41610d53f3a805578e55e3457721aba623eccddc0af94c68",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/stage-requirements.json",
+      "expected": "3dddab27628cc5bc3f3cf9d62f8b530c54df818ccf62b863f4ef19e6b4a37890",
+      "actual": "3dddab27628cc5bc3f3cf9d62f8b530c54df818ccf62b863f4ef19e6b4a37890",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/stage-review.json",
+      "expected": "088949a63c68f0df98fdd3ff283d4c678bd3125324df24a688028b9d61ad7d29",
+      "actual": "088949a63c68f0df98fdd3ff283d4c678bd3125324df24a688028b9d61ad7d29",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/t42-verify.json",
+      "expected": "82022d1d4b6aa6c8a37635e6e725c436549da497d44d842b100e784ca89ae595",
+      "actual": "82022d1d4b6aa6c8a37635e6e725c436549da497d44d842b100e784ca89ae595",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/trace-check.json",
+      "expected": "46eff226b9fb3b0e6d929f358c400922396d892da2ff7c44451f3dd44ee41af1",
+      "actual": "46eff226b9fb3b0e6d929f358c400922396d892da2ff7c44451f3dd44ee41af1",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/trace.json",
+      "expected": "6a2f3366731cc002ca66d5bebbbc003258e9756bb37ffd1a2a5cef87caf5c547",
+      "actual": "6a2f3366731cc002ca66d5bebbbc003258e9756bb37ffd1a2a5cef87caf5c547",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/v1-comment.json",
+      "expected": "944156f46e5bdb89a11bb47e597ae4e0b834e97ea1f3c6944ad685376de18d57",
+      "actual": "944156f46e5bdb89a11bb47e597ae4e0b834e97ea1f3c6944ad685376de18d57",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/v2-identity.json",
+      "expected": "0f5d1f359087612607ee47dc3c5d1391c1077cce46ad3554bb9aa9b8f3a1f55b",
+      "actual": "0f5d1f359087612607ee47dc3c5d1391c1077cce46ad3554bb9aa9b8f3a1f55b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/v3-cases.json",
+      "expected": "8acb6bfa28ddca65af6bb74e519c7c47ba28a8466aff5f18200d804bb9051ed4",
+      "actual": "8acb6bfa28ddca65af6bb74e519c7c47ba28a8466aff5f18200d804bb9051ed4",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v6/v5-counting.json",
+      "expected": "59745e849a4ebe40dda0966123a70ca42915686fc333e4af7e79b1720a55686b",
+      "actual": "59745e849a4ebe40dda0966123a70ca42915686fc333e4af7e79b1720a55686b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/adapter-preview-default.json",
+      "expected": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "actual": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/adapter-preview-include-flags.json",
+      "expected": "c4e6d265dc46240c71b6ab8433df171d3e256121c29d42c5ca772c56905336d4",
+      "actual": "c4e6d265dc46240c71b6ab8433df171d3e256121c29d42c5ca772c56905336d4",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/adapter-preview-safe002-include.json",
+      "expected": "0028497358b16a6b3ef94387c55ee6df81ebe27ef5ac9d8b25c56fd117d683d8",
+      "actual": "0028497358b16a6b3ef94387c55ee6df81ebe27ef5ac9d8b25c56fd117d683d8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/adapter-preview-same-files.json",
+      "expected": "e787692a5ca626ab361502f2274d70b9822ad76daae4e02a4bdffd9ad2f5af67",
+      "actual": "e787692a5ca626ab361502f2274d70b9822ad76daae4e02a4bdffd9ad2f5af67",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/adapter-suite.txt",
+      "expected": "a6d4d2ba01d4f25175ec8f0f7f53046c3245694a0730874c1078b417e31cd54b",
+      "actual": "a6d4d2ba01d4f25175ec8f0f7f53046c3245694a0730874c1078b417e31cd54b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/b1-matrix.json",
+      "expected": "b79a93137f98da1b5de8b15ffa924c0ed0f97c167630b04f960d27cc66da49bc",
+      "actual": "b79a93137f98da1b5de8b15ffa924c0ed0f97c167630b04f960d27cc66da49bc",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/b2-provider.json",
+      "expected": "6cc5797721951168b6956c03459ba1062e9d1d47ec4d694c25d2bb296391ddcb",
+      "actual": "6cc5797721951168b6956c03459ba1062e9d1d47ec4d694c25d2bb296391ddcb",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/ci-authoritative.json",
+      "expected": "3a2701d1521cd613110e858bb3e672448ee847b877d73f6b1f5c76ad560d1bfc",
+      "actual": "3a2701d1521cd613110e858bb3e672448ee847b877d73f6b1f5c76ad560d1bfc",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/ci-warmup.json",
+      "expected": "edf83cdfbe81c34498aa03ce82e96ef0a239cd4d74e77a5a7813cdf92b07c1cd",
+      "actual": "edf83cdfbe81c34498aa03ce82e96ef0a239cd4d74e77a5a7813cdf92b07c1cd",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/contract-fields.json",
+      "expected": "1714e9efdce64e22511af7ad8433ec7d5c4c257a1e9a344b61495456d321db7e",
+      "actual": "1714e9efdce64e22511af7ad8433ec7d5c4c257a1e9a344b61495456d321db7e",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/cwd-canonical.json",
+      "expected": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "actual": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/cwd-cdrive.json",
+      "expected": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "actual": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/cwd-desktop.json",
+      "expected": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "actual": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/cwd-junction.json",
+      "expected": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "actual": "0bc5cb5a2ea97272ac6ca783497aab9d33b53a21de9f8dbf827430df5a8ad3de",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/demo-check.json",
+      "expected": "b75a4654d180dd3d1a7116d4fbd86536c0b676b995a5d3a6b96903f9fb27618b",
+      "actual": "b75a4654d180dd3d1a7116d4fbd86536c0b676b995a5d3a6b96903f9fb27618b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/demo-summary.txt",
+      "expected": "1791ac33a6c291b96238aa9c234fbc6cc2d3d3bc9d33926721bb2ac35bbdb9bb",
+      "actual": "1791ac33a6c291b96238aa9c234fbc6cc2d3d3bc9d33926721bb2ac35bbdb9bb",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/determinism.txt",
+      "expected": "1bf64acac679e611d98bb6a12d0510b833a71827889055980761812a8e4f99e7",
+      "actual": "1bf64acac679e611d98bb6a12d0510b833a71827889055980761812a8e4f99e7",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/engine-preview-cli-rule.json",
+      "expected": "4b2aacc939b13e6bf1e928035456122731b8e472525ef8359c783563e3be9e2c",
+      "actual": "4b2aacc939b13e6bf1e928035456122731b8e472525ef8359c783563e3be9e2c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/engine-preview-same-files.json",
+      "expected": "de1f9d53615f0eaa25b04dc960ab900b42b9372cf6c99ef2ca2b3b9adb0e11f2",
+      "actual": "de1f9d53615f0eaa25b04dc960ab900b42b9372cf6c99ef2ca2b3b9adb0e11f2",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/envelope-build.json",
+      "expected": "e0582c730ed7e6642c5bab2c49ea51d0ac1d4f842c6847cf0847932b3d50a0bd",
+      "actual": "e0582c730ed7e6642c5bab2c49ea51d0ac1d4f842c6847cf0847932b3d50a0bd",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/envelope-design.json",
+      "expected": "73847b3ade109ab0d0dc09ceb3748fb372dc540d5ce5b5941e11140320075bca",
+      "actual": "73847b3ade109ab0d0dc09ceb3748fb372dc540d5ce5b5941e11140320075bca",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/envelope-requirements.json",
+      "expected": "7831c64b9c1369655df84af179537836f7c7763f698c0694a9b775dc69ed82f5",
+      "actual": "7831c64b9c1369655df84af179537836f7c7763f698c0694a9b775dc69ed82f5",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/envelope-review.json",
+      "expected": "908d3ca755ac9d7d8e6a3321581725940f74d6fcc68f11afc44f2472586ab3ab",
+      "actual": "908d3ca755ac9d7d8e6a3321581725940f74d6fcc68f11afc44f2472586ab3ab",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/fingerprint-w7.json",
+      "expected": "153667c84fad9a4f2065a9aa06044f64497a881ddbeccbcf7fd803754e83c4db",
+      "actual": "153667c84fad9a4f2065a9aa06044f64497a881ddbeccbcf7fd803754e83c4db",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/fixture-diff.json",
+      "expected": "2d69807e3dd4fff11ee3e1c6e952b4be26c41366ba8b959bfec73c58fd3d2ef9",
+      "actual": "2d69807e3dd4fff11ee3e1c6e952b4be26c41366ba8b959bfec73c58fd3d2ef9",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/preview-1.json",
+      "expected": "4b2aacc939b13e6bf1e928035456122731b8e472525ef8359c783563e3be9e2c",
+      "actual": "4b2aacc939b13e6bf1e928035456122731b8e472525ef8359c783563e3be9e2c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/preview-2.json",
+      "expected": "4b2aacc939b13e6bf1e928035456122731b8e472525ef8359c783563e3be9e2c",
+      "actual": "4b2aacc939b13e6bf1e928035456122731b8e472525ef8359c783563e3be9e2c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/preview-crosscheck.json",
+      "expected": "ee701af8b1ca30e24f11794d60bb6bbbdbe12fa2693a6a81611023bd26288dd1",
+      "actual": "ee701af8b1ca30e24f11794d60bb6bbbdbe12fa2693a6a81611023bd26288dd1",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/root-check.json",
+      "expected": "bc13ee5c50fd675f60e861791b1ca7fee700e1f891487710351efdfe82c7726b",
+      "actual": "bc13ee5c50fd675f60e861791b1ca7fee700e1f891487710351efdfe82c7726b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/run1.json",
+      "expected": "e5ae0f484ee74d2ce5c80675e6af6f9fd34440959d23b44fc10b708d1248ae35",
+      "actual": "e5ae0f484ee74d2ce5c80675e6af6f9fd34440959d23b44fc10b708d1248ae35",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/run2.json",
+      "expected": "bcceb9c98df7749dfc4a31b4c6a1d59a755d7a706700fdcfe649f917e3cf9b9d",
+      "actual": "bcceb9c98df7749dfc4a31b4c6a1d59a755d7a706700fdcfe649f917e3cf9b9d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/schema-checks.txt",
+      "expected": "31134bc80d0824c02d5b290e61621e814947c9e7402b37044c1d44807e3fcb2d",
+      "actual": "31134bc80d0824c02d5b290e61621e814947c9e7402b37044c1d44807e3fcb2d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/schema-eval.json",
+      "expected": "33c36e9d3d27afd3870d3d090a7408a1764ce2529c70d78890f968c422b65de9",
+      "actual": "33c36e9d3d27afd3870d3d090a7408a1764ce2529c70d78890f968c422b65de9",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/schema-meta.txt",
+      "expected": "afdf05087c17eff14bdffaec90a0ebae89bfc3cf040c9f998a21c18c54e3b716",
+      "actual": "afdf05087c17eff14bdffaec90a0ebae89bfc3cf040c9f998a21c18c54e3b716",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/stage-build.json",
+      "expected": "0ae49eb779e0e1bc37a2370e2513c90e7ebe75d6a389be97de9efe7922bc6e33",
+      "actual": "0ae49eb779e0e1bc37a2370e2513c90e7ebe75d6a389be97de9efe7922bc6e33",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/stage-design.json",
+      "expected": "90f76a053a656687bc46838e19c1dfe2cacd51985ef7461a478f40c9667bde0a",
+      "actual": "90f76a053a656687bc46838e19c1dfe2cacd51985ef7461a478f40c9667bde0a",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/stage-requirements.json",
+      "expected": "d5ad8808c9e6c713c9d31374fecb94371e1e486ff5c459b8377b0f387730e458",
+      "actual": "d5ad8808c9e6c713c9d31374fecb94371e1e486ff5c459b8377b0f387730e458",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/stage-review.json",
+      "expected": "a7795128a01deb1bb53f533b3e19f60f37474be2fda80d17e4126ddb959fe1fe",
+      "actual": "a7795128a01deb1bb53f533b3e19f60f37474be2fda80d17e4126ddb959fe1fe",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/t42-verify.json",
+      "expected": "82022d1d4b6aa6c8a37635e6e725c436549da497d44d842b100e784ca89ae595",
+      "actual": "82022d1d4b6aa6c8a37635e6e725c436549da497d44d842b100e784ca89ae595",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/trace-check.json",
+      "expected": "5a9d0bddcc0d0a498f2ba18eb2fa624c0dcffe417540889e56d3a46f8d6917ee",
+      "actual": "5a9d0bddcc0d0a498f2ba18eb2fa624c0dcffe417540889e56d3a46f8d6917ee",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/trace.json",
+      "expected": "1cfddcc279bf70770634ab6f6f2a4a72981b1cee1c86835c5e0bec2858ad19f5",
+      "actual": "1cfddcc279bf70770634ab6f6f2a4a72981b1cee1c86835c5e0bec2858ad19f5",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/v1-comment.json",
+      "expected": "944156f46e5bdb89a11bb47e597ae4e0b834e97ea1f3c6944ad685376de18d57",
+      "actual": "944156f46e5bdb89a11bb47e597ae4e0b834e97ea1f3c6944ad685376de18d57",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/v2-identity.json",
+      "expected": "0f5d1f359087612607ee47dc3c5d1391c1077cce46ad3554bb9aa9b8f3a1f55b",
+      "actual": "0f5d1f359087612607ee47dc3c5d1391c1077cce46ad3554bb9aa9b8f3a1f55b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/v3-cases.json",
+      "expected": "5de6538040060539d1c7421ca867dc0f446204968d10ed5899a7f74d0fee8007",
+      "actual": "5de6538040060539d1c7421ca867dc0f446204968d10ed5899a7f74d0fee8007",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/v5-counting.json",
+      "expected": "59745e849a4ebe40dda0966123a70ca42915686fc333e4af7e79b1720a55686b",
+      "actual": "59745e849a4ebe40dda0966123a70ca42915686fc333e4af7e79b1720a55686b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/w12-engine-case.json",
+      "expected": "aa08a8117be79383103035ffa28641fda861af6dc61ae404c0c65725e8b4abaf",
+      "actual": "aa08a8117be79383103035ffa28641fda861af6dc61ae404c0c65725e8b4abaf",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/w3-audit-rows.json",
+      "expected": "b9b4a5fb59c6292145c5ca848640fe6cdd0877ce7072676aef4f5022d810ea0f",
+      "actual": "b9b4a5fb59c6292145c5ca848640fe6cdd0877ce7072676aef4f5022d810ea0f",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/w45-net-parity.json",
+      "expected": "74adf1d8eb4c1f64bdb8a65f546016bbf309021b3ebb740f8f832660860acb8c",
+      "actual": "74adf1d8eb4c1f64bdb8a65f546016bbf309021b3ebb740f8f832660860acb8c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v7/w6-baseline-rerecord.json",
+      "expected": "0889f10444f47f0a96d715e7edce2ecb6892b3513f1652d7506f2ce87aa91b88",
+      "actual": "0889f10444f47f0a96d715e7edce2ecb6892b3513f1652d7506f2ce87aa91b88",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/absconfig-cdrive.json",
+      "expected": "b9ac098e4baabff7ff20aa155e6181cdf3f72500d672042d79a4c3b9531fb7ef",
+      "actual": "b9ac098e4baabff7ff20aa155e6181cdf3f72500d672042d79a4c3b9531fb7ef",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/absconfig-desktop.json",
+      "expected": "c80280ae3b83eb9cd05033ab28fb34bc29a034cbc510b8d6b9e7b00b934bdcf3",
+      "actual": "c80280ae3b83eb9cd05033ab28fb34bc29a034cbc510b8d6b9e7b00b934bdcf3",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/absconfig-junction.json",
+      "expected": "746393b0127bcaded2f835adf088b60a4bb1b65c9ace1769af5bd507420e4ce1",
+      "actual": "746393b0127bcaded2f835adf088b60a4bb1b65c9ace1769af5bd507420e4ce1",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/adapter-preview-default.json",
+      "expected": "f7d0feb3fa5c0749c86cac4648421bf61b3304407c7443a0bd8605e754af8a39",
+      "actual": "f7d0feb3fa5c0749c86cac4648421bf61b3304407c7443a0bd8605e754af8a39",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/adapter-preview-default.stderr.txt",
+      "expected": "717c6cd3796b1c60b95ba93e4072d2c0e79604ec7a131579aee977313eeacfea",
+      "actual": "717c6cd3796b1c60b95ba93e4072d2c0e79604ec7a131579aee977313eeacfea",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/adapter-preview-include-flags.json",
+      "expected": "e6d994149abea43c810267316aa5b4b1a008f24e80da9779688be95be3fb861a",
+      "actual": "e6d994149abea43c810267316aa5b4b1a008f24e80da9779688be95be3fb861a",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/adapter-preview-include-flags.stderr.txt",
+      "expected": "9fd16bac3071d10aa158f106c58bb2604d7458c6aaf9cab211fd568f5e67ac92",
+      "actual": "9fd16bac3071d10aa158f106c58bb2604d7458c6aaf9cab211fd568f5e67ac92",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/adapter-preview-safe002-include.json",
+      "expected": "597615b9b699ee894685f98b0947b8de8e18ee69c06e7fb7938b090c8f40f1b6",
+      "actual": "597615b9b699ee894685f98b0947b8de8e18ee69c06e7fb7938b090c8f40f1b6",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/adapter-preview-safe002-include.stderr.txt",
+      "expected": "02218b7f4f2943e827f1b2b0271e7a440779784cc9916da7998227e02d2084b3",
+      "actual": "02218b7f4f2943e827f1b2b0271e7a440779784cc9916da7998227e02d2084b3",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/adapter-preview-same-files.json",
+      "expected": "7155eb5f24d2e53d2abf958498a3e917b034a1c16272e603a5c3f6f1cb258a45",
+      "actual": "7155eb5f24d2e53d2abf958498a3e917b034a1c16272e603a5c3f6f1cb258a45",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/adapter-preview-same-files.stderr.txt",
+      "expected": "6db717f9fcff1361eb0eab66cc726625eb4d6bd93b2e1cd4e2248732dcef23bb",
+      "actual": "6db717f9fcff1361eb0eab66cc726625eb4d6bd93b2e1cd4e2248732dcef23bb",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/adapter-suite-3cwd.json",
+      "expected": "4b0fe1389d8fe1d3d6d3f3070897636199c3fe35b8b5d80ac8c4d4685e777022",
+      "actual": "4b0fe1389d8fe1d3d6d3f3070897636199c3fe35b8b5d80ac8c4d4685e777022",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/adapter-suite-current.txt",
+      "expected": "4b9b64754aad216ee43f375b5ead1c7d937674743bd845a4ef2c43f52b09c58c",
+      "actual": "4b9b64754aad216ee43f375b5ead1c7d937674743bd845a4ef2c43f52b09c58c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/adapter-suite.txt",
+      "expected": "57e765f07748ef06c4b8b330739dfdb513d5b6874e0a98d44e4fecf1bc0f52aa",
+      "actual": "57e765f07748ef06c4b8b330739dfdb513d5b6874e0a98d44e4fecf1bc0f52aa",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/b1-coverage-matrix.json",
+      "expected": "d7e9e2fdbee1b407a5b5ef16f1d82ef5ba36e19e502e0e1deece950cf0b854be",
+      "actual": "d7e9e2fdbee1b407a5b5ef16f1d82ef5ba36e19e502e0e1deece950cf0b854be",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/b2-provider-fixture.json",
+      "expected": "2edafc9df8e0ffcb00d01bfe1f1857f59ff3faa150c1719d35ba75337107d226",
+      "actual": "2edafc9df8e0ffcb00d01bfe1f1857f59ff3faa150c1719d35ba75337107d226",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/b4-unmaterialized.json",
+      "expected": "5c957bf797d20e1b5761035f301abee1f8686e365b743cf4186f71dd19659c83",
+      "actual": "5c957bf797d20e1b5761035f301abee1f8686e365b743cf4186f71dd19659c83",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/baseline-freshness.json",
+      "expected": "b84c7e34964c5cd70c1908d7a13b0df3760fb1b958dc7148b8c2e00829df6f0f",
+      "actual": "b84c7e34964c5cd70c1908d7a13b0df3760fb1b958dc7148b8c2e00829df6f0f",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/ci-authoritative.json",
+      "expected": "a7c36fc39a69cbc5a7a6dadf0160bc2bd423f6c855835a481655a3128f3cd7e1",
+      "actual": "a7c36fc39a69cbc5a7a6dadf0160bc2bd423f6c855835a481655a3128f3cd7e1",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/ci-contract.json",
+      "expected": "9a662fe8f3b7a6b9eb7e4125452be810f6ec9b378bd31d43575c78bbe360f83e",
+      "actual": "9a662fe8f3b7a6b9eb7e4125452be810f6ec9b378bd31d43575c78bbe360f83e",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/ci-stage-build.json",
+      "expected": "4a29abdc2c585f592440e94c40a1995fe29ef515d4f920d47869f712af30e5b2",
+      "actual": "4a29abdc2c585f592440e94c40a1995fe29ef515d4f920d47869f712af30e5b2",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/ci-stage-design.json",
+      "expected": "0167a4e8ac71f42b247f01c50ec7de8798fd8a37a6fe79a4ce7076d0c33ca62d",
+      "actual": "0167a4e8ac71f42b247f01c50ec7de8798fd8a37a6fe79a4ce7076d0c33ca62d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/ci-stage-requirements.json",
+      "expected": "6e80e4b2afa87f495f4127afd012604c38a0a10e3de0290edeb2f41289b7044f",
+      "actual": "6e80e4b2afa87f495f4127afd012604c38a0a10e3de0290edeb2f41289b7044f",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/ci-stage-review.json",
+      "expected": "ad92c3b3280a591e7b24d505d0f79653545f1cae7a83a413a90bce80985a8653",
+      "actual": "ad92c3b3280a591e7b24d505d0f79653545f1cae7a83a413a90bce80985a8653",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/ci-three-step.json",
+      "expected": "2b5e60bf7515bc321bc7520d85cd69a865195ab4fef7a27ef1ae661fc7a46a62",
+      "actual": "2b5e60bf7515bc321bc7520d85cd69a865195ab4fef7a27ef1ae661fc7a46a62",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/ci-trace-write.txt",
+      "expected": "ebfec1d4343e82ddac57febefdab8d65e384d04bca649665dc7474f88ec41738",
+      "actual": "ebfec1d4343e82ddac57febefdab8d65e384d04bca649665dc7474f88ec41738",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/ci-warmup.json",
+      "expected": "9325f2c7872fd35182c7388967f0bf7bb53bb1f6431e6f0d7d520eaecf55e91d",
+      "actual": "9325f2c7872fd35182c7388967f0bf7bb53bb1f6431e6f0d7d520eaecf55e91d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/contract-fields-rootcheck.json",
+      "expected": "0201dd5b3b558c8b1c8ce36930f2646a28bb82a8807975266a2e720e453b7667",
+      "actual": "0201dd5b3b558c8b1c8ce36930f2646a28bb82a8807975266a2e720e453b7667",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/contract-fields-warmup.json",
+      "expected": "dfba657596c3f015d6189d4079dc7d9d63c181e1730f0ddda59cd0a57cc4b4c3",
+      "actual": "dfba657596c3f015d6189d4079dc7d9d63c181e1730f0ddda59cd0a57cc4b4c3",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/contract-fields.json",
+      "expected": "a92d761fb233aeabee822305c777d460ef18e4ab0979b23622e7f2c2454a3503",
+      "actual": "a92d761fb233aeabee822305c777d460ef18e4ab0979b23622e7f2c2454a3503",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/cwd-canonical.json",
+      "expected": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "actual": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/cwd-canonical.stderr.txt",
+      "expected": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "actual": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/cwd-cdrive.json",
+      "expected": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "actual": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/cwd-cdrive.stderr.txt",
+      "expected": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "actual": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/cwd-desktop.json",
+      "expected": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "actual": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/cwd-desktop.stderr.txt",
+      "expected": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "actual": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/cwd-junction.json",
+      "expected": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "actual": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/cwd-junction.stderr.txt",
+      "expected": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "actual": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/cwd-parity.json",
+      "expected": "c312d3f9a4e2cb3964c5132a9d0a5681a7cef3d3dd5bf4e8e140474e79a67aad",
+      "actual": "c312d3f9a4e2cb3964c5132a9d0a5681a7cef3d3dd5bf4e8e140474e79a67aad",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/demo-check.json",
+      "expected": "fc3f8cb8acc62632807f2b865ddb367d8fd60be0cdffd77958b8b4082bd0a97e",
+      "actual": "fc3f8cb8acc62632807f2b865ddb367d8fd60be0cdffd77958b8b4082bd0a97e",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/demo-summary.txt",
+      "expected": "b1498a9c5cd460eb6167f72eedc56eb5166a2a7ae9ecee2ba5c8f7a3867a5398",
+      "actual": "b1498a9c5cd460eb6167f72eedc56eb5166a2a7ae9ecee2ba5c8f7a3867a5398",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/determinism.txt",
+      "expected": "ff1df297b0a805b3a8a6fc05f63a8fbf8e499152a1aff313c1aaf77350c8ad4b",
+      "actual": "ff1df297b0a805b3a8a6fc05f63a8fbf8e499152a1aff313c1aaf77350c8ad4b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/engine-preview-cli-rule.json",
+      "expected": "e2b977cc35e18ede9b2a64c856dc48f0adb17e22ec29bfcfdbb4627172a6f87d",
+      "actual": "e2b977cc35e18ede9b2a64c856dc48f0adb17e22ec29bfcfdbb4627172a6f87d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/engine-preview-cli-rule.stderr.txt",
+      "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/engine-preview-same-files.json",
+      "expected": "b61cb4d2fc8bac822fdc0eb6dca4d95d4c3ec2f2a830004aa0506928702311a8",
+      "actual": "b61cb4d2fc8bac822fdc0eb6dca4d95d4c3ec2f2a830004aa0506928702311a8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/engine-suite-test-all.txt",
+      "expected": "4f18266129e21992286f4efc7c016f0e090c343bb7ced4331185e00361f79a18",
+      "actual": "4f18266129e21992286f4efc7c016f0e090c343bb7ced4331185e00361f79a18",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/engine-suite-test-contract.txt",
+      "expected": "24572ad40f463da2270975db898e0426bb2529d093fdb231bdeb5050d36e82ec",
+      "actual": "24572ad40f463da2270975db898e0426bb2529d093fdb231bdeb5050d36e82ec",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/engine-suite-test.txt",
+      "expected": "64858641023e6c158b448e3334c5bea99f62d19b0955be3cc6501e3854f34815",
+      "actual": "64858641023e6c158b448e3334c5bea99f62d19b0955be3cc6501e3854f34815",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/envelope-build.json",
+      "expected": "c08641516e30edcfbb19b26401deb1ffead09fcbb783d27c2b1259829caa2d8c",
+      "actual": "c08641516e30edcfbb19b26401deb1ffead09fcbb783d27c2b1259829caa2d8c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/envelope-build.stdout.txt",
+      "expected": "662d67d0b37f1492079ea7d3f666bdae4a600137063c505b8e4b96d6924d5029",
+      "actual": "662d67d0b37f1492079ea7d3f666bdae4a600137063c505b8e4b96d6924d5029",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/envelope-design.json",
+      "expected": "70362c8581c234543c63d39f88e4ba018b6302f3f6b4f7b03e8822cb2e4f24a4",
+      "actual": "70362c8581c234543c63d39f88e4ba018b6302f3f6b4f7b03e8822cb2e4f24a4",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/envelope-design.stdout.txt",
+      "expected": "fae6cfe4ff0a5857e81cd77f12ed5017e4302d25975a5ef8309d4ce20e2c81d9",
+      "actual": "fae6cfe4ff0a5857e81cd77f12ed5017e4302d25975a5ef8309d4ce20e2c81d9",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/envelope-requirements.json",
+      "expected": "a038a5c0de38051fe412e48e7068a0bbd891798e11b17b9ea5ff9a4bfed63774",
+      "actual": "a038a5c0de38051fe412e48e7068a0bbd891798e11b17b9ea5ff9a4bfed63774",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/envelope-requirements.stdout.txt",
+      "expected": "3433cee405663f4792aeca99a988ca8533611efaf908de4febefce6814c3a62c",
+      "actual": "3433cee405663f4792aeca99a988ca8533611efaf908de4febefce6814c3a62c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/envelope-review.json",
+      "expected": "4260fcf05865a35b21733b3b65691fbc20944c5afbdcb5b2963c37ed52cad795",
+      "actual": "4260fcf05865a35b21733b3b65691fbc20944c5afbdcb5b2963c37ed52cad795",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/envelope-review.stdout.txt",
+      "expected": "11314ed341ea1fc4d3328247ba264d12d99126c22ed8b252082d482a9c238af3",
+      "actual": "11314ed341ea1fc4d3328247ba264d12d99126c22ed8b252082d482a9c238af3",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/final-battery-exits.json",
+      "expected": "4f121c788ec9c8baece20ba4853ad76d1917c9061e236bb175fdbfe86f317ab5",
+      "actual": "4f121c788ec9c8baece20ba4853ad76d1917c9061e236bb175fdbfe86f317ab5",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/fingerprint-scope.json",
+      "expected": "e937a1df69b79aefe109da0d882225f8c92dd3753bd5ee2eec8adeb6b9839b37",
+      "actual": "e937a1df69b79aefe109da0d882225f8c92dd3753bd5ee2eec8adeb6b9839b37",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/fixture-diff.json",
+      "expected": "5ea2fe0ba461597c228145893890ef23e8b050724a1e1bd16644c57e90fa1957",
+      "actual": "5ea2fe0ba461597c228145893890ef23e8b050724a1e1bd16644c57e90fa1957",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/hardlink-probe.json",
+      "expected": "89cd2e5b9b0aaedc87e444f253aa47982a21c2395fe0f91dcf6aaeec44815c9a",
+      "actual": "89cd2e5b9b0aaedc87e444f253aa47982a21c2395fe0f91dcf6aaeec44815c9a",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/input-unchanged.txt",
+      "expected": "bf739b43c6adeef6b02945c903eb6ade0970dea6488c5ad8e692e04095c7a8b8",
+      "actual": "bf739b43c6adeef6b02945c903eb6ade0970dea6488c5ad8e692e04095c7a8b8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/preview-crosscheck.json",
+      "expected": "bebdc9363f19b849e777ceffe136349a21dedcec30f60d812102585584eaa746",
+      "actual": "bebdc9363f19b849e777ceffe136349a21dedcec30f60d812102585584eaa746",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/root-check.json",
+      "expected": "6175fe5250e790848bd3ef06aebcbf6c935519ffcda9e586e8f53f023c7a1144",
+      "actual": "6175fe5250e790848bd3ef06aebcbf6c935519ffcda9e586e8f53f023c7a1144",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/root-scripts.json",
+      "expected": "74ad2e326098081149159be8c6b7e2a14b3f46baa89727c156666ca9b1dd4593",
+      "actual": "74ad2e326098081149159be8c6b7e2a14b3f46baa89727c156666ca9b1dd4593",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/rootcheck-side-effects.txt",
+      "expected": "bb6aa96400db153b344825d04c799fe7834df7442b6cc66968daf1a8e721658b",
+      "actual": "bb6aa96400db153b344825d04c799fe7834df7442b6cc66968daf1a8e721658b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/rootconfig-idempotency.json",
+      "expected": "213b86c0d026f005e727d3b7c6aff3241fab5c5173eb03f46ba46e6bfb1c3941",
+      "actual": "213b86c0d026f005e727d3b7c6aff3241fab5c5173eb03f46ba46e6bfb1c3941",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/rootconfig-scratch-run1.json",
+      "expected": "5854571a9b444e19ae384c8db2a4f4105d78506562000e0a335e2bde2286bdd8",
+      "actual": "5854571a9b444e19ae384c8db2a4f4105d78506562000e0a335e2bde2286bdd8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/rootconfig-scratch-run2.json",
+      "expected": "47120bc28c446d6ac4fd9133a91e1445c3608ef9890f52bf26e42808988d6b7b",
+      "actual": "47120bc28c446d6ac4fd9133a91e1445c3608ef9890f52bf26e42808988d6b7b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/rootconfig-scratch-run3.json",
+      "expected": "9383ee8a2d4e38da37c59f999cb6946fc816a1bd503f3806ad7c1e0886fabbd7",
+      "actual": "9383ee8a2d4e38da37c59f999cb6946fc816a1bd503f3806ad7c1e0886fabbd7",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/rootcwd-canonical.json",
+      "expected": "af3ad98e71295acae1588e5a8b0d2f960018c47868e568a87b018d9c9d009188",
+      "actual": "af3ad98e71295acae1588e5a8b0d2f960018c47868e568a87b018d9c9d009188",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/rootcwd-cdrive.json",
+      "expected": "409f293a85c4faed5266b8a1f4ca232b92f2883c8e0daa83dbe8d58dc9546247",
+      "actual": "409f293a85c4faed5266b8a1f4ca232b92f2883c8e0daa83dbe8d58dc9546247",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/rootcwd-desktop.json",
+      "expected": "dfab608addcf5b026319dc50de615636edafef389a62e60a55af5927229f7e71",
+      "actual": "dfab608addcf5b026319dc50de615636edafef389a62e60a55af5927229f7e71",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/run1.json",
+      "expected": "0e4fa86de299b2bd5780b924f0045b329af60f4cd299f6a704d7896059db6b2c",
+      "actual": "0e4fa86de299b2bd5780b924f0045b329af60f4cd299f6a704d7896059db6b2c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/run2.json",
+      "expected": "c0afc348c364acc5d35add9f82503ceab1187ad1bfb2ec9206fd04b67ca39977",
+      "actual": "c0afc348c364acc5d35add9f82503ceab1187ad1bfb2ec9206fd04b67ca39977",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/schema-checks.txt",
+      "expected": "2102dc370762cb3d952fd77a3976b46af3841233fb7e27555398e8fb2a299ffd",
+      "actual": "2102dc370762cb3d952fd77a3976b46af3841233fb7e27555398e8fb2a299ffd",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/schema-eval.json",
+      "expected": "e29339c3995addb9c2e820e8a21a468d78da8669cff2fc737486add5f2249961",
+      "actual": "e29339c3995addb9c2e820e8a21a468d78da8669cff2fc737486add5f2249961",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/schema-meta.json",
+      "expected": "67c33ffbfcb47cd8f875ee8dfdd31172571adebfca2fc3e9c553f81dff8980b6",
+      "actual": "67c33ffbfcb47cd8f875ee8dfdd31172571adebfca2fc3e9c553f81dff8980b6",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/stage-build.json",
+      "expected": "57b7ab8f25086a2982d72a93b606b04deb9be9c9653818fb117d8578ff1c974e",
+      "actual": "57b7ab8f25086a2982d72a93b606b04deb9be9c9653818fb117d8578ff1c974e",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/stage-design.json",
+      "expected": "1d69ff51704f70778b3c7627f5526f5d0684f2b3071d5498082cf0fe554ca4fd",
+      "actual": "1d69ff51704f70778b3c7627f5526f5d0684f2b3071d5498082cf0fe554ca4fd",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/stage-requirements.json",
+      "expected": "8384d540bf6ccc364cb88ac6bead0a0e82881a115eaee08ae9a5e90d5de8b8de",
+      "actual": "8384d540bf6ccc364cb88ac6bead0a0e82881a115eaee08ae9a5e90d5de8b8de",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/stage-review.json",
+      "expected": "464b087f5b1338f14197f1fd67cf065029a28d8a02fb99018af25df7a56a00fb",
+      "actual": "464b087f5b1338f14197f1fd67cf065029a28d8a02fb99018af25df7a56a00fb",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/t42-verify.json",
+      "expected": "3e68d8f50fddf3997a214049014500c9c501370580e92ea24da1c8c012113c6f",
+      "actual": "3e68d8f50fddf3997a214049014500c9c501370580e92ea24da1c8c012113c6f",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/tmp-argv-adapter.json",
+      "expected": "1468e3cff84d9a4a31eedaa3659df652cd6dab18f3a554f155c98305f4a23d73",
+      "actual": "1468e3cff84d9a4a31eedaa3659df652cd6dab18f3a554f155c98305f4a23d73",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/tool-hashes-check.json",
+      "expected": "7b5f89ee543205944ab464aecc7c273a2736c1f848bd90199f3ede031bd70934",
+      "actual": "7b5f89ee543205944ab464aecc7c273a2736c1f848bd90199f3ede031bd70934",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/tool-hashes-drift-negative.txt",
+      "expected": "d1d8d7ab7f10d88939c94f48fd69cbf36293c4cc9b80de4724451241b566df9b",
+      "actual": "d1d8d7ab7f10d88939c94f48fd69cbf36293c4cc9b80de4724451241b566df9b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/trace-check.json",
+      "expected": "f9d077da8bd1da15827bd8353b534d6cd83551858c46720c0dfd038469d353fd",
+      "actual": "f9d077da8bd1da15827bd8353b534d6cd83551858c46720c0dfd038469d353fd",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/trace.json",
+      "expected": "eb05b6a059a0a85626700afe3aeb655dd8606c184139b4888bd312eb95c076a7",
+      "actual": "eb05b6a059a0a85626700afe3aeb655dd8606c184139b4888bd312eb95c076a7",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/v1-comment-boundary.json",
+      "expected": "36d195618ebb68e05cea3799b4c782d2cfe4052248eb06801cd0845a92b7c8cc",
+      "actual": "36d195618ebb68e05cea3799b4c782d2cfe4052248eb06801cd0845a92b7c8cc",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/v2-engine-identity.json",
+      "expected": "e9d2f135320a074e7506db9e090b34cac13aa4b3c98f47e0a5b1e4739919c5fb",
+      "actual": "e9d2f135320a074e7506db9e090b34cac13aa4b3c98f47e0a5b1e4739919c5fb",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/v3-cases.json",
+      "expected": "1a3c0a9987a4966177304d9389c91d817e6c82ffe1cc560d54c9151ca981e977",
+      "actual": "1a3c0a9987a4966177304d9389c91d817e6c82ffe1cc560d54c9151ca981e977",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/v5-counting.json",
+      "expected": "0f4b4769393ee0e73a3554a89e6e3a6feafa2f8baa16d297ff85c80a71f7e8e8",
+      "actual": "0f4b4769393ee0e73a3554a89e6e3a6feafa2f8baa16d297ff85c80a71f7e8e8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/w12-engine-case.json",
+      "expected": "8924f05047335df14be20a27a6a79a4b558a293ac7ce9d579f9fb4ffbfa86c21",
+      "actual": "8924f05047335df14be20a27a6a79a4b558a293ac7ce9d579f9fb4ffbfa86c21",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/w3-audit-rows.json",
+      "expected": "7c11535ae455aa3834126c514374ba2f5c51f68895ea7968687d446c7445bc62",
+      "actual": "7c11535ae455aa3834126c514374ba2f5c51f68895ea7968687d446c7445bc62",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/w45-net-parity.json",
+      "expected": "c54971b14ac35c2600cca2211fa38b8638c633d1be4d691826b09303cf52abdb",
+      "actual": "c54971b14ac35c2600cca2211fa38b8638c633d1be4d691826b09303cf52abdb",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/x2-baseline-rerecord.json",
+      "expected": "a1afe43a6fe4c598ed919093bb58c76ac50de3306fda173b61bdf43720029dcc",
+      "actual": "a1afe43a6fe4c598ed919093bb58c76ac50de3306fda173b61bdf43720029dcc",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/y1-named-client-parity.json",
+      "expected": "516946f64df7e8d255afee81619145dfec8d7907f2b8ff934c8979e22d4d3af8",
+      "actual": "516946f64df7e8d255afee81619145dfec8d7907f2b8ff934c8979e22d4d3af8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/y2-f13-scanroots.json",
+      "expected": "8aeff629d1bdea393b450790b8ceac424e481c1908a46f566a5e8bc57a1adae3",
+      "actual": "8aeff629d1bdea393b450790b8ceac424e481c1908a46f566a5e8bc57a1adae3",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/y5-bypass-windows-names.json",
+      "expected": "896627afc6636eafcbc40ddf2ed45216f90d16e6b79ca53d61008e443a34b7b0",
+      "actual": "896627afc6636eafcbc40ddf2ed45216f90d16e6b79ca53d61008e443a34b7b0",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/y5-table-integrity.json",
+      "expected": "688f70f46740248804af3ffb760746101bee61ba7d2d0f40ca56144c8d4828eb",
+      "actual": "688f70f46740248804af3ffb760746101bee61ba7d2d0f40ca56144c8d4828eb",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/z3-revert-experiment.json",
+      "expected": "7d439b1b73714b2b7aaa905ee782eef4489865028bf639384e43c01aafc9fceb",
+      "actual": "7d439b1b73714b2b7aaa905ee782eef4489865028bf639384e43c01aafc9fceb",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v8/z3-surface-fixed.json",
+      "expected": "43e40733488d28969a032a340afc8f8e98b7082f0415b34edd670e72546af3bd",
+      "actual": "43e40733488d28969a032a340afc8f8e98b7082f0415b34edd670e72546af3bd",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/adapter-preview-default.json",
+      "expected": "f7d0feb3fa5c0749c86cac4648421bf61b3304407c7443a0bd8605e754af8a39",
+      "actual": "f7d0feb3fa5c0749c86cac4648421bf61b3304407c7443a0bd8605e754af8a39",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/adapter-preview-include-flags.json",
+      "expected": "e6d994149abea43c810267316aa5b4b1a008f24e80da9779688be95be3fb861a",
+      "actual": "e6d994149abea43c810267316aa5b4b1a008f24e80da9779688be95be3fb861a",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/adapter-preview-safe002-include.json",
+      "expected": "597615b9b699ee894685f98b0947b8de8e18ee69c06e7fb7938b090c8f40f1b6",
+      "actual": "597615b9b699ee894685f98b0947b8de8e18ee69c06e7fb7938b090c8f40f1b6",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/adapter-preview-same-files.json",
+      "expected": "7155eb5f24d2e53d2abf958498a3e917b034a1c16272e603a5c3f6f1cb258a45",
+      "actual": "7155eb5f24d2e53d2abf958498a3e917b034a1c16272e603a5c3f6f1cb258a45",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/adapter-suite-3cwd.json",
+      "expected": "a1a471caf8558a9193d4f6ba5d37df28f379a07bc9b800363d912fd0763dc253",
+      "actual": "a1a471caf8558a9193d4f6ba5d37df28f379a07bc9b800363d912fd0763dc253",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/ap-default.err",
+      "expected": "5ca9059dba722c5ed4d6dd7daa5f1b5b909c44fd506c681c4956ea08ee1c5e36",
+      "actual": "5ca9059dba722c5ed4d6dd7daa5f1b5b909c44fd506c681c4956ea08ee1c5e36",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/ap-include.err",
+      "expected": "6d8a5b093357ad44ed9be2510752f41e1482d43a085bb81d863935ed9e4df38b",
+      "actual": "6d8a5b093357ad44ed9be2510752f41e1482d43a085bb81d863935ed9e4df38b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/ap-mal.err",
+      "expected": "abdde9c7a5ff8ba5cb0753ad31d1260be055e8ce8e45da63f50515b4b8a62252",
+      "actual": "abdde9c7a5ff8ba5cb0753ad31d1260be055e8ce8e45da63f50515b4b8a62252",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/ap-same.err",
+      "expected": "8e683bdb8e5152375cea0320117caca5d9dede7353077a09ac823ca2bfb1b91e",
+      "actual": "8e683bdb8e5152375cea0320117caca5d9dede7353077a09ac823ca2bfb1b91e",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/b1-coverage-matrix.json",
+      "expected": "f53bf486104469910dcb772163f60d9f3f545d0c597d854bffd72e46963985e6",
+      "actual": "f53bf486104469910dcb772163f60d9f3f545d0c597d854bffd72e46963985e6",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/b2-provider-fixture.json",
+      "expected": "ca69829c35fd865e2ec4c357eea1f6c12520522162e8a54052870745eb6c183d",
+      "actual": "ca69829c35fd865e2ec4c357eea1f6c12520522162e8a54052870745eb6c183d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/b4-unmaterialized.json",
+      "expected": "2d27d13effda70b7c2bf36420bb7f42382cf5dbb11a3d5495d81f991cc95e0f9",
+      "actual": "2d27d13effda70b7c2bf36420bb7f42382cf5dbb11a3d5495d81f991cc95e0f9",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/baseline-freshness.json",
+      "expected": "bf18d11096ece7da0a96c460e514424baf833a851587097e3cdbaf74255b23ee",
+      "actual": "bf18d11096ece7da0a96c460e514424baf833a851587097e3cdbaf74255b23ee",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/ci-authoritative.json",
+      "expected": "14eea6479b4227a6b01ac846e495fac7b8ef53218398feaa7c029bab8938b641",
+      "actual": "14eea6479b4227a6b01ac846e495fac7b8ef53218398feaa7c029bab8938b641",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/ci-contract.json",
+      "expected": "9a662fe8f3b7a6b9eb7e4125452be810f6ec9b378bd31d43575c78bbe360f83e",
+      "actual": "9a662fe8f3b7a6b9eb7e4125452be810f6ec9b378bd31d43575c78bbe360f83e",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/ci-stage-build.json",
+      "expected": "e982278a75e9ca9334e6cecc2a2426107084a27fafbc7ec23a0c36d4a138eb96",
+      "actual": "e982278a75e9ca9334e6cecc2a2426107084a27fafbc7ec23a0c36d4a138eb96",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/ci-stage-design.json",
+      "expected": "db16c55d99672bba6379b1c5ac77437cdcbe0aa85df7ad3989e2d7db9d3a59bd",
+      "actual": "db16c55d99672bba6379b1c5ac77437cdcbe0aa85df7ad3989e2d7db9d3a59bd",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/ci-stage-requirements.json",
+      "expected": "36d7b812a3705de2464c5133c5815115a70d27c1284fda77b0ea1bddf5e21edd",
+      "actual": "36d7b812a3705de2464c5133c5815115a70d27c1284fda77b0ea1bddf5e21edd",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/ci-stage-review.json",
+      "expected": "84090277cffe0c0c1804ea57daec2099fb7113b89becdc62bcfb8ac116d57dce",
+      "actual": "84090277cffe0c0c1804ea57daec2099fb7113b89becdc62bcfb8ac116d57dce",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/ci-three-step.json",
+      "expected": "c0f9b65607f168cf4908995b0b15da14b63f5e6dff7464cbe1fda5942cd2d68c",
+      "actual": "c0f9b65607f168cf4908995b0b15da14b63f5e6dff7464cbe1fda5942cd2d68c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/ci-trace-write.txt",
+      "expected": "78572c3db92e2f8d4928bf2a079b44576ae3c189010f58b5e6ac3225160f202c",
+      "actual": "78572c3db92e2f8d4928bf2a079b44576ae3c189010f58b5e6ac3225160f202c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/ci-warmup.json",
+      "expected": "2ddb18d7132abd0766d1bb186b3015cf6beb211c52a2e6c5af338cc43037f89e",
+      "actual": "2ddb18d7132abd0766d1bb186b3015cf6beb211c52a2e6c5af338cc43037f89e",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/contract-fields-rootcheck.json",
+      "expected": "3107fe548b7907c5f8b5c75d5d8ae85efad1ef935e8090e9fbae392560c41f13",
+      "actual": "3107fe548b7907c5f8b5c75d5d8ae85efad1ef935e8090e9fbae392560c41f13",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/contract-fields-warmup.json",
+      "expected": "7cabab5a7d5ef7bb5ecbf7af91cf7c15d90c6d5068ab035b98fcc0c047bf8055",
+      "actual": "7cabab5a7d5ef7bb5ecbf7af91cf7c15d90c6d5068ab035b98fcc0c047bf8055",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/cwd-canonical.json",
+      "expected": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "actual": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/cwd-canonical.stderr.txt",
+      "expected": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "actual": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/cwd-cdrive.json",
+      "expected": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "actual": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/cwd-cdrive.stderr.txt",
+      "expected": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "actual": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/cwd-desktop.json",
+      "expected": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "actual": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/cwd-desktop.stderr.txt",
+      "expected": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "actual": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/cwd-junction.json",
+      "expected": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "actual": "f445867eb613fed4d3bc489a5c1ecec345c277dc174b1a404a047c995ca03f77",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/cwd-junction.stderr.txt",
+      "expected": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "actual": "b1c2eb65832787e5a8e69c5f0700afa03b88c8323bb691f3b579c87bd856640d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/cwd-parity.json",
+      "expected": "c312d3f9a4e2cb3964c5132a9d0a5681a7cef3d3dd5bf4e8e140474e79a67aad",
+      "actual": "c312d3f9a4e2cb3964c5132a9d0a5681a7cef3d3dd5bf4e8e140474e79a67aad",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/demo-check.json",
+      "expected": "bef2a6098cc8044d9546230243f2271375618a952e0586093e42a5ee7c627045",
+      "actual": "bef2a6098cc8044d9546230243f2271375618a952e0586093e42a5ee7c627045",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/demo-summary.txt",
+      "expected": "1614c30bc8f54ec889dd945c723129ed9ee4dc6360ebde047d2fa348617c4c25",
+      "actual": "1614c30bc8f54ec889dd945c723129ed9ee4dc6360ebde047d2fa348617c4c25",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/engine-preview-cli-rule.json",
+      "expected": "752f3da8022ac1e684c08e812b4b38a1266a99ee8e1b60efab1c47b77fd0f4a7",
+      "actual": "752f3da8022ac1e684c08e812b4b38a1266a99ee8e1b60efab1c47b77fd0f4a7",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/engine-preview-same-files.json",
+      "expected": "62957c3048a41553fe5e6a6f2b52849fcaf31b1e98e62715cf8a83122373ebc1",
+      "actual": "62957c3048a41553fe5e6a6f2b52849fcaf31b1e98e62715cf8a83122373ebc1",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/engine-suite-test-all.txt",
+      "expected": "70407d7f2d3788a63d4dd8ae272cdb73c9a1f5c9c4368053df95d7f3436b2de2",
+      "actual": "70407d7f2d3788a63d4dd8ae272cdb73c9a1f5c9c4368053df95d7f3436b2de2",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/engine-suite-test-contract.txt",
+      "expected": "02f786d4334ff866a9bcc42a13483bf1e7e1e358fd6bf1d01172b55364a7c40f",
+      "actual": "02f786d4334ff866a9bcc42a13483bf1e7e1e358fd6bf1d01172b55364a7c40f",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/engine-suite-test.txt",
+      "expected": "a25d468eeff2804c810c60f0405a0481d2298842463828452fece4a031ea832d",
+      "actual": "a25d468eeff2804c810c60f0405a0481d2298842463828452fece4a031ea832d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/envelope-build.json",
+      "expected": "9c47e338f9175c059644515dc53cd4194d5f10eb848b1a5cb818b28ac597df99",
+      "actual": "9c47e338f9175c059644515dc53cd4194d5f10eb848b1a5cb818b28ac597df99",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/envelope-build.stdout.txt",
+      "expected": "c347aeba7cc078ae85328db948ae2a2bbe835ef77ce7fc692cd3cc5cc3125035",
+      "actual": "c347aeba7cc078ae85328db948ae2a2bbe835ef77ce7fc692cd3cc5cc3125035",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/envelope-design.json",
+      "expected": "573b20ee0578dd49914bf7305c8dc5ae97a4c2f77894443a91b2ab78e4ebb6e3",
+      "actual": "573b20ee0578dd49914bf7305c8dc5ae97a4c2f77894443a91b2ab78e4ebb6e3",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/envelope-design.stdout.txt",
+      "expected": "9570703c38a554b513f2135e30904572dad80e5ed3fed779730c0f97f67f6a86",
+      "actual": "9570703c38a554b513f2135e30904572dad80e5ed3fed779730c0f97f67f6a86",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/envelope-requirements.json",
+      "expected": "637bd29bacec7de93b04c4a761a324372d108f29377c1e00ab89acd64da1b094",
+      "actual": "637bd29bacec7de93b04c4a761a324372d108f29377c1e00ab89acd64da1b094",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/envelope-requirements.stdout.txt",
+      "expected": "828d8a6ac9aa2969f4030bc7cb9710c7ae37e0a57733d36444eaf1eab7671b29",
+      "actual": "828d8a6ac9aa2969f4030bc7cb9710c7ae37e0a57733d36444eaf1eab7671b29",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/envelope-review.json",
+      "expected": "889033f645bcae19c29c27bce5f9074b355df502c23e13a0d97e666b133a8c8c",
+      "actual": "889033f645bcae19c29c27bce5f9074b355df502c23e13a0d97e666b133a8c8c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/envelope-review.stdout.txt",
+      "expected": "6098a62a85fbd050b232d88acf9d173712c7a3d97e8a80ac2555a66d29a0dc2c",
+      "actual": "6098a62a85fbd050b232d88acf9d173712c7a3d97e8a80ac2555a66d29a0dc2c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/ep-cli.err",
+      "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/ep-same.err",
+      "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/final-battery-exits.json",
+      "expected": "af99b28b7a9da1763cd8cb25bb3b0776d16dfc7d4d36c5d9c15e5a1c4e63ec3c",
+      "actual": "af99b28b7a9da1763cd8cb25bb3b0776d16dfc7d4d36c5d9c15e5a1c4e63ec3c",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/fixture-diff.json",
+      "expected": "309b2b4de6e7433792ee1a3176c21d8ae4987b14f90da11c75794d634deda009",
+      "actual": "309b2b4de6e7433792ee1a3176c21d8ae4987b14f90da11c75794d634deda009",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/hardlink-probe.json",
+      "expected": "b7f0c48a020bb439f8be2b986b10fbbdeafb377612b6e4b391e8d216d30e6660",
+      "actual": "b7f0c48a020bb439f8be2b986b10fbbdeafb377612b6e4b391e8d216d30e6660",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/input-unchanged.txt",
+      "expected": "bce73e731979b3831cfaa676dca7e19f3110cebcae634a08c0ee7c6b4f8bc491",
+      "actual": "bce73e731979b3831cfaa676dca7e19f3110cebcae634a08c0ee7c6b4f8bc491",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/perturbation-probe.txt",
+      "expected": "54c6cb47ab876bf164d2127f6ad1fbe24af7e3036ec4d2d9284c696ac21485b9",
+      "actual": "54c6cb47ab876bf164d2127f6ad1fbe24af7e3036ec4d2d9284c696ac21485b9",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/pointer-negatives.json",
+      "expected": "d37259290e778c86b0fc04a53cb1f69e5cda6480dd3d4ca50424a8bc35ea7231",
+      "actual": "d37259290e778c86b0fc04a53cb1f69e5cda6480dd3d4ca50424a8bc35ea7231",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/preview-crosscheck.json",
+      "expected": "6ad7eae5da4d97ab3660abdcd4d1cbe1fdf38f41b5e1f9d6ebd49d2680dadf07",
+      "actual": "6ad7eae5da4d97ab3660abdcd4d1cbe1fdf38f41b5e1f9d6ebd49d2680dadf07",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/root-scripts.json",
+      "expected": "939fd9f7d471711450ec42ee1e7707037e86265d40ad316020d9b53107a362e9",
+      "actual": "939fd9f7d471711450ec42ee1e7707037e86265d40ad316020d9b53107a362e9",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/run1.json",
+      "expected": "b260d7aaf1ad04ff9b20a1ea1f5711e7bbee0a9249ac5f045e546b3dd5122b40",
+      "actual": "b260d7aaf1ad04ff9b20a1ea1f5711e7bbee0a9249ac5f045e546b3dd5122b40",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/run2.json",
+      "expected": "b293e83c426deaa3f55cba785b31d1d37991e1a88f3f285b1efd00a42b899981",
+      "actual": "b293e83c426deaa3f55cba785b31d1d37991e1a88f3f285b1efd00a42b899981",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/schema-checks.txt",
+      "expected": "37b453deb6ae5ec957e7da06991cd705da7d39db53e2031931200b0b49e95863",
+      "actual": "37b453deb6ae5ec957e7da06991cd705da7d39db53e2031931200b0b49e95863",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/schema-eval.json",
+      "expected": "3427c1a37b43114c8c14af6b8732cf0f9a9c0b2b21684286a7d205dd711763d3",
+      "actual": "3427c1a37b43114c8c14af6b8732cf0f9a9c0b2b21684286a7d205dd711763d3",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/schema-meta.json",
+      "expected": "9e4c5ec03228148aeff24dffd47175bd78fb29093feeeae84808f97511177859",
+      "actual": "9e4c5ec03228148aeff24dffd47175bd78fb29093feeeae84808f97511177859",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/stage-build.json",
+      "expected": "fd1bbc2ef1381b211e9bc0c420ea4141342c9bc61c2bdf98164fcc346669bba1",
+      "actual": "fd1bbc2ef1381b211e9bc0c420ea4141342c9bc61c2bdf98164fcc346669bba1",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/stage-design.json",
+      "expected": "f1858204cfe30259f7088f09666d78ee9391cd5a5153b3bd628429978a4bbca6",
+      "actual": "f1858204cfe30259f7088f09666d78ee9391cd5a5153b3bd628429978a4bbca6",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/stage-requirements.json",
+      "expected": "01a6a76ba1c4989ae2002afaa29960b9c2a9a6622106a552ffd23cfc56004cd2",
+      "actual": "01a6a76ba1c4989ae2002afaa29960b9c2a9a6622106a552ffd23cfc56004cd2",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/stage-review.json",
+      "expected": "0a857955fa624ae2603269a1f3f5ee4f586c6ab333635778159dc2b5ad624798",
+      "actual": "0a857955fa624ae2603269a1f3f5ee4f586c6ab333635778159dc2b5ad624798",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/t42-verify.json",
+      "expected": "44591d2f40bbf2200479ab86a2a43af2e048d84ed288b652edead0cd8ab34e1f",
+      "actual": "44591d2f40bbf2200479ab86a2a43af2e048d84ed288b652edead0cd8ab34e1f",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/tmp-argv-adapter.json",
+      "expected": "1468e3cff84d9a4a31eedaa3659df652cd6dab18f3a554f155c98305f4a23d73",
+      "actual": "1468e3cff84d9a4a31eedaa3659df652cd6dab18f3a554f155c98305f4a23d73",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/tool-hashes-check.json",
+      "expected": "45f789a792257acf715a73b6c727c98e08ec628f83d5f17ae5595532dad87869",
+      "actual": "45f789a792257acf715a73b6c727c98e08ec628f83d5f17ae5595532dad87869",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/trace-check.json",
+      "expected": "b96a8173aaefb5a1c1cc957316f91258add300e158a30bf26cb851601fbeab3e",
+      "actual": "b96a8173aaefb5a1c1cc957316f91258add300e158a30bf26cb851601fbeab3e",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/trace.json",
+      "expected": "a34211fac9d6c7fe862303e362d5726f7e14b4b82a9b4648a15d7dcf6d0ea788",
+      "actual": "a34211fac9d6c7fe862303e362d5726f7e14b4b82a9b4648a15d7dcf6d0ea788",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/v1-comment-boundary.json",
+      "expected": "462717028d23060df44e0affbb02d98ffa38b206d8419c5624c4190be6fce4e1",
+      "actual": "462717028d23060df44e0affbb02d98ffa38b206d8419c5624c4190be6fce4e1",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/v2-engine-identity.json",
+      "expected": "2e23f9df7b6b3a16efd4c4a4e214a1cde697d36c120e0bb9db1e96a60687435f",
+      "actual": "2e23f9df7b6b3a16efd4c4a4e214a1cde697d36c120e0bb9db1e96a60687435f",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/v3-cases.json",
+      "expected": "8ce08c7ab8ce1caa90483177fd89f8005b93f6282cb0a1caf05643937c7db975",
+      "actual": "8ce08c7ab8ce1caa90483177fd89f8005b93f6282cb0a1caf05643937c7db975",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/v5-counting.json",
+      "expected": "4c67050a24154de8f3a6cb3b4d33ba22bcf1c88fa8850216d4dbb332326cbc46",
+      "actual": "4c67050a24154de8f3a6cb3b4d33ba22bcf1c88fa8850216d4dbb332326cbc46",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/w12-engine-case.json",
+      "expected": "0f5be6c8078c9f8a110ce41abe157a7bc9d119f98b5cd05a0c3a7f3fe775026d",
+      "actual": "0f5be6c8078c9f8a110ce41abe157a7bc9d119f98b5cd05a0c3a7f3fe775026d",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/w3-audit-rows.json",
+      "expected": "8d854f8e3322a47af1adfa0f6b632160b5c953bb0dd53e0f5b75874aecadd4e5",
+      "actual": "8d854f8e3322a47af1adfa0f6b632160b5c953bb0dd53e0f5b75874aecadd4e5",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/w3-path-cwd-matrix.json",
+      "expected": "4c41e3cdc7cd49a24a8ea67a275c4a0c1d6ca384f4b514f97a79acc8a3f47569",
+      "actual": "4c41e3cdc7cd49a24a8ea67a275c4a0c1d6ca384f4b514f97a79acc8a3f47569",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/w4-copy-rootcheck.json",
+      "expected": "c3c86de82cc2b131e601e047d75042c3348b5137d07437af7f4892ef4d42bdc5",
+      "actual": "c3c86de82cc2b131e601e047d75042c3348b5137d07437af7f4892ef4d42bdc5",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/w45-net-parity.json",
+      "expected": "a368dc497ff12d9e4599791127b4916e09dc3e6d995ba3d9e650f46cf3b27b0b",
+      "actual": "a368dc497ff12d9e4599791127b4916e09dc3e6d995ba3d9e650f46cf3b27b0b",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/y1-named-client-parity.json",
+      "expected": "a9da0dd8aeeb44640a98b80f6d9749b70c0383ace84728eb5922f6d9caa2feab",
+      "actual": "a9da0dd8aeeb44640a98b80f6d9749b70c0383ace84728eb5922f6d9caa2feab",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/y2-f13-scanroots.json",
+      "expected": "8aeff629d1bdea393b450790b8ceac424e481c1908a46f566a5e8bc57a1adae3",
+      "actual": "8aeff629d1bdea393b450790b8ceac424e481c1908a46f566a5e8bc57a1adae3",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/y5-bypass-windows-names.json",
+      "expected": "63ffdc95a2ad15570ab664a04ad02c1f2022f331765a0c74d8bf8e1783a07edf",
+      "actual": "63ffdc95a2ad15570ab664a04ad02c1f2022f331765a0c74d8bf8e1783a07edf",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/y5-table-integrity.json",
+      "expected": "394e37a62d2a7650c95c09dc02a063d8978fbc1892977a493de429f5493ae1d8",
+      "actual": "394e37a62d2a7650c95c09dc02a063d8978fbc1892977a493de429f5493ae1d8",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/z3-f19-scan-surface.json",
+      "expected": "86134716abef98b76caf4cd62a6eda061d89d406899d600ed70d65f1d98adc79",
+      "actual": "86134716abef98b76caf4cd62a6eda061d89d406899d600ed70d65f1d98adc79",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/z3-perturbation-1.md",
+      "expected": "94f5d951a84927a2fdabbf32cf89c292bc5f58bed99e6b6f71851d437a47fd38",
+      "actual": "94f5d951a84927a2fdabbf32cf89c292bc5f58bed99e6b6f71851d437a47fd38",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/z3-perturbation-2.json",
+      "expected": "608edb68c066ac50800a9e8039bf70ef2e8bac227b3c083bfdab4b4bbacb1902",
+      "actual": "608edb68c066ac50800a9e8039bf70ef2e8bac227b3c083bfdab4b4bbacb1902",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/z3-perturbation.txt",
+      "expected": "a5086d480775c60196e8c9e6b291b57568896a75bf88efcf021b3ccd479a25dc",
+      "actual": "a5086d480775c60196e8c9e6b291b57568896a75bf88efcf021b3ccd479a25dc",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/z3-revert-experiment-mirror.json",
+      "expected": "38e833e9c5036c2420b9c79f5a3b517fada308109120c20e989a6588a73a701e",
+      "actual": "38e833e9c5036c2420b9c79f5a3b517fada308109120c20e989a6588a73a701e",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/z3-revert-experiment.json",
+      "expected": "7d439b1b73714b2b7aaa905ee782eef4489865028bf639384e43c01aafc9fceb",
+      "actual": "7d439b1b73714b2b7aaa905ee782eef4489865028bf639384e43c01aafc9fceb",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/z3-surface-fixed.json",
+      "expected": "43e40733488d28969a032a340afc8f8e98b7082f0415b34edd670e72546af3bd",
+      "actual": "43e40733488d28969a032a340afc8f8e98b7082f0415b34edd670e72546af3bd",
+      "status": "MATCH"
+    },
+    {
+      "kind": "artifact",
+      "rel": "artifacts-v9/z4-gate-matrix.json",
+      "expected": "1080721d0b5f942af032066a59fa1fd3daced76c27f40ba997e70405c5a017e0",
+      "actual": "1080721d0b5f942af032066a59fa1fd3daced76c27f40ba997e70405c5a017e0",
+      "status": "MATCH"
+    }
+  ]
+}

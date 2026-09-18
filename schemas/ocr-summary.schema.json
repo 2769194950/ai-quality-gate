@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-quality-gate.local/schemas/ocr-summary.schema.json",
+  "title": "qgate stage AI review evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "kind", "stage", "executed", "valid", "degraded", "provider", "inputFingerprint", "findings", "counts", "summary", "evidence"],
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "kind": { "const": "qgate-stage-review-evidence" },
+    "stage": { "enum": ["requirements", "design", "build", "review", "verify"] },
+    "executed": { "type": "boolean" },
+    "valid": { "type": "boolean" },
+    "degraded": { "type": "boolean" },
+    "degradedReason": { "type": ["string", "null"] },
+    "provider": { "type": "string", "minLength": 1 },
+    "inputFingerprint": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+    "evidenceFingerprint": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+    "findings": { "$ref": "ocr-findings.schema.json" },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["total", "blocker", "high", "medium", "low"],
+      "properties": {
+        "total": { "type": "integer", "minimum": 0 },
+        "blocker": { "type": "integer", "minimum": 0 },
+        "high": { "type": "integer", "minimum": 0 },
+        "medium": { "type": "integer", "minimum": 0 },
+        "low": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ocrExecuted", "ocrResultValid", "ocrNoBlockers"],
+      "properties": {
+        "ocrExecuted": { "type": "boolean" },
+        "ocrResultValid": { "type": "boolean" },
+        "ocrNoBlockers": { "type": "boolean" }
+      }
+    },
+    "source": { "type": ["string", "null"] },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "kind", "excerpt"],
+        "properties": {
+          "path": { "type": "string", "minLength": 1 },
+          "kind": { "enum": ["file", "stdout", "json_pointer", "ledger", "trace"] },
+          "excerpt": { "type": "string" }
+        }
+      }
+    }
+  }
+}

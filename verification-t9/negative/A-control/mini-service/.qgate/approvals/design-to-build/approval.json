@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "gateId": "design-to-build",
+  "role": "architect",
+  "decision": "approved",
+  "approvedBy": "architect",
+  "approvedAt": "2026-05-04T09:30:00Z",
+  "claims": [
+    {
+      "claimId": "interface-field-names-frozen",
+      "statement": "requestId, traceId, amount, currency and Idempotency-Key are frozen and may not be renamed.",
+      "testIds": ["T-QG-004", "T-QG-016"]
+    },
+    {
+      "claimId": "rule-precedence-frozen",
+      "statement": "Rule precedence --rule > project > user > builtin is frozen, first match wins.",
+      "testIds": ["T-QG-012"]
+    }
+  ],
+  "notes": "Demo fixture approval for the design -> build handover. Field-level contract: demo/mini-service/openapi.yaml at the frozen revision."
+}

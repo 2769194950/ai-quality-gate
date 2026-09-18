@@ -1,0 +1,113 @@
+{
+  "cwd": "E:\\Desktop\\ai-quality-gate",
+  "diffEntries": [
+    "src/app.mjs",
+    "src/util.mjs",
+    "docs/notes.md",
+    "gone/a.js",
+    "gone/b.js",
+    "gone/c.js",
+    "gone/d.js",
+    "gone/e.js",
+    "gone/f.js"
+  ],
+  "diff": {
+    "exit": 0,
+    "counts": {
+      "candidates": 9,
+      "downgraded_groups": 0,
+      "excluded": 0,
+      "excluded_binary": 0,
+      "excluded_dir": 0,
+      "excluded_extension": 0,
+      "excluded_sensitive": 0,
+      "groups": 2,
+      "groups_dropped_unmaterialized": 1,
+      "selected": 9,
+      "selected_materialized": 3,
+      "single_file_groups": 0,
+      "unmaterialized": 6
+    },
+    "includedCount": 9,
+    "groupFilesCount": 3,
+    "unmaterializedField": [
+      "gone/a.js",
+      "gone/b.js",
+      "gone/c.js",
+      "gone/d.js",
+      "gone/e.js",
+      "gone/f.js"
+    ],
+    "selectedUnmaterialisedFlags": [
+      "gone/a.js:materialized=false:tokens=0",
+      "gone/b.js:materialized=false:tokens=0",
+      "gone/c.js:materialized=false:tokens=0",
+      "gone/d.js:materialized=false:tokens=0",
+      "gone/e.js:materialized=false:tokens=0",
+      "gone/f.js:materialized=false:tokens=0"
+    ],
+    "tokenSum": 302,
+    "groupTokenSum": 302,
+    "groups": [
+      {
+        "id": "docs",
+        "n": 1,
+        "excluded_unmaterialized": 0
+      },
+      {
+        "id": "src",
+        "n": 2,
+        "excluded_unmaterialized": 0
+      }
+    ]
+  },
+  "root": {
+    "exit": 0,
+    "counts": {
+      "candidates": 3,
+      "downgraded_groups": 0,
+      "excluded": 0,
+      "excluded_binary": 0,
+      "excluded_dir": 0,
+      "excluded_extension": 0,
+      "excluded_sensitive": 0,
+      "groups": 2,
+      "groups_dropped_unmaterialized": 0,
+      "selected": 3,
+      "selected_materialized": 3,
+      "single_file_groups": 0,
+      "unmaterialized": 0
+    },
+    "includedCount": 3,
+    "groupFilesCount": 3,
+    "tokenSum": 302,
+    "groupTokenSum": 302,
+    "groups": [
+      {
+        "id": "docs",
+        "n": 1
+      },
+      {
+        "id": "src",
+        "n": 2
+      }
+    ]
+  },
+  "gone": [
+    "gone/a.js",
+    "gone/b.js",
+    "gone/c.js",
+    "gone/d.js",
+    "gone/e.js",
+    "gone/f.js"
+  ],
+  "verdict": {
+    "countsAligned": true,
+    "groupFileCountAligned": true,
+    "unmaterialisedQueryable": true,
+    "selectedFlagsPresent": true,
+    "tokenLogicUnchanged": true,
+    "contractSurfaceUnchanged": true
+  },
+  "ok": true
+}

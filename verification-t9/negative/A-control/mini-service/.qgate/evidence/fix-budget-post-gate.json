@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0",
+  "purpose": "Post-gate fix ledger: repairs authorized only after a human decision (§4.3).",
+  "gate": "review-counterexample",
+  "decisionRecord": ".qgate/approvals/review-counterexample/approval.json",
+  "entries": [
+    {
+      "findingId": "F-0001",
+      "authorizedBy": "reviewer",
+      "authorizedAt": "2026-05-05T09:55:00Z",
+      "decision": "revise",
+      "repair": "amount validation tightened to reject floating point values",
+      "rerunFrom": "build",
+      "rerunRunId": null,
+      "status": "completed",
+      "notes": "Re-ran the build and verify stages after the repair; the demo fixture now passes."
+    },
+    {
+      "findingId": "F-0004",
+      "authorizedBy": "architect",
+      "authorizedAt": "2026-05-05T09:58:00Z",
+      "decision": "rejected",
+      "repair": "not applied: the security invariant must stay enforced, so no in-loop fix is allowed",
+      "rerunFrom": "design",
+      "rerunRunId": null,
+      "status": "rejected",
+      "notes": "Recorded as a rejection record so the finding is not silently ignored (§4.4)."
+    }
+  ],
+  "budget": {
+    "postGateMaxAttempts": 0,
+    "escalationReason": "FIX_BUDGET_EXCEEDED"
+  }
+}

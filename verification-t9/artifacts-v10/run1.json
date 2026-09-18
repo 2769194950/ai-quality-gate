@@ -1,0 +1,467 @@
+{
+  "version": "1.0",
+  "run_id": "2026-09-18T04-02-57.061Z-f3dc1952",
+  "started_at": "2026-09-18T04:02:57.061Z",
+  "finished_at": "2026-09-18T04:03:01.460Z",
+  "duration_ms": 4399,
+  "overall_passed": true,
+  "provider": {
+    "type": "deterministic",
+    "degraded": false,
+    "detail": "offline-fixture"
+  },
+  "gates": [
+    {
+      "id": "req-spec",
+      "stage": "requirements",
+      "required": true,
+      "passed": true,
+      "humanGate": null,
+      "blockers": [],
+      "checks": [
+        {
+          "id": "req-doc-exists",
+          "type": "file_exists",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "docs/00-requirements.md",
+              "kind": "file",
+              "excerpt": "sha256:8c7c12b3e0ba40d695ca873f36fb1dbaab6b32c3367008a812bf475c54cc0c07"
+            },
+            {
+              "path": "docs/00-requirements.md",
+              "kind": "file",
+              "excerpt": "matchedFiles=1 minCount=1"
+            }
+          ]
+        },
+        {
+          "id": "req-ids-present",
+          "type": "regex",
+          "passed": true,
+          "severity": "medium",
+          "evidence": [
+            {
+              "path": "docs/00-requirements.md",
+              "kind": "file",
+              "excerpt": "33 match(es); L44:REQ-QUALITY-GATE-016 | L53:REQ-QUALITY-GATE-001 | L61:REQ-QUALITY-GATE-002"
+            },
+            {
+              "path": "docs/00-requirements.md",
+              "kind": "json_pointer",
+              "excerpt": "pattern=REQ-QUALITY-GATE-\\d{3} mode=count countMode=unique totalMatches=33 uniqueMatches=16 minMatches=16"
+            }
+          ]
+        },
+        {
+          "id": "req-index-valid",
+          "type": "json_assert",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "docs/requirements-index.json",
+              "kind": "json_pointer",
+              "excerpt": "/requirements -> exists=true expected=true"
+            },
+            {
+              "path": "docs/requirements-index.json",
+              "kind": "json_pointer",
+              "excerpt": "/requirements/0/id -> matches=/^REQ-QUALITY-GATE-\\d{3}$/ against REQ-QUALITY-GATE-001"
+            },
+            {
+              "path": "docs/requirements-index.json",
+              "kind": "json_pointer",
+              "excerpt": "/schemaVersion -> equals=\"1.0\" expected=\"1.0\""
+            }
+          ]
+        },
+        {
+          "id": "interface-fields",
+          "type": "regex",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "docs/01-architecture.md",
+              "kind": "file",
+              "excerpt": "66 match(es); L68:humanGate | L68:approvalRecord | L68:enforcement"
+            },
+            {
+              "path": "docs/01-architecture.md",
+              "kind": "json_pointer",
+              "excerpt": "pattern=humanGate|approvalRecord|enforcement mode=count countMode=unique totalMatches=66 uniqueMatches=3 minMatches=3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "interface-frozen",
+      "stage": "design",
+      "required": true,
+      "passed": true,
+      "humanGate": null,
+      "blockers": [],
+      "checks": [
+        {
+          "id": "contract-doc-exists",
+          "type": "file_exists",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "docs/01-architecture.md",
+              "kind": "file",
+              "excerpt": "sha256:edf995c5c7d4c4c7578a2d4880d971d234b17609b4f6d5dccb43d401c4b53035"
+            },
+            {
+              "path": "docs/01-architecture.md",
+              "kind": "file",
+              "excerpt": "matchedFiles=1 minCount=1"
+            }
+          ]
+        },
+        {
+          "id": "contract-fields-present",
+          "type": "regex",
+          "passed": true,
+          "severity": "medium",
+          "evidence": [
+            {
+              "path": "docs/01-architecture.md",
+              "kind": "file",
+              "excerpt": "102 match(es); L47:overall_passed | L68:humanGate | L76:humanGate"
+            },
+            {
+              "path": "docs/01-architecture.md",
+              "kind": "json_pointer",
+              "excerpt": "pattern=requirementId|overall_passed|json_assert|trace_matrix|humanGate mode=count countMode=unique totalMatches=102 uniqueMatches=5 minMatches=5"
+            }
+          ]
+        },
+        {
+          "id": "schemas-exist",
+          "type": "file_exists",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "schemas/config.schema.json",
+              "kind": "file",
+              "excerpt": "sha256:9816402baa7286f705d8fd61f62aeb4e0612dc218f8c8147ee464da985346c39"
+            },
+            {
+              "path": "schemas/evidence-ledger.schema.json",
+              "kind": "file",
+              "excerpt": "sha256:97658d8aaac123749f87304a82e93da802c96dae916bcebe0da8b0d31dab4e35"
+            },
+            {
+              "path": "schemas/run-result.schema.json",
+              "kind": "file",
+              "excerpt": "sha256:74e1807d372ecb00af16ad6dd73803e805dce96e575db8426018ae9a93482ae5"
+            },
+            {
+              "path": "schemas/trace-matrix.schema.json",
+              "kind": "file",
+              "excerpt": "sha256:107113bb0588a32d9881f9de0e60e9b27a87905c8a7cf8d117aef91e8a7b070d"
+            },
+            {
+              "path": "schemas/config.schema.json",
+              "kind": "file",
+              "excerpt": "matchedFiles=4 minCount=4"
+            }
+          ]
+        },
+        {
+          "id": "no-loose-ends",
+          "type": "file_not_exists",
+          "passed": true,
+          "severity": "medium",
+          "evidence": [
+            {
+              "path": "qgate.config.json",
+              "kind": "json_pointer",
+              "excerpt": "docs/TODO.md matched 0 file(s), allowed 0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "build-deterministic",
+      "stage": "build",
+      "required": true,
+      "passed": true,
+      "humanGate": null,
+      "blockers": [],
+      "checks": [
+        {
+          "id": "no-dep",
+          "type": "json_assert",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "packages/qgate/package.json",
+              "kind": "json_pointer",
+              "excerpt": "/dependencies -> exists=false expected=false"
+            },
+            {
+              "path": "packages/qgate/package.json",
+              "kind": "json_pointer",
+              "excerpt": "/type -> equals=\"module\" expected=\"module\""
+            },
+            {
+              "path": "packages/qgate/package.json",
+              "kind": "json_pointer",
+              "excerpt": "/bin/qgate -> equals=\"./bin/qgate.mjs\" expected=\"./bin/qgate.mjs\""
+            }
+          ]
+        },
+        {
+          "id": "unit-tests",
+          "type": "file_exists",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "packages/qgate/test/acceptance.test.mjs",
+              "kind": "file",
+              "excerpt": "sha256:2a8b7c811fe19c43e5d2080dd722cb6709e201f10850d1026bd75b2990b23757"
+            },
+            {
+              "path": "packages/qgate/test/ci-template.test.mjs",
+              "kind": "file",
+              "excerpt": "sha256:666e9133b128ace8cbf0d0ea862092b443aadde8d99185d51037bba09fa8fd71"
+            },
+            {
+              "path": "packages/qgate/test/config-and-run-result.test.mjs",
+              "kind": "file",
+              "excerpt": "sha256:13f59044300e170208e8b4ef1fd5e9527f8da4d9674a38b188381402d57ef59b"
+            },
+            {
+              "path": "packages/qgate/test/contract-hardening.test.mjs",
+              "kind": "file",
+              "excerpt": "sha256:341441a3d093568c7c0e657d750c497f82d83ef4a954720a81b1c0b36a5f9a89"
+            },
+            {
+              "path": "packages/qgate/test/evidence-resolution.test.mjs",
+              "kind": "file",
+              "excerpt": "sha256:d07be40e81114e7bae06f6d7defa68d08d3883e10435fb5aa8bfc68886488d5e"
+            },
+            {
+              "path": "packages/qgate/test/acceptance.test.mjs",
+              "kind": "file",
+              "excerpt": "matchedFiles=8 (first: packages/qgate/test/acceptance.test.mjs, packages/qgate/test/ci-template.test.mjs, packages/qgate/test/config-and-run-result.test.mjs, packages/qgate/test/contract-hardening.test.mjs, packages/qgate/test/evidence-resolution.test.mjs)"
+            }
+          ]
+        },
+        {
+          "id": "contract-check",
+          "type": "command",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "qgate.config.json",
+              "kind": "stdout",
+              "excerpt": "command=node packages/qgate/bin/qgate.mjs contract --check cwd=. exitCode=0 expected=0"
+            },
+            {
+              "path": "qgate.config.json",
+              "kind": "stdout",
+              "excerpt": "stdout: contract self-check: OK\nstages(5): requirements -> design -> build -> review -> verify\nhumanGates(3): req-to-design:product, design-to-build:architect, review-to-verify:reviewer\ncheckTypes(7): file_exists|file_not_exists|regex|command|json_assert|trace_matrix|policy\nexitCodes: 0=passed, 1=gate_failed, 2=config_error, 3=internal_error\ncommands(6): contract, check, trace, preview, report, explain"
+            }
+          ]
+        },
+        {
+          "id": "no-bypass",
+          "type": "policy",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "qgate.config.json",
+              "kind": "json_pointer",
+              "excerpt": "CONTRACT_001 metrics={\"scannedConfig\":\"E:\\\\Desktop\\\\ai-quality-gate\\\\qgate.config.json\",\"violations\":0,\"frozenCheckTypes\":[\"file_exists\",\"file_not_exists\",\"regex\",\"command\",\"json_assert\",\"trace_matrix\",\"policy\"],\"frozenStages\":[\"requirements\",\"design\",\"build\",\"review\",\"verify\"]}"
+            }
+          ]
+        },
+        {
+          "id": "no-secret-paths",
+          "type": "policy",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "qgate.config.json",
+              "kind": "json_pointer",
+              "excerpt": "SAFE_002 metrics={\"selected\":144,\"secretPathsExcluded\":17,\"secretPathRules\":[\"secret-env\",\"secret-pem\",\"secret-key\",\"secret-rsa\",\"secret-credentials\",\"secret-dir\",\"secret-p12\",\"secret-kubeconfig\"],\"widestInclude\":\"**/*\"}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "review-counterexample",
+      "stage": "review",
+      "required": true,
+      "passed": true,
+      "humanGate": null,
+      "blockers": [],
+      "checks": [
+        {
+          "id": "negative-fixtures",
+          "type": "file_exists",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "packages/qgate/examples/invalid/bad-provider-type.json",
+              "kind": "file",
+              "excerpt": "sha256:d763c5a8f8153a878422397b4d0f29422bb08165bef96ba0e2b833df66422e2a"
+            },
+            {
+              "path": "packages/qgate/examples/invalid/duplicate-check-id.json",
+              "kind": "file",
+              "excerpt": "sha256:66f5d9f675924cc7cce12ef5b3631c9e7c5f464c63f29ee51c412e859cb7beba"
+            },
+            {
+              "path": "packages/qgate/examples/invalid/empty-gates.json",
+              "kind": "file",
+              "excerpt": "sha256:ef0835e68d0dc7066fa9f3c9c32b9355cc05e9c4e652f59484d85ddf69e55810"
+            },
+            {
+              "path": "packages/qgate/examples/invalid/missing-version.json",
+              "kind": "file",
+              "excerpt": "sha256:f5caae949385e913214c5e928a388e69ac5db195e03872fd047bad5a3fae45b1"
+            },
+            {
+              "path": "packages/qgate/examples/invalid/unknown-check-type.json",
+              "kind": "file",
+              "excerpt": "sha256:0c25bc2cce69e7065e04ee0dd7aee91815be625456401277f08aaa3dbafb9022"
+            },
+            {
+              "path": "packages/qgate/examples/invalid/bad-provider-type.json",
+              "kind": "file",
+              "excerpt": "matchedFiles=6 (first: packages/qgate/examples/invalid/bad-provider-type.json, packages/qgate/examples/invalid/duplicate-check-id.json, packages/qgate/examples/invalid/empty-gates.json, packages/qgate/examples/invalid/missing-version.json, packages/qgate/examples/invalid/unknown-check-type.json)"
+            }
+          ]
+        },
+        {
+          "id": "severity-mix",
+          "type": "json_assert",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "packages/qgate/examples/severity-mix.json",
+              "kind": "json_pointer",
+              "excerpt": "/blockers -> exists=true expected=true"
+            },
+            {
+              "path": "packages/qgate/examples/severity-mix.json",
+              "kind": "json_pointer",
+              "excerpt": "/findings -> exists=true expected=true"
+            },
+            {
+              "path": "packages/qgate/examples/severity-mix.json",
+              "kind": "json_pointer",
+              "excerpt": "/threshold -> equals=0.7 expected=0.7"
+            }
+          ]
+        },
+        {
+          "id": "provider-fixtures",
+          "type": "file_exists",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "packages/qgate/examples/fixtures/provider-recordings.json",
+              "kind": "file",
+              "excerpt": "sha256:8444376495a59aa08c066adf3d52426acc2c370c8719097a5ffc43358c3f5840"
+            },
+            {
+              "path": "packages/qgate/examples/fixtures/provider-recordings.json",
+              "kind": "file",
+              "excerpt": "matchedFiles=1 minCount=1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "verify-coverage",
+      "stage": "verify",
+      "required": true,
+      "passed": true,
+      "humanGate": null,
+      "blockers": [],
+      "checks": [
+        {
+          "id": "trace-complete",
+          "type": "trace_matrix",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "docs/requirements-index.json",
+              "kind": "json_pointer",
+              "excerpt": "/requirements (length=16)"
+            },
+            {
+              "path": "verification/trace-matrix.json",
+              "kind": "trace",
+              "excerpt": "/summary (covered=16, uncovered=0)"
+            },
+            {
+              "path": "verification/evidence/ledger-index.json",
+              "kind": "ledger",
+              "excerpt": "testIdSource=ledger-index testIds=16"
+            }
+          ]
+        },
+        {
+          "id": "invalid-must-fail",
+          "type": "command",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "qgate.config.json",
+              "kind": "stdout",
+              "excerpt": "command=node packages/qgate/bin/qgate.mjs check --config packages/qgate/examples/invalid/unknown-check-type.json --json cwd=. exitCode=2 expected=2"
+            },
+            {
+              "path": "qgate.config.json",
+              "kind": "stdout",
+              "excerpt": "stdout: {\n  \"ok\": false,\n  \"error\": {\n    \"code\": \"CONFIG_INVALID\",\n    \"message\": \"configuration is not valid: check.type \\\"file_exist\\\" is not allowed\",\n    \"jsonPointer\": \"/gates/0/checks/0/type\",\n    \"details\": [\n      {\n        \"jsonPointer\": \"/gates/0/checks/0/type\",\n        \"expected\": \"file_exists|file_not_exists|regex|command|json_assert|trace_matrix|policy\",\n        \"actual\": \"file_exist\",\n        \"message\": \"check.type \\\"file_exist\\\" is not allowed\"\n      }\n    ]\n  }\n}"
+            }
+          ]
+        },
+        {
+          "id": "baseline-freshness",
+          "type": "command",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "qgate.config.json",
+              "kind": "stdout",
+              "excerpt": "command=node verification-t9/tools/baseline-freshness.mjs --deep --quiet cwd=. exitCode=0 expected=0"
+            },
+            {
+              "path": "qgate.config.json",
+              "kind": "stdout",
+              "excerpt": "stdout: BASELINE-FRESHNESS current=efbe6e05344a files=6 fresh=1 superseded=5 stale=0 tampered=0 count_drift=0"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

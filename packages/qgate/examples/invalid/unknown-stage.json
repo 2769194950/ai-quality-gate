@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "provider": { "type": "deterministic" },
+  "gates": [
+    {
+      "id": "req-spec",
+      "stage": "planning",
+      "required": true,
+      "checks": [
+        { "id": "req-doc-exists", "type": "file_exists", "file": "docs/00-requirements.md", "required": true }
+      ]
+    }
+  ]
+}

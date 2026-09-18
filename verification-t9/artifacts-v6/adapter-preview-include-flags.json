@@ -1,0 +1,646 @@
+﻿{
+  "counts": {
+    "candidates": 23,
+    "downgraded_groups": 0,
+    "excluded": 9,
+    "excluded_binary": 1,
+    "excluded_dir": 2,
+    "excluded_extension": 1,
+    "excluded_sensitive": 5,
+    "groups": 3,
+    "groups_dropped_unmaterialized": 0,
+    "selected": 14,
+    "selected_materialized": 14,
+    "single_file_groups": 0,
+    "unmaterialized": 0
+  },
+  "degraded": true,
+  "degraded_reason": "OCR_CLI_NOT_FOUND",
+  "degraded_reasons": [
+    "OCR_CLI_NOT_FOUND"
+  ],
+  "deterministic": {
+    "ordered_by": "path-ascending",
+    "same_input_same_bytes": true,
+    "sources": [
+      "diff-or-scan",
+      "rules-layers",
+      "filters",
+      "grouping"
+    ]
+  },
+  "excluded": [
+    {
+      "decided_by": "safety",
+      "path": ".env.production",
+      "pattern": ".env*",
+      "reason": "sensitive_path_never_included",
+      "rule_id": "SAFETY-001-SENSITIVE-PATH",
+      "rule_source": "SAFETY_INVARIANT",
+      "severity": "safety-invariant"
+    },
+    {
+      "decided_by": "safety",
+      "path": ".opencodereview/secrets/db-password.txt",
+      "pattern": "secrets/**",
+      "reason": "sensitive_path_never_included",
+      "rule_id": "SAFETY-001-SENSITIVE-PATH",
+      "rule_source": "SAFETY_INVARIANT",
+      "severity": "safety-invariant"
+    },
+    {
+      "decided_by": "safety",
+      "path": "assets/logo.png",
+      "pattern": "*.png",
+      "reason": "binary_file:extension",
+      "rule_id": "SAFETY-003-BINARY",
+      "rule_source": "SAFETY_INVARIANT",
+      "severity": "safety-invariant"
+    },
+    {
+      "decided_by": "safety",
+      "path": "config/service-account.json",
+      "pattern": null,
+      "reason": "sensitive_path_never_included",
+      "rule_id": "SAFETY-001-SENSITIVE-PATH",
+      "rule_source": "SAFETY_INVARIANT",
+      "severity": "safety-invariant"
+    },
+    {
+      "decided_by": "safety",
+      "path": "config/tls/server.pem",
+      "pattern": null,
+      "reason": "sensitive_path_never_included",
+      "rule_id": "SAFETY-001-SENSITIVE-PATH",
+      "rule_source": "SAFETY_INVARIANT",
+      "severity": "safety-invariant"
+    },
+    {
+      "decided_by": "safety",
+      "path": "dist/bundle.js",
+      "pattern": "dist/**",
+      "reason": "default_excluded_dir:dist",
+      "rule_id": "SAFETY-002-DEFAULT-DIR",
+      "rule_source": "SAFETY_INVARIANT",
+      "severity": "safety-invariant"
+    },
+    {
+      "decided_by": "safety",
+      "path": "node_modules/left-pad/index.js",
+      "pattern": "node_modules/**",
+      "reason": "default_excluded_dir:node_modules",
+      "rule_id": "SAFETY-002-DEFAULT-DIR",
+      "rule_source": "SAFETY_INVARIANT",
+      "severity": "safety-invariant"
+    },
+    {
+      "decided_by": "safety",
+      "path": "src/chain/id_rsa",
+      "pattern": "id_rsa*",
+      "reason": "sensitive_path_never_included",
+      "rule_id": "SAFETY-001-SENSITIVE-PATH",
+      "rule_source": "SAFETY_INVARIANT",
+      "severity": "safety-invariant"
+    },
+    {
+      "decided_by": "safety",
+      "path": "src/chain/user-handler.mjs.bak",
+      "pattern": ".bak",
+      "reason": "unsupported_extension:.bak",
+      "rule_id": "SAFETY-004-EXTENSION",
+      "rule_source": "SAFETY_INVARIANT",
+      "severity": "safety-invariant"
+    }
+  ],
+  "excludedPaths": [
+    ".env.production",
+    ".opencodereview/secrets/db-password.txt",
+    "assets/logo.png",
+    "config/service-account.json",
+    "config/tls/server.pem",
+    "dist/bundle.js",
+    "node_modules/left-pad/index.js",
+    "src/chain/id_rsa",
+    "src/chain/user-handler.mjs.bak"
+  ],
+  "grouping": {
+    "downgraded_groups": 0,
+    "group_count": 3,
+    "invariant_ok": true,
+    "max_files_per_group": 10,
+    "mode": "auto",
+    "notes": [],
+    "token_budget": 32000
+  },
+  "groups": [
+    {
+      "downgrade_reason": null,
+      "downgraded": false,
+      "estimated_tokens": 410,
+      "excluded_unmaterialized": 0,
+      "file_count": 5,
+      "files": [
+        "src/chain/chain.test.mjs",
+        "src/chain/user-handler.mjs",
+        "src/chain/user-mapper.mjs",
+        "src/chain/user-repository.mjs",
+        "src/chain/user-service.mjs"
+      ],
+      "id": "src/chain"
+    },
+    {
+      "downgrade_reason": null,
+      "downgraded": false,
+      "estimated_tokens": 672,
+      "excluded_unmaterialized": 0,
+      "file_count": 8,
+      "files": [
+        "src/reader/reader-part-1.mjs",
+        "src/reader/reader-part-2.mjs",
+        "src/reader/reader-part-3.mjs",
+        "src/reader/reader-part-4.mjs",
+        "src/reader/reader-part-5.mjs",
+        "src/reader/reader-part-6.mjs",
+        "src/reader/reader-part-7.mjs",
+        "src/reader/reader-part-8.mjs"
+      ],
+      "id": "src/reader"
+    },
+    {
+      "downgrade_reason": null,
+      "downgraded": false,
+      "estimated_tokens": 20,
+      "excluded_unmaterialized": 0,
+      "file_count": 1,
+      "files": [
+        "src/util/format.mjs"
+      ],
+      "id": "src/util"
+    }
+  ],
+  "llm_called": false,
+  "mode": "preview",
+  "provider": {
+    "degraded": true,
+    "degraded_reason": "OCR_CLI_NOT_FOUND",
+    "llm_called": false,
+    "name": "local",
+    "note": "preview 走本地确定性实现（与执行同源），不调用 ocr，也不调用 LLM",
+    "ocr_available": false,
+    "ocr_bin": null,
+    "ocr_version": null,
+    "requested": "auto"
+  },
+  "ruleMatch": [
+    {
+      "decision": "included",
+      "file": "src/chain/chain.test.mjs",
+      "pattern": null,
+      "priority": 4,
+      "reason": "default_include",
+      "ruleId": "BUILTIN-DEFAULT-INCLUDE",
+      "ruleSource": "builtin:opencodereview-default"
+    },
+    {
+      "decision": "included",
+      "file": "src/chain/user-handler.mjs",
+      "pattern": null,
+      "priority": 4,
+      "reason": "default_include",
+      "ruleId": "BUILTIN-DEFAULT-INCLUDE",
+      "ruleSource": "builtin:opencodereview-default"
+    },
+    {
+      "decision": "included",
+      "file": "src/chain/user-mapper.mjs",
+      "pattern": null,
+      "priority": 4,
+      "reason": "default_include",
+      "ruleId": "BUILTIN-DEFAULT-INCLUDE",
+      "ruleSource": "builtin:opencodereview-default"
+    },
+    {
+      "decision": "included",
+      "file": "src/chain/user-repository.mjs",
+      "pattern": null,
+      "priority": 4,
+      "reason": "default_include",
+      "ruleId": "BUILTIN-DEFAULT-INCLUDE",
+      "ruleSource": "builtin:opencodereview-default"
+    },
+    {
+      "decision": "included",
+      "file": "src/chain/user-service.mjs",
+      "pattern": null,
+      "priority": 4,
+      "reason": "default_include",
+      "ruleId": "BUILTIN-DEFAULT-INCLUDE",
+      "ruleSource": "builtin:opencodereview-default"
+    },
+    {
+      "decision": "included",
+      "file": "src/reader/reader-part-1.mjs",
+      "pattern": null,
+      "priority": 4,
+      "reason": "default_include",
+      "ruleId": "BUILTIN-DEFAULT-INCLUDE",
+      "ruleSource": "builtin:opencodereview-default"
+    },
+    {
+      "decision": "included",
+      "file": "src/reader/reader-part-2.mjs",
+      "pattern": null,
+      "priority": 4,
+      "reason": "default_include",
+      "ruleId": "BUILTIN-DEFAULT-INCLUDE",
+      "ruleSource": "builtin:opencodereview-default"
+    },
+    {
+      "decision": "included",
+      "file": "src/reader/reader-part-3.mjs",
+      "pattern": null,
+      "priority": 4,
+      "reason": "default_include",
+      "ruleId": "BUILTIN-DEFAULT-INCLUDE",
+      "ruleSource": "builtin:opencodereview-default"
+    },
+    {
+      "decision": "included",
+      "file": "src/reader/reader-part-4.mjs",
+      "pattern": null,
+      "priority": 4,
+      "reason": "default_include",
+      "ruleId": "BUILTIN-DEFAULT-INCLUDE",
+      "ruleSource": "builtin:opencodereview-default"
+    },
+    {
+      "decision": "included",
+      "file": "src/reader/reader-part-5.mjs",
+      "pattern": null,
+      "priority": 4,
+      "reason": "default_include",
+      "ruleId": "BUILTIN-DEFAULT-INCLUDE",
+      "ruleSource": "builtin:opencodereview-default"
+    },
+    {
+      "decision": "included",
+      "file": "src/reader/reader-part-6.mjs",
+      "pattern": null,
+      "priority": 4,
+      "reason": "default_include",
+      "ruleId": "BUILTIN-DEFAULT-INCLUDE",
+      "ruleSource": "builtin:opencodereview-default"
+    },
+    {
+      "decision": "included",
+      "file": "src/reader/reader-part-7.mjs",
+      "pattern": null,
+      "priority": 4,
+      "reason": "default_include",
+      "ruleId": "BUILTIN-DEFAULT-INCLUDE",
+      "ruleSource": "builtin:opencodereview-default"
+    },
+    {
+      "decision": "included",
+      "file": "src/reader/reader-part-8.mjs",
+      "pattern": null,
+      "priority": 4,
+      "reason": "default_include",
+      "ruleId": "BUILTIN-DEFAULT-INCLUDE",
+      "ruleSource": "builtin:opencodereview-default"
+    },
+    {
+      "decision": "included",
+      "file": "src/util/format.mjs",
+      "pattern": null,
+      "priority": 4,
+      "reason": "default_include",
+      "ruleId": "BUILTIN-DEFAULT-INCLUDE",
+      "ruleSource": "builtin:opencodereview-default"
+    }
+  ],
+  "rules": {
+    "buckets": [],
+    "effective": {
+      "default_exclude_dirs": null,
+      "include_extensions": null,
+      "max_files_per_group": 10,
+      "max_tokens_per_group": 32000
+    },
+    "format_supported": true,
+    "layer_trace": [
+      {
+        "file": null,
+        "format_reason": null,
+        "format_supported": true,
+        "loaded": true,
+        "priority": 0,
+        "source": "cli:flags"
+      },
+      {
+        "file": "E:\\Desktop\\ai-quality-gate\\adapters\\opencodereview\\demo\\.opencodereview\\rule.json",
+        "format_reason": null,
+        "format_supported": true,
+        "loaded": false,
+        "priority": 2,
+        "source": "project:.opencodereview/rule.json"
+      },
+      {
+        "file": "C:\\Users\\Administrator\\.opencodereview\\rule.json",
+        "format_reason": null,
+        "format_supported": true,
+        "loaded": false,
+        "priority": 3,
+        "source": "user:~/.opencodereview/rule.json"
+      },
+      {
+        "file": null,
+        "format_reason": null,
+        "format_supported": true,
+        "loaded": true,
+        "priority": 4,
+        "source": "builtin:opencodereview-default"
+      }
+    ],
+    "loaded_layers": [
+      {
+        "file": null,
+        "priority": 0,
+        "source": "cli:flags"
+      },
+      {
+        "file": null,
+        "priority": 4,
+        "source": "builtin:opencodereview-default"
+      }
+    ],
+    "unsupported_layers": []
+  },
+  "safety": {
+    "grouping_invariants_ok": true,
+    "grouping_violations": [],
+    "hardlink_aliases": [],
+    "no_sensitive_selected": true,
+    "rule": "SAFETY-001: selected 列表不得包含密钥/凭证路径、二进制、默认排除目录、不支持扩展名、硬链接密钥别名(S6)",
+    "sensitive_paths_never_reincludable": true,
+    "violations": []
+  },
+  "schema_version": "1.0.0",
+  "selected": [
+    {
+      "decided_by": "builtin",
+      "materialized": true,
+      "path": "src/chain/chain.test.mjs",
+      "pattern": null,
+      "reason": "default_include",
+      "rule_id": "BUILTIN-DEFAULT-INCLUDE",
+      "rule_source": "builtin:opencodereview-default",
+      "size": 415,
+      "tokens": 104
+    },
+    {
+      "decided_by": "builtin",
+      "materialized": true,
+      "path": "src/chain/user-handler.mjs",
+      "pattern": null,
+      "reason": "default_include",
+      "rule_id": "BUILTIN-DEFAULT-INCLUDE",
+      "rule_source": "builtin:opencodereview-default",
+      "size": 302,
+      "tokens": 76
+    },
+    {
+      "decided_by": "builtin",
+      "materialized": true,
+      "path": "src/chain/user-mapper.mjs",
+      "pattern": null,
+      "reason": "default_include",
+      "rule_id": "BUILTIN-DEFAULT-INCLUDE",
+      "rule_source": "builtin:opencodereview-default",
+      "size": 236,
+      "tokens": 59
+    },
+    {
+      "decided_by": "builtin",
+      "materialized": true,
+      "path": "src/chain/user-repository.mjs",
+      "pattern": null,
+      "reason": "default_include",
+      "rule_id": "BUILTIN-DEFAULT-INCLUDE",
+      "rule_source": "builtin:opencodereview-default",
+      "size": 277,
+      "tokens": 70
+    },
+    {
+      "decided_by": "builtin",
+      "materialized": true,
+      "path": "src/chain/user-service.mjs",
+      "pattern": null,
+      "reason": "default_include",
+      "rule_id": "BUILTIN-DEFAULT-INCLUDE",
+      "rule_source": "builtin:opencodereview-default",
+      "size": 404,
+      "tokens": 101
+    },
+    {
+      "decided_by": "builtin",
+      "materialized": true,
+      "path": "src/reader/reader-part-1.mjs",
+      "pattern": null,
+      "reason": "default_include",
+      "rule_id": "BUILTIN-DEFAULT-INCLUDE",
+      "rule_source": "builtin:opencodereview-default",
+      "size": 336,
+      "tokens": 84
+    },
+    {
+      "decided_by": "builtin",
+      "materialized": true,
+      "path": "src/reader/reader-part-2.mjs",
+      "pattern": null,
+      "reason": "default_include",
+      "rule_id": "BUILTIN-DEFAULT-INCLUDE",
+      "rule_source": "builtin:opencodereview-default",
+      "size": 336,
+      "tokens": 84
+    },
+    {
+      "decided_by": "builtin",
+      "materialized": true,
+      "path": "src/reader/reader-part-3.mjs",
+      "pattern": null,
+      "reason": "default_include",
+      "rule_id": "BUILTIN-DEFAULT-INCLUDE",
+      "rule_source": "builtin:opencodereview-default",
+      "size": 336,
+      "tokens": 84
+    },
+    {
+      "decided_by": "builtin",
+      "materialized": true,
+      "path": "src/reader/reader-part-4.mjs",
+      "pattern": null,
+      "reason": "default_include",
+      "rule_id": "BUILTIN-DEFAULT-INCLUDE",
+      "rule_source": "builtin:opencodereview-default",
+      "size": 336,
+      "tokens": 84
+    },
+    {
+      "decided_by": "builtin",
+      "materialized": true,
+      "path": "src/reader/reader-part-5.mjs",
+      "pattern": null,
+      "reason": "default_include",
+      "rule_id": "BUILTIN-DEFAULT-INCLUDE",
+      "rule_source": "builtin:opencodereview-default",
+      "size": 336,
+      "tokens": 84
+    },
+    {
+      "decided_by": "builtin",
+      "materialized": true,
+      "path": "src/reader/reader-part-6.mjs",
+      "pattern": null,
+      "reason": "default_include",
+      "rule_id": "BUILTIN-DEFAULT-INCLUDE",
+      "rule_source": "builtin:opencodereview-default",
+      "size": 336,
+      "tokens": 84
+    },
+    {
+      "decided_by": "builtin",
+      "materialized": true,
+      "path": "src/reader/reader-part-7.mjs",
+      "pattern": null,
+      "reason": "default_include",
+      "rule_id": "BUILTIN-DEFAULT-INCLUDE",
+      "rule_source": "builtin:opencodereview-default",
+      "size": 336,
+      "tokens": 84
+    },
+    {
+      "decided_by": "builtin",
+      "materialized": true,
+      "path": "src/reader/reader-part-8.mjs",
+      "pattern": null,
+      "reason": "default_include",
+      "rule_id": "BUILTIN-DEFAULT-INCLUDE",
+      "rule_source": "builtin:opencodereview-default",
+      "size": 336,
+      "tokens": 84
+    },
+    {
+      "decided_by": "builtin",
+      "materialized": true,
+      "path": "src/util/format.mjs",
+      "pattern": null,
+      "reason": "default_include",
+      "rule_id": "BUILTIN-DEFAULT-INCLUDE",
+      "rule_source": "builtin:opencodereview-default",
+      "size": 78,
+      "tokens": 20
+    }
+  ],
+  "selectedPaths": [
+    "src/chain/chain.test.mjs",
+    "src/chain/user-handler.mjs",
+    "src/chain/user-mapper.mjs",
+    "src/chain/user-repository.mjs",
+    "src/chain/user-service.mjs",
+    "src/reader/reader-part-1.mjs",
+    "src/reader/reader-part-2.mjs",
+    "src/reader/reader-part-3.mjs",
+    "src/reader/reader-part-4.mjs",
+    "src/reader/reader-part-5.mjs",
+    "src/reader/reader-part-6.mjs",
+    "src/reader/reader-part-7.mjs",
+    "src/reader/reader-part-8.mjs",
+    "src/util/format.mjs"
+  ],
+  "selectedPathsMaterialized": [
+    "src/chain/chain.test.mjs",
+    "src/chain/user-handler.mjs",
+    "src/chain/user-mapper.mjs",
+    "src/chain/user-repository.mjs",
+    "src/chain/user-service.mjs",
+    "src/reader/reader-part-1.mjs",
+    "src/reader/reader-part-2.mjs",
+    "src/reader/reader-part-3.mjs",
+    "src/reader/reader-part-4.mjs",
+    "src/reader/reader-part-5.mjs",
+    "src/reader/reader-part-6.mjs",
+    "src/reader/reader-part-7.mjs",
+    "src/reader/reader-part-8.mjs",
+    "src/util/format.mjs"
+  ],
+  "selection": {
+    "excluded": [
+      {
+        "path": ".env.production",
+        "reason": "sensitive_path_never_included"
+      },
+      {
+        "path": ".opencodereview/secrets/db-password.txt",
+        "reason": "sensitive_path_never_included"
+      },
+      {
+        "path": "assets/logo.png",
+        "reason": "binary_file:extension"
+      },
+      {
+        "path": "config/service-account.json",
+        "reason": "sensitive_path_never_included"
+      },
+      {
+        "path": "config/tls/server.pem",
+        "reason": "sensitive_path_never_included"
+      },
+      {
+        "path": "dist/bundle.js",
+        "reason": "default_excluded_dir:dist"
+      },
+      {
+        "path": "node_modules/left-pad/index.js",
+        "reason": "default_excluded_dir:node_modules"
+      },
+      {
+        "path": "src/chain/id_rsa",
+        "reason": "sensitive_path_never_included"
+      },
+      {
+        "path": "src/chain/user-handler.mjs.bak",
+        "reason": "unsupported_extension:.bak"
+      }
+    ],
+    "included": [
+      "src/chain/chain.test.mjs",
+      "src/chain/user-handler.mjs",
+      "src/chain/user-mapper.mjs",
+      "src/chain/user-repository.mjs",
+      "src/chain/user-service.mjs",
+      "src/reader/reader-part-1.mjs",
+      "src/reader/reader-part-2.mjs",
+      "src/reader/reader-part-3.mjs",
+      "src/reader/reader-part-4.mjs",
+      "src/reader/reader-part-5.mjs",
+      "src/reader/reader-part-6.mjs",
+      "src/reader/reader-part-7.mjs",
+      "src/reader/reader-part-8.mjs",
+      "src/util/format.mjs"
+    ]
+  },
+  "source": {
+    "kind": "diff",
+    "path": "E:\\Desktop\\ai-quality-gate\\adapters\\opencodereview\\demo\\diff.json"
+  },
+  "unmaterialized": [],
+  "versions": {
+    "grouping": "1.0.0",
+    "max_files_per_group": 10,
+    "ocr_runner": "1.0.0",
+    "preview": "1.0.0",
+    "rules": "1.0",
+    "selection": "1.0.0"
+  }
+}

@@ -1,0 +1,38 @@
+﻿=== config.schema.json ===
+  exists=true bytes=19677
+  $schema=https://json-schema.org/draft/2020-12/schema
+  $id=https://ai-quality-gate.local/schemas/config.schema.json
+  title="qgate configuration (qgate.config.json)"
+  description="JSON Schema draft 2020-12 for the frozen qgate configuration contract (docs/01-a"
+  root properties=version,provider,gates,policy,projectRoot,selection,grouping
+  $defs=gateId,relativePath,provider,policySettings,selectionSettings,groupingSettings,humanGate,gate,check,checkBase,checkFileExists,checkFileNotExists,checkRegex,checkCommand,checkJsonAssert,jsonAssertion,checkTraceMatrix,checkPolicy
+=== run-result.schema.json ===
+  exists=true bytes=5836
+  $schema=https://json-schema.org/draft/2020-12/schema
+  $id=https://ai-quality-gate.local/schemas/run-result.schema.json
+  title="qgate RunResult"
+  description="JSON Schema draft 2020-12 for the frozen RunResult contract (docs/01-architectur"
+  root properties=version,run_id,started_at,finished_at,duration_ms,overall_passed,provider,gates
+  $defs=evidence,severity,provider,humanGateResult,blocker,checkResult,gate
+=== evidence-ledger.schema.json ===
+  exists=true bytes=6124
+  $schema=https://json-schema.org/draft/2020-12/schema
+  $id=https://ai-quality-gate.local/schemas/evidence-ledger.schema.json
+  title="qgate evidence ledger and ledger index"
+  description="JSON Schema draft 2020-12 for the frozen evidence-ledger artefacts (docs/01-arch"
+  root properties=schemaVersion
+  $defs=evidence,provider,ledgerEntry,ledgerDocument,ledgerIndexEntry,ledgerIndexDocument
+=== trace-matrix.schema.json ===
+  exists=true bytes=5039
+  $schema=https://json-schema.org/draft/2020-12/schema
+  $id=https://ai-quality-gate.local/schemas/trace-matrix.schema.json
+  title="qgate trace matrix"
+  description="JSON Schema draft 2020-12 for verification/trace-matrix.json (docs/01-architectu"
+  root properties=schemaVersion,generated_at,generated_by,run_id,pipeline,summary,requirements
+  $defs=evidence,requirementTrace
+=== §9.1 nullability form + schemas/README oneOf claim ===
+  run-result humanGate.approvedBy = {"type":["string","null"]}
+  run-result humanGate.approvedAt = {"type":["string","null"]}
+  ledger entry.testId = {"description":"Mapped testId (pattern ^T-[A-Z0-9-]+-[0-9]{3}$), or null when no mapping exists. Expressed as oneOf because a nullable type union would silently stop applying the pattern keyword.","oneOf":[{"type":"string","pattern":"^T-[A-Z0-9-]+-[0-9]{3}$"},{"type":"null"}]}
+  trace requirement.testIds = {"type":"array","items":{"type":"string","pattern":"^T-[A-Z0-9-]+-[0-9]{3}$"},"description":"Non-empty for P0/P1 requirements; the engine enforces that."}
+  dedicated approval.json schema files = []

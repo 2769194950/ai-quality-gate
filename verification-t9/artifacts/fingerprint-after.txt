@@ -1,0 +1,3 @@
+﻿fingerprint=447e7f40b5962c493cd8e5369ff36cdf791cdc12707c22c0e3b9e1121e1e1baa
+files=140
+newest=2026-09-17T18:35:29.814Z docs/01-architecture.md

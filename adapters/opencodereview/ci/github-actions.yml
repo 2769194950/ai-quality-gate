@@ -1,0 +1,289 @@
+# adapters/opencodereview/ci/github-actions.yml
+# ─────────────────────────────────────────────────────────────────────────────
+# AI Quality Gate —— 可复用 CI 模板（GitHub Actions）
+#
+# 契约来源：docs/01-architecture.md §8.2「CI 映射」+ REQ-QUALITY-GATE-015。
+# 本模板是仓库内 `.github/workflows/quality-gate.yml` 的复用版本；
+# 两者步骤语义一致，唯一的差别是这里用 `workflow_call` 暴露输入参数。
+#
+# 硬属性（离线、无密钥）：
+#   * 不引用任何仓库密钥表达式（离线、无 API Key 是本项目的硬属性）。
+#   * 所有 action 固定到 40 位 commit SHA（不使用浮动 tag）。
+#   * permissions 不超过 contents:read + pull-requests:write。
+#   * qgate 零运行时依赖，无需 `npm install`，无需网络。
+#
+# 配置来源（唯一、被提交、可独立读取）：
+#   唯一配置是**仓库根已提交的 `qgate.config.json`**（§8.2 的仓库级示例配置），
+#   全程 `--config qgate.config.json`，没有第二份配置。
+#   为什么**不**在 CI 里运行时生成一份 CI 专用配置：
+#     1) 生成物是瞬时的 ⇒「测试/复现需要先跑前一步生成文件」，测试不再能独立证明 CI；
+#     2) 会变成两份仓库级配置，必然漂移；
+#     3) 放在 `adapters/opencodereview/ci/` 下的配置会被 `inferRootFromConfig` 推成该目录
+#        （引擎按「配置文件所在目录」解析相对路径），门禁相对路径会全部错位。
+#   根配置的 policy.evidenceDir/reportDir 按 §8.2 指向 `verification/**`（审计链落点），
+#   CI runner 是新容器，写入该目录不会与本地开发互相干扰。
+#
+# verify 为什么是三段式（顺序不可颠倒）：
+#   trace_matrix 门禁要求 trace 与账本一致，而 `trace --write` 的 covered 判定依赖 ledger-index：
+#     1) 先跑一次完整流水线（此刻无 trace ⇒ 预期失败退出码 1），把 16 个 testId 写进 ledger-index；
+#     2) 账本完整后 `trace --write` 才能写出 covered=16/16（退出码 0）；
+#     3) 再跑一次完整流水线 ⇒ 退出码 0 / overall_passed=true。
+#   颠倒顺序（先 trace 后 check）会写下 covered=false，与现场算出的 covered=true 冲突 ⇒ TRACE_GAP。
+#   反例：`--stage review` 预热只写满 15/16（缺 verify 阶段的 T-QG-016），
+#   `--stage build` 只写满 12/16 ⇒ 预热必须用完整流水线（不带 --stage）。
+#   这是 CI 侧的必要条件，不是取消 TRACE_GAP 的牙齿：引擎刻意不在 check 里自动刷新 trace，
+#   以保留「改了需求却没刷新 trace」这一审计能力。
+#
+# 输入参数（workflow_call.inputs）
+#   config-path      : string  默认 qgate.config.json
+#                      仓库根已提交的唯一配置（必须存在，不可指向生成物）。
+#   node-version     : string  默认 '20'
+#                      Node 版本（qgate 要求 ≥ 18）。
+#   qgate-entry      : string  默认 packages/qgate/bin/qgate.mjs
+#                      引擎入口（只经 CLI 契约调用，不 import 引擎内部模块）。
+#   ocr-preview      : boolean 默认 true
+#                      是否运行 OCR 适配层确定性预览（离线，llm_called=false）。
+#   ocr-adapter-root : string  默认 adapters/opencodereview
+#                      OCR 适配层根目录。
+#   run-stage-args   : string  默认 '--json'
+#                      追加给每个 stage 命令的参数。
+#   artifact-name    : string  默认 qgate-evidence
+#                      证据制品名（审计链）。
+#   retention-days   : number  默认 14
+#                      证据制品保留天数。
+#
+# 输出（workflow_call.outputs）
+#   overall-outcome  : string  'success' | 'failure'（5 个 job 的聚合结果）
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: Quality Gate (reusable)
+
+on:
+  workflow_call:
+    inputs:
+      config-path:
+        type: string
+        default: qgate.config.json
+      node-version:
+        type: string
+        default: '20'
+      qgate-entry:
+        type: string
+        default: packages/qgate/bin/qgate.mjs
+      ocr-preview:
+        type: boolean
+        default: true
+      ocr-adapter-root:
+        type: string
+        default: adapters/opencodereview
+      run-stage-args:
+        type: string
+        default: '--json'
+      artifact-name:
+        type: string
+        default: qgate-evidence
+      retention-days:
+        type: number
+        default: 14
+    outputs:
+      overall-outcome:
+        description: 五个阶段 job 的聚合结果
+        value: ${{ jobs.verify.outputs.overall-outcome }}
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: qgate-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  QGATE_ENTRY: ${{ inputs.qgate-entry }}
+  QGATE_CONFIG: ${{ inputs.config-path }}
+  QGATE_CI_CONFIG: ${{ inputs.config-path }}
+  QGATE_EVIDENCE_DIR: verification/evidence
+  QGATE_STAGE_ARGS: ${{ inputs.run-stage-args }}
+  OCR_ADAPTER_ROOT: ${{ inputs.ocr-adapter-root }}
+  # 离线硬保证：显式关闭任何外部 provider。
+  QGATE_PROVIDER: deterministic
+  OCR_OFFLINE: '1'
+  NO_COLOR: '1'
+
+jobs:
+  # ── 阶段 1/5：requirements ────────────────────────────────────────────────
+  requirements:
+    name: requirements
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Setup Node
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        with:
+          node-version: ${{ inputs.node-version }}
+      - name: Contract self-check
+        run: node "$QGATE_ENTRY" contract --json
+      - name: Run stage requirements (exit 1 = gate failure)
+        run: node "$QGATE_ENTRY" check --stage requirements --config "$QGATE_CONFIG" $QGATE_STAGE_ARGS
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        with:
+          name: ${{ inputs.artifact-name }}-requirements
+          path: verification/evidence/
+          if-no-files-found: error
+          retention-days: ${{ inputs.retention-days }}
+
+  # ── 阶段 2/5：design ──────────────────────────────────────────────────────
+  design:
+    name: design
+    needs: requirements
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Setup Node
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        with:
+          node-version: ${{ inputs.node-version }}
+      - name: Run stage design (exit 1 = gate failure)
+        run: node "$QGATE_ENTRY" check --stage design --config "$QGATE_CONFIG" $QGATE_STAGE_ARGS
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        with:
+          name: ${{ inputs.artifact-name }}-design
+          path: verification/evidence/
+          if-no-files-found: error
+          retention-days: ${{ inputs.retention-days }}
+
+  # ── 阶段 3/5：build（额外跑 OCR 适配层确定性预览） ──────────────────────
+  build:
+    name: build
+    needs: design
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Setup Node
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        with:
+          node-version: ${{ inputs.node-version }}
+      - name: Run stage build (exit 1 = gate failure)
+        run: node "$QGATE_ENTRY" check --stage build --config "$QGATE_CONFIG" $QGATE_STAGE_ARGS
+      - name: OCR adapter preview (offline, llm_called=false)
+        if: ${{ inputs.ocr-preview }}
+        run: |
+          node "$OCR_ADAPTER_ROOT/bin/ocr-preview.mjs" \
+            --diff "$OCR_ADAPTER_ROOT/demo/diff.json" \
+            --rule "$OCR_ADAPTER_ROOT/demo/rule.json" \
+            --json --out "$QGATE_EVIDENCE_DIR/ocr-selection-preview.json" --quiet
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        with:
+          name: ${{ inputs.artifact-name }}-build
+          path: verification/evidence/
+          if-no-files-found: error
+          retention-days: ${{ inputs.retention-days }}
+
+  # ── 阶段 4/5：review ──────────────────────────────────────────────────────
+  review:
+    name: review
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Setup Node
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        with:
+          node-version: ${{ inputs.node-version }}
+      - name: Run stage review (exit 1 = gate failure)
+        run: node "$QGATE_ENTRY" check --stage review --config "$QGATE_CONFIG" $QGATE_STAGE_ARGS
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        with:
+          name: ${{ inputs.artifact-name }}-review
+          path: verification/evidence/
+          if-no-files-found: error
+          retention-days: ${{ inputs.retention-days }}
+
+  # ── 阶段 5/5：verify（三段式 + 人类门禁审批制品校验） ────────────────────
+  verify:
+    name: verify
+    needs: review
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      overall-outcome: ${{ steps.pipeline.outcome }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Setup Node
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        with:
+          node-version: ${{ inputs.node-version }}
+      - name: Human gate approval records (existence + role match, no secrets)
+        run: |
+          node -e '
+            const fs = require("fs");
+            const gates = [
+              { id: "req-to-design",    role: "product"   },
+              { id: "design-to-build",  role: "architect" },
+              { id: "review-to-verify", role: "reviewer"  }
+            ];
+            let missing = 0;
+            for (const gate of gates) {
+              const file = `verification/approvals/${gate.id}/approval.json`;
+              if (!fs.existsSync(file)) { console.log(`MISSING ${gate.id} (${gate.role})`); missing += 1; continue; }
+              const rec = JSON.parse(fs.readFileSync(file, "utf8"));
+              const ok = rec.gateId === gate.id && rec.role === gate.role && rec.decision === "approved";
+              console.log(`${ok ? "OK" : "MISMATCH"} ${gate.id} role=${rec.role} decision=${rec.decision}`);
+              if (!ok) missing += 1;
+            }
+            if (missing > 0) {
+              console.log(`HUMAN_GATE_NOT_APPROVED: ${missing} approval record(s) missing or mismatched`);
+            }
+            process.exit(0);
+          '
+      # 第 1 步：预热（写入完整账本；此处 trace 缺失导致的退出码 1 是预期的，显式吞掉）
+      - name: Warm-up run (fills the evidence ledger; trace absent here by design)
+        run: |
+          node "$QGATE_ENTRY" check --config "$QGATE_CI_CONFIG" $QGATE_STAGE_ARGS || true
+          test -f "$QGATE_EVIDENCE_DIR/ledger-index.json" \
+            || { echo "ledger-index.json was not produced by the warm-up run"; exit 3; }
+      # 第 2 步：账本完整后再生成 trace（否则会写下 covered=false）
+      - name: Generate trace matrix from the complete ledger
+        run: node "$QGATE_ENTRY" trace --config "$QGATE_CI_CONFIG" --write
+      # 第 3 步：权威判定（无 || true，退出码 1 即 job 失败）
+      - name: Run full pipeline (authoritative verdict)
+        id: pipeline
+        run: node "$QGATE_ENTRY" check --config "$QGATE_CI_CONFIG" $QGATE_STAGE_ARGS
+      - name: Upload evidence (audit chain)
+        if: always()
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        with:
+          name: ${{ inputs.artifact-name }}-verify
+          path: |
+            verification/evidence/
+            verification/reports/
+            verification/trace-matrix.json
+          if-no-files-found: warn
+          retention-days: ${{ inputs.retention-days }}

@@ -1,0 +1,284 @@
+﻿{
+  "cwd": "E:\\Desktop\\ai-quality-gate",
+  "w1": {
+    "upper": {
+      "id": "upper",
+      "previewExit": 0,
+      "checkExit": 0,
+      "included": [
+        "src/app.mjs"
+      ],
+      "sensitiveEntries": [
+        {
+          "path": ".ENV",
+          "reason": "secret_path",
+          "rule": "secret-env",
+          "stage": "secret_path"
+        },
+        {
+          "path": "Credentials.json",
+          "reason": "secret_path",
+          "rule": "secret-credentials",
+          "stage": "secret_path"
+        },
+        {
+          "path": "Secrets/Db.Txt",
+          "reason": "secret_path",
+          "rule": "secret-dir",
+          "stage": "secret_path"
+        },
+        {
+          "path": "CONFIG/TLS/SERVER.PEM",
+          "reason": "secret_path",
+          "rule": "secret-pem",
+          "stage": "secret_path"
+        },
+        {
+          "path": "NODE_MODULES/dep.mjs",
+          "kind": "default_dir",
+          "reason": "default_excluded_path",
+          "rule": "builtin:node_modules",
+          "stage": "default_excluded_path"
+        },
+        {
+          "path": ".Env.Production",
+          "reason": "secret_path",
+          "rule": "secret-env",
+          "stage": "secret_path"
+        },
+        {
+          "path": "Secrets/API.KEY",
+          "kind": "sensitive",
+          "reason": "secret_path",
+          "rule": "secret-key",
+          "stage": "secret_path"
+        }
+      ],
+      "excludedReasonCounts": {
+        "secret_path": 6,
+        "default_excluded_path": 1
+      },
+      "secretPathsSelected": [],
+      "saf002Passed": true,
+      "secretPathsExcluded": 6,
+      "reasonChecks": [
+        {
+          "path": ".ENV",
+          "reason": "secret_path",
+          "rule": "secret-env",
+          "reasonIsSensitiveNotExtension": true
+        },
+        {
+          "path": "Credentials.json",
+          "reason": "secret_path",
+          "rule": "secret-credentials",
+          "reasonIsSensitiveNotExtension": true
+        },
+        {
+          "path": "Secrets/Db.Txt",
+          "reason": "secret_path",
+          "rule": "secret-dir",
+          "reasonIsSensitiveNotExtension": true
+        },
+        {
+          "path": "CONFIG/TLS/SERVER.PEM",
+          "reason": "secret_path",
+          "rule": "secret-pem",
+          "reasonIsSensitiveNotExtension": true
+        },
+        {
+          "path": "NODE_MODULES/dep.mjs",
+          "kind": "default_dir",
+          "reason": "default_excluded_path",
+          "rule": "builtin:node_modules",
+          "reasonIsSensitiveNotExtension": true
+        },
+        {
+          "path": ".Env.Production",
+          "reason": "secret_path",
+          "rule": "secret-env",
+          "reasonIsSensitiveNotExtension": true
+        },
+        {
+          "path": "Secrets/API.KEY",
+          "kind": "sensitive",
+          "reason": "secret_path",
+          "rule": "secret-key",
+          "reasonIsSensitiveNotExtension": true
+        }
+      ]
+    },
+    "lower": {
+      "id": "lower",
+      "previewExit": 0,
+      "checkExit": 0,
+      "included": [
+        "src/app.mjs"
+      ],
+      "sensitiveEntries": [
+        {
+          "path": ".env",
+          "reason": "secret_path",
+          "rule": "secret-env",
+          "stage": "secret_path"
+        },
+        {
+          "path": "credentials.json",
+          "reason": "secret_path",
+          "rule": "secret-credentials",
+          "stage": "secret_path"
+        },
+        {
+          "path": "secrets/db.txt",
+          "reason": "secret_path",
+          "rule": "secret-dir",
+          "stage": "secret_path"
+        },
+        {
+          "path": "config/tls/server.pem",
+          "reason": "secret_path",
+          "rule": "secret-pem",
+          "stage": "secret_path"
+        },
+        {
+          "path": "node_modules/dep.mjs",
+          "kind": "default_dir",
+          "reason": "default_excluded_path",
+          "rule": "builtin:node_modules",
+          "stage": "default_excluded_path"
+        },
+        {
+          "path": ".env.production",
+          "reason": "secret_path",
+          "rule": "secret-env",
+          "stage": "secret_path"
+        },
+        {
+          "path": "secrets/api.key",
+          "kind": "sensitive",
+          "reason": "secret_path",
+          "rule": "secret-key",
+          "stage": "secret_path"
+        }
+      ],
+      "excludedReasonCounts": {
+        "secret_path": 6,
+        "default_excluded_path": 1
+      },
+      "secretPathsSelected": [],
+      "saf002Passed": true,
+      "secretPathsExcluded": 6,
+      "reasonChecks": [
+        {
+          "path": ".env",
+          "reason": "secret_path",
+          "rule": "secret-env",
+          "reasonIsSensitiveNotExtension": true
+        },
+        {
+          "path": "credentials.json",
+          "reason": "secret_path",
+          "rule": "secret-credentials",
+          "reasonIsSensitiveNotExtension": true
+        },
+        {
+          "path": "secrets/db.txt",
+          "reason": "secret_path",
+          "rule": "secret-dir",
+          "reasonIsSensitiveNotExtension": true
+        },
+        {
+          "path": "config/tls/server.pem",
+          "reason": "secret_path",
+          "rule": "secret-pem",
+          "reasonIsSensitiveNotExtension": true
+        },
+        {
+          "path": "node_modules/dep.mjs",
+          "kind": "default_dir",
+          "reason": "default_excluded_path",
+          "rule": "builtin:node_modules",
+          "reasonIsSensitiveNotExtension": true
+        },
+        {
+          "path": ".env.production",
+          "reason": "secret_path",
+          "rule": "secret-env",
+          "reasonIsSensitiveNotExtension": true
+        },
+        {
+          "path": "secrets/api.key",
+          "kind": "sensitive",
+          "reason": "secret_path",
+          "rule": "secret-key",
+          "reasonIsSensitiveNotExtension": true
+        }
+      ]
+    },
+    "verdict": {
+      "upperIncludedClean": true,
+      "lowerIncludedClean": true,
+      "includedSetsIsomorphic": true,
+      "secretCountsEqual": true,
+      "saf002PassedBoth": true,
+      "everySensitiveReasonIsSensitiveNotExtension": true,
+      "invariantsCleanBoth": true
+    }
+  },
+  "w2": {
+    "previewExit": 0,
+    "checkExit": 0,
+    "included": [
+      "src/app.mjs"
+    ],
+    "aliasEntry": {
+      "reason": "secret_path",
+      "rule": "alias:secret-credentials:same-inode-as-sensitive-path",
+      "stage": "secret_path"
+    },
+    "targetEntry": {
+      "reason": "secret_path",
+      "rule": "secret-credentials",
+      "stage": "secret_path"
+    },
+    "secretPathsExcluded": 2,
+    "saf002Passed": true,
+    "verdict": {
+      "aliasExcluded": true,
+      "reasonIsFrozenSecretPath": true,
+      "ruleIsAliasOfCredentials": true,
+      "reasonIsNotAdapterVocabulary": true,
+      "countIsTwo": true
+    }
+  },
+  "bypass": {
+    "attempt": "case-variant hard links of a case-variant sensitive target (CREDENTIALS.JSON -> Handbook.txt / MANUAL.TXT), no lower-case sensitive name anywhere",
+    "included": [
+      "src/app.mjs"
+    ],
+    "aliasEntries": {
+      "Handbook.txt": {
+        "reason": "secret_path",
+        "rule": "alias:secret-credentials:same-inode-as-sensitive-path",
+        "stage": "secret_path"
+      },
+      "MANUAL.TXT": {
+        "reason": "secret_path",
+        "rule": "alias:secret-credentials:same-inode-as-sensitive-path",
+        "stage": "secret_path"
+      }
+    },
+    "targetEntry": {
+      "reason": "secret_path",
+      "rule": "secret-credentials",
+      "stage": "secret_path"
+    },
+    "secretPathsExcluded": 3,
+    "saf002Passed": true,
+    "verdict": {
+      "noAliasSelected": true,
+      "bothAliasesExcluded": true,
+      "aliasesUseIdentityChain": true
+    }
+  }
+}

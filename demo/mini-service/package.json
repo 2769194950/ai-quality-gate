@@ -1,0 +1,14 @@
+{
+  "name": "mini-service",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "qgate five-stage demo fixture: offline, zero runtime dependencies, no API key.",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {},
+  "scripts": {
+    "test": "node --test"
+  }
+}

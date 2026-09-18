@@ -1,0 +1,47 @@
+{
+  "overall_passed": true,
+  "gates": [
+    {
+      "id": "req-spec",
+      "stage": "requirements",
+      "required": true,
+      "passed": true,
+      "humanGate": null,
+      "blockers": 0,
+      "checks": 4
+    },
+    {
+      "id": "interface-frozen",
+      "stage": "design",
+      "required": true,
+      "passed": true,
+      "humanGate": null,
+      "blockers": 0,
+      "checks": 4
+    }
+  ],
+  "not_run_gates": [
+    {
+      "id": "build-deterministic",
+      "stage": "build",
+      "reason": "excluded by the --stage/--gate filter"
+    },
+    {
+      "id": "review-counterexample",
+      "stage": "review",
+      "reason": "excluded by the --stage/--gate filter"
+    },
+    {
+      "id": "verify-coverage",
+      "stage": "verify",
+      "reason": "excluded by the --stage/--gate filter"
+    }
+  ],
+  "run_id": "2026-09-18T03-01-01.047Z-46eca1bd",
+  "provider": {
+    "type": "deterministic",
+    "degraded": false,
+    "detail": "offline-fixture"
+  },
+  "approvals_missing": 3
+}

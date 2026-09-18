@@ -1,0 +1,421 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-quality-gate.local/schemas/config.schema.json",
+  "title": "qgate configuration (qgate.config.json)",
+  "description": "JSON Schema draft 2020-12 for the frozen qgate configuration contract (docs/01-architecture.md §5.1, configSchemaVersion=1.0). additionalProperties is false everywhere: the field names, types, required-ness and enum values below are the frozen baseline and may not be added to, removed from or renamed.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "provider", "gates"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "1.0",
+      "description": "configSchemaVersion. The only accepted value is the literal \"1.0\"."
+    },
+    "provider": {
+      "$ref": "#/$defs/provider",
+      "description": "Finding provider configuration. Required at the top level."
+    },
+    "gates": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/gate" },
+      "description": "Required, length >= 1. gate.id must be globally unique and check.id unique within its gate; both uniqueness rules are enforced by the engine, not by JSON Schema."
+    },
+    "policy": {
+      "$ref": "#/$defs/policySettings",
+      "description": "Optional. Defaults to {\"evidenceDir\":\"verification/evidence\",\"reportDir\":\"verification/reports\",\"failFast\":false}."
+    },
+    "projectRoot": {
+      "$ref": "#/$defs/relativePath",
+      "description": "Optional. Relative path from the configuration file to the repository it validates; the engine resolves it against the config directory. Used when the config sits next to (not inside) its target repository, e.g. demo/qgate.config.json declaring \"projectRoot\": \"mini-service\". Takes precedence over inferRootFromConfig."
+    },
+    "selection": {
+      "$ref": "#/$defs/selectionSettings",
+      "description": "Optional. Defaults to {}. Deterministic file-selection settings (OCR selection parity)."
+    },
+    "grouping": {
+      "$ref": "#/$defs/groupingSettings",
+      "description": "Optional. Defaults to {}. Deterministic FileGroup settings."
+    }
+  },
+  "$defs": {
+    "gateId": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{1,63}$",
+      "description": "Frozen id pattern shared by gate.id and check.id."
+    },
+    "relativePath": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Project-root-relative POSIX path; may contain * or ** when the check documents glob support."
+    },
+    "provider": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["deterministic", "scripted", "llm", "external"],
+          "description": "provider.type — four frozen values. deterministic is the offline-fixture default."
+        },
+        "script": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Required when provider.type=\"scripted\"; must export run(context)."
+        },
+        "timeoutMs": {
+          "type": "integer",
+          "minimum": 500,
+          "maximum": 600000,
+          "default": 30000,
+          "description": "Provider timeout budget in milliseconds."
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Only meaningful when provider.type=\"llm\"; a real LLM is optional and never required."
+        },
+        "endpoint": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Only meaningful when provider.type=\"llm\"; must degrade to deterministic when unreachable (no network is required)."
+        },
+        "fixture": {
+          "oneOf": [
+            { "$ref": "#/$defs/relativePath" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Provider fixture path. The deterministic provider reads its recordings from here; null means the built-in offline fixture path (provider.mjs DEFAULT_FIXTURE_PATH)."
+        },
+        "confidenceThreshold": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "default": 0.7,
+          "description": "Findings at or above this confidence become blockers; lower-confidence findings are downgraded to advisory findings."
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "type": { "const": "scripted" } },
+            "required": ["type"]
+          },
+          "then": { "required": ["script"] }
+        }
+      ]
+    },
+    "policySettings": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "evidenceDir": { "type": "string", "minLength": 1, "default": "verification/evidence" },
+        "reportDir": { "type": "string", "minLength": 1, "default": "verification/reports" },
+        "failFast": { "type": "boolean", "default": false },
+        "scanRoots": {
+          "oneOf": [
+            { "type": "array", "items": { "$ref": "#/$defs/relativePath" } },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Narrows which subtrees the policy checks scan (SAFE_001 key tokens, SAFE_003 network surface). null or an empty array scans the whole repository."
+        }
+      }
+    },
+    "selectionSettings": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Deterministic file selection, mirroring the OCR selection pipeline. Every field is optional and has an engine default.",
+      "properties": {
+        "include": { "type": "array", "items": { "type": "string", "minLength": 1 }, "description": "Include globs. Default [\"**/*\"]." },
+        "exclude": { "type": "array", "items": { "type": "string", "minLength": 1 }, "description": "Exclude globs applied after include. Default []." },
+        "extensions": { "type": "array", "items": { "type": "string", "minLength": 1 }, "description": "Accepted extensions, e.g. \".mjs\". Default [\".mjs\",\".js\",\".json\",\".md\",\".yaml\",\".yml\",\".txt\"]." },
+        "defaultExcludedPaths": { "type": "array", "items": { "type": "string", "minLength": 1 }, "description": "Always-excluded directory names. Default [\".git\",\"node_modules\",\"dist\",\"build\",\"coverage\",\".qgate/evidence\",\"verification/evidence\"]." },
+        "maxFileSizeBytes": { "type": "integer", "minimum": 1, "description": "Files larger than this are excluded. Default 262144." },
+        "maxFilesPerGroup": { "type": "integer", "minimum": 1, "description": "Grouping cap mirror; the grouping object carries the operative value. Default 10." },
+        "tokenBudgetPerGroup": { "type": "integer", "minimum": 1, "description": "Token budget per group. Default 12000." },
+        "ruleFile": {
+          "oneOf": [
+            { "$ref": "#/$defs/relativePath" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "OCR rule file used for deterministic rule matching, e.g. \".opencodereview/rule.json\". Default null."
+        }
+      }
+    },
+    "groupingSettings": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Deterministic FileGroup settings. maxFilesPerGroup is capped at 10 by the OCR parity contract when the token budget allows; exceeding the budget downgrades a group to single-file groups.",
+      "properties": {
+        "maxFilesPerGroup": { "type": "integer", "minimum": 1, "description": "Files per group. Default 10 (the frozen OCR value)." },
+        "tokenBudgetPerGroup": { "type": "integer", "minimum": 1, "description": "Tokens per group. Default 12000." },
+        "tokensPerFile": { "type": "integer", "minimum": 1, "description": "Estimated tokens per file used for the budget check. Default 4." }
+      }
+    },
+    "humanGate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "enforcement"],
+      "description": "Only allowed on gates whose stage is one of the three frozen handover positions (requirements -> req-to-design, design -> design-to-build, review -> review-to-verify). Any other stage is a configuration error (exit code 2). The handover identity is DERIVED from the gate's stage; gate.id need not equal the handover id. The optional gateId property explicitly overrides that derivation. role must match the handover position (requirements->product, design->architect, review->reviewer).",
+      "properties": {
+        "role": {
+          "type": "string",
+          "enum": ["product", "architect", "reviewer"],
+          "description": "Signing role; must match the handover position and approval.json.role."
+        },
+        "gateId": {
+          "$ref": "#/$defs/gateId",
+          "description": "Optional explicit override of the handover id. When omitted, the handover id is DERIVED from the gate's stage (requirements -> req-to-design, design -> design-to-build, review -> review-to-verify). When present it must satisfy the shared gate id pattern and, per the engine, be one of the three handover ids. It also determines the <gateId> segment of the default approvalRecord path."
+        },
+        "approvalRecord": {
+          "$ref": "#/$defs/relativePath",
+          "default": "verification/approvals/<gateId>/approval.json",
+          "description": "Optional; defaults to verification/approvals/<gateId>/approval.json, where <gateId> is the explicit humanGate.gateId when given, otherwise the handover id derived from the gate's stage."
+        },
+        "enforcement": {
+          "type": "string",
+          "const": "blocking",
+          "description": "The only frozen value."
+        }
+      }
+    },
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "stage", "checks"],
+      "properties": {
+        "id": { "$ref": "#/$defs/gateId" },
+        "stage": {
+          "type": "string",
+          "enum": ["requirements", "design", "build", "review", "verify"],
+          "description": "One of the five frozen stages (§3.1)."
+        },
+        "required": {
+          "type": "boolean",
+          "default": true,
+          "description": "false means a failure is recorded but does not block overall_passed."
+        },
+        "checks": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/check" }
+        },
+        "humanGate": { "$ref": "#/$defs/humanGate" }
+      }
+    },
+    "check": {
+      "description": "Discriminated union on check.type. Shared fields plus the per-type field table of §5.1; additionalProperties is false so an unknown field name is rejected.",
+      "allOf": [
+        { "$ref": "#/$defs/checkBase" },
+        {
+          "oneOf": [
+            { "$ref": "#/$defs/checkFileExists" },
+            { "$ref": "#/$defs/checkFileNotExists" },
+            { "$ref": "#/$defs/checkRegex" },
+            { "$ref": "#/$defs/checkCommand" },
+            { "$ref": "#/$defs/checkJsonAssert" },
+            { "$ref": "#/$defs/checkTraceMatrix" },
+            { "$ref": "#/$defs/checkPolicy" }
+          ]
+        }
+      ]
+    },
+    "checkBase": {
+      "type": "object",
+      "$comment": "Shared field table of §5.1. additionalProperties is intentionally true here because JSON Schema evaluates it per subschema: the seven type variants below each declare the complete field set (shared + per-type) with additionalProperties:false, which is what actually rejects an undeclared field name.",
+      "additionalProperties": true,
+      "required": ["id", "type"],
+      "properties": {
+        "id": { "$ref": "#/$defs/gateId" },
+        "type": {
+          "type": "string",
+          "enum": ["file_exists", "file_not_exists", "regex", "command", "json_assert", "trace_matrix", "policy"],
+          "description": "check.type — the seven frozen check types."
+        },
+        "required": { "type": "boolean", "default": true },
+        "severity": {
+          "type": "string",
+          "enum": ["blocker", "high", "medium", "low"],
+          "description": "Defaults per type: file_exists/file_not_exists/json_assert/trace_matrix/policy => high; regex => medium; command => high."
+        },
+        "onFail": {
+          "type": "string",
+          "enum": ["fail", "warn"],
+          "default": "fail",
+          "description": "warn records the real pass/fail result but never adds a blocker."
+        },
+        "description": { "type": "string", "default": "" }
+      }
+    },
+    "checkFileExists": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "file"],
+      "properties": {
+        "id": { "$ref": "#/$defs/gateId" },
+        "type": { "const": "file_exists" },
+        "required": { "type": "boolean", "default": true },
+        "severity": { "type": "string", "enum": ["blocker", "high", "medium", "low"], "default": "high" },
+        "onFail": { "type": "string", "enum": ["fail", "warn"], "default": "fail" },
+        "description": { "type": "string", "default": "" },
+        "file": { "$ref": "#/$defs/relativePath" },
+        "minCount": { "type": "integer", "minimum": 1, "default": 1, "description": "Minimum number of glob matches." }
+      }
+    },
+    "checkFileNotExists": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "file"],
+      "properties": {
+        "id": { "$ref": "#/$defs/gateId" },
+        "type": { "const": "file_not_exists" },
+        "required": { "type": "boolean", "default": true },
+        "severity": { "type": "string", "enum": ["blocker", "high", "medium", "low"], "default": "high" },
+        "onFail": { "type": "string", "enum": ["fail", "warn"], "default": "fail" },
+        "description": { "type": "string", "default": "" },
+        "file": { "$ref": "#/$defs/relativePath", "description": "Any glob match fails the check." }
+      }
+    },
+    "checkRegex": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "files", "pattern"],
+      "properties": {
+        "id": { "$ref": "#/$defs/gateId" },
+        "type": { "const": "regex" },
+        "required": { "type": "boolean", "default": true },
+        "severity": { "type": "string", "enum": ["blocker", "high", "medium", "low"], "default": "medium" },
+        "onFail": { "type": "string", "enum": ["fail", "warn"], "default": "fail" },
+        "description": { "type": "string", "default": "" },
+        "files": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/relativePath" }
+        },
+        "pattern": { "type": "string", "minLength": 1, "description": "JavaScript regular expression source." },
+        "flags": { "type": "string", "pattern": "^[gimsuy]*$", "default": "gm" },
+        "mode": { "type": "string", "enum": ["each", "any", "all", "count"], "default": "each" },
+        "minMatches": { "type": "integer", "minimum": 1, "default": 1, "description": "Global lower bound when mode=\"count\"." },
+        "countMode": { "type": "string", "enum": ["total", "unique"], "default": "total" },
+        "encoding": { "type": "string", "enum": ["utf8", "utf16le"], "default": "utf8" }
+      }
+    },
+    "checkCommand": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "run"],
+      "properties": {
+        "id": { "$ref": "#/$defs/gateId" },
+        "type": { "const": "command" },
+        "required": { "type": "boolean", "default": true },
+        "severity": { "type": "string", "enum": ["blocker", "high", "medium", "low"], "default": "high" },
+        "onFail": { "type": "string", "enum": ["fail", "warn"], "default": "fail" },
+        "description": { "type": "string", "default": "" },
+        "run": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 },
+          "description": "argv vector; run[0] is the executable name. No shell is involved."
+        },
+        "expectExitCode": { "type": "integer", "minimum": 0, "maximum": 255, "default": 0 },
+        "timeoutMs": { "type": "integer", "minimum": 1000, "maximum": 600000, "default": 60000 },
+        "cwd": { "type": "string", "minLength": 1, "default": ".", "description": "Relative to the project root." },
+        "captureStdout": { "type": "boolean", "default": true, "description": "Captures output into evidence.excerpt, clipped to 4096 characters." },
+        "stdoutRegex": { "type": "string", "minLength": 1, "description": "Optional; when set, stdout must also match." }
+      }
+    },
+    "checkJsonAssert": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "file", "assertions"],
+      "properties": {
+        "id": { "$ref": "#/$defs/gateId" },
+        "type": { "const": "json_assert" },
+        "required": { "type": "boolean", "default": true },
+        "severity": { "type": "string", "enum": ["blocker", "high", "medium", "low"], "default": "high" },
+        "onFail": { "type": "string", "enum": ["fail", "warn"], "default": "fail" },
+        "description": { "type": "string", "default": "" },
+        "file": { "$ref": "#/$defs/relativePath", "description": "A single JSON file; globs are not supported." },
+        "assertions": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/jsonAssertion" }
+        }
+      }
+    },
+    "jsonAssertion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pointer"],
+      "description": "At least one of exists|equals|matches must be present; the engine enforces that, and each carries evidence.",
+      "properties": {
+        "pointer": { "type": "string", "pattern": "^/", "description": "JSON Pointer (RFC 6901)." },
+        "exists": { "type": "boolean" },
+        "equals": { "description": "Any JSON value." },
+        "matches": { "type": "string", "description": "Regular expression applied to the stringified value." }
+      },
+      "anyOf": [
+        { "required": ["exists"] },
+        { "required": ["equals"] },
+        { "required": ["matches"] }
+      ]
+    },
+    "checkTraceMatrix": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "requirementsFile", "traceFile"],
+      "properties": {
+        "id": { "$ref": "#/$defs/gateId" },
+        "type": { "const": "trace_matrix" },
+        "required": { "type": "boolean", "default": true },
+        "severity": { "type": "string", "enum": ["blocker", "high", "medium", "low"], "default": "high" },
+        "onFail": { "type": "string", "enum": ["fail", "warn"], "default": "fail" },
+        "description": { "type": "string", "default": "" },
+        "requirementsFile": { "$ref": "#/$defs/relativePath" },
+        "traceFile": { "$ref": "#/$defs/relativePath" },
+        "enforce": {
+          "type": "string",
+          "enum": ["strict", "lenient"],
+          "default": "strict",
+          "description": "strict => a P0/P1 requirement with covered=false fails the check (TRACE_GAP)."
+        },
+        "testIdSource": {
+          "type": "string",
+          "enum": ["ledger-index", "trace-only"],
+          "default": "ledger-index"
+        }
+      }
+    },
+    "checkPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "policyId"],
+      "properties": {
+        "id": { "$ref": "#/$defs/gateId" },
+        "type": { "const": "policy" },
+        "required": { "type": "boolean", "default": true },
+        "severity": { "type": "string", "enum": ["blocker", "high", "medium", "low"], "default": "high" },
+        "onFail": { "type": "string", "enum": ["fail", "warn"], "default": "fail" },
+        "description": { "type": "string", "default": "" },
+        "policyId": {
+          "type": "string",
+          "enum": ["SAFE_001", "SAFE_002", "SAFE_003", "CONTRACT_001"],
+          "description": "SAFE_001 no key reads; SAFE_002 secret paths can never be re-included; SAFE_003 no network call surface; CONTRACT_001 no enum/field drift."
+        },
+        "expectedFiles": {
+          "oneOf": [
+            { "type": "array", "items": { "$ref": "#/$defs/relativePath" } },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Restricts the policy scan to this explicit file list (at most the first five are recorded as evidence); null scans per policy.scanRoots. When non-empty it replaces the subtree scan for this check."
+        }
+      }
+    }
+  }
+}

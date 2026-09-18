@@ -1,0 +1,757 @@
+﻿{
+  "counts": {
+    "candidates": 27,
+    "downgraded_groups": 0,
+    "excluded": 9,
+    "excluded_binary": 1,
+    "excluded_dir": 2,
+    "excluded_extension": 1,
+    "excluded_sensitive": 5,
+    "groups": 3,
+    "groups_dropped_unmaterialized": 0,
+    "selected": 18,
+    "selected_materialized": 18,
+    "single_file_groups": 0,
+    "unmaterialized": 0
+  },
+  "degraded": true,
+  "degraded_reason": "OCR_CLI_NOT_FOUND",
+  "degraded_reasons": [
+    "OCR_CLI_NOT_FOUND"
+  ],
+  "deterministic": {
+    "ordered_by": "path-ascending",
+    "same_input_same_bytes": true,
+    "sources": [
+      "diff-or-scan",
+      "rules-layers",
+      "filters",
+      "grouping"
+    ]
+  },
+  "excluded": [
+    {
+      "decided_by": "safety",
+      "path": ".env.production",
+      "pattern": ".env*",
+      "reason": "sensitive_path_never_included",
+      "rule_id": "SAFETY-001-SENSITIVE-PATH",
+      "rule_source": "SAFETY_INVARIANT",
+      "severity": "safety-invariant"
+    },
+    {
+      "decided_by": "safety",
+      "path": ".opencodereview/secrets/db-password.txt",
+      "pattern": "secrets/**",
+      "reason": "sensitive_path_never_included",
+      "rule_id": "SAFETY-001-SENSITIVE-PATH",
+      "rule_source": "SAFETY_INVARIANT",
+      "severity": "safety-invariant"
+    },
+    {
+      "decided_by": "safety",
+      "path": "assets/logo.png",
+      "pattern": "*.png",
+      "reason": "binary_file:extension",
+      "rule_id": "SAFETY-003-BINARY",
+      "rule_source": "SAFETY_INVARIANT",
+      "severity": "safety-invariant"
+    },
+    {
+      "decided_by": "safety",
+      "path": "config/service-account.json",
+      "pattern": null,
+      "reason": "sensitive_path_never_included",
+      "rule_id": "SAFETY-001-SENSITIVE-PATH",
+      "rule_source": "SAFETY_INVARIANT",
+      "severity": "safety-invariant"
+    },
+    {
+      "decided_by": "safety",
+      "path": "config/tls/server.pem",
+      "pattern": null,
+      "reason": "sensitive_path_never_included",
+      "rule_id": "SAFETY-001-SENSITIVE-PATH",
+      "rule_source": "SAFETY_INVARIANT",
+      "severity": "safety-invariant"
+    },
+    {
+      "decided_by": "safety",
+      "path": "dist/bundle.js",
+      "pattern": "dist/**",
+      "reason": "default_excluded_dir:dist",
+      "rule_id": "SAFETY-002-DEFAULT-DIR",
+      "rule_source": "SAFETY_INVARIANT",
+      "severity": "safety-invariant"
+    },
+    {
+      "decided_by": "safety",
+      "path": "node_modules/left-pad/index.js",
+      "pattern": "node_modules/**",
+      "reason": "default_excluded_dir:node_modules",
+      "rule_id": "SAFETY-002-DEFAULT-DIR",
+      "rule_source": "SAFETY_INVARIANT",
+      "severity": "safety-invariant"
+    },
+    {
+      "decided_by": "safety",
+      "path": "src/chain/id_rsa",
+      "pattern": "id_rsa*",
+      "reason": "sensitive_path_never_included",
+      "rule_id": "SAFETY-001-SENSITIVE-PATH",
+      "rule_source": "SAFETY_INVARIANT",
+      "severity": "safety-invariant"
+    },
+    {
+      "decided_by": "safety",
+      "path": "src/chain/user-handler.mjs.bak",
+      "pattern": ".bak",
+      "reason": "unsupported_extension:.bak",
+      "rule_id": "SAFETY-004-EXTENSION",
+      "rule_source": "SAFETY_INVARIANT",
+      "severity": "safety-invariant"
+    }
+  ],
+  "excludedPaths": [
+    ".env.production",
+    ".opencodereview/secrets/db-password.txt",
+    "assets/logo.png",
+    "config/service-account.json",
+    "config/tls/server.pem",
+    "dist/bundle.js",
+    "node_modules/left-pad/index.js",
+    "src/chain/id_rsa",
+    "src/chain/user-handler.mjs.bak"
+  ],
+  "grouping": {
+    "downgraded_groups": 0,
+    "group_count": 3,
+    "invariant_ok": true,
+    "max_files_per_group": 10,
+    "mode": "auto",
+    "notes": [],
+    "token_budget": 4096
+  },
+  "groups": [
+    {
+      "downgrade_reason": null,
+      "downgraded": false,
+      "estimated_tokens": 1684,
+      "excluded_unmaterialized": 0,
+      "file_count": 4,
+      "files": [
+        "diff.json",
+        "ocr-review.sample.json",
+        "rule.json",
+        "verifier-engine-rule.json"
+      ],
+      "id": "(root)"
+    },
+    {
+      "downgrade_reason": null,
+      "downgraded": false,
+      "estimated_tokens": 306,
+      "excluded_unmaterialized": 0,
+      "file_count": 4,
+      "files": [
+        "src/chain/user-handler.mjs",
+        "src/chain/user-mapper.mjs",
+        "src/chain/user-repository.mjs",
+        "src/chain/user-service.mjs"
+      ],
+      "id": "bucket:injection-chain"
+    },
+    {
+      "downgrade_reason": null,
+      "downgraded": false,
+      "estimated_tokens": 796,
+      "excluded_unmaterialized": 0,
+      "file_count": 10,
+      "files": [
+        "src/chain/chain.test.mjs",
+        "src/reader/reader-part-1.mjs",
+        "src/reader/reader-part-2.mjs",
+        "src/reader/reader-part-3.mjs",
+        "src/reader/reader-part-4.mjs",
+        "src/reader/reader-part-5.mjs",
+        "src/reader/reader-part-6.mjs",
+        "src/reader/reader-part-7.mjs",
+        "src/reader/reader-part-8.mjs",
+        "src/util/format.mjs"
+      ],
+      "id": "src"
+    }
+  ],
+  "llm_called": false,
+  "mode": "preview",
+  "provider": {
+    "degraded": true,
+    "degraded_reason": "OCR_CLI_NOT_FOUND",
+    "llm_called": false,
+    "name": "local",
+    "note": "preview 走本地确定性实现（与执行同源），不调用 ocr，也不调用 LLM",
+    "ocr_available": false,
+    "ocr_bin": null,
+    "ocr_version": null,
+    "requested": "auto"
+  },
+  "ruleMatch": [
+    {
+      "decision": "included",
+      "file": "diff.json",
+      "pattern": "ext:.json",
+      "priority": 1,
+      "reason": "included_by_extension:.json",
+      "ruleId": null,
+      "ruleSource": "cli:--rule"
+    },
+    {
+      "decision": "included",
+      "file": "ocr-review.sample.json",
+      "pattern": "ext:.json",
+      "priority": 1,
+      "reason": "included_by_extension:.json",
+      "ruleId": null,
+      "ruleSource": "cli:--rule"
+    },
+    {
+      "decision": "included",
+      "file": "rule.json",
+      "pattern": "ext:.json",
+      "priority": 1,
+      "reason": "included_by_extension:.json",
+      "ruleId": null,
+      "ruleSource": "cli:--rule"
+    },
+    {
+      "decision": "included",
+      "file": "src/chain/chain.test.mjs",
+      "pattern": "src/**/*.mjs",
+      "priority": 1,
+      "reason": "demo 源码参与评审",
+      "ruleId": "demo-src",
+      "ruleSource": "cli:--rule"
+    },
+    {
+      "decision": "included",
+      "file": "src/chain/user-handler.mjs",
+      "pattern": "src/**/*.mjs",
+      "priority": 1,
+      "reason": "demo 源码参与评审",
+      "ruleId": "demo-src",
+      "ruleSource": "cli:--rule"
+    },
+    {
+      "decision": "included",
+      "file": "src/chain/user-mapper.mjs",
+      "pattern": "src/**/*.mjs",
+      "priority": 1,
+      "reason": "demo 源码参与评审",
+      "ruleId": "demo-src",
+      "ruleSource": "cli:--rule"
+    },
+    {
+      "decision": "included",
+      "file": "src/chain/user-repository.mjs",
+      "pattern": "src/**/*.mjs",
+      "priority": 1,
+      "reason": "demo 源码参与评审",
+      "ruleId": "demo-src",
+      "ruleSource": "cli:--rule"
+    },
+    {
+      "decision": "included",
+      "file": "src/chain/user-service.mjs",
+      "pattern": "src/**/*.mjs",
+      "priority": 1,
+      "reason": "demo 源码参与评审",
+      "ruleId": "demo-src",
+      "ruleSource": "cli:--rule"
+    },
+    {
+      "decision": "included",
+      "file": "src/reader/reader-part-1.mjs",
+      "pattern": "src/**/*.mjs",
+      "priority": 1,
+      "reason": "demo 源码参与评审",
+      "ruleId": "demo-src",
+      "ruleSource": "cli:--rule"
+    },
+    {
+      "decision": "included",
+      "file": "src/reader/reader-part-2.mjs",
+      "pattern": "src/**/*.mjs",
+      "priority": 1,
+      "reason": "demo 源码参与评审",
+      "ruleId": "demo-src",
+      "ruleSource": "cli:--rule"
+    },
+    {
+      "decision": "included",
+      "file": "src/reader/reader-part-3.mjs",
+      "pattern": "src/**/*.mjs",
+      "priority": 1,
+      "reason": "demo 源码参与评审",
+      "ruleId": "demo-src",
+      "ruleSource": "cli:--rule"
+    },
+    {
+      "decision": "included",
+      "file": "src/reader/reader-part-4.mjs",
+      "pattern": "src/**/*.mjs",
+      "priority": 1,
+      "reason": "demo 源码参与评审",
+      "ruleId": "demo-src",
+      "ruleSource": "cli:--rule"
+    },
+    {
+      "decision": "included",
+      "file": "src/reader/reader-part-5.mjs",
+      "pattern": "src/**/*.mjs",
+      "priority": 1,
+      "reason": "demo 源码参与评审",
+      "ruleId": "demo-src",
+      "ruleSource": "cli:--rule"
+    },
+    {
+      "decision": "included",
+      "file": "src/reader/reader-part-6.mjs",
+      "pattern": "src/**/*.mjs",
+      "priority": 1,
+      "reason": "demo 源码参与评审",
+      "ruleId": "demo-src",
+      "ruleSource": "cli:--rule"
+    },
+    {
+      "decision": "included",
+      "file": "src/reader/reader-part-7.mjs",
+      "pattern": "src/**/*.mjs",
+      "priority": 1,
+      "reason": "demo 源码参与评审",
+      "ruleId": "demo-src",
+      "ruleSource": "cli:--rule"
+    },
+    {
+      "decision": "included",
+      "file": "src/reader/reader-part-8.mjs",
+      "pattern": "src/**/*.mjs",
+      "priority": 1,
+      "reason": "demo 源码参与评审",
+      "ruleId": "demo-src",
+      "ruleSource": "cli:--rule"
+    },
+    {
+      "decision": "included",
+      "file": "src/util/format.mjs",
+      "pattern": "src/**/*.mjs",
+      "priority": 1,
+      "reason": "demo 源码参与评审",
+      "ruleId": "demo-src",
+      "ruleSource": "cli:--rule"
+    },
+    {
+      "decision": "included",
+      "file": "verifier-engine-rule.json",
+      "pattern": "ext:.json",
+      "priority": 1,
+      "reason": "included_by_extension:.json",
+      "ruleId": null,
+      "ruleSource": "cli:--rule"
+    }
+  ],
+  "rules": {
+    "buckets": [
+      {
+        "id": "injection-chain",
+        "patterns": [
+          "src/chain/user-handler.mjs",
+          "src/chain/user-service.mjs",
+          "src/chain/user-repository.mjs",
+          "src/chain/user-mapper.mjs"
+        ],
+        "source": "cli:--rule"
+      }
+    ],
+    "effective": {
+      "default_exclude_dirs": null,
+      "include_extensions": [
+        ".mjs",
+        ".json",
+        ".md"
+      ],
+      "max_files_per_group": 10,
+      "max_tokens_per_group": 4096
+    },
+    "format_supported": true,
+    "layer_trace": [
+      {
+        "file": "E:\\Desktop\\ai-quality-gate\\verification-t9\\artifacts\\preview-compare\\demo\\rule.json",
+        "format_reason": null,
+        "format_supported": true,
+        "loaded": true,
+        "priority": 1,
+        "source": "cli:--rule"
+      },
+      {
+        "file": "E:\\Desktop\\ai-quality-gate\\verification-t9\\artifacts\\preview-compare\\demo\\.opencodereview\\rule.json",
+        "format_reason": null,
+        "format_supported": true,
+        "loaded": false,
+        "priority": 2,
+        "source": "project:.opencodereview/rule.json"
+      },
+      {
+        "file": "C:\\Users\\Administrator\\.opencodereview\\rule.json",
+        "format_reason": null,
+        "format_supported": true,
+        "loaded": false,
+        "priority": 3,
+        "source": "user:~/.opencodereview/rule.json"
+      },
+      {
+        "file": null,
+        "format_reason": null,
+        "format_supported": true,
+        "loaded": true,
+        "priority": 4,
+        "source": "builtin:opencodereview-default"
+      }
+    ],
+    "loaded_layers": [
+      {
+        "file": "E:\\Desktop\\ai-quality-gate\\verification-t9\\artifacts\\preview-compare\\demo\\rule.json",
+        "priority": 1,
+        "source": "cli:--rule"
+      },
+      {
+        "file": null,
+        "priority": 4,
+        "source": "builtin:opencodereview-default"
+      }
+    ],
+    "unsupported_layers": []
+  },
+  "safety": {
+    "grouping_invariants_ok": true,
+    "grouping_violations": [],
+    "hardlink_aliases": [],
+    "no_sensitive_selected": true,
+    "rule": "SAFETY-001: selected 列表不得包含密钥/凭证路径、二进制、默认排除目录、不支持扩展名、硬链接密钥别名(S6)",
+    "sensitive_paths_never_reincludable": true,
+    "violations": []
+  },
+  "schema_version": "1.0.0",
+  "selected": [
+    {
+      "decided_by": "rule",
+      "materialized": true,
+      "path": "diff.json",
+      "pattern": "ext:.json",
+      "reason": "included_by_extension:.json",
+      "rule_id": null,
+      "rule_source": "cli:--rule",
+      "size": 2700,
+      "tokens": 675
+    },
+    {
+      "decided_by": "rule",
+      "materialized": true,
+      "path": "ocr-review.sample.json",
+      "pattern": "ext:.json",
+      "reason": "included_by_extension:.json",
+      "rule_id": null,
+      "rule_source": "cli:--rule",
+      "size": 2264,
+      "tokens": 566
+    },
+    {
+      "decided_by": "rule",
+      "materialized": true,
+      "path": "rule.json",
+      "pattern": "ext:.json",
+      "reason": "included_by_extension:.json",
+      "rule_id": null,
+      "rule_source": "cli:--rule",
+      "size": 1168,
+      "tokens": 292
+    },
+    {
+      "decided_by": "rule",
+      "materialized": true,
+      "path": "src/chain/chain.test.mjs",
+      "pattern": "src/**/*.mjs",
+      "reason": "demo 源码参与评审",
+      "rule_id": "demo-src",
+      "rule_source": "cli:--rule",
+      "size": 415,
+      "tokens": 104
+    },
+    {
+      "decided_by": "rule",
+      "materialized": true,
+      "path": "src/chain/user-handler.mjs",
+      "pattern": "src/**/*.mjs",
+      "reason": "demo 源码参与评审",
+      "rule_id": "demo-src",
+      "rule_source": "cli:--rule",
+      "size": 302,
+      "tokens": 76
+    },
+    {
+      "decided_by": "rule",
+      "materialized": true,
+      "path": "src/chain/user-mapper.mjs",
+      "pattern": "src/**/*.mjs",
+      "reason": "demo 源码参与评审",
+      "rule_id": "demo-src",
+      "rule_source": "cli:--rule",
+      "size": 236,
+      "tokens": 59
+    },
+    {
+      "decided_by": "rule",
+      "materialized": true,
+      "path": "src/chain/user-repository.mjs",
+      "pattern": "src/**/*.mjs",
+      "reason": "demo 源码参与评审",
+      "rule_id": "demo-src",
+      "rule_source": "cli:--rule",
+      "size": 277,
+      "tokens": 70
+    },
+    {
+      "decided_by": "rule",
+      "materialized": true,
+      "path": "src/chain/user-service.mjs",
+      "pattern": "src/**/*.mjs",
+      "reason": "demo 源码参与评审",
+      "rule_id": "demo-src",
+      "rule_source": "cli:--rule",
+      "size": 404,
+      "tokens": 101
+    },
+    {
+      "decided_by": "rule",
+      "materialized": true,
+      "path": "src/reader/reader-part-1.mjs",
+      "pattern": "src/**/*.mjs",
+      "reason": "demo 源码参与评审",
+      "rule_id": "demo-src",
+      "rule_source": "cli:--rule",
+      "size": 336,
+      "tokens": 84
+    },
+    {
+      "decided_by": "rule",
+      "materialized": true,
+      "path": "src/reader/reader-part-2.mjs",
+      "pattern": "src/**/*.mjs",
+      "reason": "demo 源码参与评审",
+      "rule_id": "demo-src",
+      "rule_source": "cli:--rule",
+      "size": 336,
+      "tokens": 84
+    },
+    {
+      "decided_by": "rule",
+      "materialized": true,
+      "path": "src/reader/reader-part-3.mjs",
+      "pattern": "src/**/*.mjs",
+      "reason": "demo 源码参与评审",
+      "rule_id": "demo-src",
+      "rule_source": "cli:--rule",
+      "size": 336,
+      "tokens": 84
+    },
+    {
+      "decided_by": "rule",
+      "materialized": true,
+      "path": "src/reader/reader-part-4.mjs",
+      "pattern": "src/**/*.mjs",
+      "reason": "demo 源码参与评审",
+      "rule_id": "demo-src",
+      "rule_source": "cli:--rule",
+      "size": 336,
+      "tokens": 84
+    },
+    {
+      "decided_by": "rule",
+      "materialized": true,
+      "path": "src/reader/reader-part-5.mjs",
+      "pattern": "src/**/*.mjs",
+      "reason": "demo 源码参与评审",
+      "rule_id": "demo-src",
+      "rule_source": "cli:--rule",
+      "size": 336,
+      "tokens": 84
+    },
+    {
+      "decided_by": "rule",
+      "materialized": true,
+      "path": "src/reader/reader-part-6.mjs",
+      "pattern": "src/**/*.mjs",
+      "reason": "demo 源码参与评审",
+      "rule_id": "demo-src",
+      "rule_source": "cli:--rule",
+      "size": 336,
+      "tokens": 84
+    },
+    {
+      "decided_by": "rule",
+      "materialized": true,
+      "path": "src/reader/reader-part-7.mjs",
+      "pattern": "src/**/*.mjs",
+      "reason": "demo 源码参与评审",
+      "rule_id": "demo-src",
+      "rule_source": "cli:--rule",
+      "size": 336,
+      "tokens": 84
+    },
+    {
+      "decided_by": "rule",
+      "materialized": true,
+      "path": "src/reader/reader-part-8.mjs",
+      "pattern": "src/**/*.mjs",
+      "reason": "demo 源码参与评审",
+      "rule_id": "demo-src",
+      "rule_source": "cli:--rule",
+      "size": 336,
+      "tokens": 84
+    },
+    {
+      "decided_by": "rule",
+      "materialized": true,
+      "path": "src/util/format.mjs",
+      "pattern": "src/**/*.mjs",
+      "reason": "demo 源码参与评审",
+      "rule_id": "demo-src",
+      "rule_source": "cli:--rule",
+      "size": 78,
+      "tokens": 20
+    },
+    {
+      "decided_by": "rule",
+      "materialized": true,
+      "path": "verifier-engine-rule.json",
+      "pattern": "ext:.json",
+      "reason": "included_by_extension:.json",
+      "rule_id": null,
+      "rule_source": "cli:--rule",
+      "size": 604,
+      "tokens": 151
+    }
+  ],
+  "selectedPaths": [
+    "diff.json",
+    "ocr-review.sample.json",
+    "rule.json",
+    "src/chain/chain.test.mjs",
+    "src/chain/user-handler.mjs",
+    "src/chain/user-mapper.mjs",
+    "src/chain/user-repository.mjs",
+    "src/chain/user-service.mjs",
+    "src/reader/reader-part-1.mjs",
+    "src/reader/reader-part-2.mjs",
+    "src/reader/reader-part-3.mjs",
+    "src/reader/reader-part-4.mjs",
+    "src/reader/reader-part-5.mjs",
+    "src/reader/reader-part-6.mjs",
+    "src/reader/reader-part-7.mjs",
+    "src/reader/reader-part-8.mjs",
+    "src/util/format.mjs",
+    "verifier-engine-rule.json"
+  ],
+  "selectedPathsMaterialized": [
+    "diff.json",
+    "ocr-review.sample.json",
+    "rule.json",
+    "src/chain/chain.test.mjs",
+    "src/chain/user-handler.mjs",
+    "src/chain/user-mapper.mjs",
+    "src/chain/user-repository.mjs",
+    "src/chain/user-service.mjs",
+    "src/reader/reader-part-1.mjs",
+    "src/reader/reader-part-2.mjs",
+    "src/reader/reader-part-3.mjs",
+    "src/reader/reader-part-4.mjs",
+    "src/reader/reader-part-5.mjs",
+    "src/reader/reader-part-6.mjs",
+    "src/reader/reader-part-7.mjs",
+    "src/reader/reader-part-8.mjs",
+    "src/util/format.mjs",
+    "verifier-engine-rule.json"
+  ],
+  "selection": {
+    "excluded": [
+      {
+        "path": ".env.production",
+        "reason": "sensitive_path_never_included"
+      },
+      {
+        "path": ".opencodereview/secrets/db-password.txt",
+        "reason": "sensitive_path_never_included"
+      },
+      {
+        "path": "assets/logo.png",
+        "reason": "binary_file:extension"
+      },
+      {
+        "path": "config/service-account.json",
+        "reason": "sensitive_path_never_included"
+      },
+      {
+        "path": "config/tls/server.pem",
+        "reason": "sensitive_path_never_included"
+      },
+      {
+        "path": "dist/bundle.js",
+        "reason": "default_excluded_dir:dist"
+      },
+      {
+        "path": "node_modules/left-pad/index.js",
+        "reason": "default_excluded_dir:node_modules"
+      },
+      {
+        "path": "src/chain/id_rsa",
+        "reason": "sensitive_path_never_included"
+      },
+      {
+        "path": "src/chain/user-handler.mjs.bak",
+        "reason": "unsupported_extension:.bak"
+      }
+    ],
+    "included": [
+      "diff.json",
+      "ocr-review.sample.json",
+      "rule.json",
+      "src/chain/chain.test.mjs",
+      "src/chain/user-handler.mjs",
+      "src/chain/user-mapper.mjs",
+      "src/chain/user-repository.mjs",
+      "src/chain/user-service.mjs",
+      "src/reader/reader-part-1.mjs",
+      "src/reader/reader-part-2.mjs",
+      "src/reader/reader-part-3.mjs",
+      "src/reader/reader-part-4.mjs",
+      "src/reader/reader-part-5.mjs",
+      "src/reader/reader-part-6.mjs",
+      "src/reader/reader-part-7.mjs",
+      "src/reader/reader-part-8.mjs",
+      "src/util/format.mjs",
+      "verifier-engine-rule.json"
+    ]
+  },
+  "source": {
+    "kind": "root",
+    "path": "E:\\Desktop\\ai-quality-gate\\verification-t9\\artifacts\\preview-compare\\demo"
+  },
+  "unmaterialized": [],
+  "versions": {
+    "grouping": "1.0.0",
+    "max_files_per_group": 10,
+    "ocr_runner": "1.0.0",
+    "preview": "1.0.0",
+    "rules": "1.0",
+    "selection": "1.0.0"
+  }
+}

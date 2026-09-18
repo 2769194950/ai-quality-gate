@@ -1,0 +1,1645 @@
+{
+  "method": "documented field tables transcribed by hand (line ranges cited) vs schema property sets (union over allOf/oneOf/anyOf branches) vs real artefacts",
+  "documentedSets": {
+    "CONFIG_DOC": {
+      "top": {
+        "lines": "319-325",
+        "fields": [
+          "version",
+          "provider",
+          "gates",
+          "policy",
+          "projectRoot",
+          "selection",
+          "grouping"
+        ]
+      },
+      "provider": {
+        "lines": "333-339",
+        "fields": [
+          "type",
+          "script",
+          "timeoutMs",
+          "model",
+          "endpoint",
+          "fixture",
+          "confidenceThreshold"
+        ]
+      },
+      "policy": {
+        "lines": "345-348",
+        "fields": [
+          "evidenceDir",
+          "reportDir",
+          "failFast",
+          "scanRoots"
+        ]
+      },
+      "selection": {
+        "lines": "354-361",
+        "fields": [
+          "include",
+          "exclude",
+          "extensions",
+          "defaultExcludedPaths",
+          "maxFileSizeBytes",
+          "maxFilesPerGroup",
+          "tokenBudgetPerGroup",
+          "ruleFile"
+        ]
+      },
+      "grouping": {
+        "lines": "367-369",
+        "fields": [
+          "maxFilesPerGroup",
+          "tokenBudgetPerGroup",
+          "tokensPerFile"
+        ]
+      },
+      "gate": {
+        "lines": "375-379",
+        "fields": [
+          "id",
+          "stage",
+          "required",
+          "checks",
+          "humanGate"
+        ]
+      },
+      "humanGate": {
+        "lines": "409-416",
+        "fields": [
+          "role",
+          "gateId",
+          "approvalRecord",
+          "enforcement"
+        ]
+      },
+      "checkCommon": {
+        "lines": "393-398",
+        "fields": [
+          "id",
+          "type",
+          "required",
+          "severity",
+          "onFail",
+          "description"
+        ]
+      }
+    },
+    "CHECK_DOC": {
+      "file_exists": [
+        "file",
+        "minCount"
+      ],
+      "file_not_exists": [
+        "file"
+      ],
+      "regex": [
+        "files",
+        "pattern",
+        "flags",
+        "mode",
+        "minMatches",
+        "countMode",
+        "encoding"
+      ],
+      "command": [
+        "run",
+        "expectExitCode",
+        "timeoutMs",
+        "cwd",
+        "captureStdout",
+        "stdoutRegex"
+      ],
+      "json_assert": [
+        "file",
+        "assertions"
+      ],
+      "trace_matrix": [
+        "requirementsFile",
+        "traceFile",
+        "enforce",
+        "testIdSource"
+      ],
+      "policy": [
+        "policyId",
+        "expectedFiles"
+      ]
+    },
+    "RUNRESULT_DOC": {
+      "top": {
+        "lines": "496-503",
+        "fields": [
+          "version",
+          "run_id",
+          "started_at",
+          "finished_at",
+          "duration_ms",
+          "overall_passed",
+          "provider",
+          "gates"
+        ]
+      },
+      "provider": {
+        "lines": "502",
+        "fields": [
+          "type",
+          "degraded",
+          "detail"
+        ]
+      },
+      "gate": {
+        "lines": "509-515",
+        "fields": [
+          "id",
+          "stage",
+          "required",
+          "passed",
+          "humanGate",
+          "blockers",
+          "checks"
+        ]
+      },
+      "humanGate": {
+        "lines": "513",
+        "fields": [
+          "role",
+          "approvalRecord",
+          "approvalState",
+          "approvedBy",
+          "approvedAt"
+        ]
+      },
+      "blocker": {
+        "lines": "521-524",
+        "fields": [
+          "checkId",
+          "severity",
+          "message",
+          "evidence"
+        ]
+      },
+      "check": {
+        "lines": "530-534",
+        "fields": [
+          "id",
+          "type",
+          "passed",
+          "severity",
+          "evidence"
+        ]
+      },
+      "evidence": {
+        "lines": "544-546",
+        "fields": [
+          "path",
+          "kind",
+          "excerpt"
+        ]
+      }
+    },
+    "LEDGER_DOC": {
+      "ledger": {
+        "lines": "592-601",
+        "fields": [
+          "schemaVersion",
+          "ledgerId",
+          "runId",
+          "started_at",
+          "finished_at",
+          "projectRoot",
+          "configPath",
+          "configSha256",
+          "provider",
+          "entries"
+        ]
+      },
+      "entry": {
+        "lines": "601",
+        "fields": [
+          "gateId",
+          "stage",
+          "checkId",
+          "type",
+          "required",
+          "passed",
+          "severity",
+          "durationMs",
+          "testId",
+          "evidence"
+        ]
+      },
+      "index": {
+        "lines": "607-613",
+        "fields": [
+          "schemaVersion",
+          "updated_at",
+          "runIds",
+          "ledgers",
+          "testIds"
+        ]
+      },
+      "indexEntry": {
+        "lines": "611",
+        "fields": [
+          "runId",
+          "path",
+          "sha256",
+          "overall_passed",
+          "started_at"
+        ]
+      }
+    },
+    "TRACE_DOC": {
+      "root": {
+        "lines": "656-661",
+        "fields": [
+          "schemaVersion",
+          "generated_at",
+          "generated_by",
+          "run_id",
+          "pipeline",
+          "summary",
+          "requirements"
+        ]
+      },
+      "requirement": {
+        "lines": "662-669",
+        "fields": [
+          "requirementId",
+          "title",
+          "priority",
+          "stage",
+          "testIds",
+          "codePaths",
+          "covered",
+          "evidence"
+        ]
+      },
+      "summary": {
+        "lines": "661",
+        "fields": [
+          "requirements",
+          "covered",
+          "uncovered",
+          "orphanTestIds",
+          "coverageRatio"
+        ]
+      }
+    },
+    "APPROVAL_DOC": {
+      "lines": "894-901",
+      "fields": [
+        "schemaVersion",
+        "gateId",
+        "role",
+        "decision",
+        "approvedBy",
+        "approvedAt",
+        "claims",
+        "notes"
+      ]
+    }
+  },
+  "schemaCompare": {
+    "config.schema.json": {
+      "top": {
+        "docLines": "319-325",
+        "documented": [
+          "gates",
+          "grouping",
+          "policy",
+          "projectRoot",
+          "provider",
+          "selection",
+          "version"
+        ],
+        "actual": [
+          "gates",
+          "grouping",
+          "policy",
+          "projectRoot",
+          "provider",
+          "selection",
+          "version"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      },
+      "provider": {
+        "docLines": "333-339",
+        "documented": [
+          "confidenceThreshold",
+          "endpoint",
+          "fixture",
+          "model",
+          "script",
+          "timeoutMs",
+          "type"
+        ],
+        "actual": [
+          "confidenceThreshold",
+          "endpoint",
+          "fixture",
+          "model",
+          "script",
+          "timeoutMs",
+          "type"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      },
+      "policy": {
+        "docLines": "345-348",
+        "documented": [
+          "evidenceDir",
+          "failFast",
+          "reportDir",
+          "scanRoots"
+        ],
+        "actual": [
+          "evidenceDir",
+          "failFast",
+          "reportDir",
+          "scanRoots"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      },
+      "selection": {
+        "docLines": "354-361",
+        "documented": [
+          "defaultExcludedPaths",
+          "exclude",
+          "extensions",
+          "include",
+          "maxFileSizeBytes",
+          "maxFilesPerGroup",
+          "ruleFile",
+          "tokenBudgetPerGroup"
+        ],
+        "actual": [
+          "defaultExcludedPaths",
+          "exclude",
+          "extensions",
+          "include",
+          "maxFileSizeBytes",
+          "maxFilesPerGroup",
+          "ruleFile",
+          "tokenBudgetPerGroup"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      },
+      "grouping": {
+        "docLines": "367-369",
+        "documented": [
+          "maxFilesPerGroup",
+          "tokenBudgetPerGroup",
+          "tokensPerFile"
+        ],
+        "actual": [
+          "maxFilesPerGroup",
+          "tokenBudgetPerGroup",
+          "tokensPerFile"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      },
+      "gate": {
+        "docLines": "375-379",
+        "documented": [
+          "checks",
+          "humanGate",
+          "id",
+          "required",
+          "stage"
+        ],
+        "actual": [
+          "checks",
+          "humanGate",
+          "id",
+          "required",
+          "stage"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      },
+      "humanGate": {
+        "docLines": "409-416",
+        "documented": [
+          "approvalRecord",
+          "enforcement",
+          "gateId",
+          "role"
+        ],
+        "actual": [
+          "approvalRecord",
+          "enforcement",
+          "gateId",
+          "role"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      },
+      "checkCommon": {
+        "docLines": "393-398",
+        "documented": [
+          "description",
+          "id",
+          "onFail",
+          "required",
+          "severity",
+          "type"
+        ],
+        "actual": [
+          "description",
+          "id",
+          "onFail",
+          "required",
+          "severity",
+          "type"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      },
+      "check.file_exists": {
+        "docLines": "402-410",
+        "documented": [
+          "description",
+          "file",
+          "id",
+          "minCount",
+          "onFail",
+          "required",
+          "severity",
+          "type"
+        ],
+        "actual": [
+          "description",
+          "file",
+          "id",
+          "minCount",
+          "onFail",
+          "required",
+          "severity",
+          "type"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      },
+      "check.file_not_exists": {
+        "docLines": "402-410",
+        "documented": [
+          "description",
+          "file",
+          "id",
+          "onFail",
+          "required",
+          "severity",
+          "type"
+        ],
+        "actual": [
+          "description",
+          "file",
+          "id",
+          "onFail",
+          "required",
+          "severity",
+          "type"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      },
+      "check.regex": {
+        "docLines": "402-410",
+        "documented": [
+          "countMode",
+          "description",
+          "encoding",
+          "files",
+          "flags",
+          "id",
+          "minMatches",
+          "mode",
+          "onFail",
+          "pattern",
+          "required",
+          "severity",
+          "type"
+        ],
+        "actual": [
+          "countMode",
+          "description",
+          "encoding",
+          "files",
+          "flags",
+          "id",
+          "minMatches",
+          "mode",
+          "onFail",
+          "pattern",
+          "required",
+          "severity",
+          "type"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      },
+      "check.command": {
+        "docLines": "402-410",
+        "documented": [
+          "captureStdout",
+          "cwd",
+          "description",
+          "expectExitCode",
+          "id",
+          "onFail",
+          "required",
+          "run",
+          "severity",
+          "stdoutRegex",
+          "timeoutMs",
+          "type"
+        ],
+        "actual": [
+          "captureStdout",
+          "cwd",
+          "description",
+          "expectExitCode",
+          "id",
+          "onFail",
+          "required",
+          "run",
+          "severity",
+          "stdoutRegex",
+          "timeoutMs",
+          "type"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      },
+      "check.json_assert": {
+        "docLines": "402-410",
+        "documented": [
+          "assertions",
+          "description",
+          "file",
+          "id",
+          "onFail",
+          "required",
+          "severity",
+          "type"
+        ],
+        "actual": [
+          "assertions",
+          "description",
+          "file",
+          "id",
+          "onFail",
+          "required",
+          "severity",
+          "type"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      },
+      "check.trace_matrix": {
+        "docLines": "402-410",
+        "documented": [
+          "description",
+          "enforce",
+          "id",
+          "onFail",
+          "required",
+          "requirementsFile",
+          "severity",
+          "testIdSource",
+          "traceFile",
+          "type"
+        ],
+        "actual": [
+          "description",
+          "enforce",
+          "id",
+          "onFail",
+          "required",
+          "requirementsFile",
+          "severity",
+          "testIdSource",
+          "traceFile",
+          "type"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      },
+      "check.policy": {
+        "docLines": "402-410",
+        "documented": [
+          "description",
+          "expectedFiles",
+          "id",
+          "onFail",
+          "policyId",
+          "required",
+          "severity",
+          "type"
+        ],
+        "actual": [
+          "description",
+          "expectedFiles",
+          "id",
+          "onFail",
+          "policyId",
+          "required",
+          "severity",
+          "type"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      }
+    },
+    "run-result.schema.json": {
+      "top": {
+        "docLines": "496-503",
+        "documented": [
+          "duration_ms",
+          "finished_at",
+          "gates",
+          "overall_passed",
+          "provider",
+          "run_id",
+          "started_at",
+          "version"
+        ],
+        "actual": [
+          "duration_ms",
+          "finished_at",
+          "gates",
+          "overall_passed",
+          "provider",
+          "run_id",
+          "started_at",
+          "version"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      },
+      "provider": {
+        "docLines": "502",
+        "documented": [
+          "degraded",
+          "detail",
+          "type"
+        ],
+        "actual": [
+          "degraded",
+          "detail",
+          "type"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      },
+      "gate": {
+        "docLines": "509-515",
+        "documented": [
+          "blockers",
+          "checks",
+          "humanGate",
+          "id",
+          "passed",
+          "required",
+          "stage"
+        ],
+        "actual": [
+          "blockers",
+          "checks",
+          "humanGate",
+          "id",
+          "passed",
+          "required",
+          "stage"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      },
+      "humanGate": {
+        "docLines": "513",
+        "documented": [
+          "approvalRecord",
+          "approvalState",
+          "approvedAt",
+          "approvedBy",
+          "role"
+        ],
+        "actual": [
+          "approvalRecord",
+          "approvalState",
+          "approvedAt",
+          "approvedBy",
+          "role"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      },
+      "blocker": {
+        "docLines": "521-524",
+        "documented": [
+          "checkId",
+          "evidence",
+          "message",
+          "severity"
+        ],
+        "actual": [
+          "checkId",
+          "evidence",
+          "message",
+          "severity"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      },
+      "check": {
+        "docLines": "530-534",
+        "documented": [
+          "evidence",
+          "id",
+          "passed",
+          "severity",
+          "type"
+        ],
+        "actual": [
+          "evidence",
+          "id",
+          "passed",
+          "severity",
+          "type"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      },
+      "evidence": {
+        "docLines": "544-546",
+        "documented": [
+          "excerpt",
+          "kind",
+          "path"
+        ],
+        "actual": [
+          "excerpt",
+          "kind",
+          "path"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      }
+    },
+    "evidence-ledger.schema.json": {
+      "ledger": {
+        "docLines": "592-601",
+        "documented": [
+          "configPath",
+          "configSha256",
+          "entries",
+          "finished_at",
+          "ledgerId",
+          "projectRoot",
+          "provider",
+          "runId",
+          "schemaVersion",
+          "started_at"
+        ],
+        "actual": [
+          "configPath",
+          "configSha256",
+          "entries",
+          "finished_at",
+          "ledgerId",
+          "projectRoot",
+          "provider",
+          "runId",
+          "schemaVersion",
+          "started_at"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      },
+      "entry": {
+        "docLines": "601",
+        "documented": [
+          "checkId",
+          "durationMs",
+          "evidence",
+          "gateId",
+          "passed",
+          "required",
+          "severity",
+          "stage",
+          "testId",
+          "type"
+        ],
+        "actual": [
+          "checkId",
+          "durationMs",
+          "evidence",
+          "gateId",
+          "passed",
+          "required",
+          "severity",
+          "stage",
+          "testId",
+          "type"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      },
+      "index": {
+        "docLines": "607-613",
+        "documented": [
+          "ledgers",
+          "runIds",
+          "schemaVersion",
+          "testIds",
+          "updated_at"
+        ],
+        "actual": [
+          "ledgers",
+          "runIds",
+          "schemaVersion",
+          "testIds",
+          "updated_at"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      },
+      "indexEntry": {
+        "docLines": "611",
+        "documented": [
+          "overall_passed",
+          "path",
+          "runId",
+          "sha256",
+          "started_at"
+        ],
+        "actual": [
+          "overall_passed",
+          "path",
+          "runId",
+          "sha256",
+          "started_at"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      }
+    },
+    "trace-matrix.schema.json": {
+      "root": {
+        "docLines": "656-661",
+        "documented": [
+          "generated_at",
+          "generated_by",
+          "pipeline",
+          "requirements",
+          "run_id",
+          "schemaVersion",
+          "summary"
+        ],
+        "actual": [
+          "generated_at",
+          "generated_by",
+          "pipeline",
+          "requirements",
+          "run_id",
+          "schemaVersion",
+          "summary"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      },
+      "requirement": {
+        "docLines": "662-669",
+        "documented": [
+          "codePaths",
+          "covered",
+          "evidence",
+          "priority",
+          "requirementId",
+          "stage",
+          "testIds",
+          "title"
+        ],
+        "actual": [
+          "codePaths",
+          "covered",
+          "evidence",
+          "priority",
+          "requirementId",
+          "stage",
+          "testIds",
+          "title"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      },
+      "summary": {
+        "docLines": "661",
+        "documented": [
+          "coverageRatio",
+          "covered",
+          "orphanTestIds",
+          "requirements",
+          "uncovered"
+        ],
+        "actual": [
+          "coverageRatio",
+          "covered",
+          "orphanTestIds",
+          "requirements",
+          "uncovered"
+        ],
+        "missing": [],
+        "extra": [],
+        "match": true
+      }
+    }
+  },
+  "realRunResult": {
+    "file": "verification-t9/artifacts-v9/ci-warmup.json",
+    "top": {
+      "docLines": "496-503",
+      "documented": [
+        "duration_ms",
+        "finished_at",
+        "gates",
+        "overall_passed",
+        "provider",
+        "run_id",
+        "started_at",
+        "version"
+      ],
+      "actual": [
+        "duration_ms",
+        "finished_at",
+        "gates",
+        "overall_passed",
+        "provider",
+        "run_id",
+        "started_at",
+        "version"
+      ],
+      "missing": [],
+      "extra": [],
+      "match": true
+    },
+    "provider": {
+      "docLines": "502",
+      "documented": [
+        "degraded",
+        "detail",
+        "type"
+      ],
+      "actual": [
+        "degraded",
+        "detail",
+        "type"
+      ],
+      "missing": [],
+      "extra": [],
+      "match": true
+    },
+    "gate": {
+      "docLines": "509-515",
+      "documented": [
+        "blockers",
+        "checks",
+        "humanGate",
+        "id",
+        "passed",
+        "required",
+        "stage"
+      ],
+      "actual": [
+        "blockers",
+        "checks",
+        "humanGate",
+        "id",
+        "passed",
+        "required",
+        "stage"
+      ],
+      "missing": [],
+      "extra": [],
+      "match": true
+    },
+    "humanGate": {
+      "docLines": "513",
+      "documented": [
+        "approvalRecord",
+        "approvalState",
+        "approvedAt",
+        "approvedBy",
+        "role"
+      ],
+      "actual": [],
+      "missing": [],
+      "extra": [],
+      "match": null,
+      "note": "not exercised in this run: no non-null humanGate object"
+    },
+    "blocker": {
+      "docLines": "521-524",
+      "documented": [
+        "checkId",
+        "evidence",
+        "message",
+        "severity"
+      ],
+      "actual": [
+        "checkId",
+        "evidence",
+        "message",
+        "severity"
+      ],
+      "missing": [],
+      "extra": [],
+      "match": true
+    },
+    "check": {
+      "docLines": "530-534",
+      "documented": [
+        "evidence",
+        "id",
+        "passed",
+        "severity",
+        "type"
+      ],
+      "actual": [
+        "evidence",
+        "id",
+        "passed",
+        "severity",
+        "type"
+      ],
+      "missing": [],
+      "extra": [],
+      "match": true
+    },
+    "evidence": {
+      "docLines": "544-546",
+      "documented": [
+        "excerpt",
+        "kind",
+        "path"
+      ],
+      "actual": [
+        "excerpt",
+        "kind",
+        "path"
+      ],
+      "missing": [],
+      "extra": [],
+      "match": true
+    },
+    "sampled": {
+      "gateCount": 5,
+      "blockerObjects": 1,
+      "checkObjects": 19,
+      "humanGateObjects": 0,
+      "evidenceObjects": 51
+    }
+  },
+  "realConfigs": [
+    {
+      "file": "demo/qgate.config.json",
+      "levels": {
+        "top": {
+          "docLines": "319-325",
+          "documented": [
+            "gates",
+            "grouping",
+            "policy",
+            "projectRoot",
+            "provider",
+            "selection",
+            "version"
+          ],
+          "actual": [
+            "gates",
+            "grouping",
+            "policy",
+            "projectRoot",
+            "provider",
+            "selection",
+            "version"
+          ],
+          "missing": [],
+          "extra": [],
+          "match": true
+        },
+        "provider": {
+          "docLines": "333-339",
+          "documented": [
+            "confidenceThreshold",
+            "endpoint",
+            "fixture",
+            "model",
+            "script",
+            "timeoutMs",
+            "type"
+          ],
+          "actual": [
+            "timeoutMs",
+            "type"
+          ],
+          "missing": [
+            "confidenceThreshold",
+            "endpoint",
+            "fixture",
+            "model",
+            "script"
+          ],
+          "extra": [],
+          "match": false
+        },
+        "policy": {
+          "docLines": "345-348",
+          "documented": [
+            "evidenceDir",
+            "failFast",
+            "reportDir",
+            "scanRoots"
+          ],
+          "actual": [
+            "evidenceDir",
+            "failFast",
+            "reportDir",
+            "scanRoots"
+          ],
+          "missing": [],
+          "extra": [],
+          "match": true
+        },
+        "selection": {
+          "docLines": "354-361",
+          "documented": [
+            "defaultExcludedPaths",
+            "exclude",
+            "extensions",
+            "include",
+            "maxFileSizeBytes",
+            "maxFilesPerGroup",
+            "ruleFile",
+            "tokenBudgetPerGroup"
+          ],
+          "actual": [
+            "defaultExcludedPaths",
+            "exclude",
+            "extensions",
+            "include",
+            "maxFileSizeBytes",
+            "maxFilesPerGroup",
+            "ruleFile",
+            "tokenBudgetPerGroup"
+          ],
+          "missing": [],
+          "extra": [],
+          "match": true
+        },
+        "grouping": {
+          "docLines": "367-369",
+          "documented": [
+            "maxFilesPerGroup",
+            "tokenBudgetPerGroup",
+            "tokensPerFile"
+          ],
+          "actual": [
+            "maxFilesPerGroup",
+            "tokenBudgetPerGroup",
+            "tokensPerFile"
+          ],
+          "missing": [],
+          "extra": [],
+          "match": true
+        },
+        "gate": {
+          "docLines": "375-379",
+          "documented": [
+            "checks",
+            "humanGate",
+            "id",
+            "required",
+            "stage"
+          ],
+          "actual": [
+            "checks",
+            "humanGate",
+            "id",
+            "required",
+            "stage"
+          ],
+          "missing": [],
+          "extra": [],
+          "match": true
+        },
+        "check": {
+          "docLines": "393-410",
+          "documented": [
+            "description",
+            "file",
+            "id",
+            "minCount",
+            "onFail",
+            "required",
+            "severity",
+            "type"
+          ],
+          "actual": [
+            "description",
+            "file",
+            "id",
+            "required",
+            "severity",
+            "type"
+          ],
+          "missing": [
+            "minCount",
+            "onFail"
+          ],
+          "extra": [],
+          "match": false
+        }
+      }
+    },
+    {
+      "file": "packages/qgate/test/_canonical-config.json",
+      "levels": {
+        "top": {
+          "docLines": "319-325",
+          "documented": [
+            "gates",
+            "grouping",
+            "policy",
+            "projectRoot",
+            "provider",
+            "selection",
+            "version"
+          ],
+          "actual": [
+            "gates",
+            "grouping",
+            "policy",
+            "projectRoot",
+            "provider",
+            "selection",
+            "version"
+          ],
+          "missing": [],
+          "extra": [],
+          "match": true
+        },
+        "provider": {
+          "docLines": "333-339",
+          "documented": [
+            "confidenceThreshold",
+            "endpoint",
+            "fixture",
+            "model",
+            "script",
+            "timeoutMs",
+            "type"
+          ],
+          "actual": [
+            "confidenceThreshold",
+            "fixture",
+            "timeoutMs",
+            "type"
+          ],
+          "missing": [
+            "endpoint",
+            "model",
+            "script"
+          ],
+          "extra": [],
+          "match": false
+        },
+        "policy": {
+          "docLines": "345-348",
+          "documented": [
+            "evidenceDir",
+            "failFast",
+            "reportDir",
+            "scanRoots"
+          ],
+          "actual": [
+            "evidenceDir",
+            "failFast",
+            "reportDir",
+            "scanRoots"
+          ],
+          "missing": [],
+          "extra": [],
+          "match": true
+        },
+        "selection": {
+          "docLines": "354-361",
+          "documented": [
+            "defaultExcludedPaths",
+            "exclude",
+            "extensions",
+            "include",
+            "maxFileSizeBytes",
+            "maxFilesPerGroup",
+            "ruleFile",
+            "tokenBudgetPerGroup"
+          ],
+          "actual": [
+            "defaultExcludedPaths",
+            "exclude",
+            "extensions",
+            "include",
+            "maxFileSizeBytes",
+            "maxFilesPerGroup",
+            "ruleFile",
+            "tokenBudgetPerGroup"
+          ],
+          "missing": [],
+          "extra": [],
+          "match": true
+        },
+        "grouping": {
+          "docLines": "367-369",
+          "documented": [
+            "maxFilesPerGroup",
+            "tokenBudgetPerGroup",
+            "tokensPerFile"
+          ],
+          "actual": [
+            "maxFilesPerGroup",
+            "tokenBudgetPerGroup",
+            "tokensPerFile"
+          ],
+          "missing": [],
+          "extra": [],
+          "match": true
+        },
+        "gate": {
+          "docLines": "375-379",
+          "documented": [
+            "checks",
+            "humanGate",
+            "id",
+            "required",
+            "stage"
+          ],
+          "actual": [
+            "checks",
+            "humanGate",
+            "id",
+            "required",
+            "stage"
+          ],
+          "missing": [],
+          "extra": [],
+          "match": true
+        },
+        "check": {
+          "docLines": "393-410",
+          "documented": [
+            "description",
+            "file",
+            "id",
+            "minCount",
+            "onFail",
+            "required",
+            "severity",
+            "type"
+          ],
+          "actual": [
+            "description",
+            "file",
+            "id",
+            "required",
+            "severity",
+            "type"
+          ],
+          "missing": [
+            "minCount",
+            "onFail"
+          ],
+          "extra": [],
+          "match": false
+        }
+      }
+    },
+    {
+      "file": "packages/qgate/examples/valid/five-stage.json",
+      "levels": {
+        "top": {
+          "docLines": "319-325",
+          "documented": [
+            "gates",
+            "grouping",
+            "policy",
+            "projectRoot",
+            "provider",
+            "selection",
+            "version"
+          ],
+          "actual": [
+            "gates",
+            "provider",
+            "version"
+          ],
+          "missing": [
+            "grouping",
+            "policy",
+            "projectRoot",
+            "selection"
+          ],
+          "extra": [],
+          "match": false
+        },
+        "provider": {
+          "docLines": "333-339",
+          "documented": [
+            "confidenceThreshold",
+            "endpoint",
+            "fixture",
+            "model",
+            "script",
+            "timeoutMs",
+            "type"
+          ],
+          "actual": [
+            "type"
+          ],
+          "missing": [
+            "confidenceThreshold",
+            "endpoint",
+            "fixture",
+            "model",
+            "script",
+            "timeoutMs"
+          ],
+          "extra": [],
+          "match": false
+        },
+        "policy": {
+          "docLines": "345-348",
+          "documented": [
+            "evidenceDir",
+            "failFast",
+            "reportDir",
+            "scanRoots"
+          ],
+          "actual": [],
+          "missing": [
+            "evidenceDir",
+            "failFast",
+            "reportDir",
+            "scanRoots"
+          ],
+          "extra": [],
+          "match": false
+        },
+        "selection": {
+          "docLines": "354-361",
+          "documented": [
+            "defaultExcludedPaths",
+            "exclude",
+            "extensions",
+            "include",
+            "maxFileSizeBytes",
+            "maxFilesPerGroup",
+            "ruleFile",
+            "tokenBudgetPerGroup"
+          ],
+          "actual": [],
+          "missing": [
+            "defaultExcludedPaths",
+            "exclude",
+            "extensions",
+            "include",
+            "maxFileSizeBytes",
+            "maxFilesPerGroup",
+            "ruleFile",
+            "tokenBudgetPerGroup"
+          ],
+          "extra": [],
+          "match": false
+        },
+        "grouping": {
+          "docLines": "367-369",
+          "documented": [
+            "maxFilesPerGroup",
+            "tokenBudgetPerGroup",
+            "tokensPerFile"
+          ],
+          "actual": [],
+          "missing": [
+            "maxFilesPerGroup",
+            "tokenBudgetPerGroup",
+            "tokensPerFile"
+          ],
+          "extra": [],
+          "match": false
+        },
+        "gate": {
+          "docLines": "375-379",
+          "documented": [
+            "checks",
+            "humanGate",
+            "id",
+            "required",
+            "stage"
+          ],
+          "actual": [
+            "checks",
+            "id",
+            "required",
+            "stage"
+          ],
+          "missing": [
+            "humanGate"
+          ],
+          "extra": [],
+          "match": false
+        },
+        "check": {
+          "docLines": "393-410",
+          "documented": [
+            "description",
+            "file",
+            "id",
+            "minCount",
+            "onFail",
+            "required",
+            "severity",
+            "type"
+          ],
+          "actual": [
+            "description",
+            "file",
+            "id",
+            "required",
+            "type"
+          ],
+          "missing": [
+            "minCount",
+            "onFail",
+            "severity"
+          ],
+          "extra": [],
+          "match": false
+        }
+      }
+    }
+  ],
+  "section91Approval": {
+    "documented": {
+      "lines": "894-901",
+      "fields": [
+        "schemaVersion",
+        "gateId",
+        "role",
+        "decision",
+        "approvedBy",
+        "approvedAt",
+        "claims",
+        "notes"
+      ]
+    },
+    "dedicatedSchemaFile": true,
+    "note": "schemas/README.md maps only config / run-result / evidence-ledger / trace-matrix; 閹?.1 approval.json therefore has no JSON Schema and is only checkable textually (plus the run-result humanGate approvedBy/approvedAt form)."
+  },
+  "mismatches": []
+}

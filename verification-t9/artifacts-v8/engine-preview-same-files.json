@@ -1,0 +1,308 @@
+{
+  "ok": true,
+  "degraded": false,
+  "root": "E:\\Desktop\\ai-quality-gate\\verification-t9\\artifacts\\preview-compare\\demo",
+  "selection": {
+    "included": [
+      "config/service-account.json",
+      "diff.json",
+      "ocr-review.sample.json",
+      "rule.json",
+      "src/chain/chain.test.mjs",
+      "src/chain/user-handler.mjs",
+      "src/chain/user-mapper.mjs",
+      "src/chain/user-repository.mjs",
+      "src/chain/user-service.mjs",
+      "src/reader/reader-part-1.mjs",
+      "src/reader/reader-part-2.mjs",
+      "src/reader/reader-part-3.mjs",
+      "src/reader/reader-part-4.mjs",
+      "src/reader/reader-part-5.mjs",
+      "src/reader/reader-part-6.mjs",
+      "src/reader/reader-part-7.mjs",
+      "src/reader/reader-part-8.mjs",
+      "src/util/format.mjs",
+      "verifier-engine-rule.json"
+    ],
+    "excluded": [
+      {
+        "path": ".env.production",
+        "reason": "secret_path",
+        "rule": "secret-env",
+        "stage": "secret_path"
+      },
+      {
+        "path": ".opencodereview/secrets/db-password.txt",
+        "reason": "secret_path",
+        "rule": "secret-dir",
+        "stage": "secret_path"
+      },
+      {
+        "path": "assets/logo.png",
+        "reason": "binary",
+        "rule": "extension:.png",
+        "stage": "binary"
+      },
+      {
+        "path": "config/tls/server.pem",
+        "reason": "secret_path",
+        "rule": "secret-pem",
+        "stage": "secret_path"
+      },
+      {
+        "path": "dist/bundle.js",
+        "reason": "default_excluded_path",
+        "rule": "builtin:dist",
+        "stage": "default_excluded_path"
+      },
+      {
+        "path": "node_modules/left-pad/index.js",
+        "reason": "default_excluded_path",
+        "rule": "builtin:node_modules",
+        "stage": "default_excluded_path"
+      },
+      {
+        "path": "src/chain/id_rsa",
+        "reason": "secret_path",
+        "rule": "secret-rsa",
+        "stage": "secret_path"
+      },
+      {
+        "path": "src/chain/user-handler.mjs.bak",
+        "reason": "extension",
+        "rule": "extensions:.bak",
+        "stage": "extension"
+      }
+    ]
+  },
+  "groups": [
+    {
+      "id": "g1",
+      "files": [
+        "config/service-account.json",
+        "diff.json",
+        "ocr-review.sample.json",
+        "rule.json",
+        "src/chain/chain.test.mjs",
+        "src/chain/user-handler.mjs",
+        "src/chain/user-mapper.mjs",
+        "src/chain/user-repository.mjs",
+        "src/chain/user-service.mjs",
+        "src/reader/reader-part-1.mjs"
+      ],
+      "downgraded": false,
+      "tokens": 2045
+    },
+    {
+      "id": "g2",
+      "files": [
+        "src/reader/reader-part-2.mjs",
+        "src/reader/reader-part-3.mjs",
+        "src/reader/reader-part-4.mjs",
+        "src/reader/reader-part-5.mjs",
+        "src/reader/reader-part-6.mjs",
+        "src/reader/reader-part-7.mjs",
+        "src/reader/reader-part-8.mjs",
+        "src/util/format.mjs",
+        "verifier-engine-rule.json"
+      ],
+      "downgraded": false,
+      "tokens": 759
+    }
+  ],
+  "ruleMatch": [
+    {
+      "file": "config/service-account.json",
+      "ruleSource": "builtin",
+      "ruleId": "builtin-config",
+      "match": "**/*.json",
+      "severity": "low",
+      "category": "config",
+      "priority": 3
+    },
+    {
+      "file": "diff.json",
+      "ruleSource": "builtin",
+      "ruleId": "builtin-config",
+      "match": "**/*.json",
+      "severity": "low",
+      "category": "config",
+      "priority": 3
+    },
+    {
+      "file": "ocr-review.sample.json",
+      "ruleSource": "builtin",
+      "ruleId": "builtin-config",
+      "match": "**/*.json",
+      "severity": "low",
+      "category": "config",
+      "priority": 3
+    },
+    {
+      "file": "rule.json",
+      "ruleSource": "builtin",
+      "ruleId": "builtin-config",
+      "match": "**/*.json",
+      "severity": "low",
+      "category": "config",
+      "priority": 3
+    },
+    {
+      "file": "src/chain/chain.test.mjs",
+      "ruleSource": "--rule",
+      "ruleId": "vfy-cli-src",
+      "match": "src/**/*.mjs",
+      "severity": "high",
+      "category": "verifier-compare",
+      "priority": 0
+    },
+    {
+      "file": "src/chain/user-handler.mjs",
+      "ruleSource": "--rule",
+      "ruleId": "vfy-cli-src",
+      "match": "src/**/*.mjs",
+      "severity": "high",
+      "category": "verifier-compare",
+      "priority": 0
+    },
+    {
+      "file": "src/chain/user-mapper.mjs",
+      "ruleSource": "--rule",
+      "ruleId": "vfy-cli-src",
+      "match": "src/**/*.mjs",
+      "severity": "high",
+      "category": "verifier-compare",
+      "priority": 0
+    },
+    {
+      "file": "src/chain/user-repository.mjs",
+      "ruleSource": "--rule",
+      "ruleId": "vfy-cli-src",
+      "match": "src/**/*.mjs",
+      "severity": "high",
+      "category": "verifier-compare",
+      "priority": 0
+    },
+    {
+      "file": "src/chain/user-service.mjs",
+      "ruleSource": "--rule",
+      "ruleId": "vfy-cli-src",
+      "match": "src/**/*.mjs",
+      "severity": "high",
+      "category": "verifier-compare",
+      "priority": 0
+    },
+    {
+      "file": "src/reader/reader-part-1.mjs",
+      "ruleSource": "--rule",
+      "ruleId": "vfy-cli-src",
+      "match": "src/**/*.mjs",
+      "severity": "high",
+      "category": "verifier-compare",
+      "priority": 0
+    },
+    {
+      "file": "src/reader/reader-part-2.mjs",
+      "ruleSource": "--rule",
+      "ruleId": "vfy-cli-src",
+      "match": "src/**/*.mjs",
+      "severity": "high",
+      "category": "verifier-compare",
+      "priority": 0
+    },
+    {
+      "file": "src/reader/reader-part-3.mjs",
+      "ruleSource": "--rule",
+      "ruleId": "vfy-cli-src",
+      "match": "src/**/*.mjs",
+      "severity": "high",
+      "category": "verifier-compare",
+      "priority": 0
+    },
+    {
+      "file": "src/reader/reader-part-4.mjs",
+      "ruleSource": "--rule",
+      "ruleId": "vfy-cli-src",
+      "match": "src/**/*.mjs",
+      "severity": "high",
+      "category": "verifier-compare",
+      "priority": 0
+    },
+    {
+      "file": "src/reader/reader-part-5.mjs",
+      "ruleSource": "--rule",
+      "ruleId": "vfy-cli-src",
+      "match": "src/**/*.mjs",
+      "severity": "high",
+      "category": "verifier-compare",
+      "priority": 0
+    },
+    {
+      "file": "src/reader/reader-part-6.mjs",
+      "ruleSource": "--rule",
+      "ruleId": "vfy-cli-src",
+      "match": "src/**/*.mjs",
+      "severity": "high",
+      "category": "verifier-compare",
+      "priority": 0
+    },
+    {
+      "file": "src/reader/reader-part-7.mjs",
+      "ruleSource": "--rule",
+      "ruleId": "vfy-cli-src",
+      "match": "src/**/*.mjs",
+      "severity": "high",
+      "category": "verifier-compare",
+      "priority": 0
+    },
+    {
+      "file": "src/reader/reader-part-8.mjs",
+      "ruleSource": "--rule",
+      "ruleId": "vfy-cli-src",
+      "match": "src/**/*.mjs",
+      "severity": "high",
+      "category": "verifier-compare",
+      "priority": 0
+    },
+    {
+      "file": "src/util/format.mjs",
+      "ruleSource": "--rule",
+      "ruleId": "vfy-cli-src",
+      "match": "src/**/*.mjs",
+      "severity": "high",
+      "category": "verifier-compare",
+      "priority": 0
+    },
+    {
+      "file": "verifier-engine-rule.json",
+      "ruleSource": "builtin",
+      "ruleId": "builtin-config",
+      "match": "**/*.json",
+      "severity": "low",
+      "category": "config",
+      "priority": 3
+    }
+  ],
+  "rules": {
+    "sources": [
+      {
+        "source": "--rule",
+        "path": "verifier-engine-rule.json",
+        "pathKind": "file",
+        "rules": 1
+      },
+      {
+        "source": "builtin",
+        "path": "builtin:qgate",
+        "pathKind": "pseudo",
+        "rules": 5
+      }
+    ],
+    "projectPath": ".opencodereview/rule.json",
+    "note": "pathKind=\"pseudo\" marks the built-in layer: its rules are engine constants, not a file, so `path` is an identifier rather than a resolvable location"
+  },
+  "invariants": {
+    "secretPathsSelected": [],
+    "ocrAvailable": false
+  }
+}

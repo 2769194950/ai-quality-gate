@@ -1,0 +1,279 @@
+{
+  "schemaVersion": "1.0",
+  "generated_by": "architect",
+  "source": "docs/00-requirements.md",
+  "pipeline": [
+    "requirements",
+    "design",
+    "build",
+    "review",
+    "verify"
+  ],
+  "humanGates": [
+    {
+      "gateId": "req-to-design",
+      "from": "requirements",
+      "to": "design",
+      "role": "product"
+    },
+    {
+      "gateId": "design-to-build",
+      "from": "design",
+      "to": "build",
+      "role": "architect"
+    },
+    {
+      "gateId": "review-to-verify",
+      "from": "review",
+      "to": "verify",
+      "role": "reviewer"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-QUALITY-GATE-001",
+      "priority": "P0",
+      "testIds": [
+        "T-QG-001"
+      ],
+      "stage": [
+        "requirements",
+        "design",
+        "build",
+        "review",
+        "verify"
+      ],
+      "codePaths": [
+        "packages/qgate/src/pipeline.mjs",
+        "packages/qgate/gates/contract.json"
+      ]
+    },
+    {
+      "id": "REQ-QUALITY-GATE-002",
+      "priority": "P0",
+      "testIds": [
+        "T-QG-002"
+      ],
+      "stage": [
+        "build"
+      ],
+      "codePaths": [
+        "packages/qgate/src/config.mjs",
+        "packages/qgate/examples/invalid/"
+      ]
+    },
+    {
+      "id": "REQ-QUALITY-GATE-003",
+      "priority": "P0",
+      "testIds": [
+        "T-QG-003"
+      ],
+      "stage": [
+        "build"
+      ],
+      "codePaths": [
+        "packages/qgate/src/checks/",
+        "packages/qgate/test/pipeline-and-checks.test.mjs"
+      ]
+    },
+    {
+      "id": "REQ-QUALITY-GATE-004",
+      "priority": "P0",
+      "testIds": [
+        "T-QG-004"
+      ],
+      "stage": [
+        "build"
+      ],
+      "codePaths": [
+        "packages/qgate/src/core.mjs",
+        "packages/qgate/test/config-and-run-result.test.mjs",
+        "packages/qgate/test/robustness.test.mjs"
+      ]
+    },
+    {
+      "id": "REQ-QUALITY-GATE-005",
+      "priority": "P0",
+      "testIds": [
+        "T-QG-005"
+      ],
+      "stage": [
+        "verify"
+      ],
+      "codePaths": [
+        "packages/qgate/src/ledger.mjs",
+        "packages/qgate/test/pipeline-and-checks.test.mjs"
+      ]
+    },
+    {
+      "id": "REQ-QUALITY-GATE-006",
+      "priority": "P0",
+      "testIds": [
+        "T-QG-006"
+      ],
+      "stage": [
+        "verify"
+      ],
+      "codePaths": [
+        "packages/qgate/src/trace.mjs",
+        "packages/qgate/test/pipeline-and-checks.test.mjs"
+      ]
+    },
+    {
+      "id": "REQ-QUALITY-GATE-007",
+      "priority": "P1",
+      "testIds": [
+        "T-QG-007"
+      ],
+      "stage": [
+        "verify"
+      ],
+      "codePaths": [
+        "packages/qgate/src/evidence.mjs"
+      ],
+      "covered": true
+    },
+    {
+      "id": "REQ-QUALITY-GATE-008",
+      "priority": "P0",
+      "testIds": [
+        "T-QG-008"
+      ],
+      "stage": [
+        "requirements",
+        "design",
+        "review"
+      ],
+      "codePaths": [
+        "packages/qgate/src/human-gate.mjs",
+        "packages/qgate/test/acceptance.test.mjs"
+      ]
+    },
+    {
+      "id": "REQ-QUALITY-GATE-009",
+      "priority": "P0",
+      "testIds": [
+        "T-QG-009"
+      ],
+      "stage": [
+        "requirements",
+        "design",
+        "build",
+        "review",
+        "verify"
+      ],
+      "codePaths": [
+        "packages/qgate/test/acceptance.test.mjs"
+      ],
+      "verificationArtifact": "verification/end-to-end.json（由 t24 独立复验产出，非 architect 创建）"
+    },
+    {
+      "id": "REQ-QUALITY-GATE-010",
+      "priority": "P0",
+      "testIds": [
+        "T-QG-010"
+      ],
+      "stage": [
+        "build",
+        "verify"
+      ],
+      "codePaths": [
+        "packages/qgate/package.json",
+        "packages/qgate/test/acceptance.test.mjs",
+        "packages/qgate/test/robustness.test.mjs"
+      ]
+    },
+    {
+      "id": "REQ-QUALITY-GATE-011",
+      "priority": "P0",
+      "testIds": [
+        "T-QG-011"
+      ],
+      "stage": [
+        "build"
+      ],
+      "codePaths": [
+        "packages/qgate/bin/qgate.mjs",
+        "packages/qgate/test/acceptance.test.mjs"
+      ]
+    },
+    {
+      "id": "REQ-QUALITY-GATE-012",
+      "priority": "P0",
+      "testIds": [
+        "T-QG-012"
+      ],
+      "stage": [
+        "design",
+        "build"
+      ],
+      "codePaths": [
+        "adapters/opencodereview/src/",
+        "adapters/opencodereview/bin/ocr-preview.mjs"
+      ]
+    },
+    {
+      "id": "REQ-QUALITY-GATE-013",
+      "priority": "P1",
+      "testIds": [
+        "T-QG-013"
+      ],
+      "stage": [
+        "review"
+      ],
+      "codePaths": [
+        "packages/qgate/examples/severity-mix.json",
+        "packages/qgate/test/acceptance.test.mjs"
+      ]
+    },
+    {
+      "id": "REQ-QUALITY-GATE-014",
+      "priority": "P1",
+      "testIds": [
+        "T-QG-014"
+      ],
+      "stage": [
+        "build",
+        "verify"
+      ],
+      "codePaths": [
+        "packages/qgate/src/providers/",
+        "packages/qgate/test/acceptance.test.mjs"
+      ]
+    },
+    {
+      "id": "REQ-QUALITY-GATE-015",
+      "priority": "P1",
+      "testIds": [
+        "T-QG-015"
+      ],
+      "stage": [
+        "requirements",
+        "design",
+        "build",
+        "review",
+        "verify"
+      ],
+      "codePaths": [
+        ".github/workflows/quality-gate.yml"
+      ],
+      "covered": true
+    },
+    {
+      "id": "REQ-QUALITY-GATE-016",
+      "priority": "P1",
+      "testIds": [
+        "T-QG-016"
+      ],
+      "stage": [
+        "requirements",
+        "design",
+        "review"
+      ],
+      "codePaths": [
+        "packages/qgate/src/human-gate.mjs",
+        "packages/qgate/test/acceptance.test.mjs"
+      ]
+    }
+  ]
+}

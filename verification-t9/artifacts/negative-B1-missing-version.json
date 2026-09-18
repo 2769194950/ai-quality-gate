@@ -1,0 +1,16 @@
+﻿{
+  "ok": false,
+  "error": {
+    "code": "CONFIG_INVALID",
+    "message": "configuration is not valid: version must be the literal \"1.0\"",
+    "jsonPointer": "/version",
+    "details": [
+      {
+        "jsonPointer": "/version",
+        "expected": "\"1.0\"",
+        "actual": "undefined",
+        "message": "version must be the literal \"1.0\""
+      }
+    ]
+  }
+}

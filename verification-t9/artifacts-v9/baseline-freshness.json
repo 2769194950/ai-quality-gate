@@ -1,0 +1,121 @@
+{
+  "current_tree_fingerprint": "efbe6e05344ad9c37616729eb3049c3f43e8556af3be27c78d844a1794efb44d",
+  "current_file_count": 153,
+  "pointer_files": 6,
+  "authoritative_pointers": 1,
+  "fresh": 1,
+  "superseded": 5,
+  "stale": 0,
+  "tampered": 0,
+  "count_drift": 0,
+  "stale_files": [],
+  "tampered_files": [],
+  "count_drift_files": [],
+  "rows": [
+    {
+      "evidence": "verification-t9/artifacts-v3/adapter-suite.txt",
+      "name": "adapter-suite-baseline",
+      "declared_status": "SUPERSEDED",
+      "status": "SUPERSEDED",
+      "recorded_tree_fingerprint": "91c689dd0577f46ade5373aff9554fbc4d2c38f7b76b4e02198b91a5dde67624",
+      "current_tree_fingerprint": "efbe6e05344ad9c37616729eb3049c3f43e8556af3be27c78d844a1794efb44d",
+      "fingerprint_fresh": false,
+      "content_sha256_ok": true,
+      "counts": null,
+      "countsMatch": null,
+      "record_command": "node adapters/opencodereview/tools/run-tests.mjs",
+      "record_at_utc": "2026-09-18T02:35:18Z",
+      "supersedes_note": "historical snapshot (quoted by report-v3); converted to pointer+hash in t60/X1 WITHOUT re-running: payload bytes unchanged. Recorded at the t55 revision 91c689dd... (11 files / 109 tests). Superseded by verification-t9/artifacts-v8/adapter-suite.txt (14 files / 131 tests)."
+    },
+    {
+      "evidence": "verification-t9/artifacts-v4/adapter-suite.txt",
+      "name": "adapter-suite-baseline",
+      "declared_status": "SUPERSEDED",
+      "status": "SUPERSEDED",
+      "recorded_tree_fingerprint": "91c689dd0577f46ade5373aff9554fbc4d2c38f7b76b4e02198b91a5dde67624",
+      "current_tree_fingerprint": "efbe6e05344ad9c37616729eb3049c3f43e8556af3be27c78d844a1794efb44d",
+      "fingerprint_fresh": false,
+      "content_sha256_ok": true,
+      "counts": null,
+      "countsMatch": null,
+      "record_command": "node adapters/opencodereview/tools/run-tests.mjs",
+      "record_at_utc": "2026-09-18T02:35:18Z",
+      "supersedes_note": "historical snapshot (quoted by report-v4); converted to pointer+hash in t60/X1 WITHOUT re-running: payload bytes unchanged. Recorded at the t55 revision 91c689dd... (11 files / 109 tests). Superseded by verification-t9/artifacts-v8/adapter-suite.txt (14 files / 131 tests)."
+    },
+    {
+      "evidence": "verification-t9/artifacts-v6/adapter-suite.txt",
+      "name": "adapter-suite-baseline",
+      "declared_status": "SUPERSEDED",
+      "status": "SUPERSEDED",
+      "recorded_tree_fingerprint": "91c689dd0577f46ade5373aff9554fbc4d2c38f7b76b4e02198b91a5dde67624",
+      "current_tree_fingerprint": "efbe6e05344ad9c37616729eb3049c3f43e8556af3be27c78d844a1794efb44d",
+      "fingerprint_fresh": false,
+      "content_sha256_ok": true,
+      "counts": null,
+      "countsMatch": null,
+      "record_command": "node adapters/opencodereview/tools/run-tests.mjs",
+      "record_at_utc": "2026-09-18T02:35:18Z",
+      "supersedes_note": "historical snapshot (quoted by report-v6); converted to pointer+hash in t60/X1 WITHOUT re-running: payload bytes unchanged. Recorded at the t55 revision 91c689dd... (11 files / 109 tests). Superseded by verification-t9/artifacts-v8/adapter-suite.txt (14 files / 131 tests)."
+    },
+    {
+      "evidence": "verification-t9/artifacts-v7/adapter-suite.txt",
+      "name": "adapter-suite-baseline",
+      "declared_status": "SUPERSEDED",
+      "status": "SUPERSEDED",
+      "recorded_tree_fingerprint": "91c689dd0577f46ade5373aff9554fbc4d2c38f7b76b4e02198b91a5dde67624",
+      "current_tree_fingerprint": "efbe6e05344ad9c37616729eb3049c3f43e8556af3be27c78d844a1794efb44d",
+      "fingerprint_fresh": false,
+      "content_sha256_ok": true,
+      "counts": null,
+      "countsMatch": null,
+      "record_command": "node adapters/opencodereview/tools/run-tests.mjs",
+      "record_at_utc": "2026-09-18T02:35:09Z",
+      "supersedes_note": "historical snapshot (quoted by report-v7); converted to pointer+hash in t60/X1 WITHOUT re-running: payload bytes unchanged. Recorded at the t55 revision 91c689dd... (11 files / 109 tests). Superseded by verification-t9/artifacts-v8/adapter-suite.txt (14 files / 131 tests)."
+    },
+    {
+      "evidence": "verification-t9/artifacts-v8/adapter-suite.txt",
+      "name": "adapter-suite-baseline",
+      "declared_status": "RECORDED",
+      "status": "FRESH",
+      "recorded_tree_fingerprint": "efbe6e05344ad9c37616729eb3049c3f43e8556af3be27c78d844a1794efb44d",
+      "current_tree_fingerprint": "efbe6e05344ad9c37616729eb3049c3f43e8556af3be27c78d844a1794efb44d",
+      "fingerprint_fresh": true,
+      "content_sha256_ok": true,
+      "counts": {
+        "expected": {
+          "testFiles": 15,
+          "tests": 145,
+          "pass": 145,
+          "fail": 0,
+          "exit_code": 0
+        },
+        "actual": {
+          "testFiles": 15,
+          "tests": 145,
+          "pass": 145,
+          "fail": 0,
+          "exit_code": 0
+        }
+      },
+      "countsMatch": true,
+      "record_command": "node adapters/opencodereview/tools/run-tests.mjs",
+      "record_at_utc": "2026-09-18T04:02:42.881Z",
+      "supersedes_note": "t68/W1 final re-record. previous authoritative value: 92d56be6 (t66/Z1) collapsed to STALE by t67's two cwd/path fixes; counts unchanged at 15 files / 145 cases because t67 fixed tests, not counts"
+    },
+    {
+      "evidence": "verification-t9/artifacts/adapter-suite.txt",
+      "name": "adapter-suite-baseline",
+      "declared_status": "SUPERSEDED",
+      "status": "SUPERSEDED",
+      "recorded_tree_fingerprint": "91c689dd0577f46ade5373aff9554fbc4d2c38f7b76b4e02198b91a5dde67624",
+      "current_tree_fingerprint": "efbe6e05344ad9c37616729eb3049c3f43e8556af3be27c78d844a1794efb44d",
+      "fingerprint_fresh": false,
+      "content_sha256_ok": true,
+      "counts": null,
+      "countsMatch": null,
+      "record_command": "node adapters/opencodereview/tools/run-tests.mjs",
+      "record_at_utc": "2026-09-18T02:35:18Z",
+      "supersedes_note": "historical snapshot (quoted by report-v3); converted to pointer+hash in t60/X1 WITHOUT re-running: payload bytes unchanged. Recorded at the t55 revision 91c689dd... (11 files / 109 tests). Superseded by verification-t9/artifacts-v8/adapter-suite.txt (14 files / 131 tests)."
+    }
+  ]
+}

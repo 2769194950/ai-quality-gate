@@ -1,0 +1,408 @@
+{
+  "schemaVersion": "1.0",
+  "generated_at": "2026-09-17T20:02:48.959Z",
+  "generated_by": "qgate trace",
+  "run_id": "2026-09-17T20-02-48.446Z-3a445c86",
+  "pipeline": [
+    "requirements",
+    "design",
+    "build",
+    "review",
+    "verify"
+  ],
+  "summary": {
+    "requirements": 16,
+    "covered": 16,
+    "uncovered": 0,
+    "orphanTestIds": 0,
+    "coverageRatio": 1
+  },
+  "requirements": [
+    {
+      "requirementId": "REQ-QUALITY-GATE-001",
+      "title": "门禁契约引擎必须按有序阶段执行",
+      "priority": "P0",
+      "stage": [
+        "requirements",
+        "design",
+        "build",
+        "review",
+        "verify"
+      ],
+      "testIds": [
+        "T-QG-001"
+      ],
+      "codePaths": [
+        "packages/qgate/src/pipeline.mjs",
+        "packages/qgate/gates/contract.json"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": "verification-t9/artifacts-v4/ci-scratch/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-001@2026-09-17T20-02-48.446Z-3a445c86"
+        }
+      ]
+    },
+    {
+      "requirementId": "REQ-QUALITY-GATE-002",
+      "title": "配置 schema 必须被严格校验并以退出码 2 失败",
+      "priority": "P0",
+      "stage": [
+        "build"
+      ],
+      "testIds": [
+        "T-QG-002"
+      ],
+      "codePaths": [
+        "packages/qgate/src/config.mjs",
+        "packages/qgate/examples/invalid/"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": "verification-t9/artifacts-v4/ci-scratch/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-002@2026-09-17T20-02-48.446Z-3a445c86"
+        }
+      ]
+    },
+    {
+      "requirementId": "REQ-QUALITY-GATE-003",
+      "title": "七类 check 语义必须完整且与字段表一致",
+      "priority": "P0",
+      "stage": [
+        "build"
+      ],
+      "testIds": [
+        "T-QG-003"
+      ],
+      "codePaths": [
+        "packages/qgate/src/checks/",
+        "packages/qgate/test/pipeline-and-checks.test.mjs"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": "verification-t9/artifacts-v4/ci-scratch/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-003@2026-09-17T20-02-48.446Z-3a445c86"
+        }
+      ]
+    },
+    {
+      "requirementId": "REQ-QUALITY-GATE-004",
+      "title": "RunResult 必须逐字段与冻结 schema 一致",
+      "priority": "P0",
+      "stage": [
+        "build"
+      ],
+      "testIds": [
+        "T-QG-004"
+      ],
+      "codePaths": [
+        "packages/qgate/src/core.mjs",
+        "packages/qgate/test/config-and-run-result.test.mjs",
+        "packages/qgate/test/robustness.test.mjs"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": "verification-t9/artifacts-v4/ci-scratch/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-004@2026-09-17T20-02-48.446Z-3a445c86"
+        }
+      ]
+    },
+    {
+      "requirementId": "REQ-QUALITY-GATE-005",
+      "title": "证据账本必须只追加、可复算、可复现",
+      "priority": "P0",
+      "stage": [
+        "verify"
+      ],
+      "testIds": [
+        "T-QG-005"
+      ],
+      "codePaths": [
+        "packages/qgate/src/ledger.mjs",
+        "packages/qgate/test/pipeline-and-checks.test.mjs"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": "verification-t9/artifacts-v4/ci-scratch/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-005@2026-09-17T20-02-48.446Z-3a445c86"
+        }
+      ]
+    },
+    {
+      "requirementId": "REQ-QUALITY-GATE-006",
+      "title": "追踪矩阵必须双向覆盖且无孤儿",
+      "priority": "P0",
+      "stage": [
+        "verify"
+      ],
+      "testIds": [
+        "T-QG-006"
+      ],
+      "codePaths": [
+        "packages/qgate/src/trace.mjs",
+        "packages/qgate/test/pipeline-and-checks.test.mjs"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": "verification-t9/artifacts-v4/ci-scratch/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-006@2026-09-17T20-02-48.446Z-3a445c86"
+        }
+      ]
+    },
+    {
+      "requirementId": "REQ-QUALITY-GATE-007",
+      "title": "证据链可审计：evidence 引用必须可解析",
+      "priority": "P1",
+      "stage": [
+        "verify"
+      ],
+      "testIds": [
+        "T-QG-007"
+      ],
+      "codePaths": [
+        "packages/qgate/src/evidence.mjs"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": "verification-t9/artifacts-v4/ci-scratch/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-007@2026-09-17T20-02-48.446Z-3a445c86"
+        }
+      ]
+    },
+    {
+      "requirementId": "REQ-QUALITY-GATE-008",
+      "title": "人类门禁必须是硬阻断且最多 3 处",
+      "priority": "P0",
+      "stage": [
+        "requirements",
+        "design",
+        "review"
+      ],
+      "testIds": [
+        "T-QG-008"
+      ],
+      "codePaths": [
+        "packages/qgate/src/human-gate.mjs",
+        "packages/qgate/test/acceptance.test.mjs"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": "verification-t9/artifacts-v4/ci-scratch/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-008@2026-09-17T20-02-48.446Z-3a445c86"
+        }
+      ]
+    },
+    {
+      "requirementId": "REQ-QUALITY-GATE-009",
+      "title": "五阶段流水线必须被演示仓库端到端贯通",
+      "priority": "P0",
+      "stage": [
+        "requirements",
+        "design",
+        "build",
+        "review",
+        "verify"
+      ],
+      "testIds": [
+        "T-QG-009"
+      ],
+      "codePaths": [
+        "packages/qgate/test/acceptance.test.mjs"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": "verification-t9/artifacts-v4/ci-scratch/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-009@2026-09-17T20-02-48.446Z-3a445c86"
+        }
+      ]
+    },
+    {
+      "requirementId": "REQ-QUALITY-GATE-010",
+      "title": "零依赖、离线、确定性",
+      "priority": "P0",
+      "stage": [
+        "build",
+        "verify"
+      ],
+      "testIds": [
+        "T-QG-010"
+      ],
+      "codePaths": [
+        "packages/qgate/package.json",
+        "packages/qgate/test/acceptance.test.mjs",
+        "packages/qgate/test/robustness.test.mjs"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": "verification-t9/artifacts-v4/ci-scratch/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-010@2026-09-17T20-02-48.446Z-3a445c86"
+        }
+      ]
+    },
+    {
+      "requirementId": "REQ-QUALITY-GATE-011",
+      "title": "CLI 契约与退出码必须精确一致",
+      "priority": "P0",
+      "stage": [
+        "build"
+      ],
+      "testIds": [
+        "T-QG-011"
+      ],
+      "codePaths": [
+        "packages/qgate/bin/qgate.mjs",
+        "packages/qgate/test/acceptance.test.mjs"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": "verification-t9/artifacts-v4/ci-scratch/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-011@2026-09-17T20-02-48.446Z-3a445c86"
+        }
+      ]
+    },
+    {
+      "requirementId": "REQ-QUALITY-GATE-012",
+      "title": "OCR 适配层必须 100% 离线且不可重新纳入敏感路径",
+      "priority": "P0",
+      "stage": [
+        "design",
+        "build"
+      ],
+      "testIds": [
+        "T-QG-012"
+      ],
+      "codePaths": [
+        "adapters/opencodereview/src/",
+        "adapters/opencodereview/bin/ocr-preview.mjs"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": "verification-t9/artifacts-v4/ci-scratch/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-012@2026-09-17T20-02-48.446Z-3a445c86"
+        }
+      ]
+    },
+    {
+      "requirementId": "REQ-QUALITY-GATE-013",
+      "title": "反馈闭环与 finding 分级必须可判定",
+      "priority": "P1",
+      "stage": [
+        "review"
+      ],
+      "testIds": [
+        "T-QG-013"
+      ],
+      "codePaths": [
+        "packages/qgate/examples/severity-mix.json",
+        "packages/qgate/test/acceptance.test.mjs"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": "verification-t9/artifacts-v4/ci-scratch/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-013@2026-09-17T20-02-48.446Z-3a445c86"
+        }
+      ]
+    },
+    {
+      "requirementId": "REQ-QUALITY-GATE-014",
+      "title": "provider 可替换，确定性 provider 由离线 fixture 驱动",
+      "priority": "P1",
+      "stage": [
+        "build",
+        "verify"
+      ],
+      "testIds": [
+        "T-QG-014"
+      ],
+      "codePaths": [
+        "packages/qgate/src/providers/",
+        "packages/qgate/test/acceptance.test.mjs"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": "verification-t9/artifacts-v4/ci-scratch/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-014@2026-09-17T20-02-48.446Z-3a445c86"
+        }
+      ]
+    },
+    {
+      "requirementId": "REQ-QUALITY-GATE-015",
+      "title": "CI 模板必须可离线执行并映射到门禁",
+      "priority": "P1",
+      "stage": [
+        "requirements",
+        "design",
+        "build",
+        "review",
+        "verify"
+      ],
+      "testIds": [
+        "T-QG-015"
+      ],
+      "codePaths": [
+        ".github/workflows/quality-gate.yml"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": "verification-t9/artifacts-v4/ci-scratch/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-015@2026-09-17T20-02-48.446Z-3a445c86"
+        }
+      ]
+    },
+    {
+      "requirementId": "REQ-QUALITY-GATE-016",
+      "title": "人类门禁的审批语义必须显式且可配置",
+      "priority": "P1",
+      "stage": [
+        "requirements",
+        "design",
+        "review"
+      ],
+      "testIds": [
+        "T-QG-016"
+      ],
+      "codePaths": [
+        "packages/qgate/src/human-gate.mjs",
+        "packages/qgate/test/acceptance.test.mjs"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": "verification-t9/artifacts-v4/ci-scratch/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-016@2026-09-17T20-02-48.446Z-3a445c86"
+        }
+      ]
+    }
+  ]
+}

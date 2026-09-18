@@ -1,0 +1,20 @@
+node : qgate check: config=qgate.config.json root=E:\Desktop\ai-quality-gate
+At line:5 char:10
++   $out = node packages/qgate/bin/qgate.mjs check --config qgate.confi ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (qgate check: co...ai-quality-gate:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+qgate check: overall_passed=true run_id=2026-09-18T03-01-00.793Z-499a41fd
+stage        | gate                 | required | passed | blockers | checks
+-------------|----------------------|----------|--------|----------|-------
+requirements | req-spec             | true     | true   | 0        | 4
+
+overall_passed=true run_id=2026-09-18T03-01-00.793Z-499a41fd provider=deterministic
+  not-run design/interface-frozen: excluded by the --stage/--gate filter
+  not-run build/build-deterministic: excluded by the --stage/--gate filter
+  not-run review/review-counterexample: excluded by the --stage/--gate filter
+  not-run verify/verify-coverage: excluded by the --stage/--gate filter
+approvals_missing=3 human gate(s) not configured
+ledger=verification/evidence/ledger-2026-09-18T03-01-00.793Z-499a41fd.json
+ledger-index=verification/evidence/ledger-index.json

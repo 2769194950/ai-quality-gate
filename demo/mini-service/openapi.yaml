@@ -1,0 +1,110 @@
+openapi: 3.0.3
+info:
+  title: mini-service payment intents
+  version: 1.0.0
+  description: |
+    Frozen interface contract for the qgate five-stage demo repository.
+    Offline fixture: no server is required and no credential is referenced.
+servers:
+  - url: https://example.invalid
+paths:
+  /v1/payment-intents:
+    post:
+      operationId: createPaymentIntent
+      summary: Idempotent payment intent intake (REQ-DEMO-001)
+      parameters:
+        - name: Idempotency-Key
+          in: header
+          required: true
+          schema:
+            type: string
+            minLength: 8
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentIntentRequest'
+      responses:
+        '201':
+          description: Created (or the previously created intent for this key)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentIntentResponse'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    get:
+      operationId: getPaymentIntent
+      summary: Read one payment intent by id
+      parameters:
+        - name: requestId
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The payment intent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentIntentResponse'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    PaymentIntentRequest:
+      type: object
+      required: [requestId, amount, currency]
+      properties:
+        requestId:
+          type: string
+          description: Client-side correlation identifier (REQ-DEMO-002)
+        amount:
+          type: integer
+          format: int64
+          minimum: 1
+          description: Amount in minor units, integer only (REQ-DEMO-003)
+        currency:
+          type: string
+          pattern: '^[A-Z]{3}$'
+          description: ISO-4217 currency code (REQ-DEMO-003)
+    PaymentIntentResponse:
+      type: object
+      required: [id, requestId, traceId, amount, currency, status]
+      properties:
+        id:
+          type: string
+        requestId:
+          type: string
+        traceId:
+          type: string
+          description: Server correlation identifier (REQ-DEMO-002)
+        amount:
+          type: integer
+        currency:
+          type: string
+        status:
+          type: string
+          enum: [requires_confirmation, succeeded, failed]
+    Error:
+      type: object
+      required: [requestId, traceId, code, message]
+      properties:
+        requestId:
+          type: string
+        traceId:
+          type: string
+        code:
+          type: string
+        message:
+          type: string

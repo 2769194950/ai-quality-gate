@@ -1,0 +1,28 @@
+﻿leaves: a=239 b=239 union=239 differing=9
+  DIFF /duration_ms
+    a = 294
+    b = 280
+  DIFF /finished_at
+    a = "2026-09-17T19:37:43.254Z"
+    b = "2026-09-17T19:47:51.995Z"
+  DIFF /gates/2/checks/3/evidence/0/excerpt
+    a = "policy scan sample (96 file(s) scanned)"
+    b = "policy scan sample (95 file(s) scanned)"
+  DIFF /gates/2/checks/3/evidence/1/excerpt
+    a = "SAFE_003 metrics={\"filesScanned\":96,\"violations\":0,\"tokens\":[\"fetch( (global fetch call)\",\"net.(?:(?:createServer|createConnection|connect|Socket|Server|isIP|isIPv4|isIPv6|getDefaultAutoSelectFamily)\\\\b) (net module call)\",\"https.request (http request surface)\",\"https.get (http get surface)\",\"https.post (http post surface)\",\"https.connect (http connect surface)\",\"network module import/require (network import surface)\",\"(named network client).call() (network client surface)\",\"(aliased network call) (network call surface)\",\"(globalThis['…' + '…']) (computed network access surface)\"],\"scanSurface\":{\"candidates\":139,\"scanned\":96,\"excluded\":{\"prose\":11,\"fixtures\":27,\"otherExtension\":5,\"oversize\":0,\"skippedDirectories\":[\".git\",\"node_modules\",\".qgate\",\"coverage\",\"dist\",\"build\",\".cache\",\"verification\",\"verification-t9\",\"artifacts\"]},\"note\":\"prose cannot read a key and recorded evidence echoes this policy's own output, so both are out of the default surface; list them in policy.expectedFiles to scan them explicitly\"}}"
+    b = "SAFE_003 metrics={\"filesScanned\":95,\"violations\":0,\"tokens\":[\"fetch( (global fetch call)\",\"net.(?:(?:createServer|createConnection|connect|Socket|Server|isIP|isIPv4|isIPv6|getDefaultAutoSelectFamily)\\\\b) (net module call)\",\"https.request (http request surface)\",\"https.get (http get surface)\",\"https.post (http post surface)\",\"https.connect (http connect surface)\",\"network module import/require (network import surface)\",\"(named network client).call() (network client surface)\",\"(aliased network call) (network call surface)\",\"(globalThis['…' + '…']) (computed network access surface)\"],\"scanSurface\":{\"candidates\":138,\"scanned\":95,\"excluded\":{\"prose\":11,\"fixtures\":27,\"otherExtension\":5,\"oversize\":0,\"skippedDirectories\":[\".git\",\"node_modules\",\".qgate\",\"coverage\",\"dist\",\"build\",\".cache\",\"verification\",\"verification-t9\",\"artifacts\"]},\"note\":\"prose cannot read a key and recorded evidence echoes this policy's own output, so both are out of the default surface; list them in policy.expectedFiles to scan them explicitly\"}}"
+  DIFF /gates/3/checks/3/evidence/0/excerpt
+    a = "CONTRACT_001 metrics={\"scannedConfig\":\"E:\\\\Desktop\\\\ai-quality-gate\\\\demo\\\\qgate.config.json\",\"violations\":0,\"frozenCheckTypes\":[\"file_exists\",\"file_not_exists\",\"regex\",\"command\",\"json_assert\",\"trace_matrix\",\"policy\"],\"frozenStages\":[\"requirements\",\"design\",\"build\",\"review\",\"verify\"]}"
+    b = "CONTRACT_001 metrics={\"scannedConfig\":\"E:\\\\ai-quality-gate\\\\demo\\\\qgate.config.json\",\"violations\":0,\"frozenCheckTypes\":[\"file_exists\",\"file_not_exists\",\"regex\",\"command\",\"json_assert\",\"trace_matrix\",\"policy\"],\"frozenStages\":[\"requirements\",\"design\",\"build\",\"review\",\"verify\"]}"
+  DIFF /gates/4/checks/3/evidence/0/excerpt
+    a = "policy scan sample (96 file(s) scanned)"
+    b = "policy scan sample (95 file(s) scanned)"
+  DIFF /gates/4/checks/3/evidence/1/excerpt
+    a = "SAFE_001 metrics={\"filesScanned\":96,\"violations\":0,\"patterns\":[\"environment key read\",\"environment key read (call)\",\"vault reference\"],\"scanSurface\":{\"candidates\":139,\"scanned\":96,\"excluded\":{\"prose\":11,\"fixtures\":27,\"otherExtension\":5,\"oversize\":0,\"skippedDirectories\":[\".git\",\"node_modules\",\".qgate\",\"coverage\",\"dist\",\"build\",\".cache\",\"verification\",\"verification-t9\",\"artifacts\"]},\"note\":\"prose cannot read a key and recorded evidence echoes this policy's own output, so both are out of the default surface; list them in policy.expectedFiles to scan them explicitly\"}}"
+    b = "SAFE_001 metrics={\"filesScanned\":95,\"violations\":0,\"patterns\":[\"environment key read\",\"environment key read (call)\",\"vault reference\"],\"scanSurface\":{\"candidates\":138,\"scanned\":95,\"excluded\":{\"prose\":11,\"fixtures\":27,\"otherExtension\":5,\"oversize\":0,\"skippedDirectories\":[\".git\",\"node_modules\",\".qgate\",\"coverage\",\"dist\",\"build\",\".cache\",\"verification\",\"verification-t9\",\"artifacts\"]},\"note\":\"prose cannot read a key and recorded evidence echoes this policy's own output, so both are out of the default surface; list them in policy.expectedFiles to scan them explicitly\"}}"
+  DIFF /run_id
+    a = "2026-09-17T19-37-42.960Z-d742f3e9"
+    b = "2026-09-17T19-47-51.715Z-30ffa497"
+  DIFF /started_at
+    a = "2026-09-17T19:37:42.960Z"
+    b = "2026-09-17T19:47:51.715Z"

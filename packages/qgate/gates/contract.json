@@ -1,0 +1,293 @@
+{
+  "ok": true,
+  "configSchemaVersion": "1.0",
+  "runResultSchemaVersion": "1.0",
+  "ledgerSchemaVersion": "1.0",
+  "traceMatrixSchemaVersion": "1.0",
+  "checkTypes": [
+    "file_exists",
+    "file_not_exists",
+    "regex",
+    "command",
+    "json_assert",
+    "trace_matrix",
+    "policy"
+  ],
+  "stages": [
+    "requirements",
+    "design",
+    "build",
+    "review",
+    "verify"
+  ],
+  "humanGates": [
+    {
+      "gateId": "req-to-design",
+      "from": "requirements",
+      "to": "design",
+      "role": "product",
+      "enforcement": "blocking",
+      "approvalRecord": "verification/approvals/req-to-design/approval.json"
+    },
+    {
+      "gateId": "design-to-build",
+      "from": "design",
+      "to": "build",
+      "role": "architect",
+      "enforcement": "blocking",
+      "approvalRecord": "verification/approvals/design-to-build/approval.json"
+    },
+    {
+      "gateId": "review-to-verify",
+      "from": "review",
+      "to": "verify",
+      "role": "reviewer",
+      "enforcement": "blocking",
+      "approvalRecord": "verification/approvals/review-to-verify/approval.json"
+    }
+  ],
+  "commands": [
+    {
+      "name": "contract",
+      "params": [
+        "--check"
+      ],
+      "json": "contract self-description",
+      "summary": "contract table"
+    },
+    {
+      "name": "check",
+      "params": [
+        "--stage",
+        "--gate",
+        "--fail-fast"
+      ],
+      "json": "RunResult",
+      "summary": "gate table"
+    },
+    {
+      "name": "trace",
+      "params": [
+        "--write"
+      ],
+      "json": "trace-matrix",
+      "summary": "requirement table"
+    },
+    {
+      "name": "preview",
+      "params": [
+        "--root",
+        "--rule"
+      ],
+      "json": "selection/groups/ruleMatch",
+      "summary": "selection table"
+    },
+    {
+      "name": "report",
+      "params": [
+        "--last",
+        "--longest"
+      ],
+      "json": "report list",
+      "summary": "report paths"
+    },
+    {
+      "name": "explain",
+      "params": [
+        "--gate",
+        "--check",
+        "--requirement"
+      ],
+      "json": "explanation",
+      "summary": "human explanation"
+    },
+    {
+      "name": "stage",
+      "params": [
+        "<stage>",
+        "<review|ingest|explain>",
+        "--mode",
+        "--result",
+        "--diff"
+      ],
+      "json": "stage-review evidence",
+      "summary": "stage review table"
+    }
+  ],
+  "globalOptions": [
+    {
+      "name": "--config",
+      "takesValue": true
+    },
+    {
+      "name": "--root",
+      "takesValue": true
+    },
+    {
+      "name": "--json",
+      "takesValue": false
+    },
+    {
+      "name": "--summary",
+      "takesValue": false
+    },
+    {
+      "name": "--quiet",
+      "takesValue": false
+    },
+    {
+      "name": "--color",
+      "takesValue": true
+    },
+    {
+      "name": "--out",
+      "takesValue": true
+    }
+  ],
+  "exitCodes": {
+    "0": "passed",
+    "1": "gate_failed",
+    "2": "config_error",
+    "3": "internal_error"
+  },
+  "errorCodes": [
+    "CONFIG_INVALID",
+    "CONFIG_NOT_FOUND",
+    "PROVIDER_FAILED",
+    "INTERNAL_ERROR",
+    "EVIDENCE_UNRESOLVED",
+    "CONTRACT_DRIFT",
+    "IO_ERROR"
+  ],
+  "blockerMessagePrefixes": [
+    "CONFIG_INVALID",
+    "FILE_MISSING",
+    "FILE_PRESENT",
+    "REGEX_MISMATCH",
+    "COMMAND_FAILED",
+    "JSON_ASSERT_FAILED",
+    "TRACE_GAP",
+    "ORPHAN_TEST_ID",
+    "POLICY_VIOLATION_SAFE_001",
+    "POLICY_VIOLATION_SAFE_002",
+    "POLICY_VIOLATION_SAFE_003",
+    "POLICY_VIOLATION_CONTRACT_001",
+    "HUMAN_GATE_NOT_APPROVED",
+    "PROVIDER_FAILED",
+    "EVIDENCE_UNRESOLVED"
+  ],
+  "policyIds": [
+    "SAFE_001",
+    "SAFE_002",
+    "SAFE_003",
+    "CONTRACT_001"
+  ],
+  "policySemantics": {
+    "SAFE_001": "no API-key reads or vault references in configuration, scripts or documentation",
+    "SAFE_002": "secret paths can never be re-included by any include pattern",
+    "SAFE_003": "no network call surface in the implementation",
+    "CONTRACT_001": "check.type / stage / field names stay inside the frozen enums and field table"
+  },
+  "findings": {
+    "severities": [
+      "blocker",
+      "high",
+      "medium",
+      "low"
+    ],
+    "defaultSeverity": {
+      "file_exists": "high",
+      "file_not_exists": "high",
+      "regex": "medium",
+      "command": "high",
+      "json_assert": "high",
+      "trace_matrix": "high",
+      "policy": "high"
+    },
+    "blockerRule": "confidence >= provider.confidenceThreshold AND severity in {high, blocker}; everything else is downgraded to findings"
+  },
+  "runResultKeys": [
+    "version",
+    "run_id",
+    "started_at",
+    "finished_at",
+    "duration_ms",
+    "overall_passed",
+    "provider",
+    "gates"
+  ],
+  "gateKeys": [
+    "id",
+    "stage",
+    "required",
+    "passed",
+    "humanGate",
+    "blockers",
+    "checks"
+  ],
+  "checkResultKeys": [
+    "id",
+    "type",
+    "passed",
+    "severity",
+    "evidence"
+  ],
+  "blockerKeys": [
+    "checkId",
+    "severity",
+    "message",
+    "evidence"
+  ],
+  "commandExitMatrix": {
+    "contract": {
+      "normal": 0,
+      "gateFailed": null,
+      "configError": 2,
+      "internalError": 3
+    },
+    "check": {
+      "normal": 0,
+      "gateFailed": 1,
+      "configError": 2,
+      "internalError": 3
+    },
+    "trace": {
+      "normal": 0,
+      "gateFailed": null,
+      "configError": 2,
+      "internalError": 3
+    },
+    "preview": {
+      "normal": 0,
+      "gateFailed": null,
+      "configError": 2,
+      "internalError": 3
+    },
+    "report": {
+      "normal": 0,
+      "gateFailed": 0,
+      "configError": 2,
+      "internalError": 3
+    },
+    "explain": {
+      "normal": 0,
+      "gateFailed": 0,
+      "configError": 2,
+      "internalError": 3
+    },
+    "stage": {
+      "normal": 0,
+      "gateFailed": 1,
+      "configError": 2,
+      "internalError": 3
+    }
+  },
+  "commandOkSemantics": {
+    "contract": "present in --json and in --summary --out (literal true); absent from the --summary text; the §6.5 error document (exit 2/3) carries ok=false",
+    "check": "absent from every success surface (--json RunResult, --summary text and --summary --out envelope); the verdict is overall_passed; the §6.5 error document (exit 2/3) carries ok=false",
+    "trace": "absent from --json (the frozen trace-matrix document has no ok field) and absent from the --summary text; present in --summary --out only (literal true, violations are listed separately in that envelope); the §6.5 error document (exit 2/3) carries ok=false",
+    "preview": "present in --json and in --summary --out (literal true, degradation is reported separately as degraded); absent from the --summary text; the §6.5 error document (exit 2/3) carries ok=false",
+    "report": "present in --json and in --summary --out (literal true); absent from the --summary text; the §6.5 error document (exit 2/3) carries ok=false",
+    "explain": "present in --json and in --summary --out (= subject.passed); absent from the --summary text; the §6.5 error document (exit 2/3) carries ok=false"
+  }
+}

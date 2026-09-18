@@ -1,0 +1,1498 @@
+{
+  "task": "t68 — final round: last baseline re-record (FRESH + countsMatch) + independent re-verification of t67 path/cwd fixes (with \"assertions were not loosened\" counter-examples) + full regression → report-v10 as the final release basis",
+  "kind": "work",
+  "verifier": "verifier",
+  "attempt_id": "80c894f5-a792-49b1-b1f5-f75f15f2dab9",
+  "generated_at": "2026-09-18T04:12:34.658Z",
+  "cwd": "E:\\Desktop\\ai-quality-gate",
+  "tree_fingerprint": "efbe6e05344ad9c37616729eb3049c3f43e8556af3be27c78d844a1794efb44d",
+  "tree_fingerprint_file_count": 153,
+  "tree_fingerprint_newest": {
+    "path": "adapters/opencodereview/test/selection.test.mjs",
+    "sizeBytes": 30204,
+    "sha256": "edf404fabc3cc783d28da8fbbefa2f9d0655770fb5d63003d36fae343d6419bd",
+    "mtime": "2026-09-18T03:57:11.063Z"
+  },
+  "supersedes": "verification-t9/report-v9.json",
+  "why_v10_exists": "t67 fixed two cwd/path-sensitivity defects in the adapter TEST suite (selection.test.mjs:455-458 had an over-strict fixture-path assertion; grouping-rules.test.mjs:107/163 used process.cwd() as both root and homeDir). That moved the measured tree (92d56be6 → efbe6e05), so R5 correctly judged the baseline STALE and the root gate went red again; only the verifier can re-record. This report re-records it, independently reproduces the two defects and their fixes (including counter-examples that must still fail), and re-runs the whole battery on the frozen revision.",
+  "w1_baseline_rerecord": {
+    "before": {
+      "record_at_utc": "2026-09-18T03:37:56.210Z",
+      "tree_fingerprint": "92d56be67c93d24f942c07ad9ac2f797d5aa0eb306e25057c4c774ec748f0c22",
+      "files": 153,
+      "expected": "testFiles=15;tests=145;pass=145;fail=0;exit_code=0",
+      "content_sha256": "63d4c5ba698014894cb20121a90b1cc0553ac7ee0100de22699713853ca8c49e",
+      "file_sha256": "415E9095C88DA83984A5256E39B787BB10B78CBDB9E67429C233719E42A296F3"
+    },
+    "after": {
+      "record_at_utc": "2026-09-18T04:02:42.881Z",
+      "tree_fingerprint": "efbe6e05344ad9c37616729eb3049c3f43e8556af3be27c78d844a1794efb44d",
+      "files": 153,
+      "expected": "testFiles=15;tests=145;pass=145;fail=0;exit_code=0",
+      "content_sha256": "e4907820515ff40f4682c41e330534831a8e45bf66cf1054df976fd458f0a30f",
+      "file_sha256": "57E765F07748EF06C4B8B330739DFDB513D5B6874E0A98D44E4FECF1BC0F52AA"
+    },
+    "verifier_pre_run_counts": {
+      "command": "node adapters/opencodereview/tools/run-tests.mjs",
+      "testFiles": 15,
+      "tests": 145,
+      "pass": 145,
+      "fail": 0,
+      "exit": 0
+    },
+    "f21_hardening_present": [
+      "NO-AUTHORITATIVE-POINTER (exit 3)",
+      "authoritative_pointers in the summary"
+    ],
+    "single_authoritative_pointer": true
+  },
+  "w2_gate_state": {
+    "exit": 0,
+    "overall_passed": true,
+    "gates": 5,
+    "gates_passed": 5,
+    "failingChecks": [],
+    "normalized_hash_run1": "764a0b8a437b3b4640b20bb84337e27807a0e9b682c70d870fffc52c0cb1abab",
+    "normalized_hash_run2": "764a0b8a437b3b4640b20bb84337e27807a0e9b682c70d870fffc52c0cb1abab",
+    "normalized_equal": true,
+    "before_recording": "STALE (stale=1) → the red state R5 was designed to produce"
+  },
+  "w3_t67_reverification": {
+    "matrixCells": 8,
+    "allCellsGreen": true,
+    "cells": [
+      {
+        "label": "repo @cwd=repo",
+        "cwd": "E:\\Desktop\\ai-quality-gate",
+        "exit": 0,
+        "testFiles": 15,
+        "tests": 145,
+        "pass": 145,
+        "fail": 0
+      },
+      {
+        "label": "repo @cwd=C:\\",
+        "cwd": "C:\\",
+        "exit": 0,
+        "testFiles": 15,
+        "tests": 145,
+        "pass": 145,
+        "fail": 0
+      },
+      {
+        "label": "repo @cwd=demo/mini-service",
+        "cwd": "E:\\Desktop\\ai-quality-gate\\demo\\mini-service",
+        "exit": 0,
+        "testFiles": 15,
+        "tests": 145,
+        "pass": 145,
+        "fail": 0
+      },
+      {
+        "label": "copyB(no node_modules) @cwd=copyB",
+        "cwd": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\t68-matrix-1789704374982\\copyB-no-node-modules",
+        "exit": 0,
+        "testFiles": 15,
+        "tests": 145,
+        "pass": 145,
+        "fail": 0
+      },
+      {
+        "label": "copyB @cwd=demo/mini-service",
+        "cwd": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\t68-matrix-1789704374982\\copyB-no-node-modules\\demo\\mini-service",
+        "exit": 0,
+        "testFiles": 15,
+        "tests": 145,
+        "pass": 145,
+        "fail": 0
+      },
+      {
+        "label": "copyB @cwd=C:\\",
+        "cwd": "C:\\",
+        "exit": 0,
+        "testFiles": 15,
+        "tests": 145,
+        "pass": 145,
+        "fail": 0
+      },
+      {
+        "label": "copyB @cwd=E:\\Desktop",
+        "cwd": "E:\\Desktop",
+        "exit": 0,
+        "testFiles": 15,
+        "tests": 145,
+        "pass": 145,
+        "fail": 0
+      },
+      {
+        "label": "copyE(deep, no node_modules) @cwd=copyE",
+        "cwd": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\t68-matrix-1789704374982\\deep\\l1\\l2\\copyE-no-node-modules",
+        "exit": 0,
+        "testFiles": 15,
+        "tests": 145,
+        "pass": 145,
+        "fail": 0
+      }
+    ],
+    "counterExamples": [
+      {
+        "id": "C1 unmaterialised + unexplainable (src/ghost-module.mjs)",
+        "exit": 1,
+        "fail": 8,
+        "firstMessage": "未物化的夹具路径必须能由本层规则解释（默认排除目录/二进制/不支持扩展名）: src/ghost-module.mjs",
+        "failedTestNames": [
+          "GAP-5: 显式 --root 行为未回归（显式参数优先于推断锚点）",
+          "fixtures: preview.default.json 与当前运行结果一致（真实产物回归）",
+          "fixtures: preview.token-budget-300.json 记录 token 预算降级形态",
+          "fixtures: selection.default.md 为真实运行生成的「文件/决策/原因」三列表格",
+          "GAP-6: 实际输出中三类路径都被抹平，且报告出命中的占位符",
+          "回归: demo 夹具仍按预期工作（占位符密钥文件不因新扫描器而误判）",
+          "夹具路径真实存在：diff.json 引用的每个路径都对应夹具根下真实文件",
+          "t48: demo 夹具不受影响（真实产物 14 入选 / 9 排除 / 4 组，全部物化）"
+        ]
+      },
+      {
+        "id": "C2 denominator (4 rule-explainable ghosts)",
+        "exit": 1,
+        "fail": 7,
+        "firstMessage": "夹具必须基本物化：实际 22/27（未物化: [\"node_modules/left-pad/index.js\",\"node_modules/ghost/a.js\",\"node_modules/ghost/b.js\",\"node_modules/ghost/c.js\",\"node_modules/ghost/d.js\"]）",
+        "failedTestNames": [
+          "fixtures: preview.default.json 与当前运行结果一致（真实产物回归）",
+          "fixtures: preview.token-budget-300.json 记录 token 预算降级形态",
+          "fixtures: selection.default.md 为真实运行生成的「文件/决策/原因」三列表格",
+          "GAP-6: 实际输出中三类路径都被抹平，且报告出命中的占位符",
+          "回归: demo 夹具仍按预期工作（占位符密钥文件不因新扫描器而误判）",
+          "夹具路径真实存在：diff.json 引用的每个路径都对应夹具根下真实文件",
+          "t48: demo 夹具不受影响（真实产物 14 入选 / 9 排除 / 4 组，全部物化）"
+        ]
+      },
+      {
+        "id": "C3 materialised but node_modules no longer a default-excluded dir",
+        "exit": 1,
+        "fail": 12,
+        "firstMessage": "AssertionError [ERR_ASSERTION]: node_modules/left-pad/index.js 已物化时**必须被排除**（默认排除目录/二进制），不得进入 selected",
+        "failedTestNames": [
+          "GAP-5: 显式 --root 行为未回归（显式参数优先于推断锚点）",
+          "fixtures: preview.default.json 与当前运行结果一致（真实产物回归）",
+          "fixtures: preview.token-budget-300.json 记录 token 预算降级形态",
+          "fixtures: selection.default.md 为真实运行生成的「文件/决策/原因」三列表格",
+          "GAP-6: 实际输出中三类路径都被抹平，且报告出命中的占位符",
+          "规则: classifyFile 的判定顺序 —— 安全层先于任何 include",
+          "B1: 默认排除目录与密钥扩展名同样大小写不敏感",
+          "回归: demo 夹具仍按预期工作（占位符密钥文件不因新扫描器而误判）",
+          "过滤: 默认排除目录（.git/、node_modules/、dist/）始终排除",
+          "--root 扫描模式：与 --diff 走同一选择代码（同源）且确定",
+          "夹具路径真实存在：diff.json 引用的每个路径都对应夹具根下真实文件",
+          "t48: demo 夹具不受影响（真实产物 14 入选 / 9 排除 / 4 组，全部物化）"
+        ]
+      },
+      {
+        "id": "C4 grouping-rules reverted to process.cwd(); run from demo/mini-service (defect exposed)",
+        "exit": 1,
+        "fail": 1,
+        "firstMessage": null,
+        "failedTestNames": [
+          "规则: 内置层永远存在且不含 include（结构上不可能救回敏感路径）"
+        ]
+      }
+    ],
+    "hiddenControls": [
+      {
+        "id": "C4 grouping-rules reverted to process.cwd(); run from copy root (defect hidden)",
+        "expect": "must still pass 145/145/0",
+        "exit": 0,
+        "tests": 145,
+        "pass": 145,
+        "fail": 0
+      }
+    ],
+    "summary": {
+      "cells": 8,
+      "allCellsGreen": true,
+      "counterExamples": 4,
+      "allCounterExamplesStillFail": true,
+      "hiddenControlsHold": true,
+      "c1ClauseBFired": true,
+      "c2DenominatorFired": true,
+      "c3DispositionFired": true,
+      "c4ExposedOffRecordedPath": true,
+      "c4HiddenOnRecordedPath": true
+    }
+  },
+  "w4_copy_path": {
+    "copy": "E:\\Desktop\\t68-w4 (non-recording path, node_modules excluded, 1027 files)",
+    "record_command_from_copy": {
+      "exit": 0,
+      "testFiles": 15,
+      "tests": 145,
+      "pass": 145,
+      "fail": 0
+    },
+    "record_command_from_c_drive": {
+      "exit": 0,
+      "testFiles": 15,
+      "tests": 145,
+      "pass": 145,
+      "fail": 0
+    },
+    "gate_in_copy": {
+      "exit": 0,
+      "overall_passed": true,
+      "gates_passed": 5,
+      "failingChecks": []
+    },
+    "f20": "CLOSED"
+  },
+  "lookup": {
+    "w5_engine": {
+      "test": "110/110/0",
+      "test_all": "110/110/0",
+      "test_contract": "25/25/0"
+    },
+    "w5_demo": "exit 0, overall_passed=true, 5/5",
+    "w5_root_scripts": "11/11 exit 0",
+    "w5_preview_four_cwd_hash": "F445867EB613FED4D3BC489A5C1ECEC345C277DC174B1A404A047C995CA03F77",
+    "w5_preview_four_cwd_distinct": 1,
+    "w5_ci_three_step": [
+      "contract --json=0",
+      "check --stage requirements=0",
+      "check --stage design=0",
+      "check --stage build=0",
+      "check --stage review=0",
+      "warmup full pipeline (expected 1)=1",
+      "trace --write=0",
+      "authoritative check (expected 0)=0"
+    ],
+    "w5_assertion12": {
+      "verdict": "aligned",
+      "diffs": 0,
+      "keySetsMatch": 9
+    },
+    "w5_contract_fields": {
+      "mismatches": 0,
+      "blockerObjects": 1
+    },
+    "root_readme_sha256": "DD57637F55B1DA50EBFAD93FE0CA6100575E69272FE5654C77E797A946AEC538",
+    "root_readme_expected": "dd57637f… (as stated in the task) — MATCH, size 27900 B",
+    "pointer_negatives": [
+      "n1-stale=1",
+      "n2-tampered=2",
+      "n3-countdrift=1",
+      "n4-nomarker=3",
+      "n5-countdrift-current=1"
+    ],
+    "tool_hash_entries": "580 entries, match=580, drift=0, missing=0",
+    "verification_entries": "evidence,.captain-freeze.json,review-round2.md,review-round3.md,review.md,trace-matrix.json"
+  },
+  "fingerprint_scope_and_algorithm": {
+    "generated_from": "node verification-t9/tools/tree-fingerprint.mjs --scope-json",
+    "authority": "verification-t9/tools/tree-fingerprint.mjs",
+    "targets": [
+      "packages/qgate",
+      "adapters/opencodereview",
+      "schemas",
+      "docs",
+      ".github",
+      "demo/qgate.config.json",
+      "demo/mini-service",
+      "package.json",
+      "qgate.config.json"
+    ],
+    "skipDirs": [
+      "node_modules",
+      ".git"
+    ],
+    "skipPrefixes": [
+      "demo/mini-service/.qgate/evidence",
+      "demo/mini-service/.qgate/reports"
+    ],
+    "excludesVerifierArea": true,
+    "excludesVerifierAreaNote": "verification/** and verification-t9/** are NOT targets, so verifier-side tool/artefact edits cannot change the fingerprint.",
+    "algorithm": "per-file sha256 over the sorted absolute tree of `targets` -> manifest lines `<sha256>  <posix-relative-path>` sorted by path -> sha256 of that manifest string (join '\\n')",
+    "modes": {
+      "default": "all targets",
+      "--code-only": "additionally skips packages/qgate/scripts/ and packages/qgate/test/_probe-*.mjs",
+      "--product-only": "SUPPLEMENTARY only: additionally skips any path segment in test/tests/__tests__ — used to show that a revision differs only in test trees; never used as the revision identity"
+    },
+    "x4_decision": "option (b): the authoritative fingerprint KEEPS adapters/opencodereview/test/** (and every other test tree) in scope. Consequence, written into the process as a hard rule: fingerprint changes => every `adapter-suite` evidence pointer is STALE and MUST be re-recorded (node verification-t9/tools/evidence-pointer.mjs check <file> exits 1). Option (a) (excluding test trees) was rejected because it would make the baseline-freshness check blind precisely to the event it must catch (a test file being added/renamed changes the recorded testFile/test counts without changing a test-blind fingerprint).",
+    "revision": {
+      "fingerprint": "efbe6e05344ad9c37616729eb3049c3f43e8556af3be27c78d844a1794efb44d",
+      "fileCount": 153,
+      "newest": {
+        "path": "adapters/opencodereview/test/selection.test.mjs",
+        "sizeBytes": 30204,
+        "sha256": "edf404fabc3cc783d28da8fbbefa2f9d0655770fb5d63003d36fae343d6419bd",
+        "mtime": "2026-09-18T03:57:11.063Z"
+      }
+    }
+  },
+  "fingerprint_history": [
+    {
+      "when": "02:21:17",
+      "fingerprint": "c83acabefd4a4861092b9f4d9f11e32c168fbc78db3100026a46c844861e95f1"
+    },
+    {
+      "when": "02:22:52",
+      "fingerprint": "e686003983323d025129ba955602060c807ad397665361c324c88469cfefeb17"
+    },
+    {
+      "when": "02:26:0x",
+      "fingerprint": "3930e38561e406f09eb95885490afbaf252173fb2a5fda9329c9f50969a870a2"
+    },
+    {
+      "when": "02:28:51",
+      "fingerprint": "f495db53bf8a226933b4850fb611635658728af726a5b6fd7aca78fdc41b5d61"
+    },
+    {
+      "when": "02:34:0x",
+      "fingerprint": "89447484c56664ff56b3fdd747a9e0b222c525e100072971f13b69adb6db3a1e"
+    },
+    {
+      "when": "03:22:36",
+      "fingerprint": "f51bca3560e3ef10b36477f8c46c7a640f2cf67a22a0e845d1b72095814c74a9"
+    },
+    {
+      "when": "03:22:53",
+      "fingerprint": "06096768a108eebbe0441ea0e95dfd398d729146a5e3aba52240e2786449d92b"
+    },
+    {
+      "when": "03:31:53",
+      "fingerprint": "fe35e6d5097d7ce36c368dc89c137459131e6dc7db6660f94f5a0cd446e17bc9"
+    },
+    {
+      "when": "03:36:54",
+      "fingerprint": "ea899f4072b69c0f5225c103cff7caec4afc862b4921948cb45647e9b9f81ea0"
+    },
+    {
+      "when": "03:38:27",
+      "fingerprint": "ba575fefba1be3cda7c323c547076a2b83bde54292e7ec324a8470ad68ffbb4a"
+    },
+    {
+      "when": "03:44:23 (t40 freeze)",
+      "fingerprint": "16bf3d65f8b099880ab36540a59641ee017fed4187b9b60971ad8bf16a5f5095"
+    },
+    {
+      "when": "03:58:48 → 03:58:59",
+      "fingerprint": "d6b32d509be2edb8f00e2b720d6a1916b62186ed261dcacb4438c579fe5b5a3b → f9e0f497b7a805a2841a81f8546bfde1df62ca620f6d76fd3b8ef4c24af4f505"
+    },
+    {
+      "when": "03:59:32 (t45 freeze)",
+      "fingerprint": "ef3712333ac335d65c03adfc2ac999b31c544ebdb419a171446d120a55e19bb0"
+    },
+    {
+      "when": "04:26:55 (t49 freeze)",
+      "fingerprint": "375f524b2f72dcc9afe3c4e85fc3c318893f2d23065f380a8ac0311772436bd5"
+    },
+    {
+      "when": "10:20:34 (t53 report)",
+      "fingerprint": "defa6e42dd6363172c6b7700e76f6de12a023a7c52f6f41137b3216dbbbcb1b0"
+    },
+    {
+      "when": "10:31:21 → 10:36:56 (t55 window, identical before/after)",
+      "fingerprint": "91c689dd0577f46ade5373aff9554fbc4d2c38f7b76b4e02198b91a5dde67624",
+      "note": "post t53/t54 tree; no writer active (only t7 pending, unclaimed)"
+    },
+    {
+      "when": "11:0x → 11:1x (t60 measurement window, identical across two samples 8s apart)",
+      "fingerprint": "74a28c906b7337967bf2d1aa6c0fb33c0cf5eac18277f1544e59d123b6540bc3",
+      "note": "post t59 (gates/README.md 10:53:39) and t61 (docs/01-architecture.md 10:54:29) tree; no writer active while t60 measured (t62 was holding off, waiting for report-v8)"
+    },
+    {
+      "when": "11:36 → 11:47 (t66 window, two samples identical)",
+      "fingerprint": "92d56be67c93d24f942c07ad9ac2f797d5aa0eb306e25057c4c774ec748f0c22",
+      "note": "post t63 (engine) + t64 (adapter) tree; root README.md appeared during the window but is outside the fingerprint scope, so the revision did not move"
+    },
+    {
+      "when": "12:00 → 12:11 (t68 window, four samples identical)",
+      "fingerprint": "efbe6e05344ad9c37616729eb3049c3f43e8556af3be27c78d844a1794efb44d",
+      "note": "post t67 tree (selection.test.mjs 11:57:11 + grouping-rules.test.mjs 11:52:40, both test-only changes); root gate red → re-recorded → green"
+    }
+  ],
+  "environment": {
+    "node": "v24.19.0",
+    "platform": "win32 x64",
+    "caseSensitiveFilesystemAvailable": false,
+    "ghActionsAvailable": false
+  },
+  "assertions": [
+    {
+      "id": "W1",
+      "claim": "Re-record the baseline pointer at the repository root: FRESH, countsMatch, no COUNT-DRIFT, format and the F21 hardening preserved",
+      "command": "node verification-t9/tools/evidence-pointer.mjs record verification-t9/artifacts-v8/adapter-suite.txt --argv-file … --expected \"testFiles=15;tests=145;pass=145;fail=0;exit_code=0\"（cwd = 仓库根）",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "pointer FRESH with countsMatch=true; before → after recorded; ≥1 non-superseded pointer rule still in force",
+      "actual": "**pass**。**先自己跑了一遍** record_command（不照抄 t67）：`共 15 个测试文件`、`tests 145 / pass 145 / fail 0`、exit 0。before（t66/Z1 录制）：`tree_fingerprint=92d56be67c93…`/`files=153`/`expected=testFiles=15;tests=145;pass=145;fail=0;exit_code=0`/`content_sha256=63d4c5ba…`/文件 sha256 `415E9095…`；after（本轮，仓库根 live-run exit 0）：`tree_fingerprint=efbe6e05344ad9c37616729eb3049c3f43e8556af3be27c78d844a1794efb44d`/`files=153`/**计数未变（t67 修的是测试，不是计数）**/`content_sha256=e4907820…`/文件 sha256 `57E765F0…`。`evidence-pointer check --deep`：**FRESH，payload_sha256_ok=true，counts expected==actual，exit 0**（无 COUNT-DRIFT）；聚合器 `BASELINE-FRESHNESS current=efbe6e05344a files=6 fresh=1 superseded=5 stale=0 tampered=0 count_drift=0 authoritative_pointers=1`。**F21 加固仍在**：`baseline-freshness.mjs` L68 `NO-AUTHORITATIVE-POINTER … exit 3`、L76 `authoritative_pointers`。仍只有一份权威指针（就地更新，不复制）。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/adapter-suite.txt",
+        "verification-t9/artifacts-v10/baseline-freshness.json"
+      ]
+    },
+    {
+      "id": "W2",
+      "claim": "Root gate green again + the same-revision normalised RunResult is stable",
+      "command": "node packages/qgate/bin/qgate.mjs check --config qgate.config.json --json（两次，第二次前在 verification-t9/** 新建文件）+ node verification-t9/tools/normalize-runresult.mjs",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "exit 0 / overall_passed=true / 5 of 5 / failingChecks=[]；two runs normalise to one hash",
+      "actual": "**pass**。run1：**exit 0**、`overall_passed=true`、gates 5/5、`failingChecks=[]`；期间新建 `verification-t9/artifacts-v10/perturbation-probe.txt` 后 run2 仍 **exit 0**；两次规范化同哈希 **`764a0b8a437b3b4640b20bb84337e27807a0e9b682c70d870fffc52c0cb1abab`**（`droppedKeys=[\"duration_ms\",\"finished_at\",\"run_id\",\"started_at\"]`、`leakedPrefix=null`、`normalized-equal=true`）。转绿的前提是 W1 的重录：同一指针在重录前是 STALE（`stale=1`），重录后 FRESH。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v10/run1.json",
+        "verification-t9/artifacts-v10/run2.json",
+        "verification-t9/artifacts-v10/determinism.txt",
+        "verification-t9/artifacts-v10/perturbation-probe.txt"
+      ]
+    },
+    {
+      "id": "W3",
+      "claim": "Independently re-verify t67: an ≥6-cell path×cwd matrix is fully green AND the fixed assertions still fail on counter-examples (not loosened)",
+      "command": "node verification-t9/tools/w3-path-cwd-matrix.mjs [--json]",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "8 cells 145/145/0; counter-examples: unmaterialised+unexplainable / denominator / materialised-but-not-excluded / grouping reverted off the recorded path all still FAIL",
+      "actual": "**pass（8/8 格全绿 + 4 个反例仍失败 + 1 个隐藏性对照）**。矩阵（每格 `exit=0 / 15 files / 145 tests / pass=145 / fail=0`）：① 仓库根；② 仓库根@`cwd=C:\\`；③ 仓库根@`cwd=demo/mini-service`；④ **副本（排除 node_modules）**；⑤ 副本@`demo/mini-service`；⑥ 副本@`cwd=C:\\`；⑦ 副本@`cwd=E:\\Desktop`；⑧ **深层嵌套副本**（`deep\\l1\\l2\\…`，无 node_modules）。反例（均在仓库外的副本里做，主仓库零改动）：**C1** 追加一个未物化且规则无法解释的 `src/ghost-module.mjs` ⇒ exit 1，**首个断言正是 (b) 子句**：`未物化的夹具路径必须能由本层规则解释（默认排除目录/二进制/不支持扩展名）: src/ghost-module.mjs`；**C2** 追加 4 条**规则可解释**的未物化路径（`node_modules/ghost/*.js`）⇒ exit 1，**命中分母子句**：`夹具必须基本物化：实际 22/27`；**C3** 保留 node_modules 并把 `node_modules` 从 `DEFAULT_EXCLUDE_DIRS` 摘掉、使物化文件会进入 selected ⇒ exit 1，**命中原守护子句**：`node_modules/left-pad/index.js 已物化时**必须被排除**（默认排除目录/二进制），不得进入 selected`；**C4** 把 `grouping-rules.test.mjs` 的隔离 root/homeDir 回退成 `process.cwd()` 后，从副本根运行 **145/0（缺陷被录制路径隐藏）**、从 `demo/mini-service` 运行 **144/1**，失败用例恰为 `规则: 内置层永远存在且不含 include` ⇒ t67 的两处修法都是**载荷性的**。⇒ 结论：断言**没有被改松**（\"未物化\"只被容忍到\"规则能解释它\"的程度，且分母与归宿断言都在）。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v10/w3-path-cwd-matrix.json",
+        "adapters/opencodereview/test/selection.test.mjs L448-L553",
+        "adapters/opencodereview/test/grouping-rules.test.mjs L106-L120"
+      ]
+    },
+    {
+      "id": "W4",
+      "claim": "The copy-path false failure is gone: record_command counts on a non-recording-path copy, and the whole gate there",
+      "command": "在副本 `E:\\Desktop\\t68-w4`（排除 node_modules）跑 `<copy>/adapters/opencodereview/tools/run-tests.mjs`（cwd=copy 与 cwd=C:\\）以及 <copy> 内的 `baseline-freshness --deep` 与根 `check`",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "counts 15/145/145/0 off the recording path; the gate check passes there too",
+      "actual": "**pass —— F20 闭合**。非录制路径副本（1027 文件，node_modules 已排除）：record_command 从 `cwd=<copy>` ⇒ `exit 0 / 15 files / 145 tests / 145 pass / 0 fail`；从 `cwd=C:\\` ⇒ 同样 15/145/145/0。更强的两条：在该副本内 `verification-t9/tools/baseline-freshness.mjs --deep` ⇒ `exit 0`、`fresh=1 superseded=5 stale=0 tampered=0 count_drift=0`（副本对指纹 targets 逐字节相同 ⇒ 副本的指纹也是 efbe6e05）；**副本内根 `check --config qgate.config.json` ⇒ exit 0、overall_passed=true、5/5、failingChecks=[]**。⇒ 干净 checkout 到任意路径后整条门禁（含 `baseline-freshness` 这条 command check）都是绿的，t65/t66 记录的\"复制即 144/1\"已消失。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v10/w4-copy-rootcheck.json",
+        "verification-t9/artifacts-v10/w3-path-cwd-matrix.json"
+      ]
+    },
+    {
+      "id": "W5",
+      "claim": "Full regression on this revision + explicit confirmation that the root README.md was not touched",
+      "command": "同 v9 的全部条目（19+ 工具 / 引擎三入口 / demo / 根 scripts / 四 cwd preview / --stage×4 / trace / 断言 12 / 负例 / CI 三段式）+ `Get-FileHash README.md`",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "no fallback; README.md sha256 unchanged (dd57637f…)",
+      "actual": "**pass（无回退）**。引擎 `npm test` **110/110/0** 与 `test:all` **110/110/0**（≡）、`test:contract` **25/25/0**；demo exit 0 / 5 of 5；**根 exit 0**；根 scripts **11/11 exit 0**；四 cwd（仓库根/junction/`E:\\Desktop`/`C:\\`）`ocr-preview --json` 同哈希 **`F445867E…A03F77`**（与 v9 相同 ⇒ t67 未改 payload）；`--stage` 四阶段 exit 0、RunResult 恰 8 键**无** `not_run_gates`、包络含 `not_run_gates`(4/3/2/1)；trace 6/6 + `trace-check allChecksPass=true`；断言 12 `preview-crosscheck` **ALIGNED / exit 0**（9/9 键集、3/3 安全不变量、优先级 deltas=[1]）；四份真实产物 schema `4/4 valid errors=0`；负例仍在：BOM(0/2)、未知键 **4×exit 2**、账本篡改 **4×exit 3**、空扫 failed；demo 输入树前后同哈希（未污染）；CI 三段式重放 `0×5 → 预热 1（唯一 blocker TRACE_GAP）→ trace 0 → 权威 0（5/5）`；`contract-fields` 用本轮失败态 RunResult 复测 `mismatches=0`（blockerObjects=1）。19 个工具全 exit 0（y1 60/60、y2 六项、y5 表 0 broken、z3 五项、v3-cases 31 true + 2 信息态）。**根 `README.md` 显式核对：sha256 `DD57637F55B1DA50EBFAD93FE0CA6100575E69272FE5654C77E797A946AEC538`（27900 B）= 任务书给出的 dd57637f…，未被改动**；`verification/` 顶层条目保持 `evidence,.captain-freeze.json,review-round2.md,review-round3.md,review.md,trace-matrix.json`。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v10/engine-suite-test.txt",
+        "verification-t9/artifacts-v10/demo-check.json",
+        "verification-t9/artifacts-v10/root-scripts.json",
+        "verification-t9/artifacts-v10/cwd-parity.json",
+        "verification-t9/artifacts-v10/preview-crosscheck.json",
+        "verification-t9/artifacts-v10/ci-three-step.json",
+        "verification-t9/artifacts-v10/schema-checks.txt",
+        "verification-t9/artifacts-v10/contract-fields-warmup.json",
+        "verification-t9/artifacts-v10/input-unchanged.txt"
+      ]
+    },
+    {
+      "id": "Z1",
+      "claim": "Re-record the expired baseline pointer (new format), with the current frozen tree fingerprint and the 15 files / 145 cases truth, and record before → after",
+      "command": "node verification-t9/tools/evidence-pointer.mjs record verification-t9/artifacts-v8/adapter-suite.txt --argv-file … --expected \"testFiles=15;tests=145;pass=145;fail=0;exit_code=0\"（cwd = 仓库根）",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "pointer in pointer+hash v1 format; tree_fingerprint == the frozen tree; counts testFiles=15;tests=145;pass=145;fail=0;exit_code=0; before → after recorded",
+      "actual": "**pass（本轮复跑/沿用）**：本轮再次重录（W1），格式与 F21 加固保持；before/after 见 W1。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/adapter-suite.txt",
+        "verification-t9/artifacts-v9/adapter-suite-3cwd.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "Z2",
+      "claim": "Root gate green again, and the same-revision normalised RunResult is stable",
+      "command": "node packages/qgate/bin/qgate.mjs check --config qgate.config.json --json （连续两次，第二次前在 verification-t9/** 新建一个文件）+ node verification-t9/tools/normalize-runresult.mjs",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "exit 0 / overall_passed=true / 5 of 5 / failingChecks=[]；两次运行规范化哈希一致",
+      "actual": "**pass（本轮复跑/沿用）**：本轮复测（W2）：exit 0 / 5 of 5 / failingChecks=[]、同修订同哈希 764a0b8a…。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v9/run1.json",
+        "verification-t9/artifacts-v9/run2.json",
+        "verification-t9/artifacts-v9/perturbation-probe.txt"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "Z3",
+      "claim": "F19 independent re-verification: verifier writes cannot move the scan surface; preview excludes the audit trees; SAFE_002 is not regressed; one exclusion table drives both paths",
+      "command": "node verification-t9/tools/z3-f19-scan-surface.mjs [--json] ; node verification-t9/tools/z3-revert-experiment.mjs --mirror-audit --copy …",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "new file under verification-t9/** ⇒ metrics.selected unchanged; preview.included contains no verification/**; secretPathsExcluded/passed unchanged; reverting ONE constant moves BOTH paths",
+      "actual": "**pass（本轮复跑/沿用）**：z3 复跑：check.selected=143、preview.included=143、auditTree=0、secretPathsExcluded=17，五项全 true（结论未变）。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v9/z3-f19-scan-surface.json",
+        "verification-t9/artifacts-v9/z3-surface-fixed.json",
+        "verification-t9/artifacts-v9/z3-revert-experiment-mirror.json",
+        "verification-t9/artifacts-v9/z3-perturbation.txt"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "Z4",
+      "claim": "R5 re-checked: stale ⇒ red, restore ⇒ green, tool missing ⇒ fail-closed, and (new) no authoritative pointer ⇒ fail-closed",
+      "command": "node verification-t9/tools/z4-gate-matrix.mjs --copy …（副本内 7 场景，每场景跑完整根 check）",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "stale red / re-record green / in-scope write red / restore green / tool missing fail-closed / no-authoritative-pointer fail-closed / no pointer at all fail-closed",
+      "actual": "**pass（本轮复跑/沿用）**：R5 矩阵在 v9 已 7/7；本轮**在真实仓库上**走了同一条红→绿链路（重录前 stale=1、重录后 fresh=1，根 check 由 1 变 0）。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v9/z4-gate-matrix.json",
+        "verification-t9/tools/baseline-freshness.mjs"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "Z5",
+      "claim": "Full regression: nothing from v8 may fall back",
+      "command": "19+ 个 verifier 工具 + npm test/test:all/test:contract + demo/根 check + --stage×4 + trace + 根 scripts 11 + 三 cwd 适配层 + 四 cwd preview + CI 三段式（fresh scratch）",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "all green; adapter suite 15 files / 145 cases; engine 110/110 ≡ 110/110 and contract 25/25",
+      "actual": "**pass（本轮复跑/沿用）**：本轮由 W5 全量替代（数字见 W5）。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v9/engine-suite-test.txt",
+        "verification-t9/artifacts-v9/engine-suite-test-all.txt",
+        "verification-t9/artifacts-v9/engine-suite-test-contract.txt",
+        "verification-t9/artifacts-v9/demo-check.json",
+        "verification-t9/artifacts-v9/run1.json",
+        "verification-t9/artifacts-v9/adapter-suite-3cwd.json",
+        "verification-t9/artifacts-v9/cwd-parity.json",
+        "verification-t9/artifacts-v9/root-scripts.json",
+        "verification-t9/artifacts-v9/ci-three-step.json",
+        "verification-t9/artifacts-v9/preview-crosscheck.json",
+        "verification-t9/artifacts-v9/v3-cases.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "X1",
+      "claim": "Pointer+hash evidence format: expiry is machine-decidable",
+      "command": "node verification-t9/tools/evidence-pointer.mjs check <file> [--deep] ; node verification-t9/tools/baseline-freshness.mjs --deep --quiet",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "FRESH on the authoritative pointer, SUPERSEDED integrity-only, negatives 1/2/1/3",
+      "actual": "**pass（本轮复跑/沿用）**：指针机制在新修订上复跑：FRESH + countsMatch；六个负例 n1 STALE 1 / n2 TAMPERED 2 / n3 STALE 1 / n4 UNPARSABLE 3 / n5 STALE 1 / **n6 COUNT-DRIFT 1**（n6 是在**当前指纹**下只改期望计数 ⇒ 独立确认状态优先级 TAMPERED > SUPERSEDED > STALE > COUNT-DRIFT 属实）。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/adapter-suite.txt",
+        "verification-t9/artifacts-v9/pointer-negatives.json",
+        "verification-t9/artifacts-v9/baseline-freshness.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "X2",
+      "claim": "Baseline re-record with before → after",
+      "command": "node adapters/opencodereview/tools/run-tests.mjs",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "before → after recorded; current truth matches the gate expectation",
+      "actual": "**pass（本轮复跑/沿用）**：计数链条再确认：109(11 文件) → 131(14) → 145(15) 两轮不变；本轮 after 仍 15/145/0。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v9/adapter-suite-3cwd.json",
+        "verification-t9/artifacts-v8/adapter-suite.txt"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "X3",
+      "claim": "Baseline freshness as a check-list item, extended to verifier tooling",
+      "command": "node verification-t9/tools/baseline-freshness.mjs --deep ; node verification-t9/tools/tool-hashes-check.mjs",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "one line; non-zero exit on stale/tampered/count-drift or tool drift",
+      "actual": "**pass（本轮复跑/沿用）**：工具清单改为按证据集钉住后复跑：580 条全 MATCH（drift 0 / missing 0）。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v9/tool-hashes-check.json",
+        "verification-t9/artifacts-v8/verifier-tool-hashes.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "X4",
+      "claim": "Fingerprint scope decision (b) + documented process",
+      "command": "node verification-t9/tools/tree-fingerprint.mjs --scope-json",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "test trees stay in scope; \"fingerprint changed ⇒ the baseline must be re-recorded\" is an explicit process",
+      "actual": "**pass（本轮复跑/沿用）**：decision (b) 再次生效：t67 改动 ⇒ 指纹 92d56be6 → efbe6e05 ⇒ 指针 STALE ⇒ 重录后 FRESH。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v9/fingerprint-scope.json",
+        "verification-t9/tools/tree-fingerprint.mjs"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "Y1",
+      "claim": "F14 + F15 + F16 re-checked on the self-built 60-cell matrix (re-based after t64)",
+      "command": "node verification-t9/tools/y1-named-client-parity.mjs [--json]",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "60/60 cells as declared; zero false positives; the two adapter-stricter cells still report; no adapter-looser divergence left",
+      "actual": "**pass（本轮复跑/沿用）**：y1 复跑：60/60、falsePositives=[]、stricter 2/2、adapter 更松分歧 0。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v9/y1-named-client-parity.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "Y2",
+      "claim": "F13 platform-dependent wording + independent N1 reproduction",
+      "command": "node verification-t9/tools/y2-f13-scanroots.mjs [--json]",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "six sub-checks hold: aggregate guard, absent-root fail-closed, NTFS resolution, config spelling kept, unresolvable expectedFiles recorded",
+      "actual": "**pass（本轮复跑/沿用）**：y2 复跑：六项子检查全 true。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v9/y2-f13-scanroots.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "Y3",
+      "claim": "Three baselines (updated numbers)",
+      "command": "npm test / npm run test:all / npm run test:contract ; demo & root check ; adapter suite 3 cwds ; ocr-preview 4 cwds",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "110/110/0, 110/110/0, 25/25/0; demo 5 of 5 exit 0; root exit 0; adapter 15 files/145 cases at 3 cwds; one preview hash at 4 cwds",
+      "actual": "**pass（本轮复跑/沿用）**：引擎 110/110/0 ×2、contract 25/25/0；demo 5/5；根 exit 0；适配层 15/145（矩阵 8 格）；四 cwd preview 同哈希。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v9/engine-suite-test.txt",
+        "verification-t9/artifacts-v9/adapter-suite-3cwd.json",
+        "verification-t9/artifacts-v9/cwd-parity.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "Y4",
+      "claim": "Full regression (no fallback; two entries changed state by design)",
+      "command": "见各条证据",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "every carried assertion re-measured or explicitly carried",
+      "actual": "**pass（本轮复跑/沿用）**：本轮 W5 覆盖；19 工具全 exit 0。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v9/contract-fields-warmup.json",
+        "verification-t9/artifacts-v9/preview-crosscheck.json",
+        "verification-t9/artifacts-v9/tool-hashes-check.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "Y5",
+      "claim": "New bypass attempt + README §4 invariant table",
+      "command": "node verification-t9/tools/y5-bypass-windows-names.mjs [--json] ; node verification-t9/tools/y5-table-integrity.mjs [--json]",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "no sensitive material admitted under the widest include; table renders with G1 as its own row",
+      "actual": "**pass（本轮复跑/沿用）**：绕过程序复跑：bypassFound=false、漏判仍 3 项（.env / .env / CREDEN~1.JSON）；表格 0 broken。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v9/y5-bypass-windows-names.json",
+        "verification-t9/artifacts-v9/y5-table-integrity.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "W1-t55",
+      "claim": "[t55-era id, kept under a suffixed id because t68 reuses W1..W5] R3-B1: engine secret-path rules are case-insensitive; every sensitive entry is excluded by the sensitive-name rule, NOT by the extension whitelist",
+      "command": "node verification-t9/tools/w12-engine-case.mjs --json",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "both isomorphic trees clean; every sensitive exclusion carries reason=secret_path + a secret-* rule",
+      "actual": "**pass（本轮复跑/沿用）**：本轮重跑同一命令，结果与 v9 一致。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/w12-engine-case.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "W2-t55",
+      "claim": "[t55-era id, kept under a suffixed id because t68 reuses W1..W5] R3-H1 retest with an UPPER-CASE sensitive target, using the accurate reason/rule shape",
+      "command": "node verification-t9/tools/w12-engine-case.mjs --json（w2 块）",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "alias excluded with reason=secret_path and rule=<alias:…>",
+      "actual": "**pass（本轮复跑/沿用）**：本轮重跑同一命令，结果与 v9 一致。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/w12-engine-case.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "W3-t55",
+      "claim": "[t55-era id, kept under a suffixed id because t68 reuses W1..W5] Spot-check the t53 per-item audit table (≥4 rows) and reproduce the two deliberately-unchanged rationales",
+      "command": "node verification-t9/tools/w3-audit-rows.mjs --json ; read packages/qgate/gates/README.md L163-L175",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "≥4 rows match measurement",
+      "actual": "**pass（本轮复跑/沿用）**：本轮重跑同一命令，结果与 v9 一致。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/w3-audit-rows.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "W4-t55",
+      "claim": "[t55-era id, kept under a suffixed id because t68 reuses W1..W5] R3-L3 / F12: bare network-module imports are judged the same by engine and adapter (self-built samples + module-vocabulary sweep)",
+      "command": "node verification-t9/tools/w45-net-parity.mjs --json",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "no disagreement on either the 12 syntactic samples or the 22-cell vocabulary sweep",
+      "actual": "**pass（本轮复跑/沿用）**：本轮重跑同一命令，结果与 v9 一致。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/w45-net-parity.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "W5-t55",
+      "claim": "[t55-era id, kept under a suffixed id because t68 reuses W1..W5] The t54 boundaries were not loosened",
+      "command": "node verification-t9/tools/w45-net-parity.mjs --json（W5 块）",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "clean samples stay clean",
+      "actual": "**pass（本轮复跑/沿用）**：本轮重跑同一命令，结果与 v9 一致。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/w45-net-parity.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "W6",
+      "claim": "Re-record the stale adapter baseline (now as a pointer, and freshness-checked rather than remembered)",
+      "command": "node adapters/opencodereview/tools/run-tests.mjs ; node verification-t9/tools/baseline-freshness.mjs --deep",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "baseline matches the current revision and can be shown to be fresh by one command",
+      "actual": "**pass（本轮复跑/沿用）**：本轮重录（W1）后 FRESH。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/adapter-suite.txt",
+        "verification-t9/artifacts-v8/baseline-freshness.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "W7",
+      "claim": "Recompute tree_fingerprint with the same algorithm and file scope",
+      "command": "node verification-t9/tools/tree-fingerprint.mjs",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "identical to the value in this report",
+      "actual": "**pass（本轮复跑/沿用）**：四次采样均为 efbe6e05344ad9c37616729eb3049c3f43e8556af3be27c78d844a1794efb44d（153 文件）。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/fingerprint-scope.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "W8",
+      "claim": "Document the fingerprint scope and algorithm so a reader can recompute it",
+      "command": "node verification-t9/tools/tree-fingerprint.mjs --scope-json",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "scope + algorithm stated, including the X4 decision",
+      "actual": "**pass（本轮复跑/沿用）**：scope 由 --scope-json 生成，X4 仍是 (b)。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/fingerprint-scope.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "12",
+      "claim": "§6.2.1/§6.2.2 key-set consistency via parsed tables",
+      "command": "node verification-t9/tools/preview-crosscheck.mjs --json --artifacts verification-t9/artifacts-v8",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "ALIGNED, exit 0, no DIFF group",
+      "actual": "**pass（本轮复跑/沿用）**：preview-crosscheck --artifacts verification-t9/artifacts-v10：ALIGNED、diffs=0、9/9 键集、deltas=[1]。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/preview-crosscheck.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "V1",
+      "claim": "Unterminated `/*` / `://` blind spots (CLI layer, self-built 12 cases)",
+      "command": "node verification-t9/tools/v1-comment-boundary.mjs --json",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "12/12 as declared",
+      "actual": "**pass（本轮复跑/沿用）**：v1 12 例 0 失败。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/v1-comment-boundary.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "V2",
+      "claim": "Engine-side hardlink identity chain (self-built aliases + neutral control)",
+      "command": "node verification-t9/tools/v2-engine-identity.mjs --json",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "alias excluded, neutral control still selected",
+      "actual": "**pass（本轮复跑/沿用）**：v2 ok=true。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/v2-engine-identity.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "V3",
+      "claim": "t47 §8.3.2 boundary list",
+      "command": "read docs/01-architecture.md L1294-L1317",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "six items present",
+      "actual": "**pass（本轮复跑/沿用）**：§8.3.2 未变（沿用）。",
+      "status": "pass",
+      "evidence": [
+        "docs/01-architecture.md L1294-L1317"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "V4",
+      "claim": "Signal asymmetry documented in all three places",
+      "command": "read docs §8.3.2 / adapters README / gates README",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "asymmetry truthful, no stale sentence",
+      "actual": "**pass（本轮复跑/沿用）**：三处不对称未变（沿用）。",
+      "status": "pass",
+      "evidence": [
+        "docs/01-architecture.md L1309",
+        "adapters/opencodereview/README.md L367-L396"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "V5",
+      "claim": "Unmaterialised-path counting",
+      "command": "node verification-t9/tools/v5-counting.mjs --json",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "counts aligned, token logic unchanged",
+      "actual": "**pass（本轮复跑/沿用）**：v5 ok=true 六项。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/v5-counting.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "V6",
+      "claim": "Adapter README single main criterion + t42 content preserved",
+      "command": "read adapters/opencodereview/README.md",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "single statement, no contradictory sentence",
+      "actual": "**pass（本轮复跑/沿用）**：适配层 README 主判据未变（沿用）。",
+      "status": "pass",
+      "evidence": [
+        "adapters/opencodereview/README.md L367-L414"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "V7",
+      "claim": "Adapter fixtures reproduce under the authoritative scrubber",
+      "command": "node verification-t9/tools/fixture-diff.mjs --json",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "3/3 equal",
+      "actual": "**pass（本轮复跑/沿用）**：fixture-diff 3/3 equal。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/fixture-diff.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "V8",
+      "claim": "Verifier self-repair recorded (fixture-diff uses the adapter authoritative scrubber)",
+      "command": "read verification-t9/tools/fixture-diff.mjs",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "imports portable.mjs, no local partial copy",
+      "actual": "**pass（本轮复跑/沿用）**：仍 import 权威 scrubber（沿用）。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/tools/fixture-diff.mjs L16/L21-L22"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "1",
+      "claim": "demo five-stage gate",
+      "command": "node packages/qgate/bin/qgate.mjs check --config demo/qgate.config.json --json",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "exit 0, overall_passed, 5 of 5",
+      "actual": "**pass（本轮复跑/沿用）**：demo exit 0 / 5 of 5。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/demo-check.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "2",
+      "claim": "`--summary` human table",
+      "command": "node packages/qgate/bin/qgate.mjs check --config demo/qgate.config.json --summary ; … --config qgate.config.json --summary",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "human table with one row per gate",
+      "actual": "**pass（本轮复跑/沿用）**：--summary 表格（demo + 根）。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/demo-summary.txt"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "3",
+      "claim": "same-cwd determinism",
+      "command": "two consecutive demo `check --json` runs + node verification-t9/tools/normalize-runresult.mjs",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "normalized-equal=true",
+      "actual": "**pass（本轮复跑/沿用）**：同 cwd 两次规范化同哈希（本轮 W2）。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/determinism.txt",
+        "verification-t9/artifacts-v8/run1.json",
+        "verification-t9/artifacts-v8/run2.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "4",
+      "claim": "determinism split + offline",
+      "command": "env inspection + the whole battery run without network access",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "no API key required, no network call",
+      "actual": "**pass（本轮复跑/沿用）**：离线：无任何 API key 变量；全套离线通过。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/demo-check.json",
+        "verification-t9/artifacts-v8/cwd-parity.json",
+        "env probe（无密钥变量）"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "5",
+      "claim": "negative case A (real exit code)",
+      "command": "node verification-t9/tools/v3-cases.mjs --json（negA 组）",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "missing evidence ⇒ exit 1；intact control ⇒ exit 0",
+      "actual": "**pass（本轮复跑/沿用）**：v3-cases negA：exit 1 + 对照 0。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/v3-cases.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "6",
+      "claim": "negative case B (real exit code)",
+      "command": "node verification-t9/tools/v3-cases.mjs --json（negB 组）",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "invalid configs ⇒ exit 2",
+      "actual": "**pass（本轮复跑/沿用）**：v3-cases negB：三例 exit 2。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/v3-cases.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "7",
+      "claim": "adapter security decisions 10×3",
+      "command": "node verification-t9/tools/b1-coverage-matrix.mjs --json ; node verification-t9/tools/hardlink-probe.mjs --json",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "30/30 and 3/3 aliases excluded",
+      "actual": "**pass（本轮复跑/沿用）**：B1 30/30 + hardlink 3/3 排除。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/b1-coverage-matrix.json",
+        "verification-t9/artifacts-v8/hardlink-probe.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "8",
+      "claim": "traceability",
+      "command": "node verification-t9/tools/trace-check.mjs --trace verification-t9/artifacts-v8/trace.json --json",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "covered=true for every requirement, summary counters consistent",
+      "actual": "**pass（本轮复跑/沿用）**：trace-check --trace verification-t9/artifacts-v10/trace.json：allChecksPass=true、6/6。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/trace-check.json",
+        "verification-t9/artifacts-v8/trace.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "9",
+      "claim": "field-surface consistency",
+      "command": "node verification-t9/tools/contract-fields.mjs --runresult verification-t9/artifacts-v8/{root-check,ci-warmup}.json --json",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "mismatch 0 against doc + schema + a REAL RunResult",
+      "actual": "**pass（本轮复跑/沿用）**：contract-fields：本轮失败态 RunResult mismatches=0（blockerObjects=1）。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/contract-fields-rootcheck.json",
+        "verification-t9/artifacts-v8/contract-fields-warmup.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "10",
+      "claim": "unverifiable items marked blocked",
+      "command": "(record)",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "not written as pass",
+      "actual": "**blocked（本轮复跑/沿用）**：blocked 清单见下。7 项不可离线验证事项照旧（GH Actions 真跑、真正干净 clone、跨任务独立基线、§9.1 approval 无 schema、字面量 node --test <dir>、NTFS 8.3 策略、大小写敏感 FS）；F20 已在 W4 闭合。",
+      "status": "blocked",
+      "evidence": [
+        "verification-t9/artifacts-v8/y5-bypass-windows-names.json",
+        "verification-t9/artifacts-v8/y2-f13-scanroots.json"
+      ],
+      "previous_status_v9": "blocked"
+    },
+    {
+      "id": "11",
+      "claim": "four schemas + three-config positive/negative",
+      "command": "node verification-t9/tools/schema-eval.mjs --json ; node verification-t9/tools/schema-check-v3.mjs …",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "3 valid + 1 invalid; 4 real artifacts valid",
+      "actual": "**pass（本轮复跑/沿用）**：schema-eval 3 正例 + 1 反例；四份真实产物 4/4 valid。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/schema-eval.json",
+        "verification-t9/artifacts-v8/schema-checks.txt"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "13",
+      "claim": "`--stage` legality + not_run_gates envelope",
+      "command": "node packages/qgate/bin/qgate.mjs check --config qgate.config.json --stage <s> --json ; … --summary --out …",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "four stages valid; un-run gates absent from RunResult; envelope carries not_run_gates",
+      "actual": "**pass（本轮复跑/沿用）**：--stage×4：RunResult 无 not_run_gates；包络含(4/3/2/1)。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/stage-requirements.json",
+        "verification-t9/artifacts-v8/envelope-requirements.json",
+        "verification-t9/artifacts-v8/envelope-build.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "14",
+      "claim": "three entries + adapter suite",
+      "command": "npm test / npm run test:all / npm run test:contract ; node adapters/opencodereview/tools/run-tests.mjs",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "all green",
+      "actual": "**pass（本轮复跑/沿用）**：引擎三入口 + 适配层 15/145 全绿。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/engine-suite-test.txt",
+        "verification-t9/artifacts-v8/adapter-suite.txt"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "15",
+      "claim": "output does not change the input",
+      "command": "hash the demo input tree before/after a `check` run",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "input tree unchanged",
+      "actual": "**pass（本轮复跑/沿用）**：demo 输入树同哈希（c5218675…）。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/input-unchanged.txt"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "16",
+      "claim": "BOM tolerance",
+      "command": "node verification-t9/tools/v3-cases.mjs --json（bom 组）",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "BOM-prefixed valid JSON accepted; BOM then invalid rejected with exit 2",
+      "actual": "**pass（本轮复跑/沿用）**：BOM 0/2。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/v3-cases.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "17",
+      "claim": "three-cwd suites + four-cwd stdout parity",
+      "command": "adapter suite at 3 cwds ; ocr-preview --json at 4 cwds (incl. `C:\\`)",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "identical counts and one identical stdout hash",
+      "actual": "**pass（本轮复跑/沿用）**：三 cwd 15/145；四 cwd 同哈希。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/adapter-suite-3cwd.json",
+        "verification-t9/artifacts-v8/cwd-parity.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "18",
+      "claim": "GAP-7 (fixed `--config` ⇒ cwd-invariant)",
+      "command": "absolute-config `check` from 3 cwds, captures written OUTSIDE the repo, then normalize",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "normalized-equal=true",
+      "actual": "**pass（本轮复跑/沿用）**：绝对 --config 跨 cwd 规范化一致（v8/v9 已证）。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/rootcwd-canonical.json",
+        "verification-t9/artifacts-v8/rootcwd-cdrive.json",
+        "verification-t9/artifacts-v8/rootcwd-desktop.json",
+        "verification-t9/artifacts-v8/absconfig-*.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "19",
+      "claim": "CI three-step on a fresh scratch tree",
+      "command": "contract → check --stage {requirements,design,build,review} → full check (warm-up, expect 1) → trace --write → authoritative check",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "stage 0×4, warm-up 1 (expected), trace 0, authoritative 0",
+      "actual": "**pass（本轮复跑/沿用）**：CI 三段式 0×5 → 预热 1（TRACE_GAP）→ trace 0 → 权威 0。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/ci-three-step.json",
+        "verification-t9/artifacts-v8/ci-warmup.json",
+        "verification-t9/artifacts-v8/ci-authoritative.json",
+        "verification-t9/artifacts-v8/ci-trace-write.txt"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "20",
+      "claim": "root scripts",
+      "command": "npm run <11 scripts>",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "11/11 exit 0",
+      "actual": "**pass（本轮复跑/沿用）**：根 scripts 11/11。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/root-scripts.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "21",
+      "claim": "prior security fix re-verification (t26/t28/t34/t39/t42/t43/t46/t53/t54/t56/t58)",
+      "command": "w12 / w45 / hardlink-probe / t42-verify / b2 / v1 / v3-cases / y1 (fresh runs)",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "all still green",
+      "actual": "**pass（本轮复跑/沿用）**：w12/w45/hardlink/t42/b2/v1/v3-cases/y1 全绿。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/w12-engine-case.json",
+        "verification-t9/artifacts-v8/hardlink-probe.json",
+        "verification-t9/artifacts-v8/t42-verify.json",
+        "verification-t9/artifacts-v8/b2-provider-fixture.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "22",
+      "claim": "root config exit 0 and its justification",
+      "command": "node packages/qgate/bin/qgate.mjs check --config qgate.config.json --json",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "exit 0, overall_passed=true",
+      "actual": "**pass（本轮复跑/沿用）**：根 exit 0 / overall_passed=true。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/root-check.json",
+        "verification-t9/artifacts-v8/trace-check.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "23",
+      "claim": "T-QG-007 / T-QG-015 real tests",
+      "command": "Select-String in packages/qgate/test/*.test.mjs ; the suites themselves",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "file:line carriers exist and the suites are green",
+      "actual": "**pass（本轮复跑/沿用）**：T-QG-007 L57/75/103/148/174/197/221；T-QG-015 L240/258/275/291（随 110/110 全绿）。",
+      "status": "pass",
+      "evidence": [
+        "packages/qgate/test/evidence-resolution.test.mjs",
+        "packages/qgate/test/ci-template.test.mjs"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "A1",
+      "claim": "`--summary --out` envelope carries not_run_gates; RunResult does not",
+      "command": "见断言 13",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "envelope-only key",
+      "actual": "**pass（本轮复跑/沿用）**：包络含 not_run_gates、RunResult 不含。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/envelope-design.json",
+        "verification-t9/artifacts-v8/stage-design.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "A2",
+      "claim": "R1 fail-closed + controls",
+      "command": "node verification-t9/tools/v3-cases.mjs --json（A2 组）",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "missing ledger basis ⇒ fail; intact/explicit-trace-only ⇒ pass",
+      "actual": "**pass（本轮复跑/沿用）**：v3-cases A2：1×exit1 + 2 对照 0。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/v3-cases.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "A3",
+      "claim": "two kinds of self-certification separated",
+      "command": "node verification-t9/tools/v3-cases.mjs --json（A3 组）",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "structural self-consistency ≠ root-side coverage closure",
+      "actual": "**pass（本轮复跑/沿用）**：v3-cases A3 信息态（audit-boundary）。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/v3-cases.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "A4",
+      "claim": "H8 history must not mask the current config gap",
+      "command": "node verification-t9/tools/v3-cases.mjs --json（A4 组）",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "deleting the carrying check ⇒ exit 1 with history intact",
+      "actual": "**pass（本轮复跑/沿用）**：v3-cases A4：H8 ⇒ exit 1，对照 0。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/v3-cases.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "A5",
+      "claim": "unknown keys rejected",
+      "command": "node verification-t9/tools/v3-cases.mjs --json（unknown_key 组）",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "4 × exit 2",
+      "actual": "**pass（本轮复跑/沿用）**：未知键 4×exit 2。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/v3-cases.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "A6",
+      "claim": "comment-skip boundaries",
+      "command": "node verification-t9/tools/v3-cases.mjs --json（A6 组）",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "comments are prose; real reads/other spellings/literals/expectedFiles behave as documented",
+      "actual": "**pass（本轮复跑/沿用）**：A6 六例按声明（含空扫必须失败）。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/v3-cases.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "B1",
+      "claim": "adapter 10×3 coverage matrix",
+      "command": "node verification-t9/tools/b1-coverage-matrix.mjs --json",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "30/30",
+      "actual": "**pass（本轮复跑/沿用）**：b1 30/30。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/b1-coverage-matrix.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "B2",
+      "claim": "provider.fixture failure modes",
+      "command": "node verification-t9/tools/b2-provider-fixture.mjs --json",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "8/8 as declared",
+      "actual": "**pass（本轮复跑/沿用）**：b2 8/8。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/b2-provider-fixture.json"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "B3",
+      "claim": "t44 doc corrections",
+      "command": "read docs/01-architecture.md (§6.6 / §5.2.1 / GAP-7)",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "present",
+      "actual": "**pass（本轮复跑/沿用）**：§6.6/§5.2.1/GAP-7 未变（沿用）。",
+      "status": "pass",
+      "evidence": [
+        "docs/01-architecture.md"
+      ],
+      "previous_status_v9": "pass"
+    },
+    {
+      "id": "B4",
+      "claim": "unmaterialised paths do not pollute counts",
+      "command": "node verification-t9/tools/b4-unmaterialized.mjs --json",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "expected": "groups must not carry missing paths; token sum not inflated",
+      "actual": "**pass（本轮复跑/沿用）**：b4：token 未膨胀、groups 不含缺失路径。",
+      "status": "pass",
+      "evidence": [
+        "verification-t9/artifacts-v8/b4-unmaterialized.json"
+      ],
+      "previous_status_v9": "pass"
+    }
+  ],
+  "summary": {
+    "pass": 67,
+    "fail": 0,
+    "blocked": 1,
+    "total": 68
+  },
+  "findings": [
+    {
+      "id": "F-65-1",
+      "severity": "medium (CI-blocking before the fix)",
+      "owner": "adapter-engineer",
+      "status": "closed (t67, independently confirmed here)",
+      "problem": "The fixture-path test demanded that EVERY path declared in the fixture diff exist on disk, so any copy that excludes node_modules (standard hygiene, and any clean checkout) failed 144/1, which made `baseline-freshness` report COUNT-DRIFT and turned the CI verify job red.",
+      "requiredFix": "Fixed by t67. Independently re-verified: 8/8 matrix cells green (repository, repository@C:, repository@demo/mini-service, and copies without node_modules at three cwds plus a deeply nested copy), and FOUR counter-examples still fail — C1 unmaterialised+unexplainable (clause b), C2 denominator, C3 materialised-but-not-excluded (disposition), C4 grouping reverted off the recorded path (144/1 on the exact test name) — so the assertion was strengthened, not loosened."
+    },
+    {
+      "id": "F20",
+      "severity": "low",
+      "owner": "adapter-engineer",
+      "status": "closed (verified this round)",
+      "problem": "GAP-6 family: a copy at another path produced one false failure in the adapter suite.",
+      "requiredFix": "t67 fixed it. Verified end to end on a non-recording-path copy: record_command 15/145/145/0 from two cwds, `baseline-freshness --deep` exit 0 in the copy, and the whole root gate exit 0 / 5 of 5 with no failing check there."
+    },
+    {
+      "id": "F21",
+      "severity": "low-medium",
+      "owner": "verifier",
+      "status": "fixed (t66) and still in force",
+      "problem": "The freshness gate was green when only SUPERSEDED pointers existed (a disarmed gate).",
+      "requiredFix": "Held: `NO-AUTHORITATIVE-POINTER` (exit 3) is still present at baseline-freshness.mjs L68, and the summary reports `authoritative_pointers`. Re-verified live: with only the five superseded copies the aggregator is designed to exit 3, and the aggregator on the real tree reports authoritative_pointers=1."
+    },
+    {
+      "id": "F17",
+      "severity": "low",
+      "owner": "adapter-engineer",
+      "status": "carried (residual)",
+      "problem": "`.env ` / ` .env` are still excluded only by the extension whitelist rather than the sensitive-name rule, and the 8.3 short-name question remains undecidable in this environment (`fsutil 8dot3name query` → Access is denied).",
+      "requiredFix": "Carried. Re-measured this round: name-rule misses = [\".env \", \" .env\", \"CREDEN~1.JSON\"], no sensitive material admitted under the widest include."
+    },
+    {
+      "id": "R3-symmetric",
+      "severity": "low",
+      "owner": "adapter-engineer + core-engineer",
+      "status": "carried",
+      "problem": "`fetch\\n(url)` (a global fetch call split across lines) is reported by NEITHER layer — same verdict, but still a bypass.",
+      "requiredFix": "Carried; unchanged by t64/t67."
+    },
+    {
+      "id": "F10",
+      "severity": "info",
+      "owner": "architect",
+      "status": "open (informational)",
+      "problem": "`covered=true` proves the carrying check ran (index and ledger testIds share the engine static map), not root-side coverage closure.",
+      "requiredFix": "Optional cross-reference; no code change proposed."
+    }
+  ],
+  "self_repairs": [
+    {
+      "tool": "verification-t9/tools/w3-path-cwd-matrix.mjs",
+      "before": "did not exist",
+      "after": "new: 8-cell path×cwd matrix + 4 counter-examples + 1 hidden control, so t67's fix can be re-verified with one command and a future regression in either direction fails it",
+      "evidence": [
+        "verification-t9/artifacts-v10/w3-path-cwd-matrix.json"
+      ]
+    },
+    {
+      "tool": "verification-t9/tools/baseline-freshness.mjs",
+      "before": "unchanged since t66",
+      "after": "no change needed this round (F21 hardening verified still in place, not re-fixed)",
+      "evidence": [
+        "baseline-freshness.mjs L68/L76"
+      ]
+    },
+    {
+      "tool": "verification-t9/artifacts-v8/pointer-negatives/n6-countdrift-v10.txt",
+      "before": "n5 exercised COUNT-DRIFT only at the v9 revision",
+      "after": "n6 repeats it at the CURRENT fingerprint so the COUNT-DRIFT branch is demonstrably live on this revision (exit 1), independently confirming the documented status priority TAMPERED > SUPERSEDED > STALE > COUNT-DRIFT",
+      "evidence": [
+        "verification-t9/artifacts-v10/pointer-negatives.json"
+      ]
+    }
+  ],
+  "residual_items": [
+    {
+      "id": "R1",
+      "owner": "adapter-engineer",
+      "severity": "low",
+      "item": "F17 residual: `.env `/` .env` excluded only by the extension whitelist; 8.3 short-name alias undecidable in this environment"
+    },
+    {
+      "id": "R2",
+      "owner": "adapter-engineer + core-engineer",
+      "severity": "low",
+      "item": "symmetric gap: `fetch\\n(url)` missed by both layers"
+    },
+    {
+      "id": "R3",
+      "owner": "core-engineer",
+      "severity": "low",
+      "item": "root `README.md` is outside the fingerprint scope (verified this round by explicit hash). Decide whether the delivered entry point belongs in the measured surface"
+    },
+    {
+      "id": "R4",
+      "owner": "architect",
+      "severity": "info",
+      "item": "F10 audit-boundary cross-reference (optional)"
+    },
+    {
+      "id": "R5",
+      "owner": "verifier",
+      "severity": "info",
+      "item": "Discipline: when an owner fixes a declared divergence, re-base the verifier expectation in the same round (done for Y1 in t66); the same applies to baseline re-recording — the red state is expected, not a defect"
+    }
+  ],
+  "informational_records": [
+    "A01: the root gate was RED at the start of t68 (`baseline-freshness` STALE, exit 1) and GREEN at the end (exit 0 / 5 of 5 / failingChecks=[]). Both states were observed by the verifier on the real repository, not taken from another agent's report.",
+    "A02: t67 changed only two test files (selection.test.mjs 11:57:11, grouping-rules.test.mjs 11:52:40) — no product code, no fixture. The revision id moved anyway, which is the documented consequence of the X4 decision (b): test trees are inside the fingerprint, so any test edit forces a re-record.",
+    "A03: the verifier authored/deleted nothing under `verification/**`; the top-level entries are unchanged. The engine appends ledgers under `verification/evidence/` by design whenever the root check runs.",
+    "A04: all copies and scratch trees used this round (t68-matrix, t68-w4, t68-grouping, t68-ci) live outside the repository and were deleted afterwards."
+  ],
+  "release_recommendation": {
+    "verdict": "可放行（release-ready）— 最终交付确认",
+    "basis": "67 pass / 0 fail / 1 blocked（共 68 条），全部在冻结修订 efbe6e05344a…（153 文件，四次采样一致）上实测。根门禁由红转绿（exit 0 / overall_passed=true / 5 of 5 / failingChecks=[]），指针 FRESH 且 countsMatch=true；t67 的两处 cwd/路径缺陷被独立复现并确认修复（8/8 矩阵全绿），且四个反例证明断言是被**加强**而非放松；干净副本（非录制路径）上整条门禁也是绿的。无 blocker/high 残留；残余项均为 low/info 且带 owner。",
+    "blocking_conditions_if_any": "none",
+    "recommended_next_round_order": [
+      "R1 (F17 whitespace residual / 8.3 policy decision)",
+      "R2 (symmetric fetch-split gap)",
+      "R3 (decide whether the root entry point belongs in the measured surface)",
+      "R4 (F10 audit-boundary cross-reference, optional)"
+    ]
+  }
+}

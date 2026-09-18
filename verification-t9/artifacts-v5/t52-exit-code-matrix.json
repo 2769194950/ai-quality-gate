@@ -1,0 +1,50 @@
+﻿{
+    "generatedAt":  "2026-09-18T04:38:36.1271503+08:00",
+    "tool":  "verification-t9/tools/preview-crosscheck.mjs",
+    "runs":  [
+                 {
+                     "id":  "aligned_real_doc",
+                     "args":  [
+
+                              ],
+                     "exitCode":  0,
+                     "verdict":  "verdict: ALIGNED (exit 0)"
+                 },
+                 {
+                     "id":  "diff_expectation_side_renamed_key",
+                     "args":  [
+                                  "--doc",
+                                  "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\t52-doc-rename.md"
+                              ],
+                     "exitCode":  1,
+                     "verdict":  "verdict: 1 DIFF group(s) (exit 1)"
+                 },
+                 {
+                     "id":  "diff_artifact_side_extra_key",
+                     "args":  [
+                                  "--artifacts",
+                                  "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\t52-artifacts"
+                              ],
+                     "exitCode":  1,
+                     "verdict":  "verdict: 1 DIFF group(s) (exit 1)"
+                 },
+                 {
+                     "id":  "parse_fail_heading_renamed",
+                     "args":  [
+                                  "--doc",
+                                  "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\t52-doc-broken.md"
+                              ],
+                     "exitCode":  3,
+                     "verdict":  "preview-crosscheck: PARSE FAILURE (fail-closed): section heading /^##### 6\\.2\\.2\\.2 / not found in C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\t52-doc-broken.md"
+                 },
+                 {
+                     "id":  "parse_fail_table_broken",
+                     "args":  [
+                                  "--doc",
+                                  "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\t52-doc-flat.md"
+                              ],
+                     "exitCode":  3,
+                     "verdict":  "preview-crosscheck: PARSE FAILURE (fail-closed): group adapterSelected parsed only 8 key(s), below its structural floor of 9 — the C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\t52-doc-flat.md table format probably changed; refusing to compare against an empty/partial expectation set"
+                 }
+             ]
+}

@@ -1,0 +1,46 @@
+﻿[
+    {
+        "script":  "test",
+        "exit":  0
+    },
+    {
+        "script":  "test:all",
+        "exit":  0
+    },
+    {
+        "script":  "test:contract",
+        "exit":  0
+    },
+    {
+        "script":  "check",
+        "exit":  0
+    },
+    {
+        "script":  "check:json",
+        "exit":  0
+    },
+    {
+        "script":  "check:summary",
+        "exit":  0
+    },
+    {
+        "script":  "contract",
+        "exit":  0
+    },
+    {
+        "script":  "trace",
+        "exit":  0
+    },
+    {
+        "script":  "preview",
+        "exit":  0
+    },
+    {
+        "script":  "report",
+        "exit":  0
+    },
+    {
+        "script":  "verify",
+        "exit":  0
+    }
+]

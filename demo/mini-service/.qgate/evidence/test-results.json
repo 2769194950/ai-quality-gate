@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "runner": "node --test",
+  "nodeVersion": ">=18",
+  "total": 42,
+  "passed": 42,
+  "failed": 0,
+  "skipped": 0,
+  "duration_ms": 812,
+  "testIds": ["T-QG-001", "T-QG-002", "T-QG-003", "T-QG-004"],
+  "recorded_at": "2026-05-05T10:00:00Z",
+  "notes": "Offline fixture result. Recorded by the demo owner; no network, no API key."
+}

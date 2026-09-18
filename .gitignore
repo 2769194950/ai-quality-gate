@@ -1,0 +1,32 @@
+# Local credentials and environment overrides.
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# OpenCodeReview project-local settings. The real credential is stored in
+# %USERPROFILE%/.opencodereview/config.json, outside this repository.
+.opencodereview/config.json
+.opencodereview/*.local.json
+.opencodereview/secrets/
+
+# qgate local secrets and test-only credential material.
+.qgate/secrets/
+!.qgate/secrets/
+!.qgate/secrets/opencodereview.env.example
+.qgate/*.local.json
+.qgate/*.local.env
+.qgate/*.local.ps1
+
+# Local AI run outputs; retain source/tests, not model responses or evidence dumps.
+.qgate/real-ai/
+.qgate/ocr-real/
+.qgate/evidence/ai/*.json
+
+# Generated audit ledgers from local runs.
+verification/evidence/ledger-*.json
+verification/evidence/ledger-index.json
+**/.qgate/evidence/ledger-*.json
+**/.qgate/evidence/ledger-index.json
+**/evidence/ledger-*.json
+**/evidence/ledger-index.json

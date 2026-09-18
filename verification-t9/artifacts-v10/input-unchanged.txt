@@ -1,0 +1,5 @@
+﻿demo/mini-service input tree (excluding the engine's own .qgate/evidence + .qgate/reports)
+before=d1e2a004f51d1a27f4a9df76bc0a6301be88ea6962c5717c6031d2505571ccde
+after =d1e2a004f51d1a27f4a9df76bc0a6301be88ea6962c5717c6031d2505571ccde
+unchanged=True
+check exit=0

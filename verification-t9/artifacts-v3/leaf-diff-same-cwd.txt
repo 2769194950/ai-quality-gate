@@ -1,0 +1,13 @@
+﻿leaves: a=239 b=239 union=239 differing=4
+  DIFF /duration_ms
+    a = 294
+    b = 296
+  DIFF /finished_at
+    a = "2026-09-17T19:37:43.254Z"
+    b = "2026-09-17T19:37:43.753Z"
+  DIFF /run_id
+    a = "2026-09-17T19-37-42.960Z-d742f3e9"
+    b = "2026-09-17T19-37-43.457Z-00d02bb4"
+  DIFF /started_at
+    a = "2026-09-17T19:37:42.960Z"
+    b = "2026-09-17T19:37:43.457Z"

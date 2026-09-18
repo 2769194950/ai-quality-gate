@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "tool": "node:test --experimental-test-coverage",
+  "lineCoverage": 0.9375,
+  "lineCoveragePercent": 93.75,
+  "branches": {
+    "covered": 60,
+    "total": 64,
+    "ratio": 0.9375
+  },
+  "files": [
+    { "path": "src/payment-intents.mjs", "lineCoverage": 0.96, "branches": 0.94 },
+    { "path": "src/validation.mjs", "lineCoverage": 0.92, "branches": 0.93 }
+  ],
+  "recorded_at": "2026-05-05T10:00:00Z"
+}

@@ -1,0 +1,1025 @@
+{
+  "cwd": "E:\\Desktop\\ai-quality-gate",
+  "predicates": {
+    "engine": "policySafe003(root).passed === false",
+    "adapter": "scanNetworkSurface(text).violations.length > 0"
+  },
+  "cells": 60,
+  "rows": [
+    {
+      "id": "client_call:axios.get",
+      "group": "client_call",
+      "text": "const r = await axios.get(url);",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "named-network-client-call"
+      ]
+    },
+    {
+      "id": "client_call:got.get",
+      "group": "client_call",
+      "text": "const r = await got.get(url);",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "named-network-client-call"
+      ]
+    },
+    {
+      "id": "client_call:superagent.get",
+      "group": "client_call",
+      "text": "const r = await superagent.get(url);",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "named-network-client-call"
+      ]
+    },
+    {
+      "id": "client_call:needle.get",
+      "group": "client_call",
+      "text": "const r = await needle.get(url);",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "named-network-client-call"
+      ]
+    },
+    {
+      "id": "client_call:undici.get",
+      "group": "client_call",
+      "text": "const r = await undici.get(url);",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "named-network-client-call"
+      ]
+    },
+    {
+      "id": "client_call:ky.get",
+      "group": "client_call",
+      "text": "const r = await ky.get(url);",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "named-network-client-call"
+      ]
+    },
+    {
+      "id": "client_call:node-fetch.get",
+      "group": "client_call",
+      "text": "const r = await node-fetch.get(url);",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "named-network-client-call"
+      ]
+    },
+    {
+      "id": "client_call:request.get",
+      "group": "client_call",
+      "text": "const r = await request.get(url);",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "named-network-client-call"
+      ]
+    },
+    {
+      "id": "client_call:client.get",
+      "group": "client_call",
+      "text": "const r = await client.get(url);",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "named-network-client-call"
+      ]
+    },
+    {
+      "id": "client_call:httpClient.get",
+      "group": "client_call",
+      "text": "const r = await httpClient.get(url);",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "named-network-client-call"
+      ]
+    },
+    {
+      "id": "client_call:apiClient.get",
+      "group": "client_call",
+      "text": "const r = await apiClient.get(url);",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "named-network-client-call"
+      ]
+    },
+    {
+      "id": "client_call:httpAgent.get",
+      "group": "client_call",
+      "text": "const r = await httpAgent.get(url);",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "named-network-client-call"
+      ]
+    },
+    {
+      "id": "client_call:axios.post",
+      "group": "client_call",
+      "text": "axios.post(url, body);",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "named-network-client-call"
+      ]
+    },
+    {
+      "id": "client_call:client.request",
+      "group": "client_call",
+      "text": "client.request(opts);",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "named-network-client-call"
+      ]
+    },
+    {
+      "id": "client_call:httpAgent.connect",
+      "group": "client_call",
+      "text": "httpAgent.connect(target);",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "named-network-client-call"
+      ]
+    },
+    {
+      "id": "client_call:ky.head_whitespace",
+      "group": "line_split_adapter_looser",
+      "text": "const r = ky .\n  head (url);",
+      "engineReports": true,
+      "adapterReports": false,
+      "expected": {
+        "engine": true,
+        "adapter": false,
+        "direction": "adapter_looser"
+      },
+      "matchesExpected": true,
+      "sameVerdict": false,
+      "adapterVia": []
+    },
+    {
+      "id": "client_call:got.send_string_literal_empty",
+      "group": "client_call",
+      "text": "got.send();",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "named-network-client-call"
+      ]
+    },
+    {
+      "id": "benign:cache.get",
+      "group": "benign",
+      "text": "const v = cache.get(key);",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "benign:headers.get",
+      "group": "benign",
+      "text": "const v = headers.get(key);",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "benign:map.get",
+      "group": "benign",
+      "text": "const v = map.get(key);",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "benign:config.get",
+      "group": "benign",
+      "text": "const v = config.get(key);",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "benign:store.get",
+      "group": "benign",
+      "text": "const v = store.get(key);",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "benign:session.get",
+      "group": "benign",
+      "text": "const v = session.get(key);",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "benign:env.get",
+      "group": "benign",
+      "text": "const v = env.get(key);",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "benign:params.get",
+      "group": "benign",
+      "text": "const v = params.get(key);",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "benign:formData.get",
+      "group": "benign",
+      "text": "const v = formData.get(key);",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "benign:urlSearchParams.get",
+      "group": "benign",
+      "text": "const v = urlSearchParams.get(key);",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "benign:registry.get",
+      "group": "benign",
+      "text": "const v = registry.get(key);",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "benign:pool.get",
+      "group": "benign",
+      "text": "const v = pool.get(key);",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "benign:new_Map().get",
+      "group": "benign",
+      "text": "const v = new Map().get(k);",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "benign:this.cache.get",
+      "group": "benign",
+      "text": "const v = this.cache.get(k);",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "benign:cache.set",
+      "group": "benign",
+      "text": "cache.set(k, v);",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "benign:response.headers.get",
+      "group": "benign",
+      "text": "const v = response.headers.get('x');",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "collision:fs_request",
+      "group": "collision",
+      "text": "const request = require('node:fs');\nrequest.get(url);",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "named-network-client-call"
+      ]
+    },
+    {
+      "id": "collision:store_request",
+      "group": "collision",
+      "text": "const request = store;\nrequest.get(url);",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "named-network-client-call"
+      ]
+    },
+    {
+      "id": "collision:cache_client",
+      "group": "collision",
+      "text": "const client = makeCache();\nclient.get(key);",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "named-network-client-call"
+      ]
+    },
+    {
+      "id": "collision:param_request",
+      "group": "collision",
+      "text": "function f(request) { return request.get(url); }",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "named-network-client-call"
+      ]
+    },
+    {
+      "id": "collision:param_client",
+      "group": "collision",
+      "text": "function f(client) { return client.get(key); }",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "named-network-client-call"
+      ]
+    },
+    {
+      "id": "collision:local_axios_shim",
+      "group": "collision",
+      "text": "const axios = { get: (x) => x };\naxios.get(url);",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "named-network-client-call"
+      ]
+    },
+    {
+      "id": "non_http:axios.toString",
+      "group": "non_http_member",
+      "text": "const s = axios.toString();",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "non_http:axios.all",
+      "group": "non_http_member",
+      "text": "const s = axios.all([]);",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "non_http:client.close",
+      "group": "non_http_member",
+      "text": "client.close();",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "non_http:got.defaults",
+      "group": "non_http_member",
+      "text": "const d = got.defaults;",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "non_http:ky.config",
+      "group": "non_http_member",
+      "text": "ky.config();",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "stricter:XMLHttpRequest",
+      "group": "stricter",
+      "text": "new XMLHttpRequest();",
+      "engineReports": false,
+      "adapterReports": true,
+      "expected": {
+        "engine": false,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": false,
+      "adapterVia": [
+        "global-network-call"
+      ]
+    },
+    {
+      "id": "stricter:WebSocket",
+      "group": "stricter",
+      "text": "new WebSocket('wss://example.invalid');",
+      "engineReports": false,
+      "adapterReports": true,
+      "expected": {
+        "engine": false,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": false,
+      "adapterVia": [
+        "global-network-call"
+      ]
+    },
+    {
+      "id": "client_call:fetch_global_control",
+      "group": "client_call",
+      "text": "fetch(url);",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "global-network-call"
+      ]
+    },
+    {
+      "id": "benign:line_comment",
+      "group": "benign",
+      "text": "// axios.get(url) is forbidden by SAFE_003",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "benign:closed_block_comment",
+      "group": "benign",
+      "text": "/*\n * const r = await axios.get(url);\n */\nconst x = 1;",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "benign:string_literal",
+      "group": "benign",
+      "text": "const s = 'axios.get';",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "benign:template_literal",
+      "group": "benign",
+      "text": "const t = `ky.get`;",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "line_split:ky_newline_before_dot",
+      "group": "line_split_adapter_looser",
+      "text": "const r = await ky\n  .get(url);",
+      "engineReports": true,
+      "adapterReports": false,
+      "expected": {
+        "engine": true,
+        "adapter": false,
+        "direction": "adapter_looser"
+      },
+      "matchesExpected": true,
+      "sameVerdict": false,
+      "adapterVia": []
+    },
+    {
+      "id": "line_split:client_chain_pretty",
+      "group": "line_split_adapter_looser",
+      "text": "const r = await client\n  .request(opts);",
+      "engineReports": true,
+      "adapterReports": false,
+      "expected": {
+        "engine": true,
+        "adapter": false,
+        "direction": "adapter_looser"
+      },
+      "matchesExpected": true,
+      "sameVerdict": false,
+      "adapterVia": []
+    },
+    {
+      "id": "line_split:ky_newline_after_dot",
+      "group": "line_split_adapter_looser",
+      "text": "const r = await ky.\n  get(url);",
+      "engineReports": true,
+      "adapterReports": false,
+      "expected": {
+        "engine": true,
+        "adapter": false,
+        "direction": "adapter_looser"
+      },
+      "matchesExpected": true,
+      "sameVerdict": false,
+      "adapterVia": []
+    },
+    {
+      "id": "line_split:module_member_newline",
+      "group": "client_call",
+      "text": "import https from 'node:https';\nhttps\n  .get(url);",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "network-module-import"
+      ]
+    },
+    {
+      "id": "line_split:namespace_member_newline",
+      "group": "client_call",
+      "text": "import * as n from 'node:net';\nn\n  .createServer();",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "network-module-import"
+      ]
+    },
+    {
+      "id": "line_split:same_line_control",
+      "group": "client_call",
+      "text": "const r = await ky .get(url);",
+      "engineReports": true,
+      "adapterReports": true,
+      "expected": {
+        "engine": true,
+        "adapter": true
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": [
+        "named-network-client-call"
+      ]
+    },
+    {
+      "id": "gap:global_fetch_newline",
+      "group": "symmetric_gap",
+      "text": "fetch\n(url);",
+      "engineReports": false,
+      "adapterReports": false,
+      "expected": {
+        "engine": false,
+        "adapter": false
+      },
+      "matchesExpected": true,
+      "sameVerdict": true,
+      "adapterVia": []
+    },
+    {
+      "id": "masking:stray_star_line",
+      "group": "masking_adapter_looser",
+      "text": " * const r = await axios.get(url);",
+      "engineReports": true,
+      "adapterReports": false,
+      "expected": {
+        "engine": true,
+        "adapter": false,
+        "direction": "adapter_looser"
+      },
+      "matchesExpected": true,
+      "sameVerdict": false,
+      "adapterVia": []
+    },
+    {
+      "id": "masking:unterminated_block",
+      "group": "masking_adapter_looser",
+      "text": "/*\n * const r = await axios.get(url);",
+      "engineReports": true,
+      "adapterReports": false,
+      "expected": {
+        "engine": true,
+        "adapter": false,
+        "direction": "adapter_looser"
+      },
+      "matchesExpected": true,
+      "sameVerdict": false,
+      "adapterVia": []
+    }
+  ],
+  "byGroup": {
+    "client_call": {
+      "cells": 20,
+      "sameVerdict": 20,
+      "matchesExpected": 20
+    },
+    "benign": {
+      "cells": 20,
+      "sameVerdict": 20,
+      "matchesExpected": 20
+    },
+    "collision": {
+      "cells": 6,
+      "sameVerdict": 6,
+      "matchesExpected": 6
+    },
+    "non_http_member": {
+      "cells": 5,
+      "sameVerdict": 5,
+      "matchesExpected": 5
+    },
+    "stricter": {
+      "cells": 2,
+      "sameVerdict": 0,
+      "matchesExpected": 2
+    },
+    "line_split_adapter_looser": {
+      "cells": 4,
+      "sameVerdict": 0,
+      "matchesExpected": 4
+    },
+    "masking_adapter_looser": {
+      "cells": 2,
+      "sameVerdict": 0,
+      "matchesExpected": 2
+    },
+    "symmetric_gap": {
+      "cells": 1,
+      "sameVerdict": 1,
+      "matchesExpected": 1
+    }
+  },
+  "divergences": [
+    {
+      "id": "client_call:ky.head_whitespace",
+      "group": "line_split_adapter_looser",
+      "engine": true,
+      "adapter": false,
+      "direction": "adapter_looser",
+      "asDeclared": true
+    },
+    {
+      "id": "line_split:ky_newline_before_dot",
+      "group": "line_split_adapter_looser",
+      "engine": true,
+      "adapter": false,
+      "direction": "adapter_looser",
+      "asDeclared": true
+    },
+    {
+      "id": "line_split:client_chain_pretty",
+      "group": "line_split_adapter_looser",
+      "engine": true,
+      "adapter": false,
+      "direction": "adapter_looser",
+      "asDeclared": true
+    },
+    {
+      "id": "line_split:ky_newline_after_dot",
+      "group": "line_split_adapter_looser",
+      "engine": true,
+      "adapter": false,
+      "direction": "adapter_looser",
+      "asDeclared": true
+    },
+    {
+      "id": "masking:stray_star_line",
+      "group": "masking_adapter_looser",
+      "engine": true,
+      "adapter": false,
+      "direction": "adapter_looser",
+      "asDeclared": true
+    },
+    {
+      "id": "masking:unterminated_block",
+      "group": "masking_adapter_looser",
+      "engine": true,
+      "adapter": false,
+      "direction": "adapter_looser",
+      "asDeclared": true
+    }
+  ],
+  "summary": {
+    "cells": 60,
+    "matchesExpected": 60,
+    "sameVerdict": 52,
+    "falsePositives": [],
+    "clientCallsReported": true,
+    "stricterStillReported": true,
+    "stricterCells": [
+      "stricter:XMLHttpRequest",
+      "stricter:WebSocket"
+    ],
+    "collisionBothReport": true,
+    "benignCells": 20,
+    "collisionCells": 6,
+    "symmetricGapCells": 1,
+    "divergenceCells": 6,
+    "divergencesAsDeclared": true,
+    "divergenceDirection": [
+      "adapter_looser"
+    ]
+  }
+}

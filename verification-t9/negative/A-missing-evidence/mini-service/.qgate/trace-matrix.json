@@ -1,0 +1,174 @@
+{
+  "schemaVersion": "1.0",
+  "generated_at": "2026-09-17T18:12:46.883Z",
+  "generated_by": "qgate trace",
+  "run_id": "2026-09-17T18-12-46.738Z-de0b6a5e",
+  "pipeline": [
+    "requirements",
+    "design",
+    "build",
+    "review",
+    "verify"
+  ],
+  "summary": {
+    "requirements": 6,
+    "covered": 6,
+    "uncovered": 0,
+    "orphanTestIds": 0,
+    "coverageRatio": 1
+  },
+  "requirements": [
+    {
+      "requirementId": "REQ-DEMO-0001",
+      "title": "REQ-DEMO-0001 (title not found in docs/00-requirements.md)",
+      "priority": "P0",
+      "stage": [
+        "requirements",
+        "design"
+      ],
+      "testIds": [
+        "T-QG-001",
+        "T-QG-016"
+      ],
+      "codePaths": [
+        "openapi.yaml",
+        "REQUIREMENTS.md"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": ".qgate/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-001,T-QG-016@2026-09-17T18-12-46.738Z-de0b6a5e"
+        }
+      ]
+    },
+    {
+      "requirementId": "REQ-DEMO-0002",
+      "title": "REQ-DEMO-0002 (title not found in docs/00-requirements.md)",
+      "priority": "P0",
+      "stage": [
+        "requirements",
+        "design",
+        "verify"
+      ],
+      "testIds": [
+        "T-QG-004",
+        "T-QG-005",
+        "T-QG-015"
+      ],
+      "codePaths": [
+        "openapi.yaml",
+        ".qgate/trace-matrix.json"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": ".qgate/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-004,T-QG-005,T-QG-015@2026-09-17T18-12-46.738Z-de0b6a5e"
+        }
+      ]
+    },
+    {
+      "requirementId": "REQ-DEMO-0003",
+      "title": "REQ-DEMO-0003 (title not found in docs/00-requirements.md)",
+      "priority": "P0",
+      "stage": [
+        "design",
+        "verify"
+      ],
+      "testIds": [
+        "T-QG-007",
+        "T-QG-014"
+      ],
+      "codePaths": [
+        "openapi.yaml",
+        ".qgate/evidence/coverage.json"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": ".qgate/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-007,T-QG-014@2026-09-17T18-12-46.738Z-de0b6a5e"
+        }
+      ]
+    },
+    {
+      "requirementId": "REQ-DEMO-0004",
+      "title": "REQ-DEMO-0004 (title not found in docs/00-requirements.md)",
+      "priority": "P0",
+      "stage": [
+        "build"
+      ],
+      "testIds": [
+        "T-QG-010",
+        "T-QG-011",
+        "T-QG-013"
+      ],
+      "codePaths": [
+        "package.json",
+        ".qgate/evidence/test-results.json"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": ".qgate/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-010,T-QG-011,T-QG-013@2026-09-17T18-12-46.738Z-de0b6a5e"
+        }
+      ]
+    },
+    {
+      "requirementId": "REQ-DEMO-0005",
+      "title": "REQ-DEMO-0005 (title not found in docs/00-requirements.md)",
+      "priority": "P1",
+      "stage": [
+        "review"
+      ],
+      "testIds": [
+        "T-QG-012",
+        "T-QG-002",
+        "T-QG-008"
+      ],
+      "codePaths": [
+        ".qgate/evidence/ocr-findings.json",
+        ".qgate/negative/unknown-check-type.result.json"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": ".qgate/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-012,T-QG-002,T-QG-008@2026-09-17T18-12-46.738Z-de0b6a5e"
+        }
+      ]
+    },
+    {
+      "requirementId": "REQ-DEMO-0006",
+      "title": "REQ-DEMO-0006 (title not found in docs/00-requirements.md)",
+      "priority": "P0",
+      "stage": [
+        "verify"
+      ],
+      "testIds": [
+        "T-QG-003",
+        "T-QG-006",
+        "T-QG-009"
+      ],
+      "codePaths": [
+        ".qgate/trace-matrix.json",
+        ".qgate/requirements-index.json"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": ".qgate/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-003,T-QG-006,T-QG-009@2026-09-17T18-12-46.738Z-de0b6a5e"
+        }
+      ]
+    }
+  ]
+}

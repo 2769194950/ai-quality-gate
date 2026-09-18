@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-quality-gate.local/schemas/evidence-ledger.schema.json",
+  "title": "qgate evidence ledger and ledger index",
+  "description": "JSON Schema draft 2020-12 for the frozen evidence-ledger artefacts (docs/01-architecture.md §5.3.2, ledgerSchemaVersion=1.0): verification/evidence/ledger-<run_id>.json and verification/evidence/ledger-index.json. The ledger is append-only and its sha256 must be recomputable; the index is updated atomically and its runIds array only ever grows.",
+  "type": "object",
+  "$comment": "additionalProperties:false is declared on each variant below, which is what enforces the frozen field table. It is deliberately NOT declared here: the root only routes to exactly one variant, and a per-subschema additionalProperties would otherwise reject every key of whichever variant matched.",
+  "properties": {
+    "schemaVersion": { "type": "string", "const": "1.0" }
+  },
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "kind", "excerpt"],
+      "description": "Evidence reference in the form frozen by §5.3.1.",
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "kind": { "type": "string", "enum": ["file", "stdout", "json_pointer", "ledger", "trace"] },
+        "excerpt": { "type": "string", "maxLength": 4096 }
+      }
+    },
+    "provider": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "degraded", "detail"],
+      "properties": {
+        "type": { "type": "string", "enum": ["deterministic", "scripted", "llm", "external"] },
+        "degraded": { "type": "boolean" },
+        "detail": { "type": "string" }
+      }
+    },
+    "ledgerEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "gateId",
+        "stage",
+        "checkId",
+        "type",
+        "required",
+        "passed",
+        "severity",
+        "durationMs",
+        "testId",
+        "evidence"
+      ],
+      "description": "One check judgement. Entries are written in stable gateId then checkId order so the ledger is reproducible.",
+      "properties": {
+        "gateId": { "type": "string", "minLength": 1 },
+        "stage": { "type": "string", "enum": ["requirements", "design", "build", "review", "verify"] },
+        "checkId": { "type": "string", "minLength": 1 },
+        "type": {
+          "type": "string",
+          "enum": ["file_exists", "file_not_exists", "regex", "command", "json_assert", "trace_matrix", "policy"]
+        },
+        "required": { "type": "boolean" },
+        "passed": { "type": "boolean" },
+        "severity": { "type": "string", "enum": ["blocker", "high", "medium", "low"] },
+        "durationMs": { "type": "integer", "minimum": 0 },
+        "testId": {
+          "description": "Mapped testId (pattern ^T-[A-Z0-9-]+-[0-9]{3}$), or null when no mapping exists. Expressed as oneOf because a nullable type union would silently stop applying the pattern keyword.",
+          "oneOf": [
+            { "type": "string", "pattern": "^T-[A-Z0-9-]+-[0-9]{3}$" },
+            { "type": "null" }
+          ]
+        },
+        "evidence": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/evidence" } }
+      }
+    },
+    "ledgerDocument": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "ledgerId",
+        "runId",
+        "started_at",
+        "finished_at",
+        "projectRoot",
+        "configPath",
+        "configSha256",
+        "provider",
+        "entries"
+      ],
+      "properties": {
+        "schemaVersion": { "type": "string", "const": "1.0" },
+        "ledgerId": { "type": "string", "minLength": 1, "description": "Equal to runId." },
+        "runId": { "type": "string", "minLength": 1 },
+        "started_at": { "type": "string", "minLength": 20, "description": "RFC3339 UTC." },
+        "finished_at": { "type": "string", "minLength": 20, "description": "RFC3339 UTC." },
+        "projectRoot": { "type": "string", "const": ".", "description": "Fixed relativisation anchor." },
+        "configPath": { "type": "string", "minLength": 1 },
+        "configSha256": { "type": "string", "minLength": 16, "description": "sha256 of the configuration contents." },
+        "provider": { "$ref": "#/$defs/provider" },
+        "entries": { "type": "array", "items": { "$ref": "#/$defs/ledgerEntry" } }
+      }
+    },
+    "ledgerIndexEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["runId", "path", "sha256", "overall_passed", "started_at"],
+      "properties": {
+        "runId": { "type": "string", "minLength": 1 },
+        "path": { "type": "string", "minLength": 1, "description": "verification/evidence/ledger-<runId>.json" },
+        "sha256": { "type": "string", "minLength": 16, "description": "Must equal the real sha256 of that ledger file." },
+        "overall_passed": { "type": "boolean" },
+        "started_at": { "type": "string", "minLength": 20 }
+      }
+    },
+    "ledgerIndexDocument": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schemaVersion", "updated_at", "runIds", "ledgers", "testIds"],
+      "properties": {
+        "schemaVersion": { "type": "string", "const": "1.0" },
+        "updated_at": { "type": "string", "minLength": 20, "description": "RFC3339 UTC." },
+        "runIds": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Append-only, in write order; never reordered."
+        },
+        "ledgers": { "type": "array", "items": { "$ref": "#/$defs/ledgerIndexEntry" } },
+        "testIds": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^T-[A-Z0-9-]+-[0-9]{3}$" },
+          "description": "Distinct, ascending union of every ledger entry testId; the orphan-testId source."
+        }
+      }
+    }
+  },
+  "oneOf": [
+    { "$ref": "#/$defs/ledgerDocument" },
+    { "$ref": "#/$defs/ledgerIndexDocument" }
+  ]
+}

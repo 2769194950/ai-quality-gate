@@ -1,0 +1,424 @@
+{
+  "cwd": "E:\\Desktop\\ai-quality-gate",
+  "layerNotes": {
+    "adapter": "adapters/opencodereview/src/selection.mjs selectFiles() with include:[\"**/*\"] as the widest possible include",
+    "engine": "packages/qgate/src/policy.mjs policySafe002(root) (its own widest include `**/*`)",
+    "nameRule": "adapters/opencodereview/src/filters.mjs isSensitivePath()"
+  },
+  "onDiskProbe": [
+    {
+      "declared": ".env.",
+      "writeSucceeded": true,
+      "error": null,
+      "directoryEntries": [
+        ".env",
+        ".env.",
+        "Credentials.json"
+      ]
+    },
+    {
+      "declared": ".env ",
+      "writeSucceeded": true,
+      "error": null,
+      "directoryEntries": [
+        ".env",
+        ".env ",
+        ".env.",
+        "Credentials.json"
+      ]
+    },
+    {
+      "declared": " .env",
+      "writeSucceeded": true,
+      "error": null,
+      "directoryEntries": [
+        " .env",
+        ".env",
+        ".env ",
+        ".env.",
+        "Credentials.json"
+      ]
+    },
+    {
+      "declared": ".env::$DATA",
+      "writeSucceeded": true,
+      "error": null,
+      "directoryEntries": [
+        " .env",
+        ".env",
+        ".env ",
+        ".env.",
+        "Credentials.json"
+      ]
+    },
+    {
+      "declared": "CREDEN~1.JSON",
+      "writeSucceeded": true,
+      "error": null,
+      "directoryEntries": [
+        " .env",
+        ".env",
+        ".env ",
+        ".env.",
+        "Credentials.json",
+        "CREDEN~1.JSON"
+      ]
+    }
+  ],
+  "nameRule": [
+    {
+      "path": ".env",
+      "adapterIsSensitivePath": true
+    },
+    {
+      "path": ".ENV",
+      "adapterIsSensitivePath": true
+    },
+    {
+      "path": ".Env",
+      "adapterIsSensitivePath": true
+    },
+    {
+      "path": ".env.",
+      "adapterIsSensitivePath": true
+    },
+    {
+      "path": ".env ",
+      "adapterIsSensitivePath": false
+    },
+    {
+      "path": " .env",
+      "adapterIsSensitivePath": false
+    },
+    {
+      "path": "./.env",
+      "adapterIsSensitivePath": true
+    },
+    {
+      "path": ".\\.env",
+      "adapterIsSensitivePath": true
+    },
+    {
+      "path": "src/../.env",
+      "adapterIsSensitivePath": true
+    },
+    {
+      "path": ".env::$DATA",
+      "adapterIsSensitivePath": false
+    },
+    {
+      "path": ".env::stream",
+      "adapterIsSensitivePath": false
+    },
+    {
+      "path": "secrets/../.env",
+      "adapterIsSensitivePath": true
+    },
+    {
+      "path": "Credentials.json",
+      "adapterIsSensitivePath": true
+    },
+    {
+      "path": "credentials.json",
+      "adapterIsSensitivePath": true
+    },
+    {
+      "path": "CREDENTIALS.JSON",
+      "adapterIsSensitivePath": true
+    },
+    {
+      "path": "CREDEN~1.JSON",
+      "adapterIsSensitivePath": false
+    },
+    {
+      "path": "config/tls/server.pem",
+      "adapterIsSensitivePath": true
+    },
+    {
+      "path": "config\\tls\\server.pem",
+      "adapterIsSensitivePath": true
+    },
+    {
+      "path": "config/tls/SERVER.PEM",
+      "adapterIsSensitivePath": true
+    },
+    {
+      "path": "secrets/db.txt",
+      "adapterIsSensitivePath": true
+    },
+    {
+      "path": "Secrets/DB.TXT",
+      "adapterIsSensitivePath": true
+    },
+    {
+      "path": "secrets\\db.txt",
+      "adapterIsSensitivePath": true
+    },
+    {
+      "path": "src/chain/id_rsa",
+      "adapterIsSensitivePath": true
+    },
+    {
+      "path": "src/chain/ID_RSA",
+      "adapterIsSensitivePath": true
+    },
+    {
+      "path": "src/chain/id_rsa.",
+      "adapterIsSensitivePath": true
+    },
+    {
+      "path": "./src/chain/id_rsa",
+      "adapterIsSensitivePath": true
+    }
+  ],
+  "selection": {
+    "declared": 26,
+    "included": [
+      "CREDEN~1.JSON"
+    ],
+    "excluded": [
+      " .env",
+      ".ENV",
+      ".Env",
+      ".env",
+      ".env ",
+      ".env.",
+      ".env::$DATA",
+      ".env::stream",
+      "CREDENTIALS.JSON",
+      "Credentials.json",
+      "Secrets/DB.TXT",
+      "config/tls/SERVER.PEM",
+      "config/tls/server.pem",
+      "credentials.json",
+      "secrets/db.txt",
+      "src/chain/ID_RSA",
+      "src/chain/id_rsa",
+      "src/chain/id_rsa."
+    ],
+    "unmaterialized": [],
+    "safetyNoSensitiveSelected": null,
+    "safetyNeverReincludable": null,
+    "hardlinkAliases": []
+  },
+  "admittedSensitive": [],
+  "exclusionReasons": {
+    " .env": {
+      "reason": "unsupported_extension:.env",
+      "ruleId": "SAFETY-004-EXTENSION"
+    },
+    ".ENV": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    ".Env": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    ".env": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    ".env ": {
+      "reason": "unsupported_extension:.env ",
+      "ruleId": "SAFETY-004-EXTENSION"
+    },
+    ".env.": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    ".env::$DATA": {
+      "reason": "unsupported_extension:.env::$DATA",
+      "ruleId": "SAFETY-004-EXTENSION"
+    },
+    ".env::stream": {
+      "reason": "unsupported_extension:.env::stream",
+      "ruleId": "SAFETY-004-EXTENSION"
+    },
+    "CREDENTIALS.JSON": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    "Credentials.json": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    "Secrets/DB.TXT": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    "config/tls/SERVER.PEM": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    "config/tls/server.pem": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    "credentials.json": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    "secrets/db.txt": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    "src/chain/ID_RSA": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    "src/chain/id_rsa": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    "src/chain/id_rsa.": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    }
+  },
+  "eliminatedByOtherRules": {
+    " .env": {
+      "reason": "unsupported_extension:.env",
+      "ruleId": "SAFETY-004-EXTENSION"
+    },
+    ".ENV": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    ".Env": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    ".env": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    ".env ": {
+      "reason": "unsupported_extension:.env ",
+      "ruleId": "SAFETY-004-EXTENSION"
+    },
+    ".env.": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    ".env::$DATA": {
+      "reason": "unsupported_extension:.env::$DATA",
+      "ruleId": "SAFETY-004-EXTENSION"
+    },
+    ".env::stream": {
+      "reason": "unsupported_extension:.env::stream",
+      "ruleId": "SAFETY-004-EXTENSION"
+    },
+    "CREDENTIALS.JSON": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    "Credentials.json": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    "Secrets/DB.TXT": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    "config/tls/SERVER.PEM": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    "config/tls/server.pem": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    "credentials.json": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    "secrets/db.txt": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    "src/chain/ID_RSA": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    "src/chain/id_rsa": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    },
+    "src/chain/id_rsa.": {
+      "reason": "sensitive_path_never_included",
+      "ruleId": "SAFETY-001-SENSITIVE-PATH"
+    }
+  },
+  "nameRuleMissesButStillExcluded": [
+    {
+      "path": ".env ",
+      "reason": "unsupported_extension:.env "
+    },
+    {
+      "path": " .env",
+      "reason": "unsupported_extension:.env"
+    },
+    {
+      "path": ".env::$DATA",
+      "reason": "unsupported_extension:.env::$DATA"
+    },
+    {
+      "path": ".env::stream",
+      "reason": "unsupported_extension:.env::stream"
+    }
+  ],
+  "engine": {
+    "variants": {
+      "passed": true,
+      "metrics": {
+        "selected": 2,
+        "secretPathsExcluded": 8,
+        "secretPathRules": [
+          "secret-env",
+          "secret-pem",
+          "secret-key",
+          "secret-rsa",
+          "secret-credentials",
+          "secret-dir",
+          "secret-p12",
+          "secret-kubeconfig"
+        ],
+        "widestInclude": "**/*"
+      }
+    },
+    "control": {
+      "passed": true,
+      "metrics": {
+        "selected": 1,
+        "secretPathsExcluded": 1,
+        "secretPathRules": [
+          "secret-env",
+          "secret-pem",
+          "secret-key",
+          "secret-rsa",
+          "secret-credentials",
+          "secret-dir",
+          "secret-p12",
+          "secret-kubeconfig"
+        ],
+        "widestInclude": "**/*"
+      }
+    }
+  },
+  "summary": {
+    "bypassFound": false,
+    "admittedSensitive": [],
+    "nameRuleMisses": [
+      ".env ",
+      " .env",
+      ".env::$DATA",
+      ".env::stream",
+      "CREDEN~1.JSON"
+    ],
+    "engineDidNotAdmitVariants": true,
+    "engineControlExcludesPlainEnv": true,
+    "variantDriftVsControl": 7,
+    "unmaterializedVariants": 0
+  }
+}

@@ -1,0 +1,20 @@
+﻿[
+    {
+        "run":  1,
+        "exit":  0,
+        "safe002_selected":  "",
+        "ledger_files":  8
+    },
+    {
+        "run":  2,
+        "exit":  0,
+        "safe002_selected":  "",
+        "ledger_files":  9
+    },
+    {
+        "run":  3,
+        "exit":  0,
+        "safe002_selected":  "",
+        "ledger_files":  10
+    }
+]

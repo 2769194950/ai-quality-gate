@@ -1,0 +1,351 @@
+{
+  "version": "1.0",
+  "provider": {
+    "type": "deterministic",
+    "timeoutMs": 30000
+  },
+  "projectRoot": "mini-service",
+  "policy": {
+    "evidenceDir": ".qgate/evidence",
+    "reportDir": ".qgate/reports",
+    "failFast": false,
+    "scanRoots": [
+      "packages/qgate/src",
+      "packages/qgate/bin",
+      "packages/qgate/gates",
+      "demo/mini-service"
+    ]
+  },
+  "selection": {
+    "include": [
+      "**/*"
+    ],
+    "exclude": [],
+    "extensions": [
+      ".mjs",
+      ".js",
+      ".json",
+      ".md",
+      ".yaml",
+      ".yml",
+      ".txt"
+    ],
+    "defaultExcludedPaths": [
+      ".git",
+      "node_modules",
+      "dist",
+      "build",
+      "coverage"
+    ],
+    "maxFileSizeBytes": 262144,
+    "maxFilesPerGroup": 10,
+    "tokenBudgetPerGroup": 12000,
+    "ruleFile": ".opencodereview/rule.json"
+  },
+  "grouping": {
+    "maxFilesPerGroup": 10,
+    "tokenBudgetPerGroup": 12000,
+    "tokensPerFile": 4
+  },
+  "gates": [
+    {
+      "id": "req-spec",
+      "stage": "requirements",
+      "required": true,
+      "humanGate": {
+        "role": "product",
+        "approvalRecord": ".qgate/approvals/req-to-design/approval.json",
+        "enforcement": "blocking"
+      },
+      "checks": [
+        {
+          "id": "req-doc-exists",
+          "type": "file_exists",
+          "file": "REQUIREMENTS.md",
+          "required": true,
+          "severity": "high",
+          "description": "the requirements document must exist (REQ-DEMO-0001)"
+        },
+        {
+          "id": "req-ids-present",
+          "type": "regex",
+          "required": true,
+          "severity": "high",
+          "files": [
+            "REQUIREMENTS.md"
+          ],
+          "pattern": "REQ-DEMO-\\d{4}",
+          "flags": "gm",
+          "mode": "count",
+          "minMatches": 4,
+          "countMode": "unique",
+          "description": "at least four unique requirement ids must be present"
+        },
+        {
+          "id": "req-index-valid",
+          "type": "json_assert",
+          "required": true,
+          "severity": "high",
+          "file": ".qgate/requirements-index.json",
+          "assertions": [
+            {
+              "pointer": "/requirements",
+              "exists": true
+            },
+            {
+              "pointer": "/requirements/0/id",
+              "matches": "^REQ-DEMO-\\d{4}$"
+            },
+            {
+              "pointer": "/schemaVersion",
+              "equals": "1.0"
+            }
+          ],
+          "description": "the machine-readable requirement index must be valid"
+        }
+      ]
+    },
+    {
+      "id": "interface-frozen",
+      "stage": "design",
+      "required": true,
+      "humanGate": {
+        "role": "architect",
+        "approvalRecord": ".qgate/approvals/design-to-build/approval.json",
+        "enforcement": "blocking"
+      },
+      "checks": [
+        {
+          "id": "interface-exists",
+          "type": "file_exists",
+          "file": "openapi.yaml",
+          "required": true,
+          "severity": "high",
+          "description": "the frozen interface description must exist"
+        },
+        {
+          "id": "interface-fields",
+          "type": "regex",
+          "required": true,
+          "severity": "high",
+          "files": [
+            "openapi.yaml"
+          ],
+          "pattern": "requestId|traceId|amount|currency|Idempotency-Key",
+          "flags": "gm",
+          "mode": "count",
+          "minMatches": 5,
+          "countMode": "unique",
+          "description": "every frozen field name must appear in the interface contract"
+        },
+        {
+          "id": "rule-file-exists",
+          "type": "file_exists",
+          "file": ".opencodereview/rule.json",
+          "required": true,
+          "severity": "high",
+          "description": "the review rule file must exist (OCR rule precedence)"
+        },
+        {
+          "id": "no-loose-ends",
+          "type": "file_not_exists",
+          "file": "TODO.md",
+          "required": false,
+          "severity": "medium",
+          "description": "no loose-ends tracker may be left at the repository root"
+        }
+      ]
+    },
+    {
+      "id": "build-deterministic",
+      "stage": "build",
+      "required": true,
+      "checks": [
+        {
+          "id": "no-dep",
+          "type": "json_assert",
+          "required": true,
+          "severity": "high",
+          "file": "package.json",
+          "assertions": [
+            {
+              "pointer": "/dependencies",
+              "equals": {}
+            },
+            {
+              "pointer": "/type",
+              "equals": "module"
+            }
+          ],
+          "description": "zero runtime dependencies, pure ESM"
+        },
+        {
+          "id": "command-smoke",
+          "type": "command",
+          "required": true,
+          "severity": "high",
+          "run": [
+            "node",
+            "--version"
+          ],
+          "expectExitCode": 0,
+          "timeoutMs": 60000,
+          "captureStdout": true,
+          "stdoutRegex": "^v\\d+\\.",
+          "description": "the pinned Node toolchain must be usable offline"
+        },
+        {
+          "id": "test-results-threshold",
+          "type": "json_assert",
+          "required": true,
+          "severity": "high",
+          "file": ".qgate/evidence/test-results.json",
+          "assertions": [
+            {
+              "pointer": "/passed",
+              "equals": 42
+            },
+            {
+              "pointer": "/failed",
+              "equals": 0
+            }
+          ],
+          "description": "the recorded unit-test result must be green"
+        },
+        {
+          "id": "no-network-surface",
+          "type": "policy",
+          "required": true,
+          "severity": "high",
+          "policyId": "SAFE_003",
+          "onFail": "fail",
+          "description": "no network call surface may exist in the repository"
+        }
+      ]
+    },
+    {
+      "id": "review-counterexample",
+      "stage": "review",
+      "required": true,
+      "humanGate": {
+        "role": "reviewer",
+        "approvalRecord": ".qgate/approvals/review-to-verify/approval.json",
+        "enforcement": "blocking"
+      },
+      "checks": [
+        {
+          "id": "negative-fixtures",
+          "type": "file_exists",
+          "file": ".qgate/negative/*.json",
+          "minCount": 1,
+          "required": true,
+          "severity": "high",
+          "description": "at least one recorded counter-example must exist"
+        },
+        {
+          "id": "invalid-must-fail",
+          "type": "json_assert",
+          "required": true,
+          "severity": "high",
+          "file": ".qgate/negative/unknown-check-type.result.json",
+          "assertions": [
+            {
+              "pointer": "/exitCode",
+              "equals": 2
+            },
+            {
+              "pointer": "/error/code",
+              "equals": "CONFIG_INVALID"
+            }
+          ],
+          "description": "an invalid configuration must exit 2, never 0"
+        },
+        {
+          "id": "severity-mix",
+          "type": "json_assert",
+          "required": true,
+          "severity": "high",
+          "file": ".qgate/evidence/ocr-findings.json",
+          "assertions": [
+            {
+              "pointer": "/threshold",
+              "equals": 0.7
+            },
+            {
+              "pointer": "/findings/0/severity",
+              "equals": "high"
+            },
+            {
+              "pointer": "/findings/0/confidence",
+              "equals": 0.86
+            }
+          ],
+          "description": "finding severity and confidence gating (REQ-QUALITY-GATE-013)"
+        },
+        {
+          "id": "no-bypass",
+          "type": "policy",
+          "required": true,
+          "severity": "high",
+          "policyId": "CONTRACT_001",
+          "onFail": "fail",
+          "description": "the gate configuration may not drift outside the frozen contract"
+        }
+      ]
+    },
+    {
+      "id": "verify-coverage",
+      "stage": "verify",
+      "required": true,
+      "checks": [
+        {
+          "id": "trace-complete",
+          "type": "trace_matrix",
+          "required": true,
+          "severity": "high",
+          "requirementsFile": ".qgate/requirements-index.json",
+          "traceFile": ".qgate/trace-matrix.json",
+          "enforce": "strict",
+          "testIdSource": "ledger-index",
+          "description": "every P0/P1 requirement must be traced to a test id present in the ledger"
+        },
+        {
+          "id": "coverage-threshold",
+          "type": "json_assert",
+          "required": true,
+          "severity": "high",
+          "file": ".qgate/evidence/coverage.json",
+          "assertions": [
+            {
+              "pointer": "/lineCoverage",
+              "matches": "^0\\.9"
+            },
+            {
+              "pointer": "/branches/covered",
+              "exists": true
+            }
+          ],
+          "description": "the recorded coverage metric must clear the gate threshold"
+        },
+        {
+          "id": "no-secret-paths",
+          "type": "policy",
+          "required": true,
+          "severity": "high",
+          "policyId": "SAFE_002",
+          "onFail": "fail",
+          "description": "secret paths may never be re-admitted by an include pattern"
+        },
+        {
+          "id": "no-key-reads",
+          "type": "policy",
+          "required": true,
+          "severity": "high",
+          "policyId": "SAFE_001",
+          "onFail": "fail",
+          "description": "no API key is read anywhere in the repository"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+﻿{
+  "ok": false,
+  "error": {
+    "code": "CONFIG_INVALID",
+    "message": "configuration is not valid: check.type \"file_exist\" is not allowed",
+    "jsonPointer": "/gates/0/checks/0/type",
+    "details": [
+      {
+        "jsonPointer": "/gates/0/checks/0/type",
+        "expected": "file_exists|file_not_exists|regex|command|json_assert|trace_matrix|policy",
+        "actual": "file_exist",
+        "message": "check.type \"file_exist\" is not allowed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,430 @@
+﻿{
+  "version": "1.0",
+  "run_id": "2026-09-18T02-21-20.736Z-ef8bb5ae",
+  "started_at": "2026-09-18T02:21:20.736Z",
+  "finished_at": "2026-09-18T02:21:21.039Z",
+  "duration_ms": 303,
+  "overall_passed": true,
+  "provider": {
+    "type": "deterministic",
+    "degraded": false,
+    "detail": "offline-fixture"
+  },
+  "gates": [
+    {
+      "id": "req-spec",
+      "stage": "requirements",
+      "required": true,
+      "passed": true,
+      "humanGate": {
+        "role": "product",
+        "approvalRecord": ".qgate/approvals/req-to-design/approval.json",
+        "approvalState": "approved",
+        "approvedBy": "product-owner",
+        "approvedAt": "2026-05-04T09:00:00Z"
+      },
+      "blockers": [],
+      "checks": [
+        {
+          "id": "req-doc-exists",
+          "type": "file_exists",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "REQUIREMENTS.md",
+              "kind": "file",
+              "excerpt": "sha256:25415ce90c074379226e6562183820637782fff5d337b21133ca25ae7f0de97e"
+            },
+            {
+              "path": "REQUIREMENTS.md",
+              "kind": "file",
+              "excerpt": "matchedFiles=1 minCount=1"
+            }
+          ]
+        },
+        {
+          "id": "req-ids-present",
+          "type": "regex",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "REQUIREMENTS.md",
+              "kind": "file",
+              "excerpt": "7 match(es); L9:REQ-DEMO-001 | L18:REQ-DEMO-002 | L24:REQ-DEMO-002"
+            },
+            {
+              "path": "REQUIREMENTS.md",
+              "kind": "json_pointer",
+              "excerpt": "pattern=REQ-DEMO-\\d{3} mode=count countMode=unique totalMatches=7 uniqueMatches=6 minMatches=4"
+            }
+          ]
+        },
+        {
+          "id": "req-index-valid",
+          "type": "json_assert",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": ".qgate/requirements-index.json",
+              "kind": "json_pointer",
+              "excerpt": "/requirements -> exists=true expected=true"
+            },
+            {
+              "path": ".qgate/requirements-index.json",
+              "kind": "json_pointer",
+              "excerpt": "/requirements/0/id -> matches=/^REQ-DEMO-\\d{3}$/ against REQ-DEMO-001"
+            },
+            {
+              "path": ".qgate/requirements-index.json",
+              "kind": "json_pointer",
+              "excerpt": "/schemaVersion -> equals=\"1.0\" expected=\"1.0\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "interface-frozen",
+      "stage": "design",
+      "required": true,
+      "passed": true,
+      "humanGate": {
+        "role": "architect",
+        "approvalRecord": ".qgate/approvals/design-to-build/approval.json",
+        "approvalState": "approved",
+        "approvedBy": "architect",
+        "approvedAt": "2026-05-04T09:30:00Z"
+      },
+      "blockers": [],
+      "checks": [
+        {
+          "id": "interface-exists",
+          "type": "file_exists",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "openapi.yaml",
+              "kind": "file",
+              "excerpt": "sha256:7cc4b41e02ad00156c8c73d3cc125268e5bd8114f2dd8f25c59dfe521bf6d304"
+            },
+            {
+              "path": "openapi.yaml",
+              "kind": "file",
+              "excerpt": "matchedFiles=1 minCount=1"
+            }
+          ]
+        },
+        {
+          "id": "interface-fields",
+          "type": "regex",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "openapi.yaml",
+              "kind": "file",
+              "excerpt": "21 match(es); L16:Idempotency-Key | L45:requestId | L67:requestId"
+            },
+            {
+              "path": "openapi.yaml",
+              "kind": "json_pointer",
+              "excerpt": "pattern=requestId|traceId|amount|currency|Idempotency-Key mode=count countMode=unique totalMatches=21 uniqueMatches=5 minMatches=5"
+            }
+          ]
+        },
+        {
+          "id": "rule-file-exists",
+          "type": "file_exists",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": ".opencodereview/rule.json",
+              "kind": "file",
+              "excerpt": "sha256:6b87a10152676f539d283c9940dd20f98a276a39e31f06ff2a562bee92a84f2f"
+            },
+            {
+              "path": ".opencodereview/rule.json",
+              "kind": "file",
+              "excerpt": "matchedFiles=1 minCount=1"
+            }
+          ]
+        },
+        {
+          "id": "no-loose-ends",
+          "type": "file_not_exists",
+          "passed": true,
+          "severity": "medium",
+          "evidence": [
+            {
+              "path": "qgate.config.json",
+              "kind": "json_pointer",
+              "excerpt": "TODO.md matched 0 file(s), allowed 0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "build-deterministic",
+      "stage": "build",
+      "required": true,
+      "passed": true,
+      "humanGate": null,
+      "blockers": [],
+      "checks": [
+        {
+          "id": "no-dep",
+          "type": "json_assert",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "package.json",
+              "kind": "json_pointer",
+              "excerpt": "/dependencies -> equals={} expected={}"
+            },
+            {
+              "path": "package.json",
+              "kind": "json_pointer",
+              "excerpt": "/type -> equals=\"module\" expected=\"module\""
+            }
+          ]
+        },
+        {
+          "id": "command-smoke",
+          "type": "command",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "qgate.config.json",
+              "kind": "stdout",
+              "excerpt": "command=node --version cwd=. exitCode=0 expected=0"
+            },
+            {
+              "path": "qgate.config.json",
+              "kind": "stdout",
+              "excerpt": "stdout: v24.19.0"
+            }
+          ]
+        },
+        {
+          "id": "test-results-threshold",
+          "type": "json_assert",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": ".qgate/evidence/test-results.json",
+              "kind": "json_pointer",
+              "excerpt": "/passed -> equals=42 expected=42"
+            },
+            {
+              "path": ".qgate/evidence/test-results.json",
+              "kind": "json_pointer",
+              "excerpt": "/failed -> equals=0 expected=0"
+            }
+          ]
+        },
+        {
+          "id": "no-network-surface",
+          "type": "policy",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "../../.github/workflows/quality-gate.yml",
+              "kind": "file",
+              "excerpt": "policy scan sample (94 file(s) scanned)"
+            },
+            {
+              "path": "qgate.config.json",
+              "kind": "json_pointer",
+              "excerpt": "SAFE_003 metrics={\"filesScanned\":94,\"violations\":0,\"tokens\":[\"fetch( (global fetch call)\",\"net.(?:(?:createServer|createConnection|connect|Socket|Server|isIP|isIPv4|isIPv6|getDefaultAutoSelectFamily)\\\\b) (net module call)\",\"https.request (http request surface)\",\"https.get (http get surface)\",\"https.post (http post surface)\",\"https.connect (http connect surface)\",\"network module import/require (network import surface)\",\"(named network client).call() (network client surface)\",\"(aliased network call) (network call surface)\",\"(globalThis['…' + '…']) (computed network access surface)\"],\"scanSurface\":{\"candidates\":139,\"scanned\":94,\"excluded\":{\"prose\":11,\"fixtures\":29,\"otherExtension\":5,\"oversize\":0,\"skippedDirectories\":[\".git\",\"node_modules\",\".qgate\",\"coverage\",\"dist\",\"build\",\".cache\",\"verification\",\"verification-t9\",\"artifacts\"]},\"note\":\"prose cannot read a key and recorded evidence echoes this policy's own output, so both are out of the default surface; list them in policy.expectedFiles to scan them explicitly\"}}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "review-counterexample",
+      "stage": "review",
+      "required": true,
+      "passed": true,
+      "humanGate": {
+        "role": "reviewer",
+        "approvalRecord": ".qgate/approvals/review-to-verify/approval.json",
+        "approvalState": "approved",
+        "approvedBy": "reviewer",
+        "approvedAt": "2026-05-04T10:00:00Z"
+      },
+      "blockers": [],
+      "checks": [
+        {
+          "id": "negative-fixtures",
+          "type": "file_exists",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": ".qgate/negative/secret-include.result.json",
+              "kind": "file",
+              "excerpt": "sha256:71a912ef9b167f1987ded7494cf85c7f3663a74c7511fe298d04562f202981e2"
+            },
+            {
+              "path": ".qgate/negative/unknown-check-type.result.json",
+              "kind": "file",
+              "excerpt": "sha256:f93b5b6a7e30ddb76063d4737720393e29ca333ed66b18dcffce5fd23c8cbeed"
+            },
+            {
+              "path": ".qgate/negative/secret-include.result.json",
+              "kind": "file",
+              "excerpt": "matchedFiles=2 minCount=1"
+            }
+          ]
+        },
+        {
+          "id": "invalid-must-fail",
+          "type": "json_assert",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": ".qgate/negative/unknown-check-type.result.json",
+              "kind": "json_pointer",
+              "excerpt": "/exitCode -> equals=2 expected=2"
+            },
+            {
+              "path": ".qgate/negative/unknown-check-type.result.json",
+              "kind": "json_pointer",
+              "excerpt": "/error/code -> equals=\"CONFIG_INVALID\" expected=\"CONFIG_INVALID\""
+            }
+          ]
+        },
+        {
+          "id": "severity-mix",
+          "type": "json_assert",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": ".qgate/evidence/ocr-findings.json",
+              "kind": "json_pointer",
+              "excerpt": "/threshold -> equals=0.7 expected=0.7"
+            },
+            {
+              "path": ".qgate/evidence/ocr-findings.json",
+              "kind": "json_pointer",
+              "excerpt": "/findings/0/severity -> equals=\"high\" expected=\"high\""
+            },
+            {
+              "path": ".qgate/evidence/ocr-findings.json",
+              "kind": "json_pointer",
+              "excerpt": "/findings/0/confidence -> equals=0.86 expected=0.86"
+            }
+          ]
+        },
+        {
+          "id": "no-bypass",
+          "type": "policy",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "qgate.config.json",
+              "kind": "json_pointer",
+              "excerpt": "CONTRACT_001 metrics={\"scannedConfig\":\"E:\\\\Desktop\\\\ai-quality-gate\\\\demo\\\\qgate.config.json\",\"violations\":0,\"frozenCheckTypes\":[\"file_exists\",\"file_not_exists\",\"regex\",\"command\",\"json_assert\",\"trace_matrix\",\"policy\"],\"frozenStages\":[\"requirements\",\"design\",\"build\",\"review\",\"verify\"]}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "verify-coverage",
+      "stage": "verify",
+      "required": true,
+      "passed": true,
+      "humanGate": null,
+      "blockers": [],
+      "checks": [
+        {
+          "id": "trace-complete",
+          "type": "trace_matrix",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": ".qgate/requirements-index.json",
+              "kind": "json_pointer",
+              "excerpt": "/requirements (length=6)"
+            },
+            {
+              "path": ".qgate/trace-matrix.json",
+              "kind": "trace",
+              "excerpt": "/summary (covered=6, uncovered=0)"
+            },
+            {
+              "path": ".qgate/evidence/ledger-index.json",
+              "kind": "ledger",
+              "excerpt": "testIdSource=ledger-index testIds=14"
+            }
+          ]
+        },
+        {
+          "id": "coverage-threshold",
+          "type": "json_assert",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": ".qgate/evidence/coverage.json",
+              "kind": "json_pointer",
+              "excerpt": "/lineCoverage -> matches=/^0\\.9/ against 0.9375"
+            },
+            {
+              "path": ".qgate/evidence/coverage.json",
+              "kind": "json_pointer",
+              "excerpt": "/branches/covered -> exists=true expected=true"
+            }
+          ]
+        },
+        {
+          "id": "no-secret-paths",
+          "type": "policy",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "qgate.config.json",
+              "kind": "json_pointer",
+              "excerpt": "SAFE_002 metrics={\"selected\":17,\"secretPathsExcluded\":3,\"secretPathRules\":[\"secret-env\",\"secret-pem\",\"secret-key\",\"secret-rsa\",\"secret-credentials\",\"secret-dir\",\"secret-p12\",\"secret-kubeconfig\"],\"widestInclude\":\"**/*\"}"
+            }
+          ]
+        },
+        {
+          "id": "no-key-reads",
+          "type": "policy",
+          "passed": true,
+          "severity": "high",
+          "evidence": [
+            {
+              "path": "../../.github/workflows/quality-gate.yml",
+              "kind": "file",
+              "excerpt": "policy scan sample (94 file(s) scanned)"
+            },
+            {
+              "path": "qgate.config.json",
+              "kind": "json_pointer",
+              "excerpt": "SAFE_001 metrics={\"filesScanned\":94,\"violations\":0,\"patterns\":[\"environment key read\",\"environment key read (call)\",\"vault reference\"],\"scanSurface\":{\"candidates\":139,\"scanned\":94,\"excluded\":{\"prose\":11,\"fixtures\":29,\"otherExtension\":5,\"oversize\":0,\"skippedDirectories\":[\".git\",\"node_modules\",\".qgate\",\"coverage\",\"dist\",\"build\",\".cache\",\"verification\",\"verification-t9\",\"artifacts\"]},\"note\":\"prose cannot read a key and recorded evidence echoes this policy's own output, so both are out of the default surface; list them in policy.expectedFiles to scan them explicitly\"}}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

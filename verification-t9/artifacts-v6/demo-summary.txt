@@ -1,0 +1,11 @@
+﻿stage        | gate                 | required | passed | blockers | checks
+-------------|----------------------|----------|--------|----------|-------
+requirements | req-spec             | true     | true   | 0        | 3
+design       | interface-frozen     | true     | true   | 0        | 4
+build        | build-deterministic  | true     | true   | 0        | 4
+review       | review-counterexample | true     | true   | 0        | 4
+verify       | verify-coverage      | true     | true   | 0        | 4
+
+overall_passed=true run_id=2026-09-18T02-21-19.702Z-005a6aa8 provider=deterministic
+ledger=.qgate/evidence/ledger-2026-09-18T02-21-19.702Z-005a6aa8.json
+ledger-index=.qgate/evidence/ledger-index.json

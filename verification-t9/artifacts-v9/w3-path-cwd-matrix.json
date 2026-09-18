@@ -1,0 +1,230 @@
+{
+  "cwd": "E:\\Desktop\\ai-quality-gate",
+  "workdir": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\t68-matrix-1789704374982",
+  "matrix": [
+    [
+      "repo @cwd=repo",
+      "E:\\Desktop\\ai-quality-gate",
+      "E:\\Desktop\\ai-quality-gate"
+    ],
+    [
+      "repo @cwd=C:\\",
+      "E:\\Desktop\\ai-quality-gate",
+      "C:\\"
+    ],
+    [
+      "repo @cwd=demo/mini-service",
+      "E:\\Desktop\\ai-quality-gate",
+      "E:\\Desktop\\ai-quality-gate\\demo\\mini-service"
+    ],
+    [
+      "copyB(no node_modules) @cwd=copyB",
+      "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\t68-matrix-1789704374982\\copyB-no-node-modules",
+      "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\t68-matrix-1789704374982\\copyB-no-node-modules"
+    ],
+    [
+      "copyB @cwd=demo/mini-service",
+      "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\t68-matrix-1789704374982\\copyB-no-node-modules",
+      "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\t68-matrix-1789704374982\\copyB-no-node-modules\\demo\\mini-service"
+    ],
+    [
+      "copyB @cwd=C:\\",
+      "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\t68-matrix-1789704374982\\copyB-no-node-modules",
+      "C:\\"
+    ],
+    [
+      "copyB @cwd=E:\\Desktop",
+      "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\t68-matrix-1789704374982\\copyB-no-node-modules",
+      "E:\\Desktop"
+    ],
+    [
+      "copyE(deep, no node_modules) @cwd=copyE",
+      "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\t68-matrix-1789704374982\\deep\\l1\\l2\\copyE-no-node-modules",
+      "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\t68-matrix-1789704374982\\deep\\l1\\l2\\copyE-no-node-modules"
+    ]
+  ],
+  "cells": [
+    {
+      "label": "repo @cwd=repo",
+      "cwd": "E:\\Desktop\\ai-quality-gate",
+      "exit": 0,
+      "testFiles": 15,
+      "tests": 145,
+      "pass": 145,
+      "fail": 0,
+      "failedTestNames": []
+    },
+    {
+      "label": "repo @cwd=C:\\",
+      "cwd": "C:\\",
+      "exit": 0,
+      "testFiles": 15,
+      "tests": 145,
+      "pass": 145,
+      "fail": 0,
+      "failedTestNames": []
+    },
+    {
+      "label": "repo @cwd=demo/mini-service",
+      "cwd": "E:\\Desktop\\ai-quality-gate\\demo\\mini-service",
+      "exit": 0,
+      "testFiles": 15,
+      "tests": 145,
+      "pass": 145,
+      "fail": 0,
+      "failedTestNames": []
+    },
+    {
+      "label": "copyB(no node_modules) @cwd=copyB",
+      "cwd": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\t68-matrix-1789704374982\\copyB-no-node-modules",
+      "exit": 0,
+      "testFiles": 15,
+      "tests": 145,
+      "pass": 145,
+      "fail": 0,
+      "failedTestNames": []
+    },
+    {
+      "label": "copyB @cwd=demo/mini-service",
+      "cwd": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\t68-matrix-1789704374982\\copyB-no-node-modules\\demo\\mini-service",
+      "exit": 0,
+      "testFiles": 15,
+      "tests": 145,
+      "pass": 145,
+      "fail": 0,
+      "failedTestNames": []
+    },
+    {
+      "label": "copyB @cwd=C:\\",
+      "cwd": "C:\\",
+      "exit": 0,
+      "testFiles": 15,
+      "tests": 145,
+      "pass": 145,
+      "fail": 0,
+      "failedTestNames": []
+    },
+    {
+      "label": "copyB @cwd=E:\\Desktop",
+      "cwd": "E:\\Desktop",
+      "exit": 0,
+      "testFiles": 15,
+      "tests": 145,
+      "pass": 145,
+      "fail": 0,
+      "failedTestNames": []
+    },
+    {
+      "label": "copyE(deep, no node_modules) @cwd=copyE",
+      "cwd": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\dsh-3elDiT\\t68-matrix-1789704374982\\deep\\l1\\l2\\copyE-no-node-modules",
+      "exit": 0,
+      "testFiles": 15,
+      "tests": 145,
+      "pass": 145,
+      "fail": 0,
+      "failedTestNames": []
+    }
+  ],
+  "counterExamples": [
+    {
+      "id": "C1 unmaterialised + unexplainable (src/ghost-module.mjs)",
+      "expect": "clause (b): 未物化的夹具路径必须能由本层规则解释",
+      "exit": 1,
+      "tests": 145,
+      "pass": 137,
+      "fail": 8,
+      "failedTestNames": [
+        "GAP-5: 显式 --root 行为未回归（显式参数优先于推断锚点）",
+        "fixtures: preview.default.json 与当前运行结果一致（真实产物回归）",
+        "fixtures: preview.token-budget-300.json 记录 token 预算降级形态",
+        "fixtures: selection.default.md 为真实运行生成的「文件/决策/原因」三列表格",
+        "GAP-6: 实际输出中三类路径都被抹平，且报告出命中的占位符",
+        "回归: demo 夹具仍按预期工作（占位符密钥文件不因新扫描器而误判）",
+        "夹具路径真实存在：diff.json 引用的每个路径都对应夹具根下真实文件",
+        "t48: demo 夹具不受影响（真实产物 14 入选 / 9 排除 / 4 组，全部物化）"
+      ],
+      "observedMessages": [
+        "未物化的夹具路径必须能由本层规则解释（默认排除目录/二进制/不支持扩展名）: src/ghost-module.mjs"
+      ]
+    },
+    {
+      "id": "C2 denominator (4 rule-explainable ghosts)",
+      "expect": "clause (c): 夹具必须基本物化",
+      "exit": 1,
+      "tests": 145,
+      "pass": 138,
+      "fail": 7,
+      "failedTestNames": [
+        "fixtures: preview.default.json 与当前运行结果一致（真实产物回归）",
+        "fixtures: preview.token-budget-300.json 记录 token 预算降级形态",
+        "fixtures: selection.default.md 为真实运行生成的「文件/决策/原因」三列表格",
+        "GAP-6: 实际输出中三类路径都被抹平，且报告出命中的占位符",
+        "回归: demo 夹具仍按预期工作（占位符密钥文件不因新扫描器而误判）",
+        "夹具路径真实存在：diff.json 引用的每个路径都对应夹具根下真实文件",
+        "t48: demo 夹具不受影响（真实产物 14 入选 / 9 排除 / 4 组，全部物化）"
+      ],
+      "observedMessages": [
+        "夹具必须基本物化：实际 22/27（未物化: [\"node_modules/left-pad/index.js\",\"node_modules/ghost/a.js\",\"node_modules/ghost/b.js\",\"node_modules/ghost/c.js\",\"node_modules/ghost/d.js\"]）"
+      ]
+    },
+    {
+      "id": "C3 materialised but node_modules no longer a default-excluded dir",
+      "expect": "disposition clause: 已物化时必须被排除",
+      "exit": 1,
+      "tests": 145,
+      "pass": 133,
+      "fail": 12,
+      "failedTestNames": [
+        "GAP-5: 显式 --root 行为未回归（显式参数优先于推断锚点）",
+        "fixtures: preview.default.json 与当前运行结果一致（真实产物回归）",
+        "fixtures: preview.token-budget-300.json 记录 token 预算降级形态",
+        "fixtures: selection.default.md 为真实运行生成的「文件/决策/原因」三列表格",
+        "GAP-6: 实际输出中三类路径都被抹平，且报告出命中的占位符",
+        "规则: classifyFile 的判定顺序 —— 安全层先于任何 include",
+        "B1: 默认排除目录与密钥扩展名同样大小写不敏感",
+        "回归: demo 夹具仍按预期工作（占位符密钥文件不因新扫描器而误判）",
+        "过滤: 默认排除目录（.git/、node_modules/、dist/）始终排除",
+        "--root 扫描模式：与 --diff 走同一选择代码（同源）且确定",
+        "夹具路径真实存在：diff.json 引用的每个路径都对应夹具根下真实文件",
+        "t48: demo 夹具不受影响（真实产物 14 入选 / 9 排除 / 4 组，全部物化）"
+      ],
+      "observedMessages": [
+        "AssertionError [ERR_ASSERTION]: node_modules/left-pad/index.js 已物化时**必须被排除**（默认排除目录/二进制），不得进入 selected"
+      ]
+    },
+    {
+      "id": "C4 grouping-rules reverted to process.cwd(); run from demo/mini-service (defect exposed)",
+      "expect": "must fail (the fix is load-bearing)",
+      "exit": 1,
+      "tests": 145,
+      "pass": 144,
+      "fail": 1,
+      "failedTestNames": [
+        "规则: 内置层永远存在且不含 include（结构上不可能救回敏感路径）"
+      ],
+      "observedMessages": []
+    }
+  ],
+  "hiddenControls": [
+    {
+      "id": "C4 grouping-rules reverted to process.cwd(); run from copy root (defect hidden)",
+      "expect": "must still pass 145/145/0",
+      "exit": 0,
+      "tests": 145,
+      "pass": 145,
+      "fail": 0
+    }
+  ],
+  "summary": {
+    "cells": 8,
+    "allCellsGreen": true,
+    "counterExamples": 4,
+    "allCounterExamplesStillFail": true,
+    "hiddenControlsHold": true,
+    "c1ClauseBFired": true,
+    "c2DenominatorFired": true,
+    "c3DispositionFired": true,
+    "c4ExposedOffRecordedPath": true,
+    "c4HiddenOnRecordedPath": true
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "1.0",
+  "source": "verifier-same-file-compare",
+  "description": "t18 断言 12：与适配层在『同一份文件树、同一 CLI 层（--rule）』上比对 ruleMatch[].priority，独立复跑验证 §6.2.2 GAP-1 的归一化公式 engine_priority = adapter_priority - 1。本文件是引擎格式（{rules:[{id,match,...}]}），与适配层格式（{include,exclude,grouping}）刻意不同——这本身就是一条实测发现的跨工具差异。",
+  "rules": [
+    { "id": "vfy-cli-src", "match": "src/**/*.mjs", "severity": "high", "category": "verifier-compare" }
+  ]
+}

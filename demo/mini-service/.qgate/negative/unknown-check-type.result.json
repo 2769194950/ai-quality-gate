@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "caseId": "unknown-check-type",
+  "purpose": "Counter-example: a configuration with an unknown check.type must exit 2 and must never start a run.",
+  "command": "node packages/qgate/bin/qgate.mjs check --config packages/qgate/examples/invalid/unknown-check-type.json --json",
+  "exitCode": 2,
+  "error": {
+    "code": "CONFIG_INVALID",
+    "message": "configuration is not valid: check.type \"file_exist\" is not allowed",
+    "jsonPointer": "/gates/0/checks/0/type",
+    "details": [
+      {
+        "jsonPointer": "/gates/0/checks/0/type",
+        "expected": "file_exists|file_not_exists|regex|command|json_assert|trace_matrix|policy",
+        "actual": "file_exist",
+        "message": "check.type \"file_exist\" is not allowed"
+      }
+    ]
+  },
+  "runIdPresent": false,
+  "recorded_at": "2026-05-05T10:00:00Z"
+}

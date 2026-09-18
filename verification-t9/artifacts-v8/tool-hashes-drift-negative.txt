@@ -1,0 +1,17 @@
+controlled drift probe (validates the checker itself)
+before: exit=0 match=125 drift=0 missing=0
+after appending one comment line to verification-t9/tools/trace-check.mjs: exit=1
+  "manifest": "artifacts-v8\\verifier-tool-hashes.json",
+  "drift": 1,
+  "driftFiles": [
+  "tools/trace-check.mjs(DRIFT)"
+  "rel": "tools/tool-hashes-check.mjs",
+  "status": "DRIFT"
+  "rel": "artifacts-v8/tool-hashes-check.json",
+after restoring the byte-identical backup: exit=0
+  "manifest": "artifacts-v8\\verifier-tool-hashes.json",
+  "rel": "tools/tool-hashes-check.mjs",
+  "rel": "artifacts-v8/tool-hashes-check.json",
+sha256 before restore = A8B23C07D375873C581F7821D727700994FC8FF0C763E52BFA42EDF03DB7AF5E
+sha256 after  restore = A8B23C07D375873C581F7821D727700994FC8FF0C763E52BFA42EDF03DB7AF5E
+identical = True

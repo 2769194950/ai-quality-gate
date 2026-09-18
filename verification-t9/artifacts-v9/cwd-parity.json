@@ -1,0 +1,30 @@
+﻿[
+    {
+        "tag":  "canonical",
+        "cwd":  "E:\\Desktop\\ai-quality-gate",
+        "exit":  0,
+        "bytes":  18315,
+        "sha256":  "F445867EB613FED4D3BC489A5C1ECEC345C277DC174B1A404A047C995CA03F77"
+    },
+    {
+        "tag":  "junction",
+        "cwd":  "E:\\ai-quality-gate",
+        "exit":  0,
+        "bytes":  18315,
+        "sha256":  "F445867EB613FED4D3BC489A5C1ECEC345C277DC174B1A404A047C995CA03F77"
+    },
+    {
+        "tag":  "desktop",
+        "cwd":  "E:\\Desktop",
+        "exit":  0,
+        "bytes":  18315,
+        "sha256":  "F445867EB613FED4D3BC489A5C1ECEC345C277DC174B1A404A047C995CA03F77"
+    },
+    {
+        "tag":  "cdrive",
+        "cwd":  "C:\\",
+        "exit":  0,
+        "bytes":  18315,
+        "sha256":  "F445867EB613FED4D3BC489A5C1ECEC345C277DC174B1A404A047C995CA03F77"
+    }
+]

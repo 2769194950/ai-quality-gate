@@ -1,0 +1,19 @@
+node : qgate check: config=demo/qgate.config.json root=E:\Desktop\ai-quality-gate\demo\mini-service
+At line:15 char:6
++ $o = node packages/qgate/bin/qgate.mjs check --config demo/qgate.conf ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (qgate check: co...mo\mini-service:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+qgate check: overall_passed=true run_id=2026-09-18T03-44-54.590Z-54640da5
+stage        | gate                 | required | passed | blockers | checks
+-------------|----------------------|----------|--------|----------|-------
+requirements | req-spec             | true     | true   | 0        | 3
+design       | interface-frozen     | true     | true   | 0        | 4
+build        | build-deterministic  | true     | true   | 0        | 4
+review       | review-counterexample | true     | true   | 0        | 4
+verify       | verify-coverage      | true     | true   | 0        | 4
+
+overall_passed=true run_id=2026-09-18T03-44-54.590Z-54640da5 provider=deterministic
+ledger=.qgate/evidence/ledger-2026-09-18T03-44-54.590Z-54640da5.json
+ledger-index=.qgate/evidence/ledger-index.json

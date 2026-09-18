@@ -1,0 +1,16 @@
+﻿leaves: a=239 b=239 union=239 differing=5
+  DIFF /duration_ms
+    a = 149
+    b = 159
+  DIFF /finished_at
+    a = "2026-09-17T18:34:33.383Z"
+    b = "2026-09-17T18:34:34.444Z"
+  DIFF /gates/3/checks/3/evidence/0/excerpt
+    a = "CONTRACT_001 metrics={\"scannedConfig\":\"E:\\\\Desktop\\\\ai-quality-gate\\\\demo\\\\qgate.config.json\",\"violations\":0,\"frozenCheckTypes\":[\"file_exists\",\"file_not_exists\",\"regex\",\"command\",\"json_assert\",\"trace_matrix\",\"policy\"],\"frozenStages\":[\"requirements\",\"design\",\"build\",\"review\",\"verify\"]}"
+    b = "CONTRACT_001 metrics={\"scannedConfig\":\"E:\\\\ai-quality-gate\\\\demo\\\\qgate.config.json\",\"violations\":0,\"frozenCheckTypes\":[\"file_exists\",\"file_not_exists\",\"regex\",\"command\",\"json_assert\",\"trace_matrix\",\"policy\"],\"frozenStages\":[\"requirements\",\"design\",\"build\",\"review\",\"verify\"]}"
+  DIFF /run_id
+    a = "2026-09-17T18-34-33.234Z-f7e4c256"
+    b = "2026-09-17T18-34-34.285Z-3d646124"
+  DIFF /started_at
+    a = "2026-09-17T18:34:33.234Z"
+    b = "2026-09-17T18:34:34.285Z"

@@ -1,0 +1,64 @@
+{
+  "cwd": "E:\\Desktop\\ai-quality-gate",
+  "aliases": [
+    "notes.txt",
+    "handbook.txt",
+    "guide.txt",
+    "notes2.txt",
+    "secrets/db-copy.txt"
+  ],
+  "sensitiveByName": [
+    ".env",
+    "credentials.json",
+    "secrets/db.txt"
+  ],
+  "neutral": [
+    "plain.txt",
+    "copy.txt"
+  ],
+  "preview": {
+    "exit": 0,
+    "included": [
+      "copy.txt",
+      "plain.txt",
+      "src/app.mjs"
+    ],
+    "aliasesSelected": [],
+    "sensitiveSelected": [],
+    "aliasExclusions": [
+      "guide.txt|secret_path|alias:secret-dir:same-inode-as-sensitive-path",
+      "handbook.txt|secret_path|alias:secret-credentials:same-inode-as-sensitive-path",
+      "notes.txt|secret_path|alias:secret-env:same-inode-as-sensitive-path",
+      "notes2.txt|secret_path|alias:secret-env:same-inode-as-sensitive-path",
+      "secrets/db-copy.txt|secret_path|secret-dir"
+    ],
+    "neutralSelected": [
+      "plain.txt",
+      "copy.txt"
+    ],
+    "invariants": {
+      "secretPathsSelected": [],
+      "ocrAvailable": false
+    }
+  },
+  "check": {
+    "exit": 0,
+    "overall_passed": true,
+    "safe002Passed": true,
+    "secretPathsExcluded": 8,
+    "evidence": [
+      {
+        "path": "qgate.config.json",
+        "kind": "json_pointer",
+        "excerpt": "SAFE_002 metrics={\"selected\":3,\"secretPathsExcluded\":8,\"secretPathRules\":[\"secret-env\",\"secret-pem\",\"secret-key\",\"secret-rsa\",\"secret-credentials\",\"secret-dir\",\"secret-p12\",\"secret-kubeconfig\"],\"widestInclude\":\"**/*\"}"
+      }
+    ]
+  },
+  "verdict": {
+    "previewCoversAliases": true,
+    "invariantsClean": true,
+    "checkCoversAliases": true,
+    "neutralStillSelected": true
+  },
+  "ok": true
+}

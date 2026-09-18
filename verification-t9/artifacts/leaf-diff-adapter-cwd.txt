@@ -1,0 +1,13 @@
+﻿leaves: a=444 b=444 union=444 differing=4
+  DIFF /rules/layer_trace/0/file
+    a = "E:\\Desktop\\ai-quality-gate\\adapters\\opencodereview\\demo\\rule.json"
+    b = "E:\\ai-quality-gate\\adapters\\opencodereview\\demo\\rule.json"
+  DIFF /rules/layer_trace/1/file
+    a = "E:\\Desktop\\ai-quality-gate\\.opencodereview\\rule.json"
+    b = "E:\\ai-quality-gate\\.opencodereview\\rule.json"
+  DIFF /rules/loaded_layers/0/file
+    a = "E:\\Desktop\\ai-quality-gate\\adapters\\opencodereview\\demo\\rule.json"
+    b = "E:\\ai-quality-gate\\adapters\\opencodereview\\demo\\rule.json"
+  DIFF /source/path
+    a = "E:\\Desktop\\ai-quality-gate\\adapters\\opencodereview\\demo\\diff.json"
+    b = "E:\\ai-quality-gate\\adapters\\opencodereview\\demo\\diff.json"

@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "_note": "t40 反向用例（SAFE_002）：显式把密钥路径写进最高层 include，验证适配层仍然排除（安全不变量优先于用户 include）。t18 版本内的同一文件已在 02:37 清理中随之删除，此处按 t40 重建。",
+  "include": [
+    { "id": "malicious-all", "pattern": "**/*", "reason": "claim everything" },
+    { "id": "malicious-env", "pattern": ".env*", "reason": "explicitly re-admit env files" },
+    { "id": "malicious-pem", "pattern": "**/*.pem", "reason": "explicitly re-admit certificates" },
+    { "id": "malicious-key", "pattern": "**/*.key", "reason": "explicitly re-admit private keys" },
+    { "id": "malicious-idrsa", "pattern": "**/id_rsa*", "reason": "explicitly re-admit ssh keys" },
+    { "id": "malicious-credentials", "pattern": "**/credentials*", "reason": "explicitly re-admit cloud credentials" },
+    { "id": "malicious-secrets", "pattern": "secrets/**", "reason": "explicitly re-admit the secrets directory" },
+    { "id": "malicious-serverkey", "pattern": "**/server.key", "reason": "explicitly re-admit a server key" },
+    { "id": "malicious-case-credentials", "pattern": "**/Credentials.json", "reason": "case-variant bypass attempt (t33 scope)" },
+    { "id": "malicious-case-secrets", "pattern": "**/Secrets/**", "reason": "case-variant secrets directory bypass attempt (t33 scope)" }
+  ],
+  "exclude": [],
+  "includeExtensions": [".mjs", ".json", ".md", ".txt", ".pem", ".key", ".env", ""],
+  "maxTokensPerGroup": 4096
+}

@@ -1,0 +1,328 @@
+﻿{
+  "cwd": "E:\\Desktop\\ai-quality-gate",
+  "layers": {
+    "engine": "packages/qgate/src/policy.mjs policySafe003(root).passed === false",
+    "adapter": "adapters/opencodereview/src/ocr-runner.mjs scanNetworkSurface(text) reports ≥1 violation"
+  },
+  "rows": [
+    {
+      "id": "W4-01_import_from_not_called",
+      "kind": "report",
+      "engineReports": true,
+      "adapterReports": true,
+      "sameVerdict": true,
+      "expectedReports": true,
+      "matchesExpectation": true,
+      "engineVerdict": "FAIL(policy violation)",
+      "adapterVia": [
+        "network-module-import"
+      ]
+    },
+    {
+      "id": "W4-02_dynamic_import_not_called",
+      "kind": "report",
+      "engineReports": true,
+      "adapterReports": true,
+      "sameVerdict": true,
+      "expectedReports": true,
+      "matchesExpectation": true,
+      "engineVerdict": "FAIL(policy violation)",
+      "adapterVia": [
+        "network-module-import"
+      ]
+    },
+    {
+      "id": "W4-03_require_not_called",
+      "kind": "report",
+      "engineReports": true,
+      "adapterReports": true,
+      "sameVerdict": true,
+      "expectedReports": true,
+      "matchesExpectation": true,
+      "engineVerdict": "FAIL(policy violation)",
+      "adapterVia": [
+        "network-module-import"
+      ]
+    },
+    {
+      "id": "W4-04_import_then_call",
+      "kind": "report",
+      "engineReports": true,
+      "adapterReports": true,
+      "sameVerdict": true,
+      "expectedReports": true,
+      "matchesExpectation": true,
+      "engineVerdict": "FAIL(policy violation)",
+      "adapterVia": [
+        "network-module-import",
+        "imported-module-alias"
+      ]
+    },
+    {
+      "id": "W4-05_require_then_call",
+      "kind": "report",
+      "engineReports": true,
+      "adapterReports": true,
+      "sameVerdict": true,
+      "expectedReports": true,
+      "matchesExpectation": true,
+      "engineVerdict": "FAIL(policy violation)",
+      "adapterVia": [
+        "network-module-import",
+        "imported-module-alias"
+      ]
+    },
+    {
+      "id": "W4-06_member_call_on_alias",
+      "kind": "report",
+      "engineReports": true,
+      "adapterReports": true,
+      "sameVerdict": true,
+      "expectedReports": true,
+      "matchesExpectation": true,
+      "engineVerdict": "FAIL(policy violation)",
+      "adapterVia": [
+        "network-module-import",
+        "imported-module-alias"
+      ]
+    },
+    {
+      "id": "W4-07_bare_namespace_import",
+      "kind": "report",
+      "engineReports": true,
+      "adapterReports": false,
+      "sameVerdict": false,
+      "expectedReports": true,
+      "matchesExpectation": false,
+      "engineVerdict": "FAIL(policy violation)",
+      "adapterVia": []
+    },
+    {
+      "id": "W5-01_non_network_fs",
+      "kind": "clean",
+      "engineReports": false,
+      "adapterReports": false,
+      "sameVerdict": true,
+      "expectedReports": false,
+      "matchesExpectation": true,
+      "engineVerdict": "pass",
+      "adapterVia": []
+    },
+    {
+      "id": "W5-02_non_network_os_path",
+      "kind": "clean",
+      "engineReports": false,
+      "adapterReports": false,
+      "sameVerdict": true,
+      "expectedReports": false,
+      "matchesExpectation": true,
+      "engineVerdict": "pass",
+      "adapterVia": []
+    },
+    {
+      "id": "W5-03_comment_only",
+      "kind": "clean",
+      "engineReports": false,
+      "adapterReports": false,
+      "sameVerdict": true,
+      "expectedReports": false,
+      "matchesExpectation": true,
+      "engineVerdict": "pass",
+      "adapterVia": []
+    },
+    {
+      "id": "W5-04_pure_module_name_literal",
+      "kind": "clean",
+      "engineReports": false,
+      "adapterReports": false,
+      "sameVerdict": true,
+      "expectedReports": false,
+      "matchesExpectation": true,
+      "engineVerdict": "pass",
+      "adapterVia": []
+    },
+    {
+      "id": "W5-05_negation_line",
+      "kind": "clean",
+      "engineReports": false,
+      "adapterReports": false,
+      "sameVerdict": true,
+      "expectedReports": false,
+      "matchesExpectation": true,
+      "engineVerdict": "pass",
+      "adapterVia": []
+    }
+  ],
+  "sweep": [
+    {
+      "module": "http",
+      "form": "import_from",
+      "engineReports": true,
+      "adapterReports": true,
+      "sameVerdict": true
+    },
+    {
+      "module": "http",
+      "form": "require",
+      "engineReports": true,
+      "adapterReports": true,
+      "sameVerdict": true
+    },
+    {
+      "module": "https",
+      "form": "import_from",
+      "engineReports": true,
+      "adapterReports": true,
+      "sameVerdict": true
+    },
+    {
+      "module": "https",
+      "form": "require",
+      "engineReports": true,
+      "adapterReports": true,
+      "sameVerdict": true
+    },
+    {
+      "module": "net",
+      "form": "import_from",
+      "engineReports": true,
+      "adapterReports": true,
+      "sameVerdict": true
+    },
+    {
+      "module": "net",
+      "form": "require",
+      "engineReports": true,
+      "adapterReports": true,
+      "sameVerdict": true
+    },
+    {
+      "module": "tls",
+      "form": "import_from",
+      "engineReports": true,
+      "adapterReports": true,
+      "sameVerdict": true
+    },
+    {
+      "module": "tls",
+      "form": "require",
+      "engineReports": true,
+      "adapterReports": true,
+      "sameVerdict": true
+    },
+    {
+      "module": "dgram",
+      "form": "import_from",
+      "engineReports": true,
+      "adapterReports": true,
+      "sameVerdict": true
+    },
+    {
+      "module": "dgram",
+      "form": "require",
+      "engineReports": true,
+      "adapterReports": true,
+      "sameVerdict": true
+    },
+    {
+      "module": "dns",
+      "form": "import_from",
+      "engineReports": true,
+      "adapterReports": false,
+      "sameVerdict": false
+    },
+    {
+      "module": "dns",
+      "form": "require",
+      "engineReports": true,
+      "adapterReports": false,
+      "sameVerdict": false
+    },
+    {
+      "module": "http2",
+      "form": "import_from",
+      "engineReports": false,
+      "adapterReports": false,
+      "sameVerdict": true
+    },
+    {
+      "module": "http2",
+      "form": "require",
+      "engineReports": false,
+      "adapterReports": false,
+      "sameVerdict": true
+    },
+    {
+      "module": "undici",
+      "form": "import_from",
+      "engineReports": true,
+      "adapterReports": false,
+      "sameVerdict": false
+    },
+    {
+      "module": "undici",
+      "form": "require",
+      "engineReports": true,
+      "adapterReports": false,
+      "sameVerdict": false
+    },
+    {
+      "module": "axios",
+      "form": "import_from",
+      "engineReports": false,
+      "adapterReports": false,
+      "sameVerdict": true
+    },
+    {
+      "module": "axios",
+      "form": "require",
+      "engineReports": false,
+      "adapterReports": false,
+      "sameVerdict": true
+    },
+    {
+      "module": "node-fetch",
+      "form": "import_from",
+      "engineReports": false,
+      "adapterReports": false,
+      "sameVerdict": true
+    },
+    {
+      "module": "node-fetch",
+      "form": "require",
+      "engineReports": false,
+      "adapterReports": false,
+      "sameVerdict": true
+    },
+    {
+      "module": "got",
+      "form": "import_from",
+      "engineReports": false,
+      "adapterReports": false,
+      "sameVerdict": true
+    },
+    {
+      "module": "got",
+      "form": "require",
+      "engineReports": false,
+      "adapterReports": false,
+      "sameVerdict": true
+    }
+  ],
+  "summary": {
+    "samples": 12,
+    "verdictsAgree": false,
+    "allMatchExpectation": false,
+    "disagreements": [
+      "W4-07_bare_namespace_import"
+    ],
+    "boundaryLoosened": [],
+    "sweepSamples": 22,
+    "sweepDisagreements": [
+      "dns/import_from(engine=true,adapter=false)",
+      "dns/require(engine=true,adapter=false)",
+      "undici/import_from(engine=true,adapter=false)",
+      "undici/require(engine=true,adapter=false)"
+    ]
+  }
+}

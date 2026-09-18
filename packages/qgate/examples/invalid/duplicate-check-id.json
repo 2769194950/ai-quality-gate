@@ -1,0 +1,15 @@
+{
+  "version": "1.0",
+  "provider": { "type": "deterministic" },
+  "gates": [
+    {
+      "id": "req-spec",
+      "stage": "requirements",
+      "required": true,
+      "checks": [
+        { "id": "duplicate-check", "type": "file_exists", "file": "docs/00-requirements.md", "required": true },
+        { "id": "duplicate-check", "type": "regex", "files": ["docs/00-requirements.md"], "pattern": "REQ-", "required": true }
+      ]
+    }
+  ]
+}

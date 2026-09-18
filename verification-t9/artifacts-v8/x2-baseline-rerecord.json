@@ -1,0 +1,74 @@
+{
+  "id": "X2",
+  "claim": "Re-record the adapter baseline to the current truth (14 test files / 131 cases) and record before -> after",
+  "record_command": "node adapters/opencodereview/tools/run-tests.mjs",
+  "record_cwd": "E:\\Desktop\\ai-quality-gate",
+  "authoritative_pointer": "verification-t9/artifacts-v8/adapter-suite.txt",
+  "authoritative_pointer_content_sha256_of_header_fields": {
+    "tree_fingerprint": "74a28c906b7337967bf2d1aa6c0fb33c0cf5eac18277f1544e59d123b6540bc3",
+    "content_sha256": "8f01b6d62777a785917c2cca2b05ee5deceb5d7d6eb3f038c4f2abada76c9d64",
+    "expected": "testFiles=14;tests=131;pass=131;fail=0;exit_code=0"
+  },
+  "history": [
+    {
+      "stage": "before (recorded in report-v7 / t55 at tree_fingerprint 91c689dd...)",
+      "test_files": 11,
+      "tests": 109,
+      "source": "the recorded pointer payload of verification-t9/artifacts-v7/adapter-suite.txt (independently re-read this round)",
+      "measured_by_verifier": true
+    },
+    {
+      "stage": "intermediate (t56 added F12/F11 regressions)",
+      "test_files": 13,
+      "tests": 121,
+      "source": "attributed to t56's completion report; NOT independently measured by the verifier (the revision no longer exists, and this workspace has no VCS)",
+      "measured_by_verifier": false
+    },
+    {
+      "stage": "intermediate (t58 added the named-network-client regression)",
+      "test_files": 14,
+      "tests": 131,
+      "source": "attributed to t58's completion report; NOT independently measured at that revision",
+      "measured_by_verifier": false
+    },
+    {
+      "stage": "after (this round, t60)",
+      "test_files": 14,
+      "tests": 131,
+      "pass": 131,
+      "fail": 0,
+      "source": "measured by the verifier at tree_fingerprint 74a28c90..., three cwds (repo root / junction / E:\\Desktop), exit 0 everywhere",
+      "measured_by_verifier": true
+    }
+  ],
+  "current_test_file_inventory": [
+    "ci-workflow.test.mjs",
+    "determinism.test.mjs",
+    "fixtures.test.mjs",
+    "grouping-rules.test.mjs",
+    "hardlink-diff.test.mjs",
+    "network-client.test.mjs",
+    "network-import.test.mjs",
+    "network-vocab.test.mjs",
+    "ocr-runner.test.mjs",
+    "reason-vocab.test.mjs",
+    "rule-format.test.mjs",
+    "security-bypass.test.mjs",
+    "selection.test.mjs",
+    "unmaterialized.test.mjs"
+  ],
+  "delta": {
+    "test_files": "+3 (11 -> 14)",
+    "tests": "+22 (109 -> 131)",
+    "attributable_to": "t56 (F12 vocabulary + F11 reason-string regressions) and t58 (F14 named-network-client-call surface)"
+  },
+  "superseded_copies_converted": [
+    "verification-t9/artifacts/adapter-suite.txt",
+    "verification-t9/artifacts-v3/adapter-suite.txt",
+    "verification-t9/artifacts-v4/adapter-suite.txt",
+    "verification-t9/artifacts-v6/adapter-suite.txt",
+    "verification-t9/artifacts-v7/adapter-suite.txt"
+  ],
+  "freshness_command": "node verification-t9/tools/baseline-freshness.mjs --deep",
+  "freshness_result": "BASELINE-FRESHNESS current=74a28c906b73 files=6 fresh=1 superseded=5 stale=0 tampered=0 count_drift=0 (exit 0)"
+}

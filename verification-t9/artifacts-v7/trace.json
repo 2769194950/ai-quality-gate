@@ -1,0 +1,172 @@
+﻿{
+  "schemaVersion": "1.0",
+  "generated_at": "2026-09-18T02:35:33.836Z",
+  "generated_by": "qgate trace",
+  "run_id": "2026-09-18T02-35-33.579Z-319d5727",
+  "pipeline": [
+    "requirements",
+    "design",
+    "build",
+    "review",
+    "verify"
+  ],
+  "summary": {
+    "requirements": 6,
+    "covered": 6,
+    "uncovered": 0,
+    "orphanTestIds": 0,
+    "coverageRatio": 1
+  },
+  "requirements": [
+    {
+      "requirementId": "REQ-DEMO-001",
+      "title": "Payment intent intake must accept an idempotent request",
+      "priority": "P0",
+      "stage": [
+        "requirements",
+        "design"
+      ],
+      "testIds": [
+        "T-QG-001",
+        "T-QG-016"
+      ],
+      "codePaths": [
+        "openapi.yaml",
+        "REQUIREMENTS.md"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": ".qgate/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-001,T-QG-016@2026-09-18T02-35-33.579Z-319d5727"
+        }
+      ]
+    },
+    {
+      "requirementId": "REQ-DEMO-002",
+      "title": "Every response must carry a correlation identifier",
+      "priority": "P0",
+      "stage": [
+        "requirements",
+        "design",
+        "verify"
+      ],
+      "testIds": [
+        "T-QG-004",
+        "T-QG-014",
+        "T-QG-015"
+      ],
+      "codePaths": [
+        "openapi.yaml",
+        ".qgate/trace-matrix.json"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": ".qgate/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-004,T-QG-014,T-QG-015@2026-09-18T02-35-33.579Z-319d5727"
+        }
+      ]
+    },
+    {
+      "requirementId": "REQ-DEMO-003",
+      "title": "Amounts must be minor units with an explicit currency",
+      "priority": "P0",
+      "stage": [
+        "design",
+        "verify"
+      ],
+      "testIds": [
+        "T-QG-006",
+        "T-QG-007"
+      ],
+      "codePaths": [
+        "openapi.yaml",
+        ".qgate/evidence/coverage.json"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": ".qgate/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-006,T-QG-007@2026-09-18T02-35-33.579Z-319d5727"
+        }
+      ]
+    },
+    {
+      "requirementId": "REQ-DEMO-004",
+      "title": "The build must be reproducible without network access",
+      "priority": "P0",
+      "stage": [
+        "build"
+      ],
+      "testIds": [
+        "T-QG-002",
+        "T-QG-010",
+        "T-QG-013"
+      ],
+      "codePaths": [
+        "package.json",
+        ".qgate/evidence/test-results.json"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": ".qgate/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-002,T-QG-010,T-QG-013@2026-09-18T02-35-33.579Z-319d5727"
+        }
+      ]
+    },
+    {
+      "requirementId": "REQ-DEMO-005",
+      "title": "Recorded findings must respect severity and confidence gating",
+      "priority": "P1",
+      "stage": [
+        "review"
+      ],
+      "testIds": [
+        "T-QG-008",
+        "T-QG-012"
+      ],
+      "codePaths": [
+        ".qgate/evidence/ocr-findings.json",
+        ".qgate/negative/unknown-check-type.result.json"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": ".qgate/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-008,T-QG-012@2026-09-18T02-35-33.579Z-319d5727"
+        }
+      ]
+    },
+    {
+      "requirementId": "REQ-DEMO-006",
+      "title": "Requirements must be traced to tests and evidence",
+      "priority": "P0",
+      "stage": [
+        "verify"
+      ],
+      "testIds": [
+        "T-QG-003",
+        "T-QG-009"
+      ],
+      "codePaths": [
+        ".qgate/trace-matrix.json",
+        ".qgate/requirements-index.json"
+      ],
+      "covered": true,
+      "evidence": [
+        {
+          "path": ".qgate/evidence/ledger-index.json",
+          "kind": "ledger",
+          "excerpt": "T-QG-003,T-QG-009@2026-09-18T02-35-33.579Z-319d5727"
+        }
+      ]
+    }
+  ]
+}

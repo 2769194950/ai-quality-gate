@@ -1,0 +1,137 @@
+{
+  "schemaVersion": "1.0",
+  "fixtureVersion": "1.0",
+  "recorded_by": "qgate scripts/record-fixtures.mjs",
+  "recorded_at": "2026-05-05T10:00:00Z",
+  "note": "Offline provider recordings. No model call, no network access, no API key is involved in replaying or matching these entries.",
+  "matching": {
+    "algorithm": "sha256(canonicalJson(normalised request)).slice(0,16)",
+    "noiseKeysStripped": [
+      "run_id",
+      "runId",
+      "started_at",
+      "finished_at",
+      "duration_ms",
+      "timestamp",
+      "traceId"
+    ],
+    "onMiss": "deterministic failure: PROVIDER_FAILED, never a network request"
+  },
+  "providerProbe": {
+    "fingerprint": "70057cc9294d0c6c",
+    "note": "Every scripted fixture must contain this recording; the engine probes the provider once per run so that a non-evaluable provider fails explicitly instead of passing silently."
+  },
+  "confidenceThreshold": 0.7,
+  "recordings": [
+    {
+      "scenario": "gate-review",
+      "request": {
+        "checkId": "review-findings",
+        "checkType": "ai_review",
+        "files": [
+          "packages/qgate/src/pipeline.mjs",
+          "packages/qgate/src/checks/regex.mjs"
+        ],
+        "prompt": "List contract violations for the frozen RunResult schema.",
+        "provider": "scripted",
+        "ruleSet": "builtin:demo",
+        "stage": "review",
+        "threshold": 0.7
+      },
+      "fingerprint": "2b8f91345f1ab531",
+      "findings": [
+        {
+          "id": "F-REVIEW-1",
+          "severity": "high",
+          "confidence": 0.86,
+          "source": "scripted-fixture",
+          "file": "packages/qgate/src/pipeline.mjs",
+          "line": 12,
+          "message": "stage ordering relies on the configuration order; assert it against the frozen enum instead."
+        },
+        {
+          "id": "F-REVIEW-2",
+          "severity": "medium",
+          "confidence": 0.92,
+          "source": "scripted-fixture",
+          "file": "packages/qgate/src/checks/regex.mjs",
+          "line": 60,
+          "message": "the `all` mode could early-exit once a file fails to match."
+        },
+        {
+          "id": "F-REVIEW-3",
+          "severity": "low",
+          "confidence": 0.41,
+          "source": "scripted-fixture",
+          "file": "packages/qgate/src/checks/regex.mjs",
+          "line": 1,
+          "message": "header comment could name the frozen field table."
+        }
+      ],
+      "response": {
+        "model": "offline-recording",
+        "capturedAt": "2026-05-05T10:00:00Z",
+        "tokens": {
+          "prompt": 512,
+          "completion": 128
+        }
+      }
+    },
+    {
+      "scenario": "gate-build-smell",
+      "request": {
+        "checkId": "build-smell",
+        "checkType": "ai_review",
+        "files": [
+          "packages/qgate/package.json"
+        ],
+        "prompt": "Report anything that would break the zero-dependency guarantee.",
+        "provider": "scripted",
+        "ruleSet": "builtin:demo",
+        "stage": "build",
+        "threshold": 0.7
+      },
+      "fingerprint": "cc7c954d35f4d3fd",
+      "findings": [
+        {
+          "id": "F-BUILD-1",
+          "severity": "blocker",
+          "confidence": 0.99,
+          "source": "scripted-fixture",
+          "file": "packages/qgate/package.json",
+          "line": 1,
+          "message": "a runtime dependency was declared; the zero-dependency guarantee is broken."
+        }
+      ],
+      "response": {
+        "model": "offline-recording",
+        "capturedAt": "2026-05-05T10:00:00Z",
+        "tokens": {
+          "prompt": 512,
+          "completion": 128
+        }
+      }
+    },
+    {
+      "scenario": "engine-provider-probe",
+      "request": {
+        "checkId": "provider-probe",
+        "checkType": "provider_probe",
+        "stage": "verify",
+        "provider": "scripted",
+        "files": [],
+        "prompt": "qgate provider probe: confirm the recorded fixture is addressable offline."
+      },
+      "fingerprint": "70057cc9294d0c6c",
+      "findings": [],
+      "response": {
+        "model": "offline-recording",
+        "capturedAt": "2026-05-05T10:00:00Z",
+        "tokens": {
+          "prompt": 0,
+          "completion": 0
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+﻿Z3(a) verifier-write perturbation on the REAL tree (t66)
+The fingerprint is unaffected by definition (verification-t9/** is outside its scope), so this tests the
+OTHER half: SAFE_002's scan surface must not follow verifier writes either.
+
+before : check.selected=143  preview.included=143  preview.auditTree=0  secretPathsExcluded=17
+after adding verification-t9/artifacts-v9/z3-perturbation-1.md, z3-perturbation-2.json, z3-dir-probe/deep.md:
+         check.selected=143  preview.included=143  preview.auditTree=0  secretPathsExcluded=17
+unchanged=True

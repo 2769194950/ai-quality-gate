@@ -1,0 +1,270 @@
+{
+  "version": "1.0",
+  "provider": {
+    "type": "deterministic",
+    "timeoutMs": 30000
+  },
+  "policy": {
+    "evidenceDir": "verification-t9/artifacts-v5/ci-scratch/evidence",
+    "reportDir": "verification-t9/artifacts-v5/ci-scratch/reports",
+    "failFast": false
+  },
+  "gates": [
+    {
+      "id": "req-spec",
+      "stage": "requirements",
+      "required": true,
+      "checks": [
+        {
+          "id": "req-doc-exists",
+          "type": "file_exists",
+          "file": "docs/00-requirements.md",
+          "required": true,
+          "description": "the frozen requirements document exists"
+        },
+        {
+          "id": "req-ids-present",
+          "type": "regex",
+          "required": true,
+          "files": [
+            "docs/00-requirements.md"
+          ],
+          "pattern": "REQ-QUALITY-GATE-\\d{3}",
+          "mode": "count",
+          "minMatches": 16,
+          "countMode": "unique",
+          "description": "sixteen unique requirement ids are present"
+        },
+        {
+          "id": "req-index-valid",
+          "type": "json_assert",
+          "required": true,
+          "file": "docs/requirements-index.json",
+          "assertions": [
+            {
+              "pointer": "/requirements",
+              "exists": true
+            },
+            {
+              "pointer": "/requirements/0/id",
+              "matches": "^REQ-QUALITY-GATE-\\d{3}$"
+            },
+            {
+              "pointer": "/schemaVersion",
+              "equals": "1.0"
+            }
+          ],
+          "description": "the machine-readable requirement index is valid"
+        },
+        {
+          "id": "interface-fields",
+          "type": "regex",
+          "required": true,
+          "severity": "high",
+          "files": [
+            "docs/01-architecture.md"
+          ],
+          "pattern": "humanGate|approvalRecord|enforcement",
+          "flags": "gm",
+          "mode": "count",
+          "minMatches": 3,
+          "countMode": "unique",
+          "description": "the human-gate approval contract is documented"
+        }
+      ]
+    },
+    {
+      "id": "interface-frozen",
+      "stage": "design",
+      "required": true,
+      "checks": [
+        {
+          "id": "contract-doc-exists",
+          "type": "file_exists",
+          "file": "docs/01-architecture.md",
+          "required": true,
+          "description": "the frozen architecture contract exists"
+        },
+        {
+          "id": "contract-fields-present",
+          "type": "regex",
+          "required": true,
+          "files": [
+            "docs/01-architecture.md"
+          ],
+          "pattern": "requirementId|overall_passed|json_assert|trace_matrix|humanGate",
+          "flags": "gm",
+          "mode": "count",
+          "minMatches": 5,
+          "countMode": "unique",
+          "description": "every frozen field name is documented"
+        },
+        {
+          "id": "schemas-exist",
+          "type": "file_exists",
+          "file": "schemas/*.schema.json",
+          "minCount": 4,
+          "required": true,
+          "description": "the four frozen JSON Schemas exist"
+        },
+        {
+          "id": "no-loose-ends",
+          "type": "file_not_exists",
+          "file": "docs/TODO.md",
+          "required": false,
+          "severity": "medium",
+          "onFail": "warn",
+          "description": "no loose-ends tracker inside docs/ (advisory only)"
+        }
+      ]
+    },
+    {
+      "id": "build-deterministic",
+      "stage": "build",
+      "required": true,
+      "checks": [
+        {
+          "id": "no-dep",
+          "type": "json_assert",
+          "required": true,
+          "file": "packages/qgate/package.json",
+          "assertions": [
+            {
+              "pointer": "/dependencies",
+              "exists": false
+            },
+            {
+              "pointer": "/type",
+              "equals": "module"
+            },
+            {
+              "pointer": "/bin/qgate",
+              "equals": "./bin/qgate.mjs"
+            }
+          ],
+          "description": "zero runtime dependencies, pure ESM, package bin wired"
+        },
+        {
+          "id": "unit-tests",
+          "type": "file_exists",
+          "file": "packages/qgate/test/*.test.mjs",
+          "minCount": 4,
+          "required": true,
+          "description": "at least four node:test suites exist"
+        },
+        {
+          "id": "contract-check",
+          "type": "command",
+          "required": true,
+          "run": [
+            "node",
+            "packages/qgate/bin/qgate.mjs",
+            "contract",
+            "--check"
+          ],
+          "expectExitCode": 0,
+          "timeoutMs": 60000,
+          "captureStdout": true,
+          "stdoutRegex": "contract self-check: OK",
+          "description": "the built-in contract must match the frozen record (CONTRACT_DRIFT otherwise)"
+        },
+        {
+          "id": "no-bypass",
+          "type": "policy",
+          "required": true,
+          "policyId": "CONTRACT_001",
+          "onFail": "fail",
+          "description": "no configuration may drift outside the frozen contract"
+        },
+        {
+          "id": "no-secret-paths",
+          "type": "policy",
+          "required": true,
+          "severity": "high",
+          "policyId": "SAFE_002",
+          "onFail": "fail",
+          "description": "secret paths may never be re-admitted by an include pattern"
+        }
+      ]
+    },
+    {
+      "id": "review-counterexample",
+      "stage": "review",
+      "required": true,
+      "checks": [
+        {
+          "id": "negative-fixtures",
+          "type": "file_exists",
+          "file": "packages/qgate/examples/invalid/*.json",
+          "minCount": 6,
+          "required": true,
+          "description": "six counter-example configurations exist"
+        },
+        {
+          "id": "severity-mix",
+          "type": "json_assert",
+          "required": true,
+          "file": "packages/qgate/examples/severity-mix.json",
+          "assertions": [
+            {
+              "pointer": "/blockers",
+              "exists": true
+            },
+            {
+              "pointer": "/findings",
+              "exists": true
+            },
+            {
+              "pointer": "/threshold",
+              "equals": 0.7
+            }
+          ],
+          "description": "severity/confidence gating evidence is recorded"
+        },
+        {
+          "id": "provider-fixtures",
+          "type": "file_exists",
+          "file": "packages/qgate/examples/fixtures/provider-recordings.json",
+          "required": true,
+          "description": "the offline provider recordings exist"
+        }
+      ]
+    },
+    {
+      "id": "verify-coverage",
+      "stage": "verify",
+      "required": true,
+      "checks": [
+        {
+          "id": "trace-complete",
+          "type": "trace_matrix",
+          "required": true,
+          "requirementsFile": "docs/requirements-index.json",
+          "traceFile": "verification-t9/artifacts-v5/ci-scratch/trace-matrix.json",
+          "enforce": "strict",
+          "testIdSource": "ledger-index",
+          "description": "every P0/P1 requirement is traced to a test id present in the ledger index"
+        },
+        {
+          "id": "invalid-must-fail",
+          "type": "command",
+          "required": true,
+          "severity": "high",
+          "run": [
+            "node",
+            "packages/qgate/bin/qgate.mjs",
+            "check",
+            "--config",
+            "packages/qgate/examples/invalid/unknown-check-type.json",
+            "--json"
+          ],
+          "expectExitCode": 2,
+          "timeoutMs": 60000,
+          "captureStdout": true,
+          "description": "an invalid configuration must exit 2 (negative case)"
+        }
+      ]
+    }
+  ],
+  "projectRoot": "../../.."
+}

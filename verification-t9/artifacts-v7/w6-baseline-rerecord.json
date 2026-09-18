@@ -1,0 +1,27 @@
+﻿{
+    "generatedAt":  "2026-09-18T10:35:09.2506822+08:00",
+    "current":  "run-tests: 共 11 个测试文件（进程内执行）",
+    "currentTap":  "ℹ tests 109 | ℹ pass 109 | ℹ fail 0",
+    "files":  [
+                  {
+                      "file":  "verification-t9\\artifacts\\adapter-suite.txt",
+                      "beforeFirstLine":  "run-tests: 共 5 个测试文件（进程内执行）",
+                      "beforeTap":  "ℹ tests 57"
+                  },
+                  {
+                      "file":  "verification-t9\\artifacts-v3\\adapter-suite.txt",
+                      "beforeFirstLine":  "run-tests: 共 8 个测试文件（进程内执行）",
+                      "beforeTap":  "ℹ tests 87"
+                  },
+                  {
+                      "file":  "verification-t9\\artifacts-v4\\adapter-suite.txt",
+                      "beforeFirstLine":  "run-tests: 共 9 个测试文件（进程内执行）",
+                      "beforeTap":  "ℹ tests 94"
+                  },
+                  {
+                      "file":  "verification-t9\\artifacts-v6\\adapter-suite.txt",
+                      "beforeFirstLine":  "run-tests: 共 10 个测试文件（进程内执行）",
+                      "beforeTap":  "ℹ tests 102"
+                  }
+              ]
+}

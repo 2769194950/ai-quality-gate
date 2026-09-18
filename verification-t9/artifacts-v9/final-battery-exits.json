@@ -1,0 +1,46 @@
+﻿[
+    {
+        "command":  "tree-fingerprint",
+        "exit":  0
+    },
+    {
+        "command":  "baseline-freshness --deep",
+        "exit":  0
+    },
+    {
+        "command":  "tool-hashes-check",
+        "exit":  0
+    },
+    {
+        "command":  "y1-named-client-parity",
+        "exit":  0
+    },
+    {
+        "command":  "y2-f13-scanroots",
+        "exit":  0
+    },
+    {
+        "command":  "y5-bypass-windows-names",
+        "exit":  0
+    },
+    {
+        "command":  "y5-table-integrity",
+        "exit":  0
+    },
+    {
+        "command":  "z3-f19-scan-surface",
+        "exit":  0
+    },
+    {
+        "command":  "preview-crosscheck --artifacts v9",
+        "exit":  0
+    },
+    {
+        "command":  "check-report-v9",
+        "exit":  0
+    },
+    {
+        "command":  "root gate",
+        "exit":  0
+    }
+]

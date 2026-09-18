@@ -1,0 +1,54 @@
+﻿{
+  "evaluator": "packages/qgate/test/helpers/json-schema.mjs (dependency-free draft 2020-12 subset)",
+  "schema": "schemas/config.schema.json",
+  "schemaDraft": "https://json-schema.org/draft/2020-12/schema",
+  "schemaId": "https://ai-quality-gate.local/schemas/config.schema.json",
+  "cases": [
+    {
+      "id": "positive:demo/qgate.config.json",
+      "expected": "valid=true",
+      "valid": true,
+      "errorCount": 0,
+      "errors": []
+    },
+    {
+      "id": "positive:packages/qgate/test/_canonical-config.json",
+      "expected": "valid=true",
+      "valid": true,
+      "errorCount": 0,
+      "errors": []
+    },
+    {
+      "id": "positive:packages/qgate/examples/valid/five-stage.json",
+      "expected": "valid=true",
+      "valid": true,
+      "errorCount": 0,
+      "errors": []
+    },
+    {
+      "id": "positive:packages/qgate/examples/valid/self-contained-five-stage.json",
+      "expected": "valid=true",
+      "valid": true,
+      "errorCount": 0,
+      "errors": []
+    },
+    {
+      "id": "negative:demo/qgate.config.json check.type=\"file_exist\"",
+      "expected": "valid=false",
+      "valid": false,
+      "errorCount": 2,
+      "errors": [
+        {
+          "instancePath": "/gates/0/checks/0/type",
+          "keyword": "enum",
+          "message": "must be one of \"file_exists\"|\"file_not_exists\"|\"regex\"|\"command\"|\"json_assert\"|\"trace_matrix\"|\"policy\", got string(10)"
+        },
+        {
+          "instancePath": "/gates/0/checks/0",
+          "keyword": "oneOf",
+          "message": "must match exactly one subschema, matched 0"
+        }
+      ]
+    }
+  ]
+}

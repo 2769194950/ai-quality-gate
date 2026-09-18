@@ -1,0 +1,130 @@
+{
+  "schemaVersion": "1.0",
+  "generated_by": "core-engineer (demo fixture)",
+  "source": "REQUIREMENTS.md",
+  "pipeline": [
+    "requirements",
+    "design",
+    "build",
+    "review",
+    "verify"
+  ],
+  "humanGates": [
+    {
+      "gateId": "req-spec",
+      "from": "requirements",
+      "to": "design",
+      "role": "product"
+    },
+    {
+      "gateId": "interface-frozen",
+      "from": "design",
+      "to": "build",
+      "role": "architect"
+    },
+    {
+      "gateId": "review-counterexample",
+      "from": "review",
+      "to": "verify",
+      "role": "reviewer"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-DEMO-001",
+      "priority": "P0",
+      "testIds": [
+        "T-QG-001",
+        "T-QG-016"
+      ],
+      "stage": [
+        "requirements",
+        "design"
+      ],
+      "codePaths": [
+        "openapi.yaml",
+        "REQUIREMENTS.md"
+      ]
+    },
+    {
+      "id": "REQ-DEMO-002",
+      "priority": "P0",
+      "testIds": [
+        "T-QG-004",
+        "T-QG-014",
+        "T-QG-015"
+      ],
+      "stage": [
+        "requirements",
+        "design",
+        "verify"
+      ],
+      "codePaths": [
+        "openapi.yaml",
+        ".qgate/trace-matrix.json"
+      ]
+    },
+    {
+      "id": "REQ-DEMO-003",
+      "priority": "P0",
+      "testIds": [
+        "T-QG-006",
+        "T-QG-007"
+      ],
+      "stage": [
+        "design",
+        "verify"
+      ],
+      "codePaths": [
+        "openapi.yaml",
+        ".qgate/evidence/coverage.json"
+      ]
+    },
+    {
+      "id": "REQ-DEMO-004",
+      "priority": "P0",
+      "testIds": [
+        "T-QG-002",
+        "T-QG-010",
+        "T-QG-013"
+      ],
+      "stage": [
+        "build"
+      ],
+      "codePaths": [
+        "package.json",
+        ".qgate/evidence/test-results.json"
+      ]
+    },
+    {
+      "id": "REQ-DEMO-005",
+      "priority": "P1",
+      "testIds": [
+        "T-QG-008",
+        "T-QG-012"
+      ],
+      "stage": [
+        "review"
+      ],
+      "codePaths": [
+        ".qgate/evidence/ocr-findings.json",
+        ".qgate/negative/unknown-check-type.result.json"
+      ]
+    },
+    {
+      "id": "REQ-DEMO-006",
+      "priority": "P0",
+      "testIds": [
+        "T-QG-003",
+        "T-QG-009"
+      ],
+      "stage": [
+        "verify"
+      ],
+      "codePaths": [
+        ".qgate/trace-matrix.json",
+        ".qgate/requirements-index.json"
+      ]
+    }
+  ]
+}

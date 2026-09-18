@@ -1,0 +1,157 @@
+{
+  "cwd": "E:\\Desktop\\ai-quality-gate",
+  "layer": "CLI",
+  "cases": [
+    {
+      "id": "V1-01_unterminated_block_then_env_read",
+      "layer": "CLI `qgate check` with a policy check (SAFE_001/SAFE_003)",
+      "policyId": "SAFE_001",
+      "want": "DETECTED",
+      "observed": "DETECTED",
+      "exit": 1,
+      "blockerCount": 1,
+      "blockerPrefixes": [
+        "POLICY_VIOLATION_SAFE_001"
+      ],
+      "ok": true
+    },
+    {
+      "id": "V1-02_unterminated_block_then_fetch",
+      "layer": "CLI `qgate check` with a policy check (SAFE_001/SAFE_003)",
+      "policyId": "SAFE_003",
+      "want": "DETECTED",
+      "observed": "DETECTED",
+      "exit": 1,
+      "blockerCount": 1,
+      "blockerPrefixes": [
+        "POLICY_VIOLATION_SAFE_003"
+      ],
+      "ok": true
+    },
+    {
+      "id": "V1-03_scheme_double_slash_same_line",
+      "layer": "CLI `qgate check` with a policy check (SAFE_001/SAFE_003)",
+      "policyId": "SAFE_001",
+      "want": "DETECTED",
+      "observed": "DETECTED",
+      "exit": 1,
+      "blockerCount": 1,
+      "blockerPrefixes": [
+        "POLICY_VIOLATION_SAFE_001"
+      ],
+      "ok": true
+    },
+    {
+      "id": "V1-04_closed_block_comment_example",
+      "layer": "CLI `qgate check` with a policy check (SAFE_001/SAFE_003)",
+      "policyId": "SAFE_001",
+      "want": "NOT-DETECTED",
+      "observed": "NOT-DETECTED",
+      "exit": 0,
+      "blockerCount": 0,
+      "blockerPrefixes": [],
+      "ok": true
+    },
+    {
+      "id": "V1-05_pure_line_comment",
+      "layer": "CLI `qgate check` with a policy check (SAFE_001/SAFE_003)",
+      "policyId": "SAFE_001",
+      "want": "NOT-DETECTED",
+      "observed": "NOT-DETECTED",
+      "exit": 0,
+      "blockerCount": 0,
+      "blockerPrefixes": [],
+      "ok": true
+    },
+    {
+      "id": "V1-06_line_comment_at_eof_no_newline",
+      "layer": "CLI `qgate check` with a policy check (SAFE_001/SAFE_003)",
+      "policyId": "SAFE_001",
+      "want": "NOT-DETECTED",
+      "observed": "NOT-DETECTED",
+      "exit": 0,
+      "blockerCount": 0,
+      "blockerPrefixes": [],
+      "ok": true
+    },
+    {
+      "id": "V1-07_crlf_unterminated_then_read",
+      "layer": "CLI `qgate check` with a policy check (SAFE_001/SAFE_003)",
+      "policyId": "SAFE_001",
+      "want": "DETECTED",
+      "observed": "DETECTED",
+      "exit": 1,
+      "blockerCount": 1,
+      "blockerPrefixes": [
+        "POLICY_VIOLATION_SAFE_001"
+      ],
+      "ok": true
+    },
+    {
+      "id": "V1-08_bom_adjacent_unterminated_then_read",
+      "layer": "CLI `qgate check` with a policy check (SAFE_001/SAFE_003)",
+      "policyId": "SAFE_001",
+      "want": "DETECTED",
+      "observed": "DETECTED",
+      "exit": 1,
+      "blockerCount": 1,
+      "blockerPrefixes": [
+        "POLICY_VIOLATION_SAFE_001"
+      ],
+      "ok": true
+    },
+    {
+      "id": "V1-09_quotes_with_double_slash_then_read",
+      "layer": "CLI `qgate check` with a policy check (SAFE_001/SAFE_003)",
+      "policyId": "SAFE_001",
+      "want": "DETECTED",
+      "observed": "DETECTED",
+      "exit": 1,
+      "blockerCount": 1,
+      "blockerPrefixes": [
+        "POLICY_VIOLATION_SAFE_001"
+      ],
+      "ok": true
+    },
+    {
+      "id": "V1-10_regex_literal_with_block_comment",
+      "layer": "CLI `qgate check` with a policy check (SAFE_001/SAFE_003)",
+      "policyId": "SAFE_001",
+      "want": "DETECTED",
+      "observed": "DETECTED",
+      "exit": 1,
+      "blockerCount": 1,
+      "blockerPrefixes": [
+        "POLICY_VIOLATION_SAFE_001"
+      ],
+      "ok": true
+    },
+    {
+      "id": "V1-11_vault_reference_under_unterminated",
+      "layer": "CLI `qgate check` with a policy check (SAFE_001/SAFE_003)",
+      "policyId": "SAFE_001",
+      "want": "DETECTED",
+      "observed": "DETECTED",
+      "exit": 1,
+      "blockerCount": 1,
+      "blockerPrefixes": [
+        "POLICY_VIOLATION_SAFE_001"
+      ],
+      "ok": true
+    },
+    {
+      "id": "V1-12_expectedFiles_markdown_unterminated",
+      "layer": "CLI `qgate check` with a policy check (SAFE_001/SAFE_003)",
+      "policyId": "SAFE_001",
+      "want": "DETECTED",
+      "observed": "DETECTED",
+      "exit": 1,
+      "blockerCount": 1,
+      "blockerPrefixes": [
+        "POLICY_VIOLATION_SAFE_001"
+      ],
+      "ok": true
+    }
+  ],
+  "failures": []
+}

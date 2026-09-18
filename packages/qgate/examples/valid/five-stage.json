@@ -1,0 +1,158 @@
+{
+  "version": "1.0",
+  "provider": {
+    "type": "deterministic"
+  },
+  "gates": [
+    {
+      "id": "req-spec",
+      "stage": "requirements",
+      "required": true,
+      "checks": [
+        {
+          "id": "req-doc-exists",
+          "type": "file_exists",
+          "file": "REQUIREMENTS.md",
+          "required": true,
+          "description": "the requirements document exists"
+        },
+        {
+          "id": "req-ids-present",
+          "type": "regex",
+          "required": true,
+          "files": ["REQUIREMENTS.md"],
+          "pattern": "REQ-DEMO-\\d{3}",
+          "mode": "count",
+          "minMatches": 4,
+          "countMode": "unique",
+          "description": "at least four unique requirement ids are present"
+        },
+        {
+          "id": "req-index-valid",
+          "type": "json_assert",
+          "required": true,
+          "file": "index.json",
+          "assertions": [
+            { "pointer": "/requirements", "exists": true },
+            { "pointer": "/requirements/0/id", "matches": "^REQ-DEMO-\\d{3}$" },
+            { "pointer": "/schemaVersion", "equals": "1.0" }
+          ],
+          "description": "the machine-readable requirement index is valid"
+        }
+      ]
+    },
+    {
+      "id": "interface-frozen",
+      "stage": "design",
+      "required": true,
+      "checks": [
+        {
+          "id": "interface-exists",
+          "type": "file_exists",
+          "file": "openapi.yaml",
+          "required": true,
+          "description": "the frozen interface description exists"
+        },
+        {
+          "id": "contract-fields-present",
+          "type": "regex",
+          "required": true,
+          "files": ["openapi.yaml"],
+          "pattern": "requestId|traceId|amount|currency|Idempotency-Key",
+          "flags": "gm",
+          "mode": "count",
+          "minMatches": 5,
+          "countMode": "unique",
+          "description": "every frozen field name appears in the contract"
+        },
+        {
+          "id": "no-loose-ends",
+          "type": "file_not_exists",
+          "file": "TODO.md",
+          "required": false,
+          "severity": "medium",
+          "onFail": "warn",
+          "description": "no loose-ends tracker is left behind (advisory only)"
+        }
+      ]
+    },
+    {
+      "id": "build-deterministic",
+      "stage": "build",
+      "required": true,
+      "checks": [
+        {
+          "id": "no-dep",
+          "type": "json_assert",
+          "required": true,
+          "file": "package.json",
+          "assertions": [
+            { "pointer": "/dependencies", "equals": {} },
+            { "pointer": "/type", "equals": "module" }
+          ],
+          "description": "zero runtime dependencies, pure ESM"
+        },
+        {
+          "id": "unit-tests",
+          "type": "file_exists",
+          "file": "test/*.test.mjs",
+          "minCount": 2,
+          "required": true,
+          "description": "at least two node:test suites exist"
+        },
+        {
+          "id": "no-bypass",
+          "type": "policy",
+          "required": true,
+          "policyId": "CONTRACT_001",
+          "onFail": "fail",
+          "description": "the configuration may not drift outside the frozen contract"
+        }
+      ]
+    },
+    {
+      "id": "review-counterexample",
+      "stage": "review",
+      "required": true,
+      "checks": [
+        {
+          "id": "negative-fixtures",
+          "type": "file_exists",
+          "file": "invalid/*.json",
+          "minCount": 3,
+          "required": true,
+          "description": "at least three counter-example configurations exist"
+        },
+        {
+          "id": "severity-mix",
+          "type": "json_assert",
+          "required": true,
+          "file": "severity-mix.json",
+          "assertions": [
+            { "pointer": "/blockers", "exists": true },
+            { "pointer": "/findings", "exists": true },
+            { "pointer": "/threshold", "equals": 0.7 }
+          ],
+          "description": "severity/confidence gating evidence is recorded"
+        }
+      ]
+    },
+    {
+      "id": "verify-coverage",
+      "stage": "verify",
+      "required": true,
+      "checks": [
+        {
+          "id": "trace-complete",
+          "type": "trace_matrix",
+          "required": true,
+          "requirementsFile": "index.json",
+          "traceFile": "trace-matrix.json",
+          "enforce": "strict",
+          "testIdSource": "trace-only",
+          "description": "every P0/P1 requirement is traced to a test id; this example has no qgate check→testId carrier for its synthetic T-DEMO-* ids, so it opts in explicitly to certifying coverage from the trace document alone (the verdict marks that basis: testIdSource=trace-only)"
+        }
+      ]
+    }
+  ]
+}

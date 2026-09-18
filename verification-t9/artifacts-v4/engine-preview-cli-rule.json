@@ -1,0 +1,360 @@
+﻿{
+  "ok": true,
+  "degraded": false,
+  "root": "E:\\Desktop\\ai-quality-gate\\demo\\mini-service",
+  "selection": {
+    "included": [
+      ".opencodereview/rule.json",
+      ".qgate/approvals/README.md",
+      ".qgate/approvals/design-to-build/approval.json",
+      ".qgate/approvals/req-to-design/approval.json",
+      ".qgate/approvals/review-to-verify/approval.json",
+      ".qgate/negative/secret-include.result.json",
+      ".qgate/negative/unknown-check-type.result.json",
+      ".qgate/reports/report-2026-09-17T19-07-43.741Z-af9b7a5a.md",
+      ".qgate/reports/report-2026-09-17T19-49-20.908Z-0d1d81e3.md",
+      ".qgate/requirements-index.json",
+      ".qgate/trace-matrix.json",
+      "REQUIREMENTS.md",
+      "SELECTION-NOTES.md",
+      "openapi.yaml",
+      "package.json"
+    ],
+    "excluded": [
+      {
+        "path": ".env",
+        "reason": "secret_path",
+        "rule": "secret-env",
+        "stage": "secret_path"
+      },
+      {
+        "path": ".env.local",
+        "reason": "secret_path",
+        "rule": "secret-env",
+        "stage": "secret_path"
+      },
+      {
+        "path": ".qgate/evidence/coverage.json",
+        "reason": "default_excluded_path",
+        "rule": "builtin:.qgate/evidence",
+        "stage": "default_excluded_path"
+      },
+      {
+        "path": ".qgate/evidence/fix-budget-in-loop.json",
+        "reason": "default_excluded_path",
+        "rule": "builtin:.qgate/evidence",
+        "stage": "default_excluded_path"
+      },
+      {
+        "path": ".qgate/evidence/fix-budget-post-gate.json",
+        "reason": "default_excluded_path",
+        "rule": "builtin:.qgate/evidence",
+        "stage": "default_excluded_path"
+      },
+      {
+        "path": ".qgate/evidence/ledger-2026-09-17T20-00-01.549Z-119c7ebf.json",
+        "reason": "default_excluded_path",
+        "rule": "builtin:.qgate/evidence",
+        "stage": "default_excluded_path"
+      },
+      {
+        "path": ".qgate/evidence/ledger-2026-09-17T20-00-38.592Z-2cd53a78.json",
+        "reason": "default_excluded_path",
+        "rule": "builtin:.qgate/evidence",
+        "stage": "default_excluded_path"
+      },
+      {
+        "path": ".qgate/evidence/ledger-2026-09-17T20-00-39.768Z-00abb218.json",
+        "reason": "default_excluded_path",
+        "rule": "builtin:.qgate/evidence",
+        "stage": "default_excluded_path"
+      },
+      {
+        "path": ".qgate/evidence/ledger-2026-09-17T20-00-40.227Z-ed47b9a2.json",
+        "reason": "default_excluded_path",
+        "rule": "builtin:.qgate/evidence",
+        "stage": "default_excluded_path"
+      },
+      {
+        "path": ".qgate/evidence/ledger-2026-09-17T20-00-40.677Z-9f2a8df3.json",
+        "reason": "default_excluded_path",
+        "rule": "builtin:.qgate/evidence",
+        "stage": "default_excluded_path"
+      },
+      {
+        "path": ".qgate/evidence/ledger-2026-09-17T20-00-41.907Z-5dc14581.json",
+        "reason": "default_excluded_path",
+        "rule": "builtin:.qgate/evidence",
+        "stage": "default_excluded_path"
+      },
+      {
+        "path": ".qgate/evidence/ledger-2026-09-17T20-00-42.144Z-a3ec7a2c.json",
+        "reason": "default_excluded_path",
+        "rule": "builtin:.qgate/evidence",
+        "stage": "default_excluded_path"
+      },
+      {
+        "path": ".qgate/evidence/ledger-2026-09-17T20-00-42.387Z-6d2d982b.json",
+        "reason": "default_excluded_path",
+        "rule": "builtin:.qgate/evidence",
+        "stage": "default_excluded_path"
+      },
+      {
+        "path": ".qgate/evidence/ledger-2026-09-17T20-00-42.648Z-ac5dd9a4.json",
+        "reason": "default_excluded_path",
+        "rule": "builtin:.qgate/evidence",
+        "stage": "default_excluded_path"
+      },
+      {
+        "path": ".qgate/evidence/ledger-2026-09-17T20-00-42.890Z-c6a73f8b.json",
+        "reason": "default_excluded_path",
+        "rule": "builtin:.qgate/evidence",
+        "stage": "default_excluded_path"
+      },
+      {
+        "path": ".qgate/evidence/ledger-2026-09-17T20-00-43.320Z-335ed7fd.json",
+        "reason": "default_excluded_path",
+        "rule": "builtin:.qgate/evidence",
+        "stage": "default_excluded_path"
+      },
+      {
+        "path": ".qgate/evidence/ledger-2026-09-17T20-00-43.738Z-d1858901.json",
+        "reason": "default_excluded_path",
+        "rule": "builtin:.qgate/evidence",
+        "stage": "default_excluded_path"
+      },
+      {
+        "path": ".qgate/evidence/ledger-2026-09-17T20-00-44.180Z-b40b35f4.json",
+        "reason": "default_excluded_path",
+        "rule": "builtin:.qgate/evidence",
+        "stage": "default_excluded_path"
+      },
+      {
+        "path": ".qgate/evidence/ledger-index.json",
+        "reason": "default_excluded_path",
+        "rule": "builtin:.qgate/evidence",
+        "stage": "default_excluded_path"
+      },
+      {
+        "path": ".qgate/evidence/ocr-findings.json",
+        "reason": "default_excluded_path",
+        "rule": "builtin:.qgate/evidence",
+        "stage": "default_excluded_path"
+      },
+      {
+        "path": ".qgate/evidence/test-results.json",
+        "reason": "default_excluded_path",
+        "rule": "builtin:.qgate/evidence",
+        "stage": "default_excluded_path"
+      },
+      {
+        "path": "config/service.key",
+        "reason": "secret_path",
+        "rule": "secret-key",
+        "stage": "secret_path"
+      },
+      {
+        "path": "node_modules/left-pad/index.js",
+        "reason": "default_excluded_path",
+        "rule": "builtin:node_modules",
+        "stage": "default_excluded_path"
+      },
+      {
+        "path": "node_modules/placeholder/index.js",
+        "reason": "default_excluded_path",
+        "rule": "builtin:node_modules",
+        "stage": "default_excluded_path"
+      }
+    ]
+  },
+  "groups": [
+    {
+      "id": "g1",
+      "files": [
+        ".opencodereview/rule.json",
+        ".qgate/approvals/README.md",
+        ".qgate/approvals/design-to-build/approval.json",
+        ".qgate/approvals/req-to-design/approval.json",
+        ".qgate/approvals/review-to-verify/approval.json",
+        ".qgate/negative/secret-include.result.json",
+        ".qgate/negative/unknown-check-type.result.json",
+        ".qgate/reports/report-2026-09-17T19-07-43.741Z-af9b7a5a.md",
+        ".qgate/reports/report-2026-09-17T19-49-20.908Z-0d1d81e3.md",
+        ".qgate/requirements-index.json"
+      ],
+      "downgraded": false,
+      "tokens": 5065
+    },
+    {
+      "id": "g2",
+      "files": [
+        ".qgate/trace-matrix.json",
+        "REQUIREMENTS.md",
+        "SELECTION-NOTES.md",
+        "openapi.yaml",
+        "package.json"
+      ],
+      "downgraded": false,
+      "tokens": 2852
+    }
+  ],
+  "ruleMatch": [
+    {
+      "file": ".opencodereview/rule.json",
+      "ruleSource": "project",
+      "ruleId": "demo-fixture",
+      "match": "**/*.json",
+      "severity": "low",
+      "category": "config",
+      "priority": 1
+    },
+    {
+      "file": ".qgate/approvals/README.md",
+      "ruleSource": "builtin",
+      "ruleId": "builtin-docs",
+      "match": "**/*.md",
+      "severity": "low",
+      "category": "docs",
+      "priority": 3
+    },
+    {
+      "file": ".qgate/approvals/design-to-build/approval.json",
+      "ruleSource": "project",
+      "ruleId": "demo-fixture",
+      "match": "**/*.json",
+      "severity": "low",
+      "category": "config",
+      "priority": 1
+    },
+    {
+      "file": ".qgate/approvals/req-to-design/approval.json",
+      "ruleSource": "project",
+      "ruleId": "demo-fixture",
+      "match": "**/*.json",
+      "severity": "low",
+      "category": "config",
+      "priority": 1
+    },
+    {
+      "file": ".qgate/approvals/review-to-verify/approval.json",
+      "ruleSource": "project",
+      "ruleId": "demo-fixture",
+      "match": "**/*.json",
+      "severity": "low",
+      "category": "config",
+      "priority": 1
+    },
+    {
+      "file": ".qgate/negative/secret-include.result.json",
+      "ruleSource": "project",
+      "ruleId": "demo-fixture",
+      "match": "**/*.json",
+      "severity": "low",
+      "category": "config",
+      "priority": 1
+    },
+    {
+      "file": ".qgate/negative/unknown-check-type.result.json",
+      "ruleSource": "project",
+      "ruleId": "demo-fixture",
+      "match": "**/*.json",
+      "severity": "low",
+      "category": "config",
+      "priority": 1
+    },
+    {
+      "file": ".qgate/reports/report-2026-09-17T19-07-43.741Z-af9b7a5a.md",
+      "ruleSource": "builtin",
+      "ruleId": "builtin-docs",
+      "match": "**/*.md",
+      "severity": "low",
+      "category": "docs",
+      "priority": 3
+    },
+    {
+      "file": ".qgate/reports/report-2026-09-17T19-49-20.908Z-0d1d81e3.md",
+      "ruleSource": "builtin",
+      "ruleId": "builtin-docs",
+      "match": "**/*.md",
+      "severity": "low",
+      "category": "docs",
+      "priority": 3
+    },
+    {
+      "file": ".qgate/requirements-index.json",
+      "ruleSource": "project",
+      "ruleId": "demo-fixture",
+      "match": "**/*.json",
+      "severity": "low",
+      "category": "config",
+      "priority": 1
+    },
+    {
+      "file": ".qgate/trace-matrix.json",
+      "ruleSource": "project",
+      "ruleId": "demo-fixture",
+      "match": "**/*.json",
+      "severity": "low",
+      "category": "config",
+      "priority": 1
+    },
+    {
+      "file": "REQUIREMENTS.md",
+      "ruleSource": "project",
+      "ruleId": "demo-requirements",
+      "match": "REQUIREMENTS.md",
+      "severity": "medium",
+      "category": "requirements",
+      "priority": 1
+    },
+    {
+      "file": "SELECTION-NOTES.md",
+      "ruleSource": "builtin",
+      "ruleId": "builtin-docs",
+      "match": "**/*.md",
+      "severity": "low",
+      "category": "docs",
+      "priority": 3
+    },
+    {
+      "file": "openapi.yaml",
+      "ruleSource": "project",
+      "ruleId": "demo-openapi",
+      "match": "openapi.yaml",
+      "severity": "high",
+      "category": "interface-contract",
+      "priority": 1
+    },
+    {
+      "file": "package.json",
+      "ruleSource": "project",
+      "ruleId": "demo-fixture",
+      "match": "**/*.json",
+      "severity": "low",
+      "category": "config",
+      "priority": 1
+    }
+  ],
+  "rules": {
+    "sources": [
+      {
+        "source": "project",
+        "path": ".opencodereview/rule.json",
+        "pathKind": "file",
+        "rules": 4
+      },
+      {
+        "source": "builtin",
+        "path": "builtin:qgate",
+        "pathKind": "pseudo",
+        "rules": 5
+      }
+    ],
+    "projectPath": ".opencodereview/rule.json",
+    "note": "pathKind=\"pseudo\" marks the built-in layer: its rules are engine constants, not a file, so `path` is an identifier rather than a resolvable location"
+  },
+  "invariants": {
+    "secretPathsSelected": [],
+    "ocrAvailable": false
+  }
+}

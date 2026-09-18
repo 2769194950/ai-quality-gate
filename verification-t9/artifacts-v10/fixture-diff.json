@@ -1,0 +1,23 @@
+{
+  "cwd": "E:\\Desktop\\ai-quality-gate",
+  "adapterRoot": "E:\\Desktop\\ai-quality-gate\\adapters\\opencodereview",
+  "cases": [
+    {
+      "fixture": "preview.default.json",
+      "equal": true,
+      "firstDifference": null
+    },
+    {
+      "fixture": "preview.token-budget-300.json",
+      "equal": true,
+      "firstDifference": null
+    },
+    {
+      "fixture": "selection.default.md",
+      "equal": true,
+      "firstDifference": null,
+      "storedLines": 58,
+      "rerunLines": 58
+    }
+  ]
+}

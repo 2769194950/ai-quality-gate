@@ -1,0 +1,29 @@
+node : qgate trace: wrote verification/trace-matrix.json
+At line:26 char:29
++ ...  --write' { node packages/qgate/bin/qgate.mjs trace --config qgate.co ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (qgate trace: wr...ace-matrix.json:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+qgate trace: covered=16/16 orphans=0 violations=0
+wrote verification/trace-matrix.json (requirements: docs/requirements-index.json)
+requirementId            | priority | testIds        | covered
+-------------------------|----------|----------------|--------
+REQ-QUALITY-GATE-001     | P0       | T-QG-001       | true
+REQ-QUALITY-GATE-002     | P0       | T-QG-002       | true
+REQ-QUALITY-GATE-003     | P0       | T-QG-003       | true
+REQ-QUALITY-GATE-004     | P0       | T-QG-004       | true
+REQ-QUALITY-GATE-005     | P0       | T-QG-005       | true
+REQ-QUALITY-GATE-006     | P0       | T-QG-006       | true
+REQ-QUALITY-GATE-007     | P1       | T-QG-007       | true
+REQ-QUALITY-GATE-008     | P0       | T-QG-008       | true
+REQ-QUALITY-GATE-009     | P0       | T-QG-009       | true
+REQ-QUALITY-GATE-010     | P0       | T-QG-010       | true
+REQ-QUALITY-GATE-011     | P0       | T-QG-011       | true
+REQ-QUALITY-GATE-012     | P0       | T-QG-012       | true
+REQ-QUALITY-GATE-013     | P1       | T-QG-013       | true
+REQ-QUALITY-GATE-014     | P1       | T-QG-014       | true
+REQ-QUALITY-GATE-015     | P1       | T-QG-015       | true
+REQ-QUALITY-GATE-016     | P1       | T-QG-016       | true
+
+summary: requirements=16 covered=16 uncovered=0 orphanTestIds=0 coverageRatio=1 testIdSource=ledger-index

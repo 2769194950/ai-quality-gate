@@ -1,0 +1,210 @@
+{
+  "cwd": "E:\\Desktop\\ai-quality-gate",
+  "readme": "adapters/opencodereview/README.md",
+  "integrity": {
+    "file": "adapters/opencodereview/README.md",
+    "tables": 24,
+    "rows": 191,
+    "broken": [],
+    "details": [
+      {
+        "startLine": 43,
+        "rows": 15,
+        "cells": 2
+      },
+      {
+        "startLine": 161,
+        "rows": 7,
+        "cells": 2
+      },
+      {
+        "startLine": 270,
+        "rows": 10,
+        "cells": 5
+      },
+      {
+        "startLine": 296,
+        "rows": 9,
+        "cells": 2
+      },
+      {
+        "startLine": 348,
+        "rows": 13,
+        "cells": 4
+      },
+      {
+        "startLine": 388,
+        "rows": 4,
+        "cells": 4
+      },
+      {
+        "startLine": 406,
+        "rows": 5,
+        "cells": 3
+      },
+      {
+        "startLine": 433,
+        "rows": 13,
+        "cells": 3
+      },
+      {
+        "startLine": 466,
+        "rows": 7,
+        "cells": 3
+      },
+      {
+        "startLine": 495,
+        "rows": 14,
+        "cells": 5
+      },
+      {
+        "startLine": 529,
+        "rows": 6,
+        "cells": 4
+      },
+      {
+        "startLine": 556,
+        "rows": 4,
+        "cells": 4
+      },
+      {
+        "startLine": 591,
+        "rows": 7,
+        "cells": 4
+      },
+      {
+        "startLine": 629,
+        "rows": 8,
+        "cells": 3
+      },
+      {
+        "startLine": 648,
+        "rows": 6,
+        "cells": 5
+      },
+      {
+        "startLine": 720,
+        "rows": 4,
+        "cells": 3
+      },
+      {
+        "startLine": 771,
+        "rows": 16,
+        "cells": 2
+      },
+      {
+        "startLine": 793,
+        "rows": 4,
+        "cells": 3
+      },
+      {
+        "startLine": 800,
+        "rows": 5,
+        "cells": 3
+      },
+      {
+        "startLine": 817,
+        "rows": 5,
+        "cells": 2
+      },
+      {
+        "startLine": 827,
+        "rows": 5,
+        "cells": 2
+      },
+      {
+        "startLine": 840,
+        "rows": 5,
+        "cells": 3
+      },
+      {
+        "startLine": 911,
+        "rows": 11,
+        "cells": 2
+      },
+      {
+        "startLine": 931,
+        "rows": 8,
+        "cells": 3
+      }
+    ]
+  },
+  "section4": {
+    "section": "§4",
+    "range": [
+      346,
+      685
+    ],
+    "rowIds": [
+      {
+        "id": "S1",
+        "line": 350
+      },
+      {
+        "id": "S2",
+        "line": 351
+      },
+      {
+        "id": "S3",
+        "line": 352
+      },
+      {
+        "id": "S4",
+        "line": 353
+      },
+      {
+        "id": "G1",
+        "line": 354
+      },
+      {
+        "id": "G2",
+        "line": 355
+      },
+      {
+        "id": "G3",
+        "line": 356
+      },
+      {
+        "id": "G4",
+        "line": 357
+      },
+      {
+        "id": "S5",
+        "line": 358
+      },
+      {
+        "id": "S6",
+        "line": 359
+      },
+      {
+        "id": "S7",
+        "line": 360
+      }
+    ],
+    "distinctPipeCountsInInvariantTable": [
+      5
+    ]
+  },
+  "summary": {
+    "tablesChecked": 24,
+    "rowsChecked": 191,
+    "brokenRows": [],
+    "section4HasS4Row": true,
+    "section4HasG1Row": true,
+    "g1IsItsOwnRow": true,
+    "invariantTablePipeCountsConsistent": true,
+    "section4RowIds": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "S5",
+      "S6",
+      "S7"
+    ]
+  }
+}

@@ -1,0 +1,153 @@
+﻿{
+  "cwd": "E:\\Desktop\\ai-quality-gate",
+  "missingFiles": [
+    "gone/one.js",
+    "gone/two.js",
+    "gone/three.js",
+    "gone/four.js",
+    "gone/five.js",
+    "gone/six.js"
+  ],
+  "realFiles": [
+    "src/app.mjs",
+    "src/util.mjs",
+    "docs/notes.md"
+  ],
+  "modes": [
+    {
+      "id": "P1_diff_only",
+      "exit": 0,
+      "diffEntries": 9,
+      "includedCount": 9,
+      "includedMissing": [
+        "gone/five.js",
+        "gone/four.js",
+        "gone/one.js",
+        "gone/six.js",
+        "gone/three.js",
+        "gone/two.js"
+      ],
+      "selectedCount": 9,
+      "selectedMissing": [
+        "gone/five.js(size=0,tokens=0)",
+        "gone/four.js(size=0,tokens=0)",
+        "gone/one.js(size=0,tokens=0)",
+        "gone/six.js(size=0,tokens=0)",
+        "gone/three.js(size=0,tokens=0)",
+        "gone/two.js(size=0,tokens=0)"
+      ],
+      "groupCount": 3,
+      "groupFilesCount": 9,
+      "groupMissing": [
+        "gone/five.js",
+        "gone/four.js",
+        "gone/one.js",
+        "gone/six.js",
+        "gone/three.js",
+        "gone/two.js"
+      ],
+      "counts": {
+        "candidates": 9,
+        "downgraded_groups": 0,
+        "excluded": 0,
+        "excluded_binary": 0,
+        "excluded_dir": 0,
+        "excluded_extension": 0,
+        "excluded_sensitive": 0,
+        "groups": 3,
+        "selected": 9,
+        "single_file_groups": 0
+      },
+      "tokenSum": 302,
+      "groupTokenSum": 302,
+      "missingTokenSum": 0,
+      "tokenInflationPct": 0
+    },
+    {
+      "id": "P2_root_only",
+      "exit": 0,
+      "diffEntries": 9,
+      "includedCount": 3,
+      "includedMissing": [],
+      "selectedCount": 3,
+      "selectedMissing": [],
+      "groupCount": 2,
+      "groupFilesCount": 3,
+      "groupMissing": [],
+      "counts": {
+        "candidates": 3,
+        "downgraded_groups": 0,
+        "excluded": 0,
+        "excluded_binary": 0,
+        "excluded_dir": 0,
+        "excluded_extension": 0,
+        "excluded_sensitive": 0,
+        "groups": 2,
+        "selected": 3,
+        "single_file_groups": 0
+      },
+      "tokenSum": 302,
+      "groupTokenSum": 302,
+      "missingTokenSum": 0,
+      "tokenInflationPct": 0
+    },
+    {
+      "id": "P3_diff_with_root",
+      "exit": 0,
+      "diffEntries": 9,
+      "includedCount": 9,
+      "includedMissing": [
+        "gone/five.js",
+        "gone/four.js",
+        "gone/one.js",
+        "gone/six.js",
+        "gone/three.js",
+        "gone/two.js"
+      ],
+      "selectedCount": 9,
+      "selectedMissing": [
+        "gone/five.js(size=0,tokens=0)",
+        "gone/four.js(size=0,tokens=0)",
+        "gone/one.js(size=0,tokens=0)",
+        "gone/six.js(size=0,tokens=0)",
+        "gone/three.js(size=0,tokens=0)",
+        "gone/two.js(size=0,tokens=0)"
+      ],
+      "groupCount": 3,
+      "groupFilesCount": 9,
+      "groupMissing": [
+        "gone/five.js",
+        "gone/four.js",
+        "gone/one.js",
+        "gone/six.js",
+        "gone/three.js",
+        "gone/two.js"
+      ],
+      "counts": {
+        "candidates": 9,
+        "downgraded_groups": 0,
+        "excluded": 0,
+        "excluded_binary": 0,
+        "excluded_dir": 0,
+        "excluded_extension": 0,
+        "excluded_sensitive": 0,
+        "groups": 3,
+        "selected": 9,
+        "single_file_groups": 0
+      },
+      "tokenSum": 302,
+      "groupTokenSum": 302,
+      "missingTokenSum": 0,
+      "tokenInflationPct": 0
+    }
+  ],
+  "conclusion": {
+    "includedCarriesMissingPaths": true,
+    "selectedCarriesMissingPaths": true,
+    "groupsCarryMissingPaths": true,
+    "tokenSumInflatedBy": 0,
+    "tokenInflationPct": 0,
+    "rootModeTokenSum": 302,
+    "rootModeIncludedMissing": []
+  }
+}

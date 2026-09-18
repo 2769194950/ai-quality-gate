@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "gateId": "req-to-design",
+  "role": "product",
+  "decision": "approved",
+  "approvedBy": "product-owner",
+  "approvedAt": "2026-05-04T09:00:00Z",
+  "claims": [
+    {
+      "claimId": "requirements-scope-frozen",
+      "statement": "The six REQ-DEMO requirements and their non-goals are frozen for this demo cycle.",
+      "testIds": ["T-QG-001", "T-QG-002", "T-QG-003"]
+    },
+    {
+      "claimId": "requirements-traceable",
+      "statement": "Every P0/P1 requirement carries at least one T-* test id and is traced in .qgate/trace-matrix.json.",
+      "testIds": ["T-QG-006"]
+    }
+  ],
+  "notes": "Demo fixture approval for the requirements -> design handover. The engine reads this record; it never fabricates one."
+}
