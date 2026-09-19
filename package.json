@@ -19,9 +19,11 @@
     "check:json": "node packages/qgate/bin/qgate.mjs check --config demo/qgate.config.json --json",
     "check:summary": "node packages/qgate/bin/qgate.mjs check --config demo/qgate.config.json --summary",
     "contract": "node packages/qgate/bin/qgate.mjs contract --check",
+    "check:root": "node packages/qgate/bin/qgate.mjs check --config qgate.config.json --json",
     "trace": "node packages/qgate/bin/qgate.mjs trace --config demo/qgate.config.json --summary",
     "preview": "node packages/qgate/bin/qgate.mjs preview --root demo/mini-service --config demo/qgate.config.json --summary",
     "report": "node packages/qgate/bin/qgate.mjs report --config demo/qgate.config.json",
-    "verify": "node packages/qgate/bin/qgate.mjs check --config demo/qgate.config.json --json"
+    "verify": "node packages/qgate/bin/qgate.mjs check --config demo/qgate.config.json --json",
+    "release:check": "node tools/public-release-check.mjs"
   }
 }

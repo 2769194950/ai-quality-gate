@@ -21,6 +21,7 @@
 | `npm run test:all` | **0** | `tests 115 / pass 115 / fail 0`（与 `npm test` 是**同一条命令**，见 §1.3） |
 | `npm run test:contract` | **0** | `tests 25 / pass 25 / fail 0` |
 | `npm run verify` | **0** | demo 门禁：`overall_passed=true`，5/5 gate |
+| `npm run release:check` | **0** | 公开发布凭据扫描：`credential_findings=0` |
 | `node packages/qgate/bin/qgate.mjs check --config qgate.config.json --json` | **0** | **根门禁**：`overall_passed=true`，5/5 gate |
 | `node adapters/opencodereview/tools/run-tests.mjs` | **0** | `tests 145 / pass 145 / fail 0` |
 
@@ -286,22 +287,19 @@ message=the evidence ledger chain failed verification (1 problem(s))
 
 > 预热必须用**完整流水线**（不带 `--stage`）：CI 注释记录实测反例 —— `--stage review` 只写满 15/16 个 testId、`--stage build` 只写满 12/16。
 
-### 4.2 与矩阵同时存在的一条**已登记红点**（必须知道）
+### 4.2 基线新鲜度与干净克隆
 
-上面的矩阵是在把 `baseline-freshness` 这条 check **隔离掉**后测出的（用于干净地展示 trace 机制），测点全部在**仓库外的副本**里（避免用 `trace --write` 改写本仓库的审计链）。**在本仓库自身**，与 trace/基线相关的两条 check 都是绿的、且 trace 与账本一致：
+`baseline-freshness` 会把适配层套件的结果指针绑定到当前产品树指纹，并在 `--deep` 模式下重新执行记录命令核对计数。它因此是发布约束：任何实现、测试、配置或文档变更后，都必须在最终提交上重录基线，不能沿用旧指针。
+
+全新克隆的 verify job 按固定三段式运行，顺序不可颠倒：
 
 ```powershell
-node packages/qgate/bin/qgate.mjs check --config qgate.config.json --json     # exit 0，5/5 gate
-# （含 verify-coverage/trace-complete 与 verify-coverage/baseline-freshness 两条，均 passed）
+node packages/qgate/bin/qgate.mjs check --config qgate.config.json --json   # 预热，可能因 trace 缺失退出 1
+node packages/qgate/bin/qgate.mjs trace --config qgate.config.json --write
+node packages/qgate/bin/qgate.mjs check --config qgate.config.json --json   # 权威判定
 ```
 
-但是在**仓库之外的任何检出路径**（≈ CI runner 的真实条件）上，`baseline-freshness` 会**多报一条红**，原因是：
-
-- 该 check 用 `--deep` 调用 `verification-t9/tools/baseline-freshness.mjs`，`--deep` 会**重跑** record_command（`node adapters/opencodereview/tools/run-tests.mjs`）并比对计数；
-- 适配层套件里有**一条夹具路径依赖用例**（`夹具路径真实存在：diff.json 引用的每个路径都对应夹具根下真实文件`，与已登记的 GAP-6 夹具可移植性缺口同族）：在录制 cwd 内 145/145/0，在**另一路径**的同一份内容上 144/1；
-- ⇒ 实测（本机，Windows，另一路径）：`status=COUNT-DRIFT`、`expected={testFiles:15,tests:145,pass:145,fail:0,exit_code:0}`、`actual={testFiles:15,tests:145,pass:144,fail:1,exit_code:1}`、工具 exit 1 ⇒ 门禁该 check 红。
-
-**结论（如实写）**：在**非录制路径**的检出上，`verify` job 的第 ③ 步会因 `baseline-freshness` 报红；这与 trace 三段式的机制无关。可选修法（均**不在本任务范围**，需 captain 派单）：① 由验证方在该 runner 路径上重录基线；② 让该夹具路径用例与 cwd 解耦；③ 降低该 check 的深度（会削弱 COUNT-DRIFT 检测能力，需权衡）。本机**没有**真实 Linux/Ubuntu runner，故 Linux 上的表现**未实测**。
+本轮已在仓库外的干净克隆中验证：预热写入完整账本，`trace --write` 得到 `covered=16/16`，随后根门禁只剩“基线尚未针对该最终提交重录”这一预期发布准备项。发布前重录后，干净克隆和仓库根都必须通过 `baseline-freshness`。
 
 ---
 
@@ -382,9 +380,9 @@ node packages/qgate/bin/qgate.mjs check --config qgate.config.json --json      #
 
 ```powershell
 node verification-t9/tools/tree-fingerprint.mjs --json
-# fingerprint = 92d56be67c93d24f942c07ad9ac2f797d5aa0eb306e25057c4c774ec748f0c22
-# files       = 153
-# newest      = packages/qgate/gates/README.md  (2026-09-18T03:25:53.375Z)
+# fingerprint = 57254035bca557102e1825a7a706f72014287c0714dceb0b2935a47a64f7785b
+# files       = 160
+# newest      = package.json  (2026-09-19T18:26:40.386Z)
 ```
 
 - 指纹算法：对 `packages/qgate, adapters/opencodereview, schemas, docs, .github, demo/mini-service, demo/qgate.config.json, package.json, qgate.config.json` 逐文件 sha256，按路径排序拼成清单后再取 sha256（**不含 mtime**）。
@@ -397,7 +395,7 @@ node verification-t9/tools/tree-fingerprint.mjs --json
 
 ```powershell
 node verification-t9/tools/baseline-freshness.mjs --deep --quiet
-# exit 0  ⇒  BASELINE-FRESHNESS current=92d56be67c93 files=6 fresh=1 superseded=5 stale=0 tampered=0 count_drift=0
+# exit 0  ⇒  BASELINE-FRESHNESS current=57254035bca5 files=6 fresh=1 superseded=5 stale=0 tampered=0 count_drift=0
 ```
 
 语义（工具头部 `Exit:` 块 + `packages/qgate/gates/README.md` Boundary 7）：**0 = 所有未作废指针 FRESH（`--deep` 下计数还能复现），1 = 至少一个 STALE / COUNT-DRIFT，2 = 至少一个 TAMPERED（payload 哈希不符，即被人手改过），3 = 一个指针文件都没找到**；工具或指针**缺失即失败**（fail-closed，不跳过）。调用**只读**：该工具源码只做读取（无 `writeFileSync / mkdirSync / rmSync` 等写调用），t63 期间实测 `verification-t9` 条目数 568→568→568 —— 注意该目录同时被**独立验证方的取证流程**写入（`artifacts-v9/**` 等），所以条目数会随其进度变化，那些写入不属于产品修订、也不进入任何指纹。
@@ -410,7 +408,7 @@ node verification-t9/tools/baseline-freshness.mjs --deep --quiet
 
 1. **成对哈希**：任何「我没改 X」的声明都要给改前 → 改后（相等）的 SHA256；本 README 的落笔自身记录为「`README.md`：不存在 → 新值」。
 2. **会写仓库的命令**（`check` / `test` / `report`）属设计行为（审计链按契约写入 `verification/evidence/**`）；**反向用例与 CI 重放一律在仓库外的副本里做**，避免污染审计链（本文件 §3.2–§3.4、§4.1 的测法即如此）。
-3. **基线与 cwd 绑定**：`baseline-freshness` 的 record_command 目前包含一条**夹具路径依赖**用例（见 §4.2），因此**跨路径的检出**会被判为 COUNT-DRIFT；重录必须在**将要运行门禁的那个 cwd**里做。
+3. **基线与产品修订绑定**：实现、测试、配置或文档变更都会改变产品树指纹，必须在最终提交上重录基线；不要把旧提交的指针误判为当前版本的测试结果。
 4. **中文与编码**：所有文本用 Node UTF-8 精确复核（本文件 U+FFFD 计数 = 0、BOM 计数 = 0）。
 
 ---
