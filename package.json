@@ -12,9 +12,9 @@
     "node": ">=18"
   },
   "scripts": {
-    "test": "node --test --experimental-test-isolation=none \"packages/qgate/test/*.test.mjs\"",
-    "test:contract": "node --test --experimental-test-isolation=none packages/qgate/test/schema-contract.test.mjs",
-    "test:all": "node --test --experimental-test-isolation=none \"packages/qgate/test/*.test.mjs\"",
+    "test": "node --test --test-concurrency=1 --experimental-test-isolation=none \"packages/qgate/test/*.test.mjs\"",
+    "test:contract": "node --test --test-concurrency=1 --experimental-test-isolation=none packages/qgate/test/schema-contract.test.mjs",
+    "test:all": "node --test --test-concurrency=1 --experimental-test-isolation=none \"packages/qgate/test/*.test.mjs\"",
     "check": "node packages/qgate/bin/qgate.mjs check --config demo/qgate.config.json",
     "check:json": "node packages/qgate/bin/qgate.mjs check --config demo/qgate.config.json --json",
     "check:summary": "node packages/qgate/bin/qgate.mjs check --config demo/qgate.config.json --summary",
