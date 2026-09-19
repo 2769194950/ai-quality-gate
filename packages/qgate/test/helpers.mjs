@@ -6,6 +6,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { runCli as runCliInProcess, collectIo } from '../src/cli.mjs';
+import { checkTestIds } from '../src/contract.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 
@@ -16,6 +17,10 @@ export const DEMO_ROOT = path.join(REPO_ROOT, 'demo', 'mini-service');
 export const VALID_CONFIG = path.join(PACKAGE_ROOT, 'examples', 'valid', 'five-stage.json');
 export const INVALID_DIR = path.join(PACKAGE_ROOT, 'examples', 'invalid');
 export const FIXTURE_RECORDINGS = path.join(PACKAGE_ROOT, 'examples', 'fixtures', 'provider-recordings.json');
+const DEMO_CONFIG_OBJECT = JSON.parse(fs.readFileSync(DEMO_CONFIG, 'utf8').replace(/^\uFEFF/, ''));
+const DEMO_TEST_IDS = [...new Set(
+  DEMO_CONFIG_OBJECT.gates.flatMap((gate) => (gate.checks ?? []).map((check) => checkTestIds[check.id]).filter(Boolean)),
+)].sort();
 
 /** Set when the sandbox refuses piped child-process stdio (documented boundary). */
 export const SPAWN_LIMITATION =
@@ -127,10 +132,12 @@ export function resetCopiedLedgerState(root) {
     if (name.startsWith('ledger-') && name !== 'ledger-index.json') fs.rmSync(path.join(evidenceDir, name));
   }
   const indexPath = path.join(evidenceDir, 'ledger-index.json');
-  const current = fs.existsSync(indexPath) ? JSON.parse(fs.readFileSync(indexPath, 'utf8')) : { schemaVersion: '1.0', testIds: [] };
+  const current = fs.existsSync(indexPath) ? JSON.parse(fs.readFileSync(indexPath, 'utf8')) : { schemaVersion: '1.0' };
   current.runIds = [];
   current.ledgers = [];
-  current.testIds = [...new Set(current.testIds ?? [])].sort();
+  // Seed a copied demo with the test ids that its current configuration can
+  // actually carry. A clean clone has no generated ledger-index yet.
+  current.testIds = DEMO_TEST_IDS;
   fs.writeFileSync(indexPath, `${JSON.stringify(current, null, 2)}\n`);
   const reports = path.join(root, '.qgate', 'reports');
   if (fs.existsSync(reports)) fs.rmSync(reports, { recursive: true, force: true });

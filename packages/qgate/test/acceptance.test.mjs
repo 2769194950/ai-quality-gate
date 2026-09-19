@@ -151,6 +151,7 @@ test('T-QG-011 a relative --config is resolved against the cwd; the run result i
     fs.cpSync(DEMO_CONFIG.replace(/qgate\.config\.json$/, 'mini-service'), path.join(demoDir, 'mini-service'), {
       recursive: true,
     });
+    resetCopiedLedgerState(path.join(demoDir, 'mini-service'));
     const fixtureConfig = path.join(demoDir, 'qgate.config.json');
     writeJson(fixtureConfig, readJson(DEMO_CONFIG));
     const relativeConfig = 'demo/qgate.config.json';
