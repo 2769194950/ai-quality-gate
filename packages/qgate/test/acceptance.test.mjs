@@ -142,22 +142,36 @@ test('T-QG-011 a relative --config is resolved against the cwd; the run result i
   //     same relative string is only usable from a directory where it exists;
   //   * once the file is found, the project root is inferred from the config file's
   //     own location, so the resulting RunResult does not depend on the cwd.
-  const relativeConfig = path.relative(REPO_ROOT, DEMO_CONFIG).split(path.sep).join('/');
+  // Use a throwaway project so this path-semantics test never races with or
+  // inherits ledger state from other tests or a user's local demo run.
+  const fixture = tmpDir('qgate-cwd-');
+  const demoDir = path.join(fixture, 'demo');
+  try {
+    fs.mkdirSync(demoDir, { recursive: true });
+    fs.cpSync(DEMO_CONFIG.replace(/qgate\.config\.json$/, 'mini-service'), path.join(demoDir, 'mini-service'), {
+      recursive: true,
+    });
+    const fixtureConfig = path.join(demoDir, 'qgate.config.json');
+    writeJson(fixtureConfig, readJson(DEMO_CONFIG));
+    const relativeConfig = 'demo/qgate.config.json';
 
-  const fromRepoRoot = await runCliJson(['check', '--config', relativeConfig, '--json'], { cwd: REPO_ROOT });
-  assert.equal(fromRepoRoot.status, 0, fromRepoRoot.stderr);
+    const fromRepoRoot = await runCliJson(['check', '--config', relativeConfig, '--json'], { cwd: fixture });
+    assert.equal(fromRepoRoot.status, 0, fromRepoRoot.stderr);
 
-  const foreignCwd = await runCliJson(['check', '--config', relativeConfig, '--json'], { cwd: PACKAGE_ROOT, strict: false });
-  assert.equal(foreignCwd.status, 2, 'the same relative path is not resolvable from another cwd');
-  assert.equal(foreignCwd.json.error.code, 'CONFIG_NOT_FOUND');
+    const foreignCwd = await runCliJson(['check', '--config', relativeConfig, '--json'], { cwd: PACKAGE_ROOT, strict: false });
+    assert.equal(foreignCwd.status, 2, 'the same relative path is not resolvable from another cwd');
+    assert.equal(foreignCwd.json.error.code, 'CONFIG_NOT_FOUND');
 
-  const absoluteFromForeignCwd = await runCliJson(['check', '--config', DEMO_CONFIG, '--json'], { cwd: PACKAGE_ROOT });
-  assert.equal(absoluteFromForeignCwd.status, 0, absoluteFromForeignCwd.stderr);
-  assert.deepEqual(
-    stripRunResultFields(fromRepoRoot.json),
-    stripRunResultFields(absoluteFromForeignCwd.json),
-    'with a resolvable config path the RunResult must be identical across cwds',
-  );
+    const absoluteFromForeignCwd = await runCliJson(['check', '--config', fixtureConfig, '--json'], { cwd: PACKAGE_ROOT });
+    assert.equal(absoluteFromForeignCwd.status, 0, absoluteFromForeignCwd.stderr);
+    assert.deepEqual(
+      stripRunResultFields(fromRepoRoot.json),
+      stripRunResultFields(absoluteFromForeignCwd.json),
+      'with a resolvable config path the RunResult must be identical across cwds',
+    );
+  } finally {
+    cleanup(fixture);
+  }
 });
 
 test('T-QG-011 exit code 2 covers unknown commands and illegal option combinations', async () => {
