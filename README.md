@@ -380,9 +380,9 @@ node packages/qgate/bin/qgate.mjs check --config qgate.config.json --json      #
 
 ```powershell
 node verification-t9/tools/tree-fingerprint.mjs --json
-# fingerprint = 5277affc88f86a1c01464b73872ba84df44a57acd77a6fc93ac9721c32541c00
+# fingerprint = a1f3baaa8776387a3f642ec1c11c9c938205638f92f7a88d5e34a220bc615530
 # files       = 161
-# newest      = packages/qgate/test/acceptance.test.mjs  (2026-09-19T18:59:40.712Z)
+# newest      = packages/qgate/test/acceptance.test.mjs  (2026-09-19T19:07:48.099Z)
 ```
 
 - 指纹算法：对 `packages/qgate, adapters/opencodereview, schemas, docs, .github, demo/mini-service, demo/qgate.config.json, package.json, qgate.config.json` 逐文件 sha256，按路径排序拼成清单后再取 sha256（**不含 mtime**）。
@@ -395,7 +395,7 @@ node verification-t9/tools/tree-fingerprint.mjs --json
 
 ```powershell
 node verification-t9/tools/baseline-freshness.mjs --deep --quiet
-# exit 0  ⇒  BASELINE-FRESHNESS current=5277affc88f8 files=6 fresh=1 superseded=5 stale=0 tampered=0 count_drift=0
+# exit 0  ⇒  BASELINE-FRESHNESS current=a1f3baaa8776 files=6 fresh=1 superseded=5 stale=0 tampered=0 count_drift=0
 ```
 
 语义（工具头部 `Exit:` 块 + `packages/qgate/gates/README.md` Boundary 7）：**0 = 所有未作废指针 FRESH（`--deep` 下计数还能复现），1 = 至少一个 STALE / COUNT-DRIFT，2 = 至少一个 TAMPERED（payload 哈希不符，即被人手改过），3 = 一个指针文件都没找到**；工具或指针**缺失即失败**（fail-closed，不跳过）。调用**只读**：该工具源码只做读取（无 `writeFileSync / mkdirSync / rmSync` 等写调用），t63 期间实测 `verification-t9` 条目数 568→568→568 —— 注意该目录同时被**独立验证方的取证流程**写入（`artifacts-v9/**` 等），所以条目数会随其进度变化，那些写入不属于产品修订、也不进入任何指纹。
