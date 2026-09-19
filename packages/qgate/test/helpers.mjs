@@ -146,6 +146,7 @@ export function resetCopiedLedgerState(root) {
 /** Copy an arbitrary directory tree into a temporary directory. */
 export function copyTree(source, target) {
   fs.cpSync(source, target, { recursive: true });
+  if (path.resolve(source) === path.resolve(DEMO_ROOT)) resetCopiedLedgerState(target);
   return target;
 }
 
