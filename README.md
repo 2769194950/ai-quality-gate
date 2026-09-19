@@ -103,9 +103,9 @@ node adapters/opencodereview/tools/run-tests.mjs
 
 ### 1.3 `npm test` 与 `npm run test:all` 是同一条命令
 
-根 `package.json` 里这两条脚本的字符串**完全相同**：
-`node --test --experimental-test-isolation=none "packages/qgate/test/*.test.mjs"`。
-保留两个名字只是历史原因（子包与根各有一条入口），**不存在第二套测试**。测试入口固定为单并发，因为部分契约测试会验证共享 demo 账本的顺序语义；这只约束测试运行器，不改变 qgate 运行时并发能力。
+根 `package.json` 里这两条脚本调用同一个串行 runner：
+`node packages/qgate/test/run-all.mjs`。
+保留两个名字只是历史原因（子包与根各有一条入口），**不存在第二套测试**。runner 逐个启动测试文件，因为部分契约测试会验证共享 demo 账本的顺序语义；这只约束测试运行器，不改变 qgate 运行时并发能力。
 
 > 沙箱提示（本项目多轮实测记录，见 t15/t33/t64 的回报）：Node 测试运行器的**默认 per-file 隔离**
 > 与「带管道的子进程 stdio」在受限沙箱里会 `spawn EPERM`；上面两条脚本已固定
