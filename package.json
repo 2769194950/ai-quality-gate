@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "description": "qgate — deterministic quality-gate contract engine (offline, zero runtime dependencies)",
+  "license": "MIT",
   "type": "module",
   "workspaces": [
     "packages/*"

@@ -7,7 +7,8 @@
 - 五个阶段 + **恰好三处人类门禁**，每一阶段的通过与否都是**退出码**，不是散文。
 
 > **本文件中的每一条命令都在当前修订上实测过**，输出与退出码均为实测值（实测环境与冻结指纹见 §7）。
-> 项目自身的验证结论不在本文件里自述，而在 `verification-t9/report-v8.json`（见 §7.2）。
+> 发布状态、当前能力边界和未完成项以 [`docs/04-capability-boundaries.md`](docs/04-capability-boundaries.md) 为准；
+> `verification-t9/**` 中的报告是历史验证记录，不替代当前命令的结果。
 
 ---
 
@@ -16,8 +17,8 @@
 | 命令 | 实测退出码 | 实测输出摘要 |
 |---|---|---|
 | `node --version` | 0 | `v24.19.0` |
-| `npm test` | **0** | `tests 110 / pass 110 / fail 0` |
-| `npm run test:all` | **0** | `tests 110 / pass 110 / fail 0`（与 `npm test` 是**同一条命令**，见 §1.3） |
+| `npm test` | **0** | `tests 115 / pass 115 / fail 0` |
+| `npm run test:all` | **0** | `tests 115 / pass 115 / fail 0`（与 `npm test` 是**同一条命令**，见 §1.3） |
 | `npm run test:contract` | **0** | `tests 25 / pass 25 / fail 0` |
 | `npm run verify` | **0** | demo 门禁：`overall_passed=true`，5/5 gate |
 | `node packages/qgate/bin/qgate.mjs check --config qgate.config.json --json` | **0** | **根门禁**：`overall_passed=true`，5/5 gate |
@@ -48,8 +49,8 @@ node --version
 # v24.19.0
 
 npm test
-# ℹ tests 110
-# ℹ pass 110
+# ℹ tests 115
+# ℹ pass 115
 # ℹ fail 0
 
 npm run test:contract
@@ -107,7 +108,7 @@ node adapters/opencodereview/tools/run-tests.mjs
 
 > 沙箱提示（本项目多轮实测记录，见 t15/t33/t64 的回报）：Node 测试运行器的**默认 per-file 隔离**
 > 与「带管道的子进程 stdio」在受限沙箱里会 `spawn EPERM`；上面两条脚本已固定
-> `--experimental-test-isolation=none`，因此 `npm test` 可直接跑通（本文档的 110/110 即实测）。
+> `--experimental-test-isolation=none`，因此 `npm test` 可直接跑通（本文档的 115/115 即实测）。
 > 需要采集子进程输出时，用**文件描述符重定向**而不是管道。
 
 ### 1.4 五个输出面陷阱（写错极易误导读者）
@@ -174,7 +175,7 @@ flowchart LR
 |---|---|---|
 | 文件选择 / 分组 / 规则匹配 / 七类 check / policy 断言 / 门禁判定 / 审计链 / trace 矩阵 | **确定性代码** | 同输入必同输出；本 README 引用的所有退出码都来自这一面 |
 | `provider.type=llm`、`provider.type=external` | **依赖 AI / 外部系统** | 本项目**默认不启用**；本机只验证了 `degraded` 降级路径 |
-| OCR 适配层的语义评审 | **依赖 AI** | `ocr` CLI 未安装时降级（实测 `degraded=true`、`llm_called=false`），**降级不是失败** |
+| OCR 适配层的语义评审 | **依赖 AI** | `ocr` CLI 是可选外部工具；缺失时降级（实测 `degraded=true`、`llm_called=false`），**降级不是“没有发现问题”** |
 | 三处人类门禁签字 | **人** | 以**自报 JSON** 审批记录的存在性 + 角色匹配判定（§9.1；**无签名、无身份认证**，见 §5.4-3） |
 
 **文件地图**：`packages/qgate/**` 引擎 + CLI（`packages/qgate/bin/qgate.mjs`）；`adapters/opencodereview/**` OCR 适配层与 CI 复用模板；`schemas/*.schema.json` 四份冻结 schema；`docs/**` 需求、契约、五阶段手册与统一能力边界台账（`docs/04-capability-boundaries.md`）；`.github/workflows/quality-gate.yml` CI；`demo/**` 可运行的迷你示例；`verification-t9/**` 独立验证方的报告与工具（**不是**产品代码）。
@@ -323,12 +324,12 @@ node packages/qgate/bin/qgate.mjs check --config qgate.config.json --json     # 
 - 无 UI / Dashboard；无多 CI 平台适配（GitLab / Jenkins / Azure 属**非目标**，`docs/00-requirements.md` §5）；无自动豁免机制；无跨仓规模化性能验证。
 - `verification/end-to-end.json` 与 `verification/ci-parity.json` **实测仍不存在**（`docs/01-architecture.md` §8.3.1 的 GAP-9 仍开放）——本 README **不**声称它们存在。
 
-### 5.3 需真实 LLM 或外部系统（本机不可验证）
+### 5.3 需真实 LLM 或外部系统（不属于离线保证）
 
-- `provider.type = llm | external` 的**真实**调用（只有 `degraded` 降级路径实测过）。
-- 真实 `ocr` CLI（未安装 ⇒ 本 README 的 OCR 数字全部来自**降级**路径）。
+- `provider.type = llm | external` 的真实调用仍依赖用户自己的 provider 配置；模型语义结果不属于字节级确定性保证。
+- 真实 `ocr` CLI 已在开发环境通过外部 runner 联调，但它不是仓库运行时依赖，公共 clone 不应假设用户已安装或配置它。
 - GitHub Actions **真跑**（本机无 runner、无网络；`verification-t9/report-v8.json` 的断言 10 因此标 **blocked**）。
-- **真正干净的 clone**（本工作区**无 VCS**，只能用仓库外副本近似）。
+- GitHub Actions 的真实 runner 行为仍需在 GitHub 仓库创建后用一次真实 workflow run 验证。
 - **符号链接**绕过（本机无创建权限）；**大小写敏感的文件系统**（`caseSensitiveFilesystemAvailable:false`，只能用受控严格大小写模拟）。
 
 ### 5.4 必须一并写明的诚实边界（每条有出处）
@@ -361,7 +362,7 @@ node packages/qgate/bin/qgate.mjs check --config qgate.config.json --json      #
 
 ### 6.2 项目自身的验证结论（引用，不自述）
 
-第三方验证方（verifier）的结论在 **`verification-t9/report-v8.json`**（`generated_at 2026-09-18T03:16:16.078Z`）：
+历史第三方验证方（verifier）的结论在 **`verification-t9/report-v8.json`**；它只用于追溯，不作为当前 release 的唯一依据：
 
 | 字段 | 实测值 |
 |---|---|
@@ -371,7 +372,7 @@ node packages/qgate/bin/qgate.mjs check --config qgate.config.json --json      #
 | `tree_fingerprint` / `tree_fingerprint_file_count` | `74a28c906b73…` / 152 |
 | 唯一 blocked | 断言 `10`（真实 GitHub Actions 运行 / 真正干净的 clone 等**不可离线验证**项，逐项给出原因） |
 
-**不要把 57/0/1 自行汇总成「全部通过」**，也不要把它当作当前树指纹：report-v8 测的是**更早的修订**（152 文件、指纹 `74a28c90…`）。当前修订的指纹见 §7。
+**不要把 57/0/1 自行汇总成「当前全部通过」**，也不要把它当作当前树指纹：report-v8 测的是更早的修订。当前 release 应以本 README 的命令、根门禁和 `docs/04-capability-boundaries.md` 为准。
 
 ---
 
