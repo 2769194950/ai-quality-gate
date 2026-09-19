@@ -177,7 +177,7 @@ flowchart LR
 | OCR 适配层的语义评审 | **依赖 AI** | `ocr` CLI 未安装时降级（实测 `degraded=true`、`llm_called=false`），**降级不是失败** |
 | 三处人类门禁签字 | **人** | 以**自报 JSON** 审批记录的存在性 + 角色匹配判定（§9.1；**无签名、无身份认证**，见 §5.4-3） |
 
-**文件地图**：`packages/qgate/**` 引擎 + CLI（`packages/qgate/bin/qgate.mjs`）；`adapters/opencodereview/**` OCR 适配层与 CI 复用模板；`schemas/*.schema.json` 四份冻结 schema；`docs/**` 需求、契约与五阶段手册；`.github/workflows/quality-gate.yml` CI；`demo/**` 可运行的迷你示例；`verification-t9/**` 独立验证方的报告与工具（**不是**产品代码）。
+**文件地图**：`packages/qgate/**` 引擎 + CLI（`packages/qgate/bin/qgate.mjs`）；`adapters/opencodereview/**` OCR 适配层与 CI 复用模板；`schemas/*.schema.json` 四份冻结 schema；`docs/**` 需求、契约、五阶段手册与统一能力边界台账（`docs/04-capability-boundaries.md`）；`.github/workflows/quality-gate.yml` CI；`demo/**` 可运行的迷你示例；`verification-t9/**` 独立验证方的报告与工具（**不是**产品代码）。
 
 ---
 
