@@ -52,6 +52,12 @@ jobs:
           for stage in ${STAGES//,/ }; do
             node "$QGATE_ENTRY" stage "$stage" review --mode offline --config "$QGATE_CONFIG" --json
           done
+      - name: Prepare verification trace when verify is selected
+        if: steps.changes.outputs.max_stage == 'verify'
+        run: |
+          node "$QGATE_ENTRY" check --config "$QGATE_CONFIG" --json || true
+          test -f verification/evidence/ledger-index.json
+          node "$QGATE_ENTRY" trace --config "$QGATE_CONFIG" --write
       - name: Run affected deterministic gates
         env:
           MAX_STAGE: ${{ steps.changes.outputs.max_stage }}
