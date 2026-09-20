@@ -23,7 +23,7 @@
     "test"
   ],
   "scripts": {
-    "test": "node --test --experimental-test-isolation=none test/*.test.mjs",
+    "test": "node --test --test-concurrency=1 test/*.test.mjs",
     "test:isolated": "node --test test/",
     "contract": "node bin/qgate.mjs contract --check",
     "check:demo": "node bin/qgate.mjs check --config ../../demo/qgate.config.json"

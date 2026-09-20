@@ -13,7 +13,7 @@
   },
   "scripts": {
     "test": "node packages/qgate/test/run-all.mjs",
-    "test:contract": "node --test --test-concurrency=1 --experimental-test-isolation=none packages/qgate/test/schema-contract.test.mjs",
+    "test:contract": "node --test --test-concurrency=1 packages/qgate/test/schema-contract.test.mjs",
     "test:all": "node packages/qgate/test/run-all.mjs",
     "check": "node packages/qgate/bin/qgate.mjs check --config demo/qgate.config.json",
     "check:json": "node packages/qgate/bin/qgate.mjs check --config demo/qgate.config.json --json",

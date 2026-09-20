@@ -14,6 +14,11 @@ const files = fs
   .filter((name) => name.endsWith('.test.mjs'))
   .sort((a, b) => a.localeCompare(b));
 
+// Node 20 does not recognize the newer isolation flag. Each file is already
+// spawned separately here, so the flag is unnecessary for the supported
+// runtime range (Node >=18).
+const nodeTestArgs = ['--test', '--test-concurrency=1'];
+
 let failures = 0;
 const totals = { tests: 0, pass: 0, fail: 0, skipped: 0, todo: 0 };
 for (const file of files) {
@@ -27,7 +32,7 @@ for (const file of files) {
   try {
     result = spawnSync(
       process.execPath,
-      ['--test', '--test-concurrency=1', '--experimental-test-isolation=none', path.join(TEST_DIR, file)],
+      [...nodeTestArgs, path.join(TEST_DIR, file)],
       { cwd: path.resolve(TEST_DIR, '..', '..', '..'), stdio: ['ignore', stdoutFd, stderrFd], env: process.env },
     );
   } finally {
