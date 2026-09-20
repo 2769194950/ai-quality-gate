@@ -136,7 +136,13 @@ export function checkEvidence(absOrRel, { deep = false, cwd = ROOT } = {}) {
       actual[k] = m ? Number(m[1]) : null;
     }
     if (Object.prototype.hasOwnProperty.call(expected, 'exit_code')) actual.exit_code = r.status;
-    counts = { expected, actual };
+    const failureLines = r.stdout
+      .split(/\r?\n/)
+      .filter((line) => /(?:✖|not ok|fail(?:ed|ure)?)/i.test(line))
+      .map((line) => line.trim())
+      .filter(Boolean)
+      .slice(0, 8);
+    counts = { expected, actual, ...(failureLines.length > 0 ? { failureLines } : {}) };
     countsMatch = Object.keys(expected).every((k) => actual[k] === expected[k]);
   }
 

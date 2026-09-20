@@ -100,6 +100,7 @@ if (process.argv.includes('--json')) {
       process.stdout.write(
         `BASELINE-FRESHNESS-DETAIL status=${r.status} evidence=${r.evidence}` +
           (r.counts ? ` actual=${JSON.stringify(r.counts.actual)} expected=${JSON.stringify(r.counts.expected)}` : '') +
+          (r.counts?.failureLines?.length ? ` failures=${JSON.stringify(r.counts.failureLines)}` : '') +
           '\n',
       );
     }
