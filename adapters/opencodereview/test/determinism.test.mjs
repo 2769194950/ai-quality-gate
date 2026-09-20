@@ -77,7 +77,10 @@ test('GAP-5/GAP-6: 三种 cwd 下 layer_trace / loaded_layers / source.path 完�
     { label: '非仓库根', cwd: os.homedir() },
   ];
   const available = cwds.filter((c) => fs.existsSync(c.cwd));
-  assert.ok(available.length >= 3, `三种 cwd 都必须存在，实际只有 ${available.map((a) => a.label).join(', ')}`);
+  // The historical Windows junction is not portable to Ubuntu runners. Two distinct
+  // real cwd values still prove the invariant; Windows exercises the optional third one.
+  assert.ok(available.length >= 2, `至少需要两个真实 cwd，实际只有 ${available.map((a) => a.label).join(', ')}`);
+  if (!fs.existsSync(JUNCTION)) t.diagnostic('当前平台没有 E:\\ai-quality-gate junction，跳过该可选 cwd');
 
   const results = [];
   for (const c of available) {

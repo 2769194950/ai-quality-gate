@@ -193,7 +193,8 @@ test('GAP-6: scrubber 抹平三类路径（适配层根 / 仓库根+项目级规
 test('GAP-6: scrubber 不误替非仓库绝对路径，且统一分隔符', () => {
   const outside = process.platform === 'win32' ? 'D:\\some\\other\\place\\rule.json' : '/some/other/place/rule.json';
   const out = portableize(outside);
-  assert.equal(out, 'D:/some/other/place/rule.json', '非仓库绝对路径只统一分隔符，不得被占位符化');
+  const expectedOutside = process.platform === 'win32' ? 'D:/some/other/place/rule.json' : '/some/other/place/rule.json';
+  assert.equal(out, expectedOutside, '非仓库绝对路径只统一分隔符，不得被占位符化');
   for (const [token] of ROOT_TOKENS) assert.equal(out.startsWith(token), false, `不得被 ${token} 误替`);
   // 前缀相似但不相等不得误匹配（…/ai-quality-gate-extra 不是仓库根）
   assert.equal(portableize(`${toPosix(REPO_ROOT)}-extra/x.json`), `${toPosix(REPO_ROOT)}-extra/x.json`);
