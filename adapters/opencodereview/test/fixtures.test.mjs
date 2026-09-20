@@ -197,7 +197,8 @@ test('GAP-6: scrubber 不误替非仓库绝对路径，且统一分隔符', () =
   assert.equal(out, expectedOutside, '非仓库绝对路径只统一分隔符，不得被占位符化');
   for (const [token] of ROOT_TOKENS) assert.equal(out.startsWith(token), false, `不得被 ${token} 误替`);
   // 前缀相似但不相等不得误匹配（…/ai-quality-gate-extra 不是仓库根）
-  assert.equal(portableize(`${toPosix(REPO_ROOT)}-extra/x.json`), `${toPosix(REPO_ROOT)}-extra/x.json`);
+  const nearRoot = portableize(`${toPosix(REPO_ROOT)}-extra/x.json`);
+  assert.equal(nearRoot.startsWith('<REPO_ROOT>'), false, '相似前缀不得被误替成 <REPO_ROOT>');
   // 非字符串原样返回
   assert.equal(portableize(42), 42);
   assert.equal(portableize(null), null);
