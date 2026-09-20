@@ -93,6 +93,16 @@ if (process.argv.includes('--json')) {
         `  ${r.status.padEnd(11)} ${r.evidence}${r.counts ? ` deep_counts=${JSON.stringify(r.counts.actual)} expected=${JSON.stringify(r.counts.expected)}` : ''}\n`,
       );
     }
+  } else {
+    // Keep quiet mode compact, but retain enough detail to diagnose a platform-specific
+    // deep-count drift from the single qgate evidence excerpt.
+    for (const r of rows.filter((item) => !['FRESH', 'SUPERSEDED'].includes(item.status))) {
+      process.stdout.write(
+        `BASELINE-FRESHNESS-DETAIL status=${r.status} evidence=${r.evidence}` +
+          (r.counts ? ` actual=${JSON.stringify(r.counts.actual)} expected=${JSON.stringify(r.counts.expected)}` : '') +
+          '\n',
+      );
+    }
   }
   process.stdout.write(
     `BASELINE-FRESHNESS current=${current.fingerprint.slice(0, 12)} files=${rows.length} fresh=${summary.fresh} superseded=${summary.superseded} stale=${summary.stale} tampered=${summary.tampered} count_drift=${summary.count_drift}\n`,
