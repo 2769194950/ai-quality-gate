@@ -280,6 +280,130 @@
           "description": "the verification baselines must still describe THIS revision: exit 0 = every non-superseded pointer is FRESH (and, under --deep, its counts reproduce); 1 = a pointer is STALE or its counts DRIFT; 2 = a pointer was TAMPERED; 3 = no pointer file was found. Read-only (measured: verification-t9 entry count unchanged); a missing tool or a missing pointer file fails the check, so staleness is never silently skipped. See packages/qgate/gates/README.md Boundary 7."
         }
       ]
+    },
+    {
+      "id": "ai-requirements-evidence",
+      "stage": "requirements",
+      "required": true,
+      "checks": [
+        {
+          "id": "ai-requirements-executed",
+          "type": "json_assert",
+          "required": true,
+          "file": ".qgate/evidence/ai/requirements.json",
+          "assertions": [{ "pointer": "/summary/ocrExecuted", "equals": true }],
+          "description": "requirements AI evidence is present when the stage review is enabled"
+        },
+        {
+          "id": "ai-requirements-valid",
+          "type": "json_assert",
+          "required": true,
+          "file": ".qgate/evidence/ai/requirements.json",
+          "assertions": [{ "pointer": "/summary/ocrResultValid", "equals": true }],
+          "description": "requirements AI evidence is structurally valid"
+        }
+      ]
+    },
+    {
+      "id": "ai-design-evidence",
+      "stage": "design",
+      "required": true,
+      "checks": [
+        {
+          "id": "ai-design-executed",
+          "type": "json_assert",
+          "required": true,
+          "file": ".qgate/evidence/ai/design.json",
+          "assertions": [{ "pointer": "/summary/ocrExecuted", "equals": true }],
+          "description": "design AI evidence is present when the stage review is enabled"
+        },
+        {
+          "id": "ai-design-valid",
+          "type": "json_assert",
+          "required": true,
+          "file": ".qgate/evidence/ai/design.json",
+          "assertions": [{ "pointer": "/summary/ocrResultValid", "equals": true }],
+          "description": "design AI evidence is structurally valid"
+        }
+      ]
+    },
+    {
+      "id": "ai-build-evidence",
+      "stage": "build",
+      "required": true,
+      "checks": [
+        {
+          "id": "ai-build-executed",
+          "type": "json_assert",
+          "required": true,
+          "file": ".qgate/evidence/ai/build.json",
+          "assertions": [{ "pointer": "/summary/ocrExecuted", "equals": true }],
+          "description": "build AI evidence is present when the stage review is enabled"
+        },
+        {
+          "id": "ai-build-valid",
+          "type": "json_assert",
+          "required": true,
+          "file": ".qgate/evidence/ai/build.json",
+          "assertions": [{ "pointer": "/summary/ocrResultValid", "equals": true }],
+          "description": "build AI evidence is structurally valid"
+        }
+      ]
+    },
+    {
+      "id": "ai-review-evidence",
+      "stage": "review",
+      "required": true,
+      "checks": [
+        {
+          "id": "ai-review-executed",
+          "type": "json_assert",
+          "required": true,
+          "file": ".qgate/evidence/ai/review.json",
+          "assertions": [{ "pointer": "/summary/ocrExecuted", "equals": true }],
+          "description": "review AI evidence is present when the stage review is enabled"
+        },
+        {
+          "id": "ai-review-valid",
+          "type": "json_assert",
+          "required": true,
+          "file": ".qgate/evidence/ai/review.json",
+          "assertions": [{ "pointer": "/summary/ocrResultValid", "equals": true }],
+          "description": "review AI evidence is structurally valid"
+        },
+        {
+          "id": "ai-review-no-blockers",
+          "type": "json_assert",
+          "required": true,
+          "onFail": "warn",
+          "file": ".qgate/evidence/ai/review.json",
+          "assertions": [{ "pointer": "/summary/ocrNoBlockers", "equals": true }],
+          "description": "review AI blocker findings are advisory in v1"
+        }
+      ]
+    },
+    {
+      "id": "ai-verify-evidence",
+      "stage": "verify",
+      "required": true,
+      "checks": [
+        {
+          "id": "ai-verify-executed",
+          "type": "json_assert",
+          "required": true,
+          "file": ".qgate/evidence/ai/verify.json",
+          "assertions": [{ "pointer": "/summary/ocrExecuted", "equals": true }],
+          "description": "verify AI evidence is present when the stage review is enabled"
+        },
+        {
+          "id": "ai-verify-valid",
+          "type": "json_assert",
+          "required": true,
+          "file": ".qgate/evidence/ai/verify.json",
+          "assertions": [{ "pointer": "/summary/ocrResultValid", "equals": true }],
+          "description": "verify AI evidence is structurally valid"
+        }
+      ]
     }
   ]
 }

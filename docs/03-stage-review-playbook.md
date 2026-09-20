@@ -14,10 +14,17 @@ node packages/qgate/bin/qgate.mjs stage review review --mode offline --diff .qga
 node packages/qgate/bin/qgate.mjs stage verify review --mode offline --json
 ```
 
-真实 OpenCodeReview 由外部受控执行器调用，调用完成后导入：
+真实 OpenCodeReview 由外部受控执行器调用。执行器必须先使用同一阶段输入生成 manifest，调用完成后再导入：
 
 ```text
-node packages/qgate/bin/qgate.mjs stage review ingest --result .qgate/ocr/review.json --json
+node tools/ci/write-stage-context.mjs review \
+  .qgate/ocr/review.md .qgate/ocr/review.manifest.json .qgate/diff.json
+node adapters/opencodereview/bin/ocr-stage-review.mjs \
+  --stage review --root . --manifest .qgate/ocr/review.manifest.json \
+  --diff .qgate/diff.json --background-file .qgate/ocr/review.md \
+  --out .qgate/ocr/review.json
+node packages/qgate/bin/qgate.mjs stage review ingest \
+  --result .qgate/ocr/review.json --diff .qgate/diff.json --json
 ```
 
 阶段证据默认写入：
@@ -83,3 +90,22 @@ node packages/qgate/bin/qgate.mjs stage review explain --evidence .qgate/evidenc
 6. 只有重新验证后才能关闭 finding。
 
 `qgate` 本身不会修改源码，也不会把 AI 的自然语言结论写入 `overall_passed`。
+
+## GitHub Actions 分层
+
+仓库提供三个职责不同的 workflow：
+
+| Workflow | 触发 | OCR 模式 | 用途 |
+|---|---|---|---|
+| `quality-fast.yml` | 所有 push、Pull Request | offline | 快速测试、受影响阶段选择和离线 evidence；不读取任何 secret |
+| `quality-gate.yml` | `main`、`release/**`、`v*` tag、手动/复用调用 | deterministic + offline evidence | 五阶段完整 qgate、账本、trace、baseline 和安全策略 |
+| `quality-live.yml` | 可信分支、发布 tag、手动触发 | requirements/design/review/verify 使用 live OCR，build 保持确定性 | 受保护环境中的真实语义审查 |
+
+启用 `quality-live.yml` 前，在 GitHub Environment `ocr-live` 中配置：
+
+- Secret：`OCR_AUTH_TOKEN`
+- Variable：`OCR_BASE_URL`（例如 `https://api.atria-asi.ai`）
+- Variable：`OCR_MODEL`（例如 `Atria-Dawn-Preview`）
+- Required reviewers、可信分支限制和最小 `contents: read` 权限
+
+真实 token 只在 live OCR 那一个 step 注入，qgate、测试、证据、ledger 和 Artifact 都不会继承它。原始 OCR JSON 只存在 `.qgate/tmp/ocr/`，ingest 完成或 job 失败后都会清理；Artifact 只上传规范化 evidence。Fork PR 永远只进入 fast workflow，不能触发 live OCR。

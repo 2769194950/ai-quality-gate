@@ -293,3 +293,39 @@ test('CI: workflow 内嵌的 node -e 脚本可独立执行（无前序产物依�
     dir.cleanup();
   }
 });
+
+test('CI: fast 与 live workflow 的触发器、密钥边界和 OCR 分层符合契约', () => {
+  const fastPath = path.join(REPO_ROOT, '.github', 'workflows', 'quality-fast.yml');
+  const livePath = path.join(REPO_ROOT, '.github', 'workflows', 'quality-live.yml');
+  const fullPath = path.join(REPO_ROOT, '.github', 'workflows', 'quality-gate.yml');
+  assert.equal(fs.existsSync(fastPath), true, 'fast workflow must exist');
+  assert.equal(fs.existsSync(livePath), true, 'live workflow must exist');
+  assert.equal(fs.existsSync(fullPath), true, 'full deterministic workflow must exist');
+  const fast = read(fastPath);
+  const live = read(livePath);
+  const full = read(fullPath);
+
+  for (const stage of ['requirements', 'design', 'build', 'review', 'verify']) {
+    assert.match(full, new RegExp(`Generate offline AI evidence (?:for ${stage}|through ${stage})`), `full workflow must materialize ${stage} AI evidence`);
+  }
+
+  assert.match(fast, /\n  push:\n/);
+  assert.match(fast, /\n  pull_request:\n/);
+  assert.equal(/secrets\.|ANTHROPIC_AUTH_TOKEN|OCR_AUTH_TOKEN/.test(fast), false, 'fast workflow must not read secrets');
+  assert.match(fast, /OCR_OFFLINE: '1'/);
+  assert.match(fast, /stage "\$stage" review --mode offline/);
+
+  assert.match(live, /\n  workflow_dispatch:/);
+  for (const stage of ['requirements', 'design', 'build', 'review', 'verify', 'all']) assert.match(live, new RegExp(`- ${stage}\\n`), `live input missing ${stage}`);
+  assert.equal(/\n  pull_request(?:_target)?:/.test(live), false, 'live workflow must never run on pull requests');
+  assert.match(live, /environment:\s*\n\s+name: ocr-live/);
+  assert.match(live, /ANTHROPIC_AUTH_TOKEN:\s*\$\{\{ secrets\.OCR_AUTH_TOKEN \}\}/);
+  assert.match(live, /Install pinned OpenCodeReview CLI[\s\S]*ocr --version/);
+  assert.match(live, /OCR_CLI_VERSION: '1\.12\.7'/);
+  assert.match(live, /executionMode !== "live"/);
+  assert.match(live, /raw\.json/);
+  const uploadBlock = live.slice(live.indexOf('Upload sanitized evidence only'));
+  assert.equal(uploadBlock.includes('.qgate/tmp/ocr'), false, 'raw OCR responses must not be uploaded');
+  assert.equal(/permissions:[\s\S]*contents:\s*write/.test(live), false);
+  for (const u of [...live.matchAll(/^\s*uses:\s*(\S+)/gm)].map((m) => m[1])) assert.match(u, SHA_RE, `live action not pinned: ${u}`);
+});

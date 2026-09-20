@@ -10,6 +10,9 @@ test('stage review produces deterministic offline evidence for every frozen stag
   t.after(() => cleanup(root));
   fs.mkdirSync(path.join(root, 'docs'), { recursive: true });
   fs.writeFileSync(path.join(root, 'docs', '00-requirements.md'), '# requirements\n');
+  fs.writeFileSync(path.join(root, 'docs', 'requirements-index.json'), JSON.stringify({ schemaVersion: '1.0', requirements: [{ id: 'REQ-AUTH-001' }] }) + '\n');
+  fs.mkdirSync(path.join(root, 'src'), { recursive: true });
+  fs.writeFileSync(path.join(root, 'src', 'auth.mjs'), 'export function auth() {}\n');
   fs.writeFileSync(path.join(root, 'docs', '01-architecture.md'), '# design\n');
   fs.writeFileSync(path.join(root, 'docs', 'requirements-index.json'), '{"requirements":[]}\n');
 
@@ -35,6 +38,9 @@ test('stage ingest normalizes OpenCodeReview comments and preserves suggestion f
   t.after(() => cleanup(root));
   fs.mkdirSync(path.join(root, 'docs'), { recursive: true });
   fs.writeFileSync(path.join(root, 'docs', '00-requirements.md'), '# requirements\n');
+  fs.writeFileSync(path.join(root, 'docs', 'requirements-index.json'), JSON.stringify({ requirements: [{ id: 'REQ-AUTH-001' }] }) + '\n');
+  fs.mkdirSync(path.join(root, 'src'), { recursive: true });
+  fs.writeFileSync(path.join(root, 'src', 'auth.mjs'), 'export function auth() {}\n');
   const resultPath = path.join(root, 'ocr.json');
   writeJson(resultPath, {
     status: 'completed',
@@ -56,6 +62,51 @@ test('stage ingest normalizes OpenCodeReview comments and preserves suggestion f
   assert.equal(result.json.summary.ocrNoBlockers, true, 'high findings are advisory in v1');
   assert.equal(result.json.findings[0].requirementId, 'REQ-AUTH-001');
   assert.equal(result.json.findings[0].suggestionCode, 'return authorize(data);');
+});
+
+test('live envelope requires the current stage manifest fingerprint and redacts finding snippets', (t) => {
+  const root = tmpDir('qgate-stage-live-');
+  t.after(() => cleanup(root));
+  fs.mkdirSync(path.join(root, 'docs'), { recursive: true });
+  fs.writeFileSync(path.join(root, 'docs', '00-requirements.md'), '# requirements\n');
+  fs.writeFileSync(path.join(root, 'docs', 'requirements-index.json'), JSON.stringify({ requirements: [{ id: 'REQ-AUTH-001' }] }) + '\n');
+  fs.mkdirSync(path.join(root, 'src'), { recursive: true });
+  fs.writeFileSync(path.join(root, 'src', 'auth.mjs'), 'export function auth() {}\n');
+  const manifest = buildStageManifest({ stage: 'review', root });
+  const evidence = normalizeOcrResult({
+    stage: 'review',
+    manifest,
+    result: {
+      kind: 'qgate-ocr-raw-result',
+      schemaVersion: '1.0',
+      stage: 'review',
+      inputFingerprint: manifest.inputFingerprint,
+      executionMode: 'live',
+      provider: 'opencodereview',
+      cliVersion: '1.12.7',
+      model: 'test-model',
+      endpointHost: 'example.test',
+      result: { comments: [{ path: 'src/auth.mjs', start_line: 1, content: 'token=sk-test-123456789012345', requirement_id: 'REQ-AUTH-001' }] },
+    },
+  });
+  assert.equal(evidence.execution.mode, 'live');
+  assert.equal(evidence.summary.ocrLive, true);
+  assert.match(evidence.findings[0].content, /\[REDACTED\]/);
+  assert.throws(() => normalizeOcrResult({
+    stage: 'review',
+    manifest,
+    result: { kind: 'qgate-ocr-raw-result', stage: 'review', inputFingerprint: 'sha256:' + '0'.repeat(64), executionMode: 'live', provider: 'opencodereview', result: { comments: [] } },
+  }), /inputFingerprint/);
+  const validEnvelope = {
+    kind: 'qgate-ocr-raw-result',
+    stage: 'review',
+    inputFingerprint: manifest.inputFingerprint,
+    executionMode: 'live',
+    provider: 'opencodereview',
+    result: { comments: [] },
+  };
+  assert.throws(() => normalizeOcrResult({ stage: 'review', manifest, result: { ...validEnvelope, result: [] } }), /must be an object/);
+  assert.throws(() => normalizeOcrResult({ stage: 'review', manifest, result: { ...validEnvelope, result: { status: 'ok' } } }), /no recognized findings array/);
 });
 
 test('stage ingest fails closed for invalid paths and writes invalid evidence', async (t) => {

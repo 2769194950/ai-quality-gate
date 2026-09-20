@@ -561,7 +561,15 @@ function scanForTokens(repoRoot, tokens, { files = null, scanRoots = null } = {}
  */
 export function policySafe001(repoRoot, { files = null, scanRoots = null } = {}) {
   const { hits, scanned, files: scannedFiles } = scanForTokens(repoRoot, KEY_READ_PATTERNS, { files, scanRoots });
-  const violations = hits.map((hit) => ({
+  // A GitHub Environment reference is the intended secret boundary for the
+  // trusted live OCR workflow. It names a secret but does not read it from the
+  // repository process or expose its value; only this exact workflow binding is
+  // exempted. All source-level and general workflow secret reads remain errors.
+  const safeWorkflowSecret = (hit) => hit.file === '.github/workflows/quality-live.yml'
+    && /secrets\.OCR_AUTH_TOKEN/.test(hit.line)
+    && /ANTHROPIC_AUTH_TOKEN/.test(hit.line);
+  const effectiveHits = hits.filter((hit) => !safeWorkflowSecret(hit));
+  const violations = effectiveHits.map((hit) => ({
     pointer: `/${hit.file}`,
     message: `${hit.token} in ${hit.file}: ${safeExcerpt(redact(hit.line), 160) || REDACTED}`,
     file: hit.file,

@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
-  "generated_at": "2026-09-17T18:37:14.084Z",
+  "generated_at": "2026-09-20T15:46:35.092Z",
   "generated_by": "qgate trace",
-  "run_id": "2026-09-17T18-37-13.625Z-bf8b4645",
+  "run_id": "2026-09-20T15-46-34.284Z-7dff92a1",
   "pipeline": [
     "requirements",
     "design",
@@ -33,14 +33,15 @@
         "T-QG-001"
       ],
       "codePaths": [
-        "packages/qgate/src/pipeline.mjs"
+        "packages/qgate/src/pipeline.mjs",
+        "packages/qgate/gates/contract.json"
       ],
       "covered": true,
       "evidence": [
         {
           "path": "verification/evidence/ledger-index.json",
           "kind": "ledger",
-          "excerpt": "T-QG-001@2026-09-17T18-37-13.625Z-bf8b4645"
+          "excerpt": "T-QG-001@2026-09-20T15-46-34.284Z-7dff92a1"
         }
       ]
     },
@@ -63,7 +64,7 @@
         {
           "path": "verification/evidence/ledger-index.json",
           "kind": "ledger",
-          "excerpt": "T-QG-002@2026-09-17T18-37-13.625Z-bf8b4645"
+          "excerpt": "T-QG-002@2026-09-20T15-46-34.284Z-7dff92a1"
         }
       ]
     },
@@ -78,14 +79,15 @@
         "T-QG-003"
       ],
       "codePaths": [
-        "packages/qgate/src/checks/"
+        "packages/qgate/src/checks/",
+        "packages/qgate/test/pipeline-and-checks.test.mjs"
       ],
       "covered": true,
       "evidence": [
         {
           "path": "verification/evidence/ledger-index.json",
           "kind": "ledger",
-          "excerpt": "T-QG-003@2026-09-17T18-37-13.625Z-bf8b4645"
+          "excerpt": "T-QG-003@2026-09-20T15-46-34.284Z-7dff92a1"
         }
       ]
     },
@@ -100,14 +102,16 @@
         "T-QG-004"
       ],
       "codePaths": [
-        "packages/qgate/src/run-result.mjs"
+        "packages/qgate/src/core.mjs",
+        "packages/qgate/test/config-and-run-result.test.mjs",
+        "packages/qgate/test/robustness.test.mjs"
       ],
       "covered": true,
       "evidence": [
         {
           "path": "verification/evidence/ledger-index.json",
           "kind": "ledger",
-          "excerpt": "T-QG-004@2026-09-17T18-37-13.625Z-bf8b4645"
+          "excerpt": "T-QG-004@2026-09-20T15-46-34.284Z-7dff92a1"
         }
       ]
     },
@@ -122,14 +126,15 @@
         "T-QG-005"
       ],
       "codePaths": [
-        "packages/qgate/src/ledger.mjs"
+        "packages/qgate/src/ledger.mjs",
+        "packages/qgate/test/pipeline-and-checks.test.mjs"
       ],
       "covered": true,
       "evidence": [
         {
           "path": "verification/evidence/ledger-index.json",
           "kind": "ledger",
-          "excerpt": "T-QG-005@2026-09-17T18-37-13.625Z-bf8b4645"
+          "excerpt": "T-QG-005@2026-09-20T15-46-34.284Z-7dff92a1"
         }
       ]
     },
@@ -144,14 +149,15 @@
         "T-QG-006"
       ],
       "codePaths": [
-        "packages/qgate/src/trace.mjs"
+        "packages/qgate/src/trace.mjs",
+        "packages/qgate/test/pipeline-and-checks.test.mjs"
       ],
       "covered": true,
       "evidence": [
         {
           "path": "verification/evidence/ledger-index.json",
           "kind": "ledger",
-          "excerpt": "T-QG-006@2026-09-17T18-37-13.625Z-bf8b4645"
+          "excerpt": "T-QG-006@2026-09-20T15-46-34.284Z-7dff92a1"
         }
       ]
     },
@@ -173,7 +179,7 @@
         {
           "path": "verification/evidence/ledger-index.json",
           "kind": "ledger",
-          "excerpt": "T-QG-007@2026-09-17T18-37-13.625Z-bf8b4645"
+          "excerpt": "T-QG-007@2026-09-20T15-46-34.284Z-7dff92a1"
         }
       ]
     },
@@ -190,14 +196,15 @@
         "T-QG-008"
       ],
       "codePaths": [
-        "packages/qgate/src/human-gate.mjs"
+        "packages/qgate/src/human-gate.mjs",
+        "packages/qgate/test/acceptance.test.mjs"
       ],
       "covered": true,
       "evidence": [
         {
           "path": "verification/evidence/ledger-index.json",
           "kind": "ledger",
-          "excerpt": "T-QG-008@2026-09-17T18-37-13.625Z-bf8b4645"
+          "excerpt": "T-QG-008@2026-09-20T15-46-34.284Z-7dff92a1"
         }
       ]
     },
@@ -216,15 +223,14 @@
         "T-QG-009"
       ],
       "codePaths": [
-        "demo/qgate.config.json",
-        "verification/end-to-end.json"
+        "packages/qgate/test/acceptance.test.mjs"
       ],
       "covered": true,
       "evidence": [
         {
           "path": "verification/evidence/ledger-index.json",
           "kind": "ledger",
-          "excerpt": "T-QG-009@2026-09-17T18-37-13.625Z-bf8b4645"
+          "excerpt": "T-QG-009@2026-09-20T15-46-34.284Z-7dff92a1"
         }
       ]
     },
@@ -240,14 +246,16 @@
         "T-QG-010"
       ],
       "codePaths": [
-        "packages/qgate/package.json"
+        "packages/qgate/package.json",
+        "packages/qgate/test/acceptance.test.mjs",
+        "packages/qgate/test/robustness.test.mjs"
       ],
       "covered": true,
       "evidence": [
         {
           "path": "verification/evidence/ledger-index.json",
           "kind": "ledger",
-          "excerpt": "T-QG-010@2026-09-17T18-37-13.625Z-bf8b4645"
+          "excerpt": "T-QG-010@2026-09-20T15-46-34.284Z-7dff92a1"
         }
       ]
     },
@@ -262,14 +270,15 @@
         "T-QG-011"
       ],
       "codePaths": [
-        "packages/qgate/bin/qgate.mjs"
+        "packages/qgate/bin/qgate.mjs",
+        "packages/qgate/test/acceptance.test.mjs"
       ],
       "covered": true,
       "evidence": [
         {
           "path": "verification/evidence/ledger-index.json",
           "kind": "ledger",
-          "excerpt": "T-QG-011@2026-09-17T18-37-13.625Z-bf8b4645"
+          "excerpt": "T-QG-011@2026-09-20T15-46-34.284Z-7dff92a1"
         }
       ]
     },
@@ -285,14 +294,15 @@
         "T-QG-012"
       ],
       "codePaths": [
-        "adapters/opencodereview/src/"
+        "adapters/opencodereview/src/",
+        "adapters/opencodereview/bin/ocr-preview.mjs"
       ],
       "covered": true,
       "evidence": [
         {
           "path": "verification/evidence/ledger-index.json",
           "kind": "ledger",
-          "excerpt": "T-QG-012@2026-09-17T18-37-13.625Z-bf8b4645"
+          "excerpt": "T-QG-012@2026-09-20T15-46-34.284Z-7dff92a1"
         }
       ]
     },
@@ -307,14 +317,15 @@
         "T-QG-013"
       ],
       "codePaths": [
-        "packages/qgate/src/severity.mjs"
+        "packages/qgate/examples/severity-mix.json",
+        "packages/qgate/test/acceptance.test.mjs"
       ],
       "covered": true,
       "evidence": [
         {
           "path": "verification/evidence/ledger-index.json",
           "kind": "ledger",
-          "excerpt": "T-QG-013@2026-09-17T18-37-13.625Z-bf8b4645"
+          "excerpt": "T-QG-013@2026-09-20T15-46-34.284Z-7dff92a1"
         }
       ]
     },
@@ -330,14 +341,15 @@
         "T-QG-014"
       ],
       "codePaths": [
-        "packages/qgate/src/providers/"
+        "packages/qgate/src/providers/",
+        "packages/qgate/test/acceptance.test.mjs"
       ],
       "covered": true,
       "evidence": [
         {
           "path": "verification/evidence/ledger-index.json",
           "kind": "ledger",
-          "excerpt": "T-QG-014@2026-09-17T18-37-13.625Z-bf8b4645"
+          "excerpt": "T-QG-014@2026-09-20T15-46-34.284Z-7dff92a1"
         }
       ]
     },
@@ -356,15 +368,14 @@
         "T-QG-015"
       ],
       "codePaths": [
-        ".github/workflows/quality-gate.yml",
-        "verification/ci-parity.json"
+        ".github/workflows/quality-gate.yml"
       ],
       "covered": true,
       "evidence": [
         {
           "path": "verification/evidence/ledger-index.json",
           "kind": "ledger",
-          "excerpt": "T-QG-015@2026-09-17T18-37-13.625Z-bf8b4645"
+          "excerpt": "T-QG-015@2026-09-20T15-46-34.284Z-7dff92a1"
         }
       ]
     },
@@ -381,14 +392,15 @@
         "T-QG-016"
       ],
       "codePaths": [
-        "packages/qgate/src/human-gate.mjs"
+        "packages/qgate/src/human-gate.mjs",
+        "packages/qgate/test/acceptance.test.mjs"
       ],
       "covered": true,
       "evidence": [
         {
           "path": "verification/evidence/ledger-index.json",
           "kind": "ledger",
-          "excerpt": "T-QG-016@2026-09-17T18-37-13.625Z-bf8b4645"
+          "excerpt": "T-QG-016@2026-09-20T15-46-34.284Z-7dff92a1"
         }
       ]
     }

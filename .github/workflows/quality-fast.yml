@@ -1,0 +1,68 @@
+name: Quality Fast
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-fast-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  QGATE_ENTRY: packages/qgate/bin/qgate.mjs
+  QGATE_CONFIG: qgate.config.json
+  NO_COLOR: '1'
+  OCR_OFFLINE: '1'
+  QGATE_PROVIDER: deterministic
+
+jobs:
+  fast:
+    name: fast
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        with:
+          node-version: '20'
+      - name: Contract self-check
+        run: node "$QGATE_ENTRY" contract --check
+      - name: Run repository tests
+        run: |
+          node packages/qgate/test/run-all.mjs
+          node adapters/opencodereview/tools/run-tests.mjs
+      - name: Select affected stages
+        id: changes
+        env:
+          GITHUB_EVENT_BEFORE: ${{ github.event.before }}
+        run: node tools/ci/select-stages.mjs >> "$GITHUB_OUTPUT"
+      - name: Generate offline stage evidence
+        env:
+          STAGES: ${{ steps.changes.outputs.stages }}
+        run: |
+          for stage in ${STAGES//,/ }; do
+            node "$QGATE_ENTRY" stage "$stage" review --mode offline --config "$QGATE_CONFIG" --json
+          done
+      - name: Run affected deterministic gates
+        env:
+          MAX_STAGE: ${{ steps.changes.outputs.max_stage }}
+        run: node "$QGATE_ENTRY" check --stage "$MAX_STAGE" --config "$QGATE_CONFIG" --json
+      - name: Upload fast evidence
+        if: always()
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        with:
+          name: qgate-evidence-fast
+          path: |
+            .qgate/evidence/ai/
+            verification/evidence/
+          if-no-files-found: warn
+          retention-days: 7

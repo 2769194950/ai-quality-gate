@@ -6,7 +6,8 @@ qgate 通过 `stage` 命令接收阶段化 OCR 结果。qgate 核心不继承模
 
 ```text
 node adapters/opencodereview/bin/ocr-stage-review.mjs \
-  --stage review --root . --out .qgate/ocr/review.json
+  --stage review --root . --manifest .qgate/ocr/review.manifest.json \
+  --out .qgate/ocr/review.json
 node packages/qgate/bin/qgate.mjs \
   stage review ingest --result .qgate/ocr/review.json --json
 ```

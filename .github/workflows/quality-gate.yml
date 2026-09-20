@@ -54,8 +54,11 @@ name: Quality Gate
 
 on:
   push:
-    branches: ['**']
-  pull_request:
+    branches:
+      - main
+      - 'release/**'
+    tags:
+      - 'v*'
   workflow_dispatch:
   workflow_call:
 
@@ -96,6 +99,8 @@ jobs:
           node-version: '20'
       - name: Contract self-check (qgate contract --json)
         run: node "$QGATE_ENTRY" contract --json
+      - name: Generate offline AI evidence for requirements
+        run: node "$QGATE_ENTRY" stage requirements review --mode offline --config "$QGATE_CONFIG" --json
       - name: Run stage requirements
         run: node "$QGATE_ENTRY" check --stage requirements --config "$QGATE_CONFIG" --json
       - name: Upload evidence
@@ -105,7 +110,9 @@ jobs:
           name: qgate-evidence-requirements
           # 与根配置的 policy.evidenceDir 一致；if-no-files-found: error
           # 让「上传路径与实际输出目录不一致」立刻失败，而不是静默上传空包。
-          path: verification/evidence/
+          path: |
+            verification/evidence/
+            .qgate/evidence/ai/
           if-no-files-found: error
           retention-days: 14
 
@@ -124,6 +131,11 @@ jobs:
         uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
         with:
           node-version: '20'
+      - name: Generate offline AI evidence through design
+        run: |
+          for stage in requirements design; do
+            node "$QGATE_ENTRY" stage "$stage" review --mode offline --config "$QGATE_CONFIG" --json
+          done
       - name: Run stage design
         run: node "$QGATE_ENTRY" check --stage design --config "$QGATE_CONFIG" --json
       - name: Upload evidence
@@ -131,7 +143,9 @@ jobs:
         uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
         with:
           name: qgate-evidence-design
-          path: verification/evidence/
+          path: |
+            verification/evidence/
+            .qgate/evidence/ai/
           if-no-files-found: error
           retention-days: 14
 
@@ -150,6 +164,11 @@ jobs:
         uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
         with:
           node-version: '20'
+      - name: Generate offline AI evidence through build
+        run: |
+          for stage in requirements design build; do
+            node "$QGATE_ENTRY" stage "$stage" review --mode offline --config "$QGATE_CONFIG" --json
+          done
       - name: Run stage build
         run: node "$QGATE_ENTRY" check --stage build --config "$QGATE_CONFIG" --json
       # ocr CLI 不存在时本步仍退出 0（degraded:true），选择/分组与 qgate preview 同源。
@@ -185,7 +204,9 @@ jobs:
         uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
         with:
           name: qgate-evidence-build
-          path: verification/evidence/
+          path: |
+            verification/evidence/
+            .qgate/evidence/ai/
           if-no-files-found: error
           retention-days: 14
 
@@ -204,6 +225,11 @@ jobs:
         uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
         with:
           node-version: '20'
+      - name: Generate offline AI evidence through review
+        run: |
+          for stage in requirements design build review; do
+            node "$QGATE_ENTRY" stage "$stage" review --mode offline --config "$QGATE_CONFIG" --json
+          done
       - name: Run stage review
         run: node "$QGATE_ENTRY" check --stage review --config "$QGATE_CONFIG" --json
       - name: Upload evidence
@@ -211,7 +237,9 @@ jobs:
         uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
         with:
           name: qgate-evidence-review
-          path: verification/evidence/
+          path: |
+            verification/evidence/
+            .qgate/evidence/ai/
           if-no-files-found: error
           retention-days: 14
 
@@ -232,6 +260,11 @@ jobs:
         uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
         with:
           node-version: '20'
+      - name: Generate offline AI evidence through verify
+        run: |
+          for stage in requirements design build review verify; do
+            node "$QGATE_ENTRY" stage "$stage" review --mode offline --config "$QGATE_CONFIG" --json
+          done
       # 人类门禁：以审批制品的「存在性 + 角色匹配」判定（§9.1），不涉及任何 secret。
       - name: Check human-gate approval records (existence + role match)
         run: |
@@ -282,5 +315,6 @@ jobs:
             verification/evidence/
             verification/reports/
             verification/trace-matrix.json
+            .qgate/evidence/ai/
           if-no-files-found: warn
           retention-days: 14

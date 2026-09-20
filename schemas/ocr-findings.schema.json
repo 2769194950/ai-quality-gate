@@ -2,6 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://ai-quality-gate.local/schemas/ocr-findings.schema.json",
   "title": "OpenCodeReview normalized findings",
+  "description": "Normalized, project-relative AI findings with deterministic locations, severities, optional requirement links, and redacted code suggestions.",
   "type": "array",
   "items": {
     "type": "object",
@@ -9,7 +10,7 @@
     "required": ["id", "path", "startLine", "endLine", "content", "category", "severity"],
     "properties": {
       "id": { "type": "string", "minLength": 1 },
-      "path": { "type": "string", "pattern": "^(?!/)(?![A-Za-z]:/)(?!.*(?:^|/)\.\.(?:/|$)).+" },
+      "path": { "type": "string", "pattern": "^(?!/)(?![A-Za-z]:/)(?!.*(?:^|/)\\.\\.(?:/|$)).+" },
       "startLine": { "type": "integer", "minimum": 0 },
       "endLine": { "type": "integer", "minimum": 0 },
       "content": { "type": "string", "minLength": 1 },
