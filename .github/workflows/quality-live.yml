@@ -61,6 +61,38 @@ jobs:
           npm install --global "@alibaba-group/open-code-review@${OCR_CLI_VERSION}"
           actual_version="$(ocr --version | sed -n '1s/.*v\([0-9][0-9.]*\).*/\1/p')"
           test "$actual_version" = "${OCR_CLI_VERSION}"
+      - name: Preflight Atria Chat Completions without logging response
+        env:
+          OCR_LLM_URL: ${{ vars.OCR_BASE_URL }}
+          OCR_LLM_TOKEN: ${{ secrets.OCR_AUTH_TOKEN }}
+          OCR_LLM_MODEL: ${{ vars.OCR_MODEL }}
+        run: |
+          set -euo pipefail
+          response_file="$(mktemp)"
+          trap 'rm -f "$response_file"' EXIT
+          payload='{"model":"'"${OCR_LLM_MODEL}"'","messages":[{"role":"user","content":"Reply with OK."}],"max_tokens":1}'
+          set +e
+          http_status="$(curl --silent --show-error --output "$response_file" --write-out '%{http_code}' \
+            --connect-timeout 10 --max-time 30 \
+            --header "Authorization: Bearer ${OCR_LLM_TOKEN}" \
+            --header 'Content-Type: application/json' \
+            --data "$payload" "$OCR_LLM_URL")"
+          curl_exit=$?
+          set -e
+          if [ "$curl_exit" -ne 0 ]; then
+            echo "Atria preflight failed before receiving an HTTP response (curl_exit=${curl_exit})"
+            exit 3
+          fi
+          echo "Atria preflight HTTP status=${http_status}"
+          case "$http_status" in
+            2??) ;;
+            401) echo 'Atria rejected the credential (HTTP 401)'; exit 3 ;;
+            403) echo 'Atria rejected access to the endpoint or model (HTTP 403)'; exit 3 ;;
+            404) echo 'Atria endpoint was not found (HTTP 404)'; exit 3 ;;
+            429) echo 'Atria rate limit or quota was reached (HTTP 429)'; exit 3 ;;
+            5??) echo "Atria service returned HTTP ${http_status}"; exit 3 ;;
+            *) echo "Atria rejected the preflight request (HTTP ${http_status})"; exit 3 ;;
+          esac
       - name: Prepare stage selection and diff
         run: |
           mkdir -p .qgate/tmp/ocr
