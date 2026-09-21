@@ -163,7 +163,7 @@ function main(argv) {
     env: liveEnv,
   });
   if (result.error?.code === 'ETIMEDOUT') {
-    process.stderr.write(`ocr-stage-review: OCR timed out for stage=${opts.stage}\n`);
+    process.stderr.write(`ocr-stage-review: OCR timed out for stage=${opts.stage} timeout_ms=${opts.timeoutMs}\n`);
     return EXIT.INTERNAL;
   }
   if (result.error || result.status !== 0) {

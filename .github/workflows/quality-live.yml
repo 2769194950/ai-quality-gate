@@ -145,7 +145,7 @@ jobs:
             else
               node tools/ci/write-stage-context.mjs "$stage" ".qgate/tmp/ocr/${stage}.md" ".qgate/tmp/ocr/${stage}.manifest.json"
             fi
-            args=(--stage "$stage" --root . --manifest ".qgate/tmp/ocr/${stage}.manifest.json" --out ".qgate/tmp/ocr/${stage}.raw.json" --background-file ".qgate/tmp/ocr/${stage}.md")
+            args=(--stage "$stage" --root . --manifest ".qgate/tmp/ocr/${stage}.manifest.json" --out ".qgate/tmp/ocr/${stage}.raw.json" --background-file ".qgate/tmp/ocr/${stage}.md" --timeout-ms 900000)
             if [ "$stage" = "review" ] && [ -s ".qgate/tmp/ocr/diff.json" ]; then
               args+=(--diff ".qgate/tmp/ocr/diff.json")
             else
