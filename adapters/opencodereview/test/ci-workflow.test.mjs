@@ -330,3 +330,27 @@ test('CI: fast 与 live workflow 的触发器、密钥边界和 OCR 分层符合
   assert.equal(/permissions:[\s\S]*contents:\s*write/.test(live), false);
   for (const u of [...live.matchAll(/^\s*uses:\s*(\S+)/gm)].map((m) => m[1])) assert.match(u, SHA_RE, `live action not pinned: ${u}`);
 });
+
+test('CI: live OCR 的辅助上下文有确定性的长度上限', () => {
+  const live = read(path.join(REPO_ROOT, '.github', 'workflows', 'quality-live.yml'));
+  const contextCalls = [...live.matchAll(/write-stage-context\.mjs[^\n]+/g)].map((m) => m[0]);
+  assert.equal(contextCalls.length, 2, 'live workflow 必须覆盖带 diff 和不带 diff 两种上下文生成路径');
+  for (const call of contextCalls) assert.match(call, /--max-chars 1800\b/, 'live OCR 上下文必须限制在推荐值以内');
+
+  const dir = tempDir();
+  try {
+    const output = path.join(dir.path, 'review.md');
+    const manifest = path.join(dir.path, 'review.manifest.json');
+    const result = spawnSync(process.execPath, [
+      path.join(REPO_ROOT, 'tools', 'ci', 'write-stage-context.mjs'),
+      'review', output, manifest, '--max-chars', '1800',
+    ], { cwd: REPO_ROOT, encoding: 'utf8' });
+    assert.equal(result.status, 0, result.stderr);
+    const content = read(output);
+    assert.ok(content.length <= 1801, `上下文长度必须受限，实际 ${content.length}`);
+    assert.match(content, /^# qgate stage: review\n/);
+    assert.match(content, /input_fingerprint: sha256:[0-9a-f]{64}/);
+  } finally {
+    dir.cleanup();
+  }
+});

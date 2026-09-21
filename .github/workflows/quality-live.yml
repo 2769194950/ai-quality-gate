@@ -171,9 +171,9 @@ jobs:
           for stage in $stages; do
             if [ "$stage" = "build" ]; then continue; fi
             if [ "$stage" = "review" ] && [ -s ".qgate/tmp/ocr/diff.json" ]; then
-              node tools/ci/write-stage-context.mjs "$stage" ".qgate/tmp/ocr/${stage}.md" ".qgate/tmp/ocr/${stage}.manifest.json" ".qgate/tmp/ocr/diff.json"
+              node tools/ci/write-stage-context.mjs "$stage" ".qgate/tmp/ocr/${stage}.md" ".qgate/tmp/ocr/${stage}.manifest.json" ".qgate/tmp/ocr/diff.json" --max-chars 1800
             else
-              node tools/ci/write-stage-context.mjs "$stage" ".qgate/tmp/ocr/${stage}.md" ".qgate/tmp/ocr/${stage}.manifest.json"
+              node tools/ci/write-stage-context.mjs "$stage" ".qgate/tmp/ocr/${stage}.md" ".qgate/tmp/ocr/${stage}.manifest.json" --max-chars 1800
             fi
             args=(--stage "$stage" --root . --manifest ".qgate/tmp/ocr/${stage}.manifest.json" --out ".qgate/tmp/ocr/${stage}.raw.json" --background-file ".qgate/tmp/ocr/${stage}.md" --timeout-ms 900000)
             # Use OCR's native commit review for live runs. The stage context

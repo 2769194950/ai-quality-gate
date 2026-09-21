@@ -4,9 +4,24 @@ import path from 'node:path';
 import { buildStageManifest } from '../../packages/qgate/src/stage-review.mjs';
 import { safeExcerpt } from '../../packages/qgate/src/util/text.mjs';
 
-const [stage, output, manifestOutput, diff] = process.argv.slice(2);
+const positional = [];
+let maxChars = 7000;
+const argv = process.argv.slice(2);
+for (let index = 0; index < argv.length; index += 1) {
+  if (argv[index] === '--max-chars') {
+    const value = argv[++index];
+    maxChars = Number(value);
+    if (!Number.isInteger(maxChars) || maxChars < 512) {
+      process.stderr.write('--max-chars must be an integer >= 512\n');
+      process.exit(2);
+    }
+  } else {
+    positional.push(argv[index]);
+  }
+}
+const [stage, output, manifestOutput, diff] = positional;
 if (!stage || !output || !manifestOutput) {
-  process.stderr.write('usage: write-stage-context.mjs <stage> <output> <manifest-output> [diff.json]\n');
+  process.stderr.write('usage: write-stage-context.mjs <stage> <output> <manifest-output> [diff.json] [--max-chars <n>]\n');
   process.exit(2);
 }
 const root = process.cwd();
@@ -25,5 +40,5 @@ for (const source of manifest.sources) {
   budget -= body.length + source.path.length + 8;
 }
 fs.mkdirSync(path.dirname(path.resolve(output)), { recursive: true });
-fs.writeFileSync(path.resolve(output), `${lines.join('\n').slice(0, 7000)}\n`);
+fs.writeFileSync(path.resolve(output), `${lines.join('\n').slice(0, maxChars)}\n`);
 fs.writeFileSync(path.resolve(manifestOutput), `${JSON.stringify(manifest, null, 2)}\n`);
