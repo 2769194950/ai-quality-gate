@@ -76,18 +76,26 @@ jobs:
           response_file="$(mktemp)"
           trap 'rm -f "$response_file"' EXIT
           payload='{"model":"'"${OCR_LLM_MODEL}"'","messages":[{"role":"user","content":"Reply with OK."}],"max_tokens":1}'
-          set +e
-          http_status="$(curl --silent --show-error --output "$response_file" --write-out '%{http_code}' \
-            --connect-timeout 10 --max-time 30 \
-            --header "Authorization: Bearer ${OCR_LLM_TOKEN}" \
-            --header 'Content-Type: application/json' \
-            --data "$payload" "$OCR_LLM_URL")"
-          curl_exit=$?
-          set -e
-          if [ "$curl_exit" -ne 0 ]; then
+          http_status=''
+          curl_exit=0
+          for attempt in 1 2; do
+            set +e
+            http_status="$(curl --silent --show-error --output "$response_file" --write-out '%{http_code}' \
+              --connect-timeout 10 --max-time 90 \
+              --header "Authorization: Bearer ${OCR_LLM_TOKEN}" \
+              --header 'Content-Type: application/json' \
+              --data "$payload" "$OCR_LLM_URL")"
+            curl_exit=$?
+            set -e
+            if [ "$curl_exit" -eq 0 ]; then break; fi
+            if [ "$curl_exit" -eq 28 ] && [ "$attempt" -eq 1 ]; then
+              echo 'Atria preflight timed out without an HTTP response; retrying once'
+              sleep 15
+              continue
+            fi
             echo "Atria preflight failed before receiving an HTTP response (curl_exit=${curl_exit})"
             exit 3
-          fi
+          done
           echo "Atria preflight HTTP status=${http_status}"
           case "$http_status" in
             2??) ;;
