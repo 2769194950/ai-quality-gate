@@ -40,5 +40,6 @@ for (const source of manifest.sources) {
   budget -= body.length + source.path.length + 8;
 }
 fs.mkdirSync(path.dirname(path.resolve(output)), { recursive: true });
-fs.writeFileSync(path.resolve(output), `${lines.join('\n').slice(0, maxChars)}\n`);
+const boundedContext = lines.join('\n').slice(0, Math.max(0, maxChars - 1));
+fs.writeFileSync(path.resolve(output), `${boundedContext}\n`);
 fs.writeFileSync(path.resolve(manifestOutput), `${JSON.stringify(manifest, null, 2)}\n`);

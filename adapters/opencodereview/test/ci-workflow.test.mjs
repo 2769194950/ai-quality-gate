@@ -350,7 +350,7 @@ test('CI: live OCR 的辅助上下文有确定性的长度上限', () => {
     ], { cwd: REPO_ROOT, encoding: 'utf8' });
     assert.equal(result.status, 0, result.stderr);
     const content = read(output);
-    assert.ok(content.length <= 1801, `上下文长度必须受限，实际 ${content.length}`);
+    assert.ok(content.length <= 1800, `上下文长度必须受限，实际 ${content.length}`);
     assert.match(content, /^# qgate stage: review\n/);
     assert.match(content, /input_fingerprint: sha256:[0-9a-f]{64}/);
   } finally {
