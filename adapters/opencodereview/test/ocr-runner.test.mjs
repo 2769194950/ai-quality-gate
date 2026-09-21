@@ -90,7 +90,7 @@ test('零密钥: 子进程环境为白名单，绝不透传任何密钥变量', 
 test('live OCR: only provider credentials cross the explicit child-process boundary', () => {
   const env = buildLiveChildEnv({
     PATH: '/bin',
-    OCR_LLM_URL: 'https://api.example.test',
+    OCR_LLM_URL: 'https://api.example.test/v1/messages',
     OCR_LLM_TOKEN: 'sentinel-token',
     OCR_LLM_MODEL: 'test-model',
     OCR_USE_ANTHROPIC: 'true',
@@ -103,7 +103,7 @@ test('live OCR: only provider credentials cross the explicit child-process bound
   assert.equal(env.OCR_LLM_TOKEN, 'sentinel-token');
   assert.equal(env.GITHUB_TOKEN, undefined);
   assert.equal(env.OCR_OFFLINE, '0');
-  assert.deepEqual(validateLiveCredentials(env), { baseUrl: 'https://api.example.test', model: 'test-model' });
+  assert.deepEqual(validateLiveCredentials(env), { baseUrl: 'https://api.example.test/v1/messages', model: 'test-model' });
 });
 
 test('live OCR: missing or non-HTTPS credentials fail closed', () => {
@@ -111,7 +111,9 @@ test('live OCR: missing or non-HTTPS credentials fail closed', () => {
   assert.throws(() => validateLiveCredentials({ OCR_LLM_URL: 'http://example.test', OCR_LLM_MODEL: 'test', OCR_LLM_TOKEN: 'x', OCR_USE_ANTHROPIC: 'true' }), /https/);
   assert.throws(() => validateLiveCredentials({ OCR_LLM_URL: 'https://example.test', OCR_LLM_MODEL: 'test', OCR_USE_ANTHROPIC: 'true' }), /OCR_LLM_TOKEN/);
   assert.throws(() => validateLiveCredentials({ OCR_LLM_URL: 'https://example.test', OCR_LLM_TOKEN: 'x', OCR_LLM_MODEL: 'test', OCR_USE_ANTHROPIC: 'maybe' }), /OCR_USE_ANTHROPIC/);
-  assert.deepEqual(validateLiveCredentials({ OCR_LLM_URL: 'https://example.test/v1', OCR_LLM_TOKEN: 'x', OCR_LLM_MODEL: 'test', OCR_USE_ANTHROPIC: 'false' }), { baseUrl: 'https://example.test/v1', model: 'test' });
+  assert.throws(() => validateLiveCredentials({ OCR_LLM_URL: 'https://example.test/v1', OCR_LLM_TOKEN: 'x', OCR_LLM_MODEL: 'test', OCR_USE_ANTHROPIC: 'false' }), /chat\/completions/);
+  assert.deepEqual(validateLiveCredentials({ OCR_LLM_URL: 'https://example.test/v1/chat/completions', OCR_LLM_TOKEN: 'x', OCR_LLM_MODEL: 'test', OCR_USE_ANTHROPIC: 'false' }), { baseUrl: 'https://example.test/v1/chat/completions', model: 'test' });
+  assert.deepEqual(validateLiveCredentials({ OCR_LLM_URL: 'https://example.test/v1/messages', OCR_LLM_TOKEN: 'x', OCR_LLM_MODEL: 'test', OCR_USE_ANTHROPIC: 'true' }), { baseUrl: 'https://example.test/v1/messages', model: 'test' });
 });
 
 test('零密钥: 适配层源码不含密钥读取（逐行扫描可执行代码）', () => {

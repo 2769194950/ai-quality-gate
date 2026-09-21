@@ -104,7 +104,7 @@ node packages/qgate/bin/qgate.mjs stage review explain --evidence .qgate/evidenc
 启用 `quality-live.yml` 前，在 GitHub Environment `ocr-live` 中配置：
 
 - Secret：`OCR_AUTH_TOKEN`
-- Variable：`OCR_BASE_URL`（Atria Chat Completions 使用 `https://api.atria-asi.ai/v1`）
+- Variable：`OCR_BASE_URL`（Atria Chat Completions 使用完整端点 `https://api.atria-asi.ai/v1/chat/completions`）
 - Variable：`OCR_MODEL`（例如 `Atria-Dawn-Preview`）
 - Workflow 会将它们映射为 OpenCodeReview CLI 的 `OCR_LLM_URL`、`OCR_LLM_TOKEN`、`OCR_LLM_MODEL`，并设置 `OCR_USE_ANTHROPIC=false`，走 Atria 官方 OpenAI-compatible Chat Completions 接口。
 - Required reviewers、可信分支限制和最小 `contents: read` 权限
