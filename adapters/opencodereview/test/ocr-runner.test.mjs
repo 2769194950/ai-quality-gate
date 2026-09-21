@@ -110,7 +110,8 @@ test('live OCR: missing or non-HTTPS credentials fail closed', () => {
   assert.throws(() => validateLiveCredentials({ OCR_LLM_MODEL: 'test', OCR_USE_ANTHROPIC: 'true' }), /OCR_LLM_URL/);
   assert.throws(() => validateLiveCredentials({ OCR_LLM_URL: 'http://example.test', OCR_LLM_MODEL: 'test', OCR_LLM_TOKEN: 'x', OCR_USE_ANTHROPIC: 'true' }), /https/);
   assert.throws(() => validateLiveCredentials({ OCR_LLM_URL: 'https://example.test', OCR_LLM_MODEL: 'test', OCR_USE_ANTHROPIC: 'true' }), /OCR_LLM_TOKEN/);
-  assert.throws(() => validateLiveCredentials({ OCR_LLM_URL: 'https://example.test', OCR_LLM_TOKEN: 'x', OCR_LLM_MODEL: 'test' }), /OCR_USE_ANTHROPIC/);
+  assert.throws(() => validateLiveCredentials({ OCR_LLM_URL: 'https://example.test', OCR_LLM_TOKEN: 'x', OCR_LLM_MODEL: 'test', OCR_USE_ANTHROPIC: 'maybe' }), /OCR_USE_ANTHROPIC/);
+  assert.deepEqual(validateLiveCredentials({ OCR_LLM_URL: 'https://example.test/v1', OCR_LLM_TOKEN: 'x', OCR_LLM_MODEL: 'test', OCR_USE_ANTHROPIC: 'false' }), { baseUrl: 'https://example.test/v1', model: 'test' });
 });
 
 test('零密钥: 适配层源码不含密钥读取（逐行扫描可执行代码）', () => {

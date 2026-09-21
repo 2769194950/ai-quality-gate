@@ -35,7 +35,8 @@ env:
   OCR_CLI_VERSION: '1.12.7'
   OCR_LLM_URL: ${{ vars.OCR_BASE_URL }}
   OCR_LLM_MODEL: ${{ vars.OCR_MODEL }}
-  OCR_USE_ANTHROPIC: 'true'
+  # Atria's documented Chat Completions endpoint uses Bearer auth.
+  OCR_USE_ANTHROPIC: 'false'
   NO_COLOR: '1'
 
 jobs:
@@ -97,7 +98,7 @@ jobs:
           OCR_LLM_URL: ${{ vars.OCR_BASE_URL }}
           OCR_LLM_TOKEN: ${{ secrets.OCR_AUTH_TOKEN }}
           OCR_LLM_MODEL: ${{ vars.OCR_MODEL }}
-          OCR_USE_ANTHROPIC: 'true'
+          OCR_USE_ANTHROPIC: 'false'
           REQUESTED_STAGE: ${{ inputs.stage || 'all' }}
           GITHUB_EVENT_BEFORE: ${{ github.event.before }}
           GITHUB_SHA: ${{ github.sha }}

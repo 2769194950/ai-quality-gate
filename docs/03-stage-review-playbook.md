@@ -104,9 +104,9 @@ node packages/qgate/bin/qgate.mjs stage review explain --evidence .qgate/evidenc
 启用 `quality-live.yml` 前，在 GitHub Environment `ocr-live` 中配置：
 
 - Secret：`OCR_AUTH_TOKEN`
-- Variable：`OCR_BASE_URL`（例如 `https://api.atria-asi.ai`）
+- Variable：`OCR_BASE_URL`（Atria Chat Completions 使用 `https://api.atria-asi.ai/v1`）
 - Variable：`OCR_MODEL`（例如 `Atria-Dawn-Preview`）
-- Workflow 会将它们映射为 OpenCodeReview CLI 的 `OCR_LLM_URL`、`OCR_LLM_TOKEN`、`OCR_LLM_MODEL`，并设置 `OCR_USE_ANTHROPIC=true`。
+- Workflow 会将它们映射为 OpenCodeReview CLI 的 `OCR_LLM_URL`、`OCR_LLM_TOKEN`、`OCR_LLM_MODEL`，并设置 `OCR_USE_ANTHROPIC=false`，走 Atria 官方 OpenAI-compatible Chat Completions 接口。
 - Required reviewers、可信分支限制和最小 `contents: read` 权限
 
 真实 token 只在 live OCR 那一个 step 注入，qgate、测试、证据、ledger 和 Artifact 都不会继承它。原始 OCR JSON 只存在 `.qgate/tmp/ocr/`，ingest 完成或 job 失败后都会清理；Artifact 只上传规范化 evidence。Fork PR 永远只进入 fast workflow，不能触发 live OCR。
