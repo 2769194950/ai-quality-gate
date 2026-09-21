@@ -62,7 +62,24 @@ jobs:
           actual_version="$(ocr --version | sed -n '1s/.*v\([0-9][0-9.]*\).*/\1/p')"
           test "$actual_version" = "${OCR_CLI_VERSION}"
       - name: Configure provider compatibility defaults
+        env:
+          OCR_LLM_URL: ${{ vars.OCR_BASE_URL }}
+          OCR_LLM_TOKEN: ${{ secrets.OCR_AUTH_TOKEN }}
+          OCR_LLM_MODEL: ${{ vars.OCR_MODEL }}
+          OCR_USE_ANTHROPIC: 'false'
         run: |
+          # Mirror the official OCR Action's non-interactive provider setup.
+          # The token is referenced by command, never written into config.
+          ocr config unset provider
+          ocr config set llm.auth_token ""
+          ocr config set llm.extra_headers ""
+          ocr config set llm.retry_codes ""
+          ocr config set llm.url "$OCR_LLM_URL"
+          ocr config set llm.model "$OCR_LLM_MODEL"
+          ocr config set llm.use_anthropic "$OCR_USE_ANTHROPIC"
+          ocr config set llm.protocol openai
+          ocr config set llm.auth_header ""
+          ocr config set llm.auth_token_cmd 'printf "%s" "$OCR_LLM_TOKEN"'
           # Atria supports Chat Completions, but its agent endpoint is more
           # reliable when provider-side thinking is disabled explicitly.
           ocr config set llm.extra_body '{"thinking":{"type":"disabled"}}'
