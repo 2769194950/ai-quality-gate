@@ -159,11 +159,9 @@ jobs:
               node tools/ci/write-stage-context.mjs "$stage" ".qgate/tmp/ocr/${stage}.md" ".qgate/tmp/ocr/${stage}.manifest.json"
             fi
             args=(--stage "$stage" --root . --manifest ".qgate/tmp/ocr/${stage}.manifest.json" --out ".qgate/tmp/ocr/${stage}.raw.json" --background-file ".qgate/tmp/ocr/${stage}.md" --timeout-ms 900000)
-            if [ "$stage" = "review" ] && [ -s ".qgate/tmp/ocr/diff.json" ]; then
-              args+=(--diff ".qgate/tmp/ocr/diff.json")
-            else
-              args+=(--commit "$GITHUB_SHA")
-            fi
+            # Use OCR's native commit review for live runs. The stage context
+            # still carries the qgate-selected diff and is checked at ingest.
+            args+=(--commit "$GITHUB_SHA")
             node adapters/opencodereview/bin/ocr-stage-review.mjs "${args[@]}"
           done
       - name: Ingest and validate live evidence

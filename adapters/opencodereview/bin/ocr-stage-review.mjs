@@ -82,6 +82,10 @@ function buildOcrArgs(opts) {
     return ['scan', ...args, '--path', readDiffPaths(opts.root, opts.diff)];
   }
   const review = ['review', ...args];
+  // Atria is compatible with the OpenAI transport, but its agent completion
+  // path is more reliable when the review stays bounded and skips the second
+  // LLM filtering pass. qgate still validates and normalizes the result.
+  review.push('--effort', 'low', '--no-filter');
   if (opts.from) review.push('--from', opts.from, '--to', opts.to);
   if (opts.commit) review.push('--commit', opts.commit);
   if (opts.rule) review.push('--rule', path.resolve(opts.rule));
