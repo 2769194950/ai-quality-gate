@@ -4,6 +4,9 @@
 
 const BASE_ENV = Object.freeze([
   'PATH', 'Path', 'SystemRoot', 'windir', 'ComSpec', 'PATHEXT', 'TEMP', 'TMP',
+  // The CLI resolves its config directory through the process home. These
+  // are directory hints, not credentials, and are required on both runners.
+  'HOME', 'USERPROFILE', 'HOMEDRIVE', 'HOMEPATH',
 ]);
 
 const PROVIDER_ENV = Object.freeze([
