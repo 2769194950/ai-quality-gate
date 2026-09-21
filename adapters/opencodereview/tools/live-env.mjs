@@ -7,9 +7,11 @@ const BASE_ENV = Object.freeze([
 ]);
 
 const PROVIDER_ENV = Object.freeze([
-  'ANTHROPIC_BASE_URL',
-  'ANTHROPIC_AUTH_TOKEN',
-  'OCR_MODEL',
+  // OpenCodeReview's documented process-level CI contract.
+  'OCR_LLM_URL',
+  'OCR_LLM_TOKEN',
+  'OCR_LLM_MODEL',
+  'OCR_USE_ANTHROPIC',
 ]);
 
 export const LIVE_ENV_ALLOWLIST = Object.freeze([...BASE_ENV, ...PROVIDER_ENV]);
@@ -27,11 +29,13 @@ export function buildLiveChildEnv(baseEnv = process.env) {
 }
 
 export function validateLiveCredentials(env = process.env) {
-  const baseUrl = String(env.ANTHROPIC_BASE_URL ?? '').trim();
-  const token = String(env.ANTHROPIC_AUTH_TOKEN ?? '').trim();
-  const model = String(env.OCR_MODEL ?? '').trim();
-  if (!/^https:\/\//i.test(baseUrl)) throw new Error('ANTHROPIC_BASE_URL must use https');
-  if (!token) throw new Error('ANTHROPIC_AUTH_TOKEN is required for live OCR');
-  if (!model) throw new Error('OCR_MODEL is required for live OCR');
+  const baseUrl = String(env.OCR_LLM_URL ?? '').trim();
+  const token = String(env.OCR_LLM_TOKEN ?? '').trim();
+  const model = String(env.OCR_LLM_MODEL ?? '').trim();
+  const useAnthropic = String(env.OCR_USE_ANTHROPIC ?? '').trim().toLowerCase();
+  if (!/^https:\/\//i.test(baseUrl)) throw new Error('OCR_LLM_URL must use https');
+  if (!token) throw new Error('OCR_LLM_TOKEN is required for live OCR');
+  if (!model) throw new Error('OCR_LLM_MODEL is required for live OCR');
+  if (!['true', '1', 'yes'].includes(useAnthropic)) throw new Error('OCR_USE_ANTHROPIC must be true for live OCR');
   return { baseUrl, model };
 }

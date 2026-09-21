@@ -90,25 +90,27 @@ test('零密钥: 子进程环境为白名单，绝不透传任何密钥变量', 
 test('live OCR: only provider credentials cross the explicit child-process boundary', () => {
   const env = buildLiveChildEnv({
     PATH: '/bin',
-    ANTHROPIC_BASE_URL: 'https://api.example.test',
-    ANTHROPIC_AUTH_TOKEN: 'sentinel-token',
-    OCR_MODEL: 'test-model',
+    OCR_LLM_URL: 'https://api.example.test',
+    OCR_LLM_TOKEN: 'sentinel-token',
+    OCR_LLM_MODEL: 'test-model',
+    OCR_USE_ANTHROPIC: 'true',
     GITHUB_TOKEN: 'must-not-cross',
     NPM_TOKEN: 'must-not-cross',
     AWS_SECRET_ACCESS_KEY: 'must-not-cross',
   });
   const presentBase = LIVE_ENV_ALLOWLIST.filter((key) => env[key] !== undefined);
   assert.deepEqual(Object.keys(env).sort(), [...presentBase, 'OCR_PROVIDER', 'OCR_OFFLINE', 'OCR_NO_API_KEY', 'NO_COLOR'].sort());
-  assert.equal(env.ANTHROPIC_AUTH_TOKEN, 'sentinel-token');
+  assert.equal(env.OCR_LLM_TOKEN, 'sentinel-token');
   assert.equal(env.GITHUB_TOKEN, undefined);
   assert.equal(env.OCR_OFFLINE, '0');
   assert.deepEqual(validateLiveCredentials(env), { baseUrl: 'https://api.example.test', model: 'test-model' });
 });
 
 test('live OCR: missing or non-HTTPS credentials fail closed', () => {
-  assert.throws(() => validateLiveCredentials({ OCR_MODEL: 'test' }), /ANTHROPIC_BASE_URL/);
-  assert.throws(() => validateLiveCredentials({ ANTHROPIC_BASE_URL: 'http://example.test', OCR_MODEL: 'test', ANTHROPIC_AUTH_TOKEN: 'x' }), /https/);
-  assert.throws(() => validateLiveCredentials({ ANTHROPIC_BASE_URL: 'https://example.test', OCR_MODEL: 'test' }), /ANTHROPIC_AUTH_TOKEN/);
+  assert.throws(() => validateLiveCredentials({ OCR_LLM_MODEL: 'test', OCR_USE_ANTHROPIC: 'true' }), /OCR_LLM_URL/);
+  assert.throws(() => validateLiveCredentials({ OCR_LLM_URL: 'http://example.test', OCR_LLM_MODEL: 'test', OCR_LLM_TOKEN: 'x', OCR_USE_ANTHROPIC: 'true' }), /https/);
+  assert.throws(() => validateLiveCredentials({ OCR_LLM_URL: 'https://example.test', OCR_LLM_MODEL: 'test', OCR_USE_ANTHROPIC: 'true' }), /OCR_LLM_TOKEN/);
+  assert.throws(() => validateLiveCredentials({ OCR_LLM_URL: 'https://example.test', OCR_LLM_TOKEN: 'x', OCR_LLM_MODEL: 'test' }), /OCR_USE_ANTHROPIC/);
 });
 
 test('零密钥: 适配层源码不含密钥读取（逐行扫描可执行代码）', () => {

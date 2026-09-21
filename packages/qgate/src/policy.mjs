@@ -567,7 +567,7 @@ export function policySafe001(repoRoot, { files = null, scanRoots = null } = {})
   // exempted. All source-level and general workflow secret reads remain errors.
   const safeWorkflowSecret = (hit) => hit.file === '.github/workflows/quality-live.yml'
     && /secrets\.OCR_AUTH_TOKEN/.test(hit.line)
-    && /ANTHROPIC_AUTH_TOKEN/.test(hit.line);
+    && /OCR_LLM_TOKEN/.test(hit.line);
   const effectiveHits = hits.filter((hit) => !safeWorkflowSecret(hit));
   const violations = effectiveHits.map((hit) => ({
     pointer: `/${hit.file}`,

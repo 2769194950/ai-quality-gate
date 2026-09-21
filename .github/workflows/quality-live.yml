@@ -33,8 +33,9 @@ env:
   QGATE_ENTRY: packages/qgate/bin/qgate.mjs
   QGATE_CONFIG: qgate.config.json
   OCR_CLI_VERSION: '1.12.7'
-  OCR_BASE_URL: ${{ vars.OCR_BASE_URL }}
-  OCR_MODEL: ${{ vars.OCR_MODEL }}
+  OCR_LLM_URL: ${{ vars.OCR_BASE_URL }}
+  OCR_LLM_MODEL: ${{ vars.OCR_MODEL }}
+  OCR_USE_ANTHROPIC: 'true'
   NO_COLOR: '1'
 
 jobs:
@@ -93,9 +94,10 @@ jobs:
           done
       - name: Run live OCR stages
         env:
-          ANTHROPIC_BASE_URL: ${{ vars.OCR_BASE_URL }}
-          ANTHROPIC_AUTH_TOKEN: ${{ secrets.OCR_AUTH_TOKEN }}
-          OCR_MODEL: ${{ vars.OCR_MODEL }}
+          OCR_LLM_URL: ${{ vars.OCR_BASE_URL }}
+          OCR_LLM_TOKEN: ${{ secrets.OCR_AUTH_TOKEN }}
+          OCR_LLM_MODEL: ${{ vars.OCR_MODEL }}
+          OCR_USE_ANTHROPIC: 'true'
           REQUESTED_STAGE: ${{ inputs.stage || 'all' }}
           GITHUB_EVENT_BEFORE: ${{ github.event.before }}
           GITHUB_SHA: ${{ github.sha }}

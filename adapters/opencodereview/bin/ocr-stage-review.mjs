@@ -106,6 +106,16 @@ function cliVersion(bin, env, cwd) {
   return match ? match[1] : firstLine || null;
 }
 
+function scrubCliDiagnostic(value) {
+  return String(value ?? '')
+    .replace(/\bBearer\s+[^\s]+/gi, 'Bearer [REDACTED]')
+    .replace(/\b(?:token|secret|password|api[_-]?key)\s*[=:]\s*[^\s,;]+/gi, '$1=[REDACTED]')
+    .replace(/\b(?:sk|atr)_[A-Za-z0-9_-]+/g, '[REDACTED]')
+    .replace(/\r?\n/g, ' ')
+    .trim()
+    .slice(0, 1200);
+}
+
 function main(argv) {
   let opts;
   try {
@@ -158,6 +168,8 @@ function main(argv) {
   }
   if (result.error || result.status !== 0) {
     process.stderr.write(`ocr-stage-review: OCR failed for stage=${opts.stage} exit=${result.status ?? 'spawn-error'}\n`);
+    const diagnostic = scrubCliDiagnostic(result.stderr);
+    if (diagnostic) process.stderr.write(`ocr-stage-review: OCR diagnostic=${diagnostic}\n`);
     return EXIT.INTERNAL;
   }
   let parsed;
