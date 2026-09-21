@@ -61,6 +61,11 @@ jobs:
           npm install --global "@alibaba-group/open-code-review@${OCR_CLI_VERSION}"
           actual_version="$(ocr --version | sed -n '1s/.*v\([0-9][0-9.]*\).*/\1/p')"
           test "$actual_version" = "${OCR_CLI_VERSION}"
+      - name: Configure provider compatibility defaults
+        run: |
+          # Atria supports Chat Completions, but its agent endpoint is more
+          # reliable when provider-side thinking is disabled explicitly.
+          ocr config set llm.extra_body '{"thinking":{"type":"disabled"}}'
       - name: Preflight Atria Chat Completions without logging response
         env:
           OCR_LLM_URL: ${{ vars.OCR_BASE_URL }}
