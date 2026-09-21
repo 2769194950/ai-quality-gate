@@ -325,6 +325,9 @@ test('CI: fast 与 live workflow 的触发器、密钥边界和 OCR 分层符合
   assert.match(live, /OCR_CLI_VERSION: '1\.12\.7'/);
   assert.match(live, /executionMode !== "live"/);
   assert.match(live, /raw\.json/);
+  assert.match(live, /stage-paths|manifest\.sources/);
+  assert.match(live, /args\+=\(--diff ".qgate\/tmp\/ocr\/\$\{stage\}\.paths\.json"\)/);
+  assert.match(live, /args\+=\(--commit "\$GITHUB_SHA"\)/);
   const uploadBlock = live.slice(live.indexOf('Upload sanitized evidence only'));
   assert.equal(uploadBlock.includes('.qgate/tmp/ocr'), false, 'raw OCR responses must not be uploaded');
   assert.equal(/permissions:[\s\S]*contents:\s*write/.test(live), false);

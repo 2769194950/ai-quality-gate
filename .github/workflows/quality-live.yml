@@ -175,10 +175,22 @@ jobs:
             else
               node tools/ci/write-stage-context.mjs "$stage" ".qgate/tmp/ocr/${stage}.md" ".qgate/tmp/ocr/${stage}.manifest.json" --max-chars 1800
             fi
+            if [ "$stage" != "review" ]; then
+              node -e '
+                const fs = require("fs");
+                const manifest = JSON.parse(fs.readFileSync(process.argv[1], "utf8"));
+                fs.writeFileSync(process.argv[2], JSON.stringify({ files: (manifest.sources || []).map((source) => ({ path: source.path })) }, null, 2) + "\n");
+              ' ".qgate/tmp/ocr/${stage}.manifest.json" ".qgate/tmp/ocr/${stage}.paths.json"
+            fi
             args=(--stage "$stage" --root . --manifest ".qgate/tmp/ocr/${stage}.manifest.json" --out ".qgate/tmp/ocr/${stage}.raw.json" --background-file ".qgate/tmp/ocr/${stage}.md" --timeout-ms 900000)
-            # Use OCR's native commit review for live runs. The stage context
-            # still carries the qgate-selected diff and is checked at ingest.
-            args+=(--commit "$GITHUB_SHA")
+            if [ "$stage" = "review" ]; then
+              # Review is the code-change stage; keep native commit semantics.
+              args+=(--commit "$GITHUB_SHA")
+            else
+              # Other stages must not review unrelated commit files. Restrict
+              # OCR to exactly the paths represented by their stage manifest.
+              args+=(--diff ".qgate/tmp/ocr/${stage}.paths.json")
+            fi
             node adapters/opencodereview/bin/ocr-stage-review.mjs "${args[@]}"
           done
       - name: Ingest and validate live evidence
