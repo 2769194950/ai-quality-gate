@@ -35,7 +35,7 @@ env:
   OCR_CLI_VERSION: '1.12.7'
   OCR_LLM_URL: ${{ vars.OCR_BASE_URL }}
   OCR_LLM_MODEL: ${{ vars.OCR_MODEL }}
-  # Atria's documented Chat Completions endpoint uses Bearer auth.
+  # The live provider uses an OpenAI-compatible Chat Completions endpoint.
   OCR_USE_ANTHROPIC: 'false'
   NO_COLOR: '1'
 
@@ -58,7 +58,7 @@ jobs:
           node-version: '20'
       - name: Install pinned OpenCodeReview CLI
         run: |
-          npm install --global "@alibaba-group/open-code-review@${OCR_CLI_VERSION}"
+          npm install --global --force "@alibaba-group/open-code-review@${OCR_CLI_VERSION}"
           actual_version="$(ocr --version | sed -n '1s/.*v\([0-9][0-9.]*\).*/\1/p')"
           test "$actual_version" = "${OCR_CLI_VERSION}"
       - name: Configure provider compatibility defaults
@@ -80,10 +80,9 @@ jobs:
           ocr config set llm.protocol openai
           ocr config set llm.auth_header ""
           ocr config set llm.auth_token_cmd 'printf "%s" "$OCR_LLM_TOKEN"'
-          # Atria supports Chat Completions, but its agent endpoint is more
-          # reliable when provider-side thinking is disabled explicitly.
+          # Provider-side thinking is disabled explicitly for stable agent calls.
           ocr config set llm.extra_body '{"thinking":{"type":"disabled"}}'
-      - name: Preflight Atria Chat Completions without logging response
+      - name: Preflight live Chat Completions without logging response
         env:
           OCR_LLM_URL: ${{ vars.OCR_BASE_URL }}
           OCR_LLM_TOKEN: ${{ secrets.OCR_AUTH_TOKEN }}
@@ -106,22 +105,22 @@ jobs:
             set -e
             if [ "$curl_exit" -eq 0 ]; then break; fi
             if [ "$curl_exit" -eq 28 ] && [ "$attempt" -eq 1 ]; then
-              echo 'Atria preflight timed out without an HTTP response; retrying once'
+              echo 'Live provider preflight timed out without an HTTP response; retrying once'
               sleep 15
               continue
             fi
-            echo "Atria preflight failed before receiving an HTTP response (curl_exit=${curl_exit})"
+            echo "Live provider preflight failed before receiving an HTTP response (curl_exit=${curl_exit})"
             exit 3
           done
-          echo "Atria preflight HTTP status=${http_status}"
+          echo "Live provider preflight HTTP status=${http_status}"
           case "$http_status" in
             2??) ;;
-            401) echo 'Atria rejected the credential (HTTP 401)'; exit 3 ;;
-            403) echo 'Atria rejected access to the endpoint or model (HTTP 403)'; exit 3 ;;
-            404) echo 'Atria endpoint was not found (HTTP 404)'; exit 3 ;;
-            429) echo 'Atria rate limit or quota was reached (HTTP 429)'; exit 3 ;;
-            5??) echo "Atria service returned HTTP ${http_status}"; exit 3 ;;
-            *) echo "Atria rejected the preflight request (HTTP ${http_status})"; exit 3 ;;
+            401) echo 'Live provider rejected the credential (HTTP 401)'; exit 3 ;;
+            403) echo 'Live provider rejected access to the endpoint or model (HTTP 403)'; exit 3 ;;
+            404) echo 'Live provider endpoint was not found (HTTP 404)'; exit 3 ;;
+            429) echo 'Live provider rate limit or quota was reached (HTTP 429)'; exit 3 ;;
+            5??) echo "Live provider service returned HTTP ${http_status}"; exit 3 ;;
+            *) echo "Live provider rejected the preflight request (HTTP ${http_status})"; exit 3 ;;
           esac
       - name: Prepare stage selection and diff
         run: |
