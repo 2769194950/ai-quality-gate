@@ -32,6 +32,7 @@ concurrency:
 env:
   QGATE_ENTRY: packages/qgate/bin/qgate.mjs
   QGATE_CONFIG: qgate.config.json
+  REQUESTED_STAGE: ${{ inputs.stage || 'all' }}
   OCR_CLI_VERSION: '1.12.8'
   OCR_LLM_URL: ${{ vars.OCR_BASE_URL }}
   OCR_LLM_MODEL: ${{ vars.OCR_MODEL }}
@@ -43,7 +44,8 @@ jobs:
   live:
     name: live-ocr
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/heads/release/') || startsWith(github.ref, 'refs/tags/v')
+    timeout-minutes: 90
     environment:
       name: ocr-live
     steps:
@@ -56,15 +58,20 @@ jobs:
         uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
         with:
           node-version: '20'
+      - name: Initialize current-run evidence
+        env:
+          GITHUB_EVENT_BEFORE: ${{ github.event.before }}
+        run: node tools/ci/live-stage.mjs init "$REQUESTED_STAGE"
       - name: Install pinned OpenCodeReview CLI
+        if: env.REQUESTED_STAGE != 'build'
         run: |
           npm install --global --force "@alibaba-group/open-code-review@${OCR_CLI_VERSION}"
           actual_version="$(ocr --version | sed -n '1s/.*v\([0-9][0-9.]*\).*/\1/p')"
           test "$actual_version" = "${OCR_CLI_VERSION}"
       - name: Configure provider compatibility defaults
+        if: env.REQUESTED_STAGE != 'build'
         env:
           OCR_LLM_URL: ${{ vars.OCR_BASE_URL }}
-          OCR_LLM_TOKEN: ${{ secrets.OCR_AUTH_TOKEN }}
           OCR_LLM_MODEL: ${{ vars.OCR_MODEL }}
           OCR_USE_ANTHROPIC: 'false'
         run: |
@@ -83,6 +90,7 @@ jobs:
           # Provider-side thinking is disabled explicitly for stable agent calls.
           ocr config set llm.extra_body '{"thinking":{"type":"disabled"}}'
       - name: Preflight live Chat Completions without logging response
+        if: env.REQUESTED_STAGE != 'build'
         env:
           OCR_LLM_URL: ${{ vars.OCR_BASE_URL }}
           OCR_LLM_TOKEN: ${{ secrets.OCR_AUTH_TOKEN }}
@@ -122,124 +130,62 @@ jobs:
             5??) echo "Live provider service returned HTTP ${http_status}"; exit 3 ;;
             *) echo "Live provider rejected the preflight request (HTTP ${http_status})"; exit 3 ;;
           esac
-      - name: Prepare stage selection and diff
-        run: |
-          mkdir -p .qgate/tmp/ocr
-          node -e '
-            const fs = require("fs");
-            const cp = require("child_process");
-            const before = process.env.GITHUB_EVENT_BEFORE;
-            const after = process.env.GITHUB_SHA;
-            let text = "";
-            try {
-              if (before && !/^0+$/.test(before)) text = cp.execFileSync("git", ["diff", "--name-status", before, after], { encoding: "utf8" });
-              else text = cp.execFileSync("git", ["show", "--format=", "--name-status", after], { encoding: "utf8" });
-            } catch {}
-            const files = text.split(/\r?\n/).map((line) => line.trim().split(/\s+/).pop()).filter(Boolean).map((path) => ({ path }));
-            fs.writeFileSync(".qgate/tmp/ocr/diff.json", JSON.stringify({ files }, null, 2) + "\n");
-          '
-      - name: Prepare prerequisite offline evidence for single-stage runs
+      - name: Prepare requirements inputs and deterministic gates
+        if: env.REQUESTED_STAGE == 'all' || env.REQUESTED_STAGE == 'requirements'
+        run: node tools/ci/live-stage.mjs prepare requirements
+      - name: Run live OCR for requirements
+        if: env.REQUESTED_STAGE == 'all' || env.REQUESTED_STAGE == 'requirements'
         env:
-          REQUESTED_STAGE: ${{ inputs.stage || 'all' }}
-        run: |
-          set -euo pipefail
-          if [ "$REQUESTED_STAGE" = "all" ]; then exit 0; fi
-          stages=(requirements design build review verify)
-          target_index=-1
-          for i in "${!stages[@]}"; do
-            if [ "${stages[$i]}" = "$REQUESTED_STAGE" ]; then target_index="$i"; fi
-          done
-          if [ "$target_index" -lt 0 ]; then exit 1; fi
-          for ((i=0; i<target_index; i++)); do
-            stage="${stages[$i]}"
-            node "$QGATE_ENTRY" stage "$stage" review --mode offline --config "$QGATE_CONFIG" --json
-          done
-      - name: Run live OCR stages
-        env:
-          OCR_LLM_URL: ${{ vars.OCR_BASE_URL }}
           OCR_LLM_TOKEN: ${{ secrets.OCR_AUTH_TOKEN }}
-          OCR_LLM_MODEL: ${{ vars.OCR_MODEL }}
-          OCR_USE_ANTHROPIC: 'false'
-          REQUESTED_STAGE: ${{ inputs.stage || 'all' }}
           GITHUB_EVENT_BEFORE: ${{ github.event.before }}
-          GITHUB_SHA: ${{ github.sha }}
-        run: |
-          set -euo pipefail
-          requested="${REQUESTED_STAGE}"
-          if [ "$requested" = "all" ]; then stages="requirements design build review verify"; else stages="$requested"; fi
-          for stage in $stages; do
-            if [ "$stage" = "build" ]; then continue; fi
-            if [ "$stage" = "review" ] && [ -s ".qgate/tmp/ocr/diff.json" ]; then
-              node tools/ci/write-stage-context.mjs "$stage" ".qgate/tmp/ocr/${stage}.md" ".qgate/tmp/ocr/${stage}.manifest.json" ".qgate/tmp/ocr/diff.json" --max-chars 1800
-            else
-              node tools/ci/write-stage-context.mjs "$stage" ".qgate/tmp/ocr/${stage}.md" ".qgate/tmp/ocr/${stage}.manifest.json" --max-chars 1800
-            fi
-            if [ "$stage" != "review" ]; then
-              node -e '
-                const fs = require("fs");
-                const manifest = JSON.parse(fs.readFileSync(process.argv[1], "utf8"));
-                fs.writeFileSync(process.argv[2], JSON.stringify({ files: (manifest.sources || []).map((source) => ({ path: source.path })) }, null, 2) + "\n");
-              ' ".qgate/tmp/ocr/${stage}.manifest.json" ".qgate/tmp/ocr/${stage}.paths.json"
-            fi
-            args=(--stage "$stage" --root . --manifest ".qgate/tmp/ocr/${stage}.manifest.json" --out ".qgate/tmp/ocr/${stage}.raw.json" --background-file ".qgate/tmp/ocr/${stage}.md" --timeout-ms 900000)
-            if [ "$stage" = "review" ]; then
-              # Review is the code-change stage; keep native commit semantics.
-              args+=(--commit "$GITHUB_SHA")
-            else
-              # Other stages must not review unrelated commit files. Restrict
-              # OCR to exactly the paths represented by their stage manifest.
-              args+=(--diff ".qgate/tmp/ocr/${stage}.paths.json")
-            fi
-            node adapters/opencodereview/bin/ocr-stage-review.mjs "${args[@]}"
-          done
-      - name: Ingest and validate live evidence
+        run: node tools/ci/live-stage.mjs run requirements
+      - name: Ingest requirements and enforce stage gates
+        if: env.REQUESTED_STAGE == 'all' || env.REQUESTED_STAGE == 'requirements'
+        run: node tools/ci/live-stage.mjs ingest requirements
+      - name: Prepare design inputs and deterministic gates
+        if: env.REQUESTED_STAGE == 'all' || env.REQUESTED_STAGE == 'design'
+        run: node tools/ci/live-stage.mjs prepare design
+      - name: Run live OCR for design
+        if: env.REQUESTED_STAGE == 'all' || env.REQUESTED_STAGE == 'design'
         env:
-          REQUESTED_STAGE: ${{ inputs.stage || 'all' }}
-        run: |
-          set -euo pipefail
-          trap 'rm -rf .qgate/tmp/ocr' EXIT
-          requested="${REQUESTED_STAGE}"
-          if [ "$requested" = "all" ]; then stages="requirements design build review verify"; else stages="$requested"; fi
-          for stage in $stages; do
-            if [ "$stage" = "build" ]; then continue; fi
-            ingest_args=()
-            if [ "$stage" = "review" ] && [ -s ".qgate/tmp/ocr/diff.json" ]; then ingest_args+=(--diff ".qgate/tmp/ocr/diff.json"); fi
-            node "$QGATE_ENTRY" stage "$stage" ingest \
-              --config "$QGATE_CONFIG" \
-              --result ".qgate/tmp/ocr/${stage}.raw.json" \
-              --out ".qgate/evidence/ai/${stage}.json" \
-              "${ingest_args[@]}" \
-              --json
-            node -e '
-              const fs = require("fs");
-              const stage = process.argv[1];
-              const p = `.qgate/evidence/ai/${stage}.json`;
-              const e = JSON.parse(fs.readFileSync(p, "utf8"));
-              if (e.executionMode !== "live" || e.execution?.mode !== "live" || e.provider !== "opencodereview" || e.degraded !== false || e.summary?.ocrLive !== true) process.exit(1);
-            ' "$stage"
-          done
+          OCR_LLM_TOKEN: ${{ secrets.OCR_AUTH_TOKEN }}
+          GITHUB_EVENT_BEFORE: ${{ github.event.before }}
+        run: node tools/ci/live-stage.mjs run design
+      - name: Ingest design and enforce stage gates
+        if: env.REQUESTED_STAGE == 'all' || env.REQUESTED_STAGE == 'design'
+        run: node tools/ci/live-stage.mjs ingest design
+      - name: Build and test deterministically
+        if: env.REQUESTED_STAGE == 'all' || env.REQUESTED_STAGE == 'build'
+        run: node tools/ci/live-stage.mjs build
+      - name: Prepare review inputs and deterministic gates
+        if: env.REQUESTED_STAGE == 'all' || env.REQUESTED_STAGE == 'review'
+        run: node tools/ci/live-stage.mjs prepare review
+      - name: Run live OCR for review
+        if: env.REQUESTED_STAGE == 'all' || env.REQUESTED_STAGE == 'review'
+        env:
+          OCR_LLM_TOKEN: ${{ secrets.OCR_AUTH_TOKEN }}
+          GITHUB_EVENT_BEFORE: ${{ github.event.before }}
+        run: node tools/ci/live-stage.mjs run review
+      - name: Ingest review and enforce stage gates
+        if: env.REQUESTED_STAGE == 'all' || env.REQUESTED_STAGE == 'review'
+        run: node tools/ci/live-stage.mjs ingest review
+      - name: Prepare verify inputs and deterministic gates
+        if: env.REQUESTED_STAGE == 'all' || env.REQUESTED_STAGE == 'verify'
+        run: node tools/ci/live-stage.mjs prepare verify
+      - name: Run live OCR for verify
+        if: env.REQUESTED_STAGE == 'all' || env.REQUESTED_STAGE == 'verify'
+        env:
+          OCR_LLM_TOKEN: ${{ secrets.OCR_AUTH_TOKEN }}
+          GITHUB_EVENT_BEFORE: ${{ github.event.before }}
+        run: node tools/ci/live-stage.mjs run verify
+      - name: Ingest verify and enforce stage gates
+        if: env.REQUESTED_STAGE == 'all' || env.REQUESTED_STAGE == 'verify'
+        run: node tools/ci/live-stage.mjs ingest verify
+      - name: Authoritative deterministic verdict
+        run: node tools/ci/live-stage.mjs finish
       - name: Remove raw OCR response and temporary context
         if: always()
         run: rm -rf .qgate/tmp/ocr
-      - name: Run build deterministically (build never calls live OCR)
-        env:
-          REQUESTED_STAGE: ${{ inputs.stage || 'all' }}
-        run: |
-          if [ "$REQUESTED_STAGE" = "build" ] || [ "$REQUESTED_STAGE" = "all" ]; then
-            node "$QGATE_ENTRY" stage build review --mode offline --config "$QGATE_CONFIG" --json
-            node "$QGATE_ENTRY" check --stage build --config "$QGATE_CONFIG" --json
-          fi
-      - name: Run deterministic qgate check
-        env:
-          REQUESTED_STAGE: ${{ inputs.stage || 'all' }}
-        run: |
-          if [ "$REQUESTED_STAGE" = "all" ] || [ "$REQUESTED_STAGE" = "verify" ]; then
-            node "$QGATE_ENTRY" check --config "$QGATE_CONFIG" --json || true
-            node "$QGATE_ENTRY" trace --config "$QGATE_CONFIG" --write
-            node "$QGATE_ENTRY" check --config "$QGATE_CONFIG" --json
-          else
-            node "$QGATE_ENTRY" check --stage "$REQUESTED_STAGE" --config "$QGATE_CONFIG" --json
-          fi
       - name: Upload sanitized evidence only
         if: always()
         uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
@@ -251,4 +197,5 @@ jobs:
             verification/reports/
             verification/trace-matrix.json
           if-no-files-found: warn
+          include-hidden-files: true
           retention-days: 14

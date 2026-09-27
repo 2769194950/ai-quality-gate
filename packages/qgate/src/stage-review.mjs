@@ -13,6 +13,10 @@ import { safeExcerpt } from './util/text.mjs';
 export const STAGE_EVIDENCE_SCHEMA_VERSION = '1.0';
 export const STAGE_EVIDENCE_DIR = '.qgate/evidence/ai';
 const SAFE_RELS = new Set(['docs/00-requirements.md', 'docs/requirements-index.json', 'docs/01-architecture.md', 'verification/trace-matrix.json']);
+export const STAGE_DEPENDENCIES = Object.freeze({
+  requirements: [], design: ['requirements'], build: ['requirements', 'design'],
+  review: ['requirements', 'design', 'build'], verify: ['requirements', 'design', 'build', 'review'],
+});
 
 function relPath(value) {
   const rel = toPosix(value);
@@ -46,7 +50,7 @@ function declaredDiffPaths(root, diff) {
 }
 
 function stageInputPaths(stage, root, { diff = null } = {}) {
-  const paths = [];
+  const paths = STAGE_DEPENDENCIES[stage].map((dependency) => `${STAGE_EVIDENCE_DIR}/${dependency}.json`);
   if (stage === 'requirements') paths.push('docs/00-requirements.md', 'docs/requirements-index.json');
   if (stage === 'design') {
     paths.push('docs/01-architecture.md', 'docs/requirements-index.json');
@@ -55,16 +59,20 @@ function stageInputPaths(stage, root, { diff = null } = {}) {
   if (stage === 'build') {
     paths.push('package.json', 'qgate.config.json', 'packages/qgate/package.json');
     paths.push(...globList(root, '**/package.json'));
+    paths.push(...walkFiles(root).filter((file) => /^(packages|adapters|tools|schemas)\//.test(file) && /\.(mjs|js|ts|json)$/.test(file) && !/(^|\/)(node_modules|evidence|reports)\//.test(file)));
   }
+  if (stage === 'review' || stage === 'verify') paths.push(`${STAGE_EVIDENCE_DIR}/build-tests.json`);
   if (stage === 'review') {
     paths.push('docs/00-requirements.md', 'docs/01-architecture.md', 'docs/requirements-index.json');
     if (diff) paths.push(diff, ...declaredDiffPaths(root, diff));
-    else paths.push(...walkFiles(root).filter((file) => /\.(mjs|js|json|md|yaml|yml|ts|tsx|jsx)$/.test(file)).slice(0, 200));
+    else paths.push(...walkFiles(root).filter((file) => !/^(?:\.git|\.qgate|verification\/evidence|verification\/reports)\//.test(file) && /\.(mjs|js|json|md|yaml|yml|ts|tsx|jsx)$/.test(file)).slice(0, 200));
   }
   if (stage === 'verify') {
     paths.push('docs/requirements-index.json', 'verification/trace-matrix.json');
-    paths.push(...globList(root, '.qgate/evidence/**/*.json'));
-    paths.push(...globList(root, 'verification/evidence/**/*.json'));
+    // CI freezes the test ledger before semantic verification. Never include
+    // this stage's own output, temporary manifests, or unrelated AI runs.
+    const frozen = globList(root, '.qgate/evidence/ai/verify-inputs/*.json');
+    paths.push(...(frozen.length ? frozen : globList(root, 'verification/evidence/**/*.json')));
     paths.push(...walkFiles(root).filter((file) => /(^|\/)(test|tests|__tests__)\//.test(toPosix(file)) && /\.(mjs|js|cjs|ts|tsx)$/.test(file)));
   }
   return [...new Set(paths.map(toPosix))].sort();
@@ -78,7 +86,10 @@ export function assertStage(stage) {
 export function buildStageManifest({ stage, root, configPath = null, diff = null } = {}) {
   assertStage(stage);
   const absRoot = path.resolve(root || process.cwd());
-  const sources = existingSources(absRoot, stageInputPaths(stage, absRoot, { diff }));
+  const paths = stageInputPaths(stage, absRoot, { diff });
+  const configRel = configPath ? relPath(path.relative(absRoot, path.resolve(configPath))) : null;
+  if (configRel) paths.push(configRel);
+  const sources = existingSources(absRoot, [...new Set(paths.map(toPosix))].sort());
   const manifest = {
     schemaVersion: STAGE_EVIDENCE_SCHEMA_VERSION,
     kind: 'qgate-stage-review-manifest',

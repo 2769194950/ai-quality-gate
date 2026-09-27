@@ -74,12 +74,16 @@ function readDiffPaths(root, diff) {
   return [...new Set(paths)].join(',');
 }
 
-function buildOcrArgs(opts) {
+export function buildOcrArgs(opts) {
   const args = ['--format', 'json', '--audience', 'agent', '--repo', path.resolve(opts.root)];
   if (opts.diff) {
     // OCR has no external JSON diff flag. Scan the declared files explicitly,
     // preserving the adapter's fixture interface without pretending it is a Git diff.
-    return ['scan', ...args, '--path', readDiffPaths(opts.root, opts.diff)];
+    const scan = ['scan', ...args, '--path', readDiffPaths(opts.root, opts.diff)];
+    if (opts.rule) scan.push('--rule', path.resolve(opts.rule));
+    // scan supports --background, not review's --background-file.
+    if (opts.backgroundFile) scan.push('--background', fs.readFileSync(path.resolve(opts.backgroundFile), 'utf8'));
+    return scan;
   }
   const review = ['review', ...args];
   // Atria is compatible with the OpenAI transport, but its agent completion
@@ -156,6 +160,12 @@ function main(argv) {
     return EXIT.CONFIG;
   }
   const ocrBin = resolveOcrExecutable(opts.ocrBin);
+  const actualCliVersion = cliVersion(ocrBin, liveEnv, path.resolve(opts.root));
+  const expectedCliVersion = String(process.env.OCR_CLI_VERSION ?? '').trim();
+  if (!actualCliVersion || (expectedCliVersion && actualCliVersion !== expectedCliVersion)) {
+    process.stderr.write(`ocr-stage-review: OCR CLI version mismatch expected=${expectedCliVersion || 'declared'} actual=${actualCliVersion || 'unavailable'}\n`);
+    return EXIT.CONFIG;
+  }
   const invocation = buildOcrInvocation(ocrBin, args);
   const result = spawnSync(invocation.command, invocation.args, {
     cwd: path.resolve(opts.root),
@@ -190,12 +200,6 @@ function main(argv) {
     process.stderr.write('ocr-stage-review: live endpoint URL is invalid\n');
     return EXIT.CONFIG;
   }
-  const actualCliVersion = cliVersion(ocrBin, liveEnv, path.resolve(opts.root));
-  const expectedCliVersion = String(process.env.OCR_CLI_VERSION ?? '').trim();
-  if (!actualCliVersion || (expectedCliVersion && actualCliVersion !== expectedCliVersion)) {
-    process.stderr.write(`ocr-stage-review: OCR CLI version mismatch expected=${expectedCliVersion || 'declared'} actual=${actualCliVersion || 'unavailable'}\n`);
-    return EXIT.CONFIG;
-  }
   const envelope = {
     kind: 'qgate-ocr-raw-result',
     schemaVersion: '1.0',
@@ -214,4 +218,4 @@ function main(argv) {
   return EXIT.OK;
 }
 
-process.exitCode = main(process.argv.slice(2));
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) process.exitCode = main(process.argv.slice(2));

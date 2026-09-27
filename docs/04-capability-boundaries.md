@@ -33,6 +33,8 @@
 | 建议补丁 | `VERIFIED` | 可保留 OCR 的建议代码和 finding，但第一版不会自动修改工作区 |
 | 真实 Git diff 审查 | `VERIFIED` | 已用临时 Git worktree 和故意引入的危险代码验证 OCR 能返回可定位 finding |
 | 确定性选择/分组 | `VERIFIED` | 选择、过滤、敏感路径排除、分组和离线摘要保持相同输入相同字节 |
+| live 阶段顺序 | `VERIFIED` | 真实审查按 requirements → design → build → review → verify 推进；前序证据先导入并通过门禁，verify 使用本次运行的固定证据快照 |
+| live 运行一致性 | `VERIFIED` | 每次运行绑定提交和运行标识；输入文件、前序 evidence 和输入指纹变化时拒绝继续 |
 
 ## 3. 当前能力边界
 

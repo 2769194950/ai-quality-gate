@@ -110,3 +110,21 @@ node packages/qgate/bin/qgate.mjs stage review explain --evidence .qgate/evidenc
 - Required reviewers、可信分支限制和最小 `contents: read` 权限
 
 真实 token 只在 live OCR 那一个 step 注入，qgate、测试、证据、ledger 和 Artifact 都不会继承它。原始 OCR JSON 只存在 `.qgate/tmp/ocr/`，ingest 完成或 job 失败后都会清理；Artifact 只上传规范化 evidence。Fork PR 永远只进入 fast workflow，不能触发 live OCR。
+
+## Live 工作流的阶段顺序
+
+`quality-live.yml` 的 `all` 模式采用“审查、导入、门禁、再进入下一阶段”的顺序，而不是先生成五个原始结果再统一导入：
+
+```text
+requirements：生成输入清单 → live OCR → ingest → requirements 门禁
+design：读取 requirements evidence → live OCR → ingest → design 门禁
+build：运行确定性测试 → 生成 build evidence → build 门禁
+review：读取前序 evidence 和当前 diff → live OCR → ingest → review 门禁
+verify：固定前序 evidence、账本和 trace → live OCR → ingest → verify 门禁
+```
+
+每次运行都会在 `.qgate/evidence/ai/live-run.json` 保存当前提交、运行标识、阶段完成记录、输入指纹和输入文件哈希。后续阶段只能消费同一提交、同一运行中已经通过门禁的前序 evidence；离线 evidence、旧运行 evidence、被修改的 evidence 都会被拒绝。
+
+验证阶段不会把自己的旧输出重新作为输入。它使用 `.qgate/evidence/ai/verify-inputs/` 中固定的验证快照，因此前序阶段导入的新 evidence 会被读取，但最终追加账本不会改变已经审查的输入指纹。
+
+`review` 和 `verify` 的上下文超过单次输入预算时，会拆成有限数量的完整批次。每个批次仍使用同一个 manifest 和输入指纹，结果导入后去重合并；超过批次数上限则失败，不会降级成“没有发现问题”。

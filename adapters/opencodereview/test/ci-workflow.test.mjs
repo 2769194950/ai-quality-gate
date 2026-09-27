@@ -323,22 +323,35 @@ test('CI: fast 与 live workflow 的触发器、密钥边界和 OCR 分层符合
   assert.match(live, /OCR_USE_ANTHROPIC: 'false'/);
   assert.match(live, /Install pinned OpenCodeReview CLI[\s\S]*ocr --version/);
   assert.match(live, /OCR_CLI_VERSION: '1\.12\.8'/);
-  assert.match(live, /executionMode !== "live"/);
-  assert.match(live, /raw\.json/);
-  assert.match(live, /stage-paths|manifest\.sources/);
-  assert.match(live, /args\+=\(--diff ".qgate\/tmp\/ocr\/\$\{stage\}\.paths\.json"\)/);
-  assert.match(live, /args\+=\(--commit "\$GITHUB_SHA"\)/);
+  const runner = read(path.join(REPO_ROOT, 'tools/ci/live-stage.mjs'));
+  assert.match(runner, /executionMode !== 'live'/);
+  assert.match(runner, /raw\.json/);
+  assert.match(runner, /manifest\.sources/);
+  assert.match(runner, /args\.push\('--diff'/);
+  assert.match(runner, /args\.push\('--commit'/);
+  let previous = -1;
+  for (const stage of ['requirements', 'design', 'build', 'review', 'verify']) {
+    const prepare = live.indexOf(stage === 'build' ? 'Build and test deterministically' : `Prepare ${stage} inputs`);
+    assert.ok(prepare > previous, `${stage} must follow completed predecessors`);
+    if (stage === 'build') { previous = prepare; continue; }
+    const run = live.indexOf(`Run live OCR for ${stage}`);
+    const ingest = live.indexOf(`Ingest ${stage} and enforce stage gates`);
+    assert.ok(run > prepare && ingest > run);
+    previous = ingest;
+  }
+  for (const step of live.split('      - name: ').slice(1)) {
+    if (/secrets\./.test(step)) assert.match(step, /^(Run live OCR for |Preflight live)/, 'only provider steps receive credentials');
+  }
   const uploadBlock = live.slice(live.indexOf('Upload sanitized evidence only'));
   assert.equal(uploadBlock.includes('.qgate/tmp/ocr'), false, 'raw OCR responses must not be uploaded');
   assert.equal(/permissions:[\s\S]*contents:\s*write/.test(live), false);
   for (const u of [...live.matchAll(/^\s*uses:\s*(\S+)/gm)].map((m) => m[1])) assert.match(u, SHA_RE, `live action not pinned: ${u}`);
 });
 
-test('CI: live OCR 的辅助上下文有确定性的长度上限', () => {
-  const live = read(path.join(REPO_ROOT, '.github', 'workflows', 'quality-live.yml'));
-  const contextCalls = [...live.matchAll(/write-stage-context\.mjs[^\n]+/g)].map((m) => m[0]);
-  assert.equal(contextCalls.length, 2, 'live workflow 必须覆盖带 diff 和不带 diff 两种上下文生成路径');
-  for (const call of contextCalls) assert.match(call, /--max-chars 1800\b/, 'live OCR 上下文必须限制在推荐值以内');
+test('CI: legacy preview context remains bounded; live contexts are delivered in complete batches', () => {
+  const runner = read(path.join(REPO_ROOT, 'tools/ci/live-stage.mjs'));
+  assert.match(runner, /const LIMIT = 7000/);
+  assert.match(runner, /Context needs/);
 
   const dir = tempDir();
   try {

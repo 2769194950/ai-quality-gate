@@ -22,6 +22,8 @@
 .qgate/real-ai/
 .qgate/ocr-real/
 .qgate/evidence/ai/*.json
+.qgate/evidence/ai/verify-inputs/
+.qgate/tmp/ocr/
 
 # Generated audit ledgers from local runs.
 verification/evidence/ledger-*.json
