@@ -321,7 +321,7 @@ test('CI: fast 与 live workflow 的触发器、密钥边界和 OCR 分层符合
   assert.match(live, /environment:\s*\n\s+name: ocr-live/);
   assert.match(live, /OCR_LLM_TOKEN:\s*\$\{\{ secrets\.OCR_AUTH_TOKEN \}\}/);
   assert.match(live, /OCR_USE_ANTHROPIC: 'false'/);
-  assert.match(live, /Install pinned OpenCodeReview CLI[\s\S]*ocr --version/);
+  assert.match(live, /Install pinned OpenCodeReview CLI[\s\S]*OCR_BIN[\s\S]*--version/);
   assert.match(live, /OCR_CLI_VERSION: '1\.12\.8'/);
   const runner = read(path.join(REPO_ROOT, 'tools/ci/live-stage.mjs'));
   assert.match(runner, /executionMode !== 'live'/);

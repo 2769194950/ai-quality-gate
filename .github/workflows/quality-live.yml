@@ -34,6 +34,8 @@ env:
   QGATE_CONFIG: qgate.config.json
   REQUESTED_STAGE: ${{ inputs.stage || 'all' }}
   OCR_CLI_VERSION: '1.12.8'
+  OCR_CLI_DIR: ${{ runner.temp }}/ocr-cli
+  OCR_BIN: ${{ runner.temp }}/ocr-cli/node_modules/.bin/ocr
   OCR_LLM_URL: ${{ vars.OCR_BASE_URL }}
   OCR_LLM_MODEL: ${{ vars.OCR_MODEL }}
   # The live provider uses an OpenAI-compatible Chat Completions endpoint.
@@ -65,8 +67,10 @@ jobs:
       - name: Install pinned OpenCodeReview CLI
         if: env.REQUESTED_STAGE != 'build'
         run: |
-          npm install --global --force "@alibaba-group/open-code-review@${OCR_CLI_VERSION}"
-          actual_version="$(ocr --version | sed -n '1s/.*v\([0-9][0-9.]*\).*/\1/p')"
+          rm -rf "$OCR_CLI_DIR"
+          mkdir -p "$OCR_CLI_DIR"
+          npm install --prefix "$OCR_CLI_DIR" --force "@alibaba-group/open-code-review@${OCR_CLI_VERSION}"
+          actual_version="$($OCR_BIN --version | sed -n '1s/.*v\([0-9][0-9.]*\).*/\1/p')"
           test "$actual_version" = "${OCR_CLI_VERSION}"
       - name: Configure provider compatibility defaults
         if: env.REQUESTED_STAGE != 'build'
@@ -77,18 +81,18 @@ jobs:
         run: |
           # Mirror the official OCR Action's non-interactive provider setup.
           # The token is referenced by command, never written into config.
-          ocr config unset provider
-          ocr config set llm.auth_token ""
-          ocr config set llm.extra_headers ""
-          ocr config set llm.retry_codes ""
-          ocr config set llm.url "$OCR_LLM_URL"
-          ocr config set llm.model "$OCR_LLM_MODEL"
-          ocr config set llm.use_anthropic "$OCR_USE_ANTHROPIC"
-          ocr config set llm.protocol openai
-          ocr config set llm.auth_header ""
-          ocr config set llm.auth_token_cmd 'printf "%s" "$OCR_LLM_TOKEN"'
+          "$OCR_BIN" config unset provider
+          "$OCR_BIN" config set llm.auth_token ""
+          "$OCR_BIN" config set llm.extra_headers ""
+          "$OCR_BIN" config set llm.retry_codes ""
+          "$OCR_BIN" config set llm.url "$OCR_LLM_URL"
+          "$OCR_BIN" config set llm.model "$OCR_LLM_MODEL"
+          "$OCR_BIN" config set llm.use_anthropic "$OCR_USE_ANTHROPIC"
+          "$OCR_BIN" config set llm.protocol openai
+          "$OCR_BIN" config set llm.auth_header ""
+          "$OCR_BIN" config set llm.auth_token_cmd 'printf "%s" "$OCR_LLM_TOKEN"'
           # Provider-side thinking is disabled explicitly for stable agent calls.
-          ocr config set llm.extra_body '{"thinking":{"type":"disabled"}}'
+          "$OCR_BIN" config set llm.extra_body '{"thinking":{"type":"disabled"}}'
       - name: Preflight live Chat Completions without logging response
         if: env.REQUESTED_STAGE != 'build'
         env:

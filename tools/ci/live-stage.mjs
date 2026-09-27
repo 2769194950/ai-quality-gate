@@ -212,6 +212,7 @@ export function execute(root, stage, env = process.env) {
     for (let i = 0; i < count; i++) {
       const output = `${TMP}/${stage}.${i}.raw.json`;
       const args = ['adapters/opencodereview/bin/ocr-stage-review.mjs', '--stage', stage, '--root', '.', '--manifest', `${TMP}/${stage}.manifest.json`, '--out', output, '--background-file', `${TMP}/${stage}.${i}.md`, '--timeout-ms', '900000'];
+      if (env.OCR_BIN) args.push('--ocr-bin', env.OCR_BIN);
       if (stage === 'review') {
         const before = env.GITHUB_EVENT_BEFORE;
         if (before && /^[a-f0-9]{40}$/.test(before) && !/^0+$/.test(before)) args.push('--from', before, '--to', state.commit);
