@@ -49,6 +49,8 @@ function run(root, args, { accepted = [0], output = null } = {}) {
     if (args[0] === ENTRY) {
       try { const error = JSON.parse(result.stdout).error; if (error) detail = `: ${redact(error.code + ' ' + error.message)}`; } catch {}
     }
+    const stderr = redact(String(result.stderr ?? '').replace(/\r?\n/g, ' ').trim().slice(-1200));
+    if (!detail && stderr) detail = `: ${stderr}`;
     throw new Error(`Command ${args[0]} failed (exit=${result.status ?? 'spawn-error'})${detail}; see sanitized report`);
   }
   return result;
