@@ -34,8 +34,6 @@ env:
   QGATE_CONFIG: qgate.config.json
   REQUESTED_STAGE: ${{ inputs.stage || 'all' }}
   OCR_CLI_VERSION: '1.12.8'
-  OCR_CLI_DIR: ${{ runner.temp }}/ocr-cli
-  OCR_BIN: ${{ runner.temp }}/ocr-cli/node_modules/.bin/ocr
   OCR_LLM_URL: ${{ vars.OCR_BASE_URL }}
   OCR_LLM_MODEL: ${{ vars.OCR_MODEL }}
   # The live provider uses an OpenAI-compatible Chat Completions endpoint.
@@ -67,6 +65,10 @@ jobs:
       - name: Install pinned OpenCodeReview CLI
         if: env.REQUESTED_STAGE != 'build'
         run: |
+          OCR_CLI_DIR="$RUNNER_TEMP/ocr-cli"
+          OCR_BIN="$OCR_CLI_DIR/node_modules/.bin/ocr"
+          echo "OCR_CLI_DIR=$OCR_CLI_DIR" >> "$GITHUB_ENV"
+          echo "OCR_BIN=$OCR_BIN" >> "$GITHUB_ENV"
           rm -rf "$OCR_CLI_DIR"
           mkdir -p "$OCR_CLI_DIR"
           npm install --prefix "$OCR_CLI_DIR" --force "@alibaba-group/open-code-review@${OCR_CLI_VERSION}"
